@@ -1,0 +1,23 @@
+{
+  "name": "Lume X",
+  "lang": "en-US",
+  "short_name": "Lume X",
+  "description": "Lume X",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#0F0E11",
+  "background_color": "#0F0E11",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+.page[data-v-366decca] {
+    height: 100vh;
+    background: url(../../static/img/bj_1.e7f5d162.png) no-repeat 100% 100%;
+    background-size: 100% 100% !important;
+    position: relative;
+    z-index: 100
+}
+
+.logo[data-v-366decca] {
+    position: relative;
+    margin: .48rem 0;
+    text-align: left;
+    font-size: .32rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: .32rem;
+    align-items: center
+}
+
+.logo .icon[data-v-366decca] {
+    margin-right: .24rem
+}
+
+.logo .icon img[data-v-366decca] {
+    height: 1.28rem
+}
+
+.logo .s[data-v-366decca] {
+    margin-top: .24rem;
+    font-size: .32rem
+}
+
+.logo .n[data-v-366decca] {
+    font-size: .56rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: .56rem
+}
+
+.logo span[data-v-366decca] {
+    display: block;
+    margin: 0 auto;
+    height: 2rem
+}
+
+.logo span img[data-v-366decca] {
+    height: 100%
+}
+
+.tab[data-v-366decca] {
+    margin-bottom: .4rem
+}
+
+.tab li[data-v-366decca] {
+    border-bottom: .02rem solid #dadada;
+    text-align: center;
+    font-size: .32rem;
+    font-weight: 400;
+    color: var(--COcolor3);
+    line-height: .44rem;
+    padding: 0 0 .32rem 0
+}
+
+.tab li.on[data-v-366decca] {
+    color: var(--COcolor1);
+    border-bottom: var(--COborder2)
+}
+
+.area[data-v-366decca] {
+    font-size: .3rem;
+    margin-right: .2rem;
+    color: var(--COcolor1);
+    display: flex;
+    align-items: center;
+    justify-content: space-around
+}
+
+.area img[data-v-366decca] {
+    height: .12rem;
+    vertical-align: middle;
+    margin-left: .1rem
+}
+
+.item[data-v-366decca] {
+    width: 6.86rem;
+    background: url(../../static/img/bg-info.3ae1000c.png) no-repeat 50%;
+    background-size: 100% 100%;
+    padding: .48rem .28rem;
+    border-radius: .32rem;
+    padding-bottom: 1rem;
+    margin: 0 auto
+}
+
+.it[data-v-366decca] {
+    margin-bottom: .4rem
+}
+
+.container[data-v-366decca] {
+    padding: 0 .32rem
+}
+
+.go[data-v-366decca] {
+    padding-bottom: .3rem
+}
+
+.go .submit[data-v-366decca] {
+    text-align: center;
+    margin-top: -.6rem;
+    margin-bottom: .4rem
+}
+
+.go .submit button[data-v-366decca] {
+    background: none;
+    border: 0
+}
+
+.go .submit img[data-v-366decca] {
+    width: 1.16rem;
+    height: 1.16rem
+}
+
+.go .xy .c1[data-v-366decca] {
+    color: #213266
+}
+
+.go .wrap[data-v-366decca] {
+    margin-top: .2rem;
+    color: var(--COcolor1);
+    font-size: .26rem;
+    display: flex;
+    justify-content: center
+}
+
+.go .wrap .wr[data-v-366decca] {
+    color: var(--COcolor1)
+}
+
+.go .wrap .wr span[data-v-366decca] {
+    color: var(--COcolor2)
+}
+
+.box3[data-v-366decca] {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: .32rem
+}
+
+.box3 .kfBox[data-v-366decca] {
+    text-align: right;
+    margin-left: auto;
+    color: var(--COcolor2)
+}
+
+[data-v-366decca] .cache_account .van-checkbox__label {
+    color: var(--COcolor1)
+}
+
+.cname[data-v-366decca] {
+    font-size: .32rem;
+    font-weight: 500;
+    line-height: .32rem;
+    margin-bottom: .4rem
+}
+
+.valMob .inp[data-v-366decca] {
+    border: 0;
+    border-bottom: .02rem solid hsla(0, 0%, 100%, .1);
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    border-radius: 0
+}
+
+.valMob .inp input[data-v-366decca]::placeholder {
+    color: hsla(0, 0%, 100%, .5)
+}

@@ -1,0 +1,125 @@
+.tab_list[data-v-0d336a05] {
+    border-bottom: .02rem solid #2b2d36;
+    display: flex
+}
+
+.tab_list div[data-v-0d336a05] {
+    color: #7d7d88;
+    font-size: .28rem;
+    letter-spacing: .0028rem;
+    padding-bottom: .28rem;
+    margin-right: .84rem
+}
+
+.tab_list .active[data-v-0d336a05] {
+    color: #0f0e11;
+    border-bottom: .04rem solid #96c906
+}
+
+.itemBox[data-v-4f616302] {
+    padding: .16rem 0
+}
+
+[data-v-4f616302] .van-empty__description {
+    margin-top: 0
+}
+
+[data-v-4f616302] .tab_list {
+    margin: .24rem .24rem 0 .24rem !important
+}
+
+.empty[data-v-4f616302] {
+    margin-top: 1rem
+}
+
+.line2[data-v-4f616302] {
+    border-radius: .24rem;
+    border: .02rem solid hsla(0, 0%, 100%, .1);
+    background: linear-gradient(180deg, #111116, #141519);
+    padding: .28rem .28rem;
+    margin-bottom: .24rem
+}
+
+.line2 ul li[data-v-4f616302] {
+    padding: .12rem 0;
+    font-size: .26rem
+}
+
+.line2 ul li .flex1[data-v-4f616302] {
+    color: #7d7d88
+}
+
+.line2 .top[data-v-4f616302] {
+    padding-bottom: .28rem;
+    margin-bottom: .16rem;
+    border-bottom: .02rem solid hsla(0, 0%, 100%, .1)
+}
+
+.line2 .top .flex1 span[data-v-4f616302] {
+    margin-top: .16rem;
+    display: block;
+    color: #7d7d88;
+    font-size: .24rem
+}
+
+.line2 .flex[data-v-4f616302] {
+    align-items: center
+}
+
+.line2 .photo[data-v-4f616302] {
+    margin-right: .16rem
+}
+
+.line2 .photo img[data-v-4f616302] {
+    width: .8rem;
+    height: .8rem
+}
+
+.setBox[data-v-4f616302] {
+    display: flex;
+    align-items: center;
+    font-size: .24rem;
+    justify-content: space-between
+}
+
+.setBox .set[data-v-4f616302] {
+    background: #f8f9fd;
+    border-radius: .16rem;
+    padding: .2rem;
+    align-items: center;
+    display: flex;
+    font-size: .24rem;
+    color: #64748b;
+    width: 100%
+}
+
+.setBox .set span[data-v-4f616302] {
+    flex: 1
+}
+
+.setBox .set img[data-v-4f616302] {
+    height: .32rem;
+    margin-left: .32rem
+}
+
+.income-com[data-v-4f616302] {
+    border-radius: .24rem;
+    border: .02rem solid hsla(0, 0%, 100%, .08);
+    background-color: rgb(25 140 82 / 11%);
+    /* background: linear-gradient(180deg, , #141519); */
+    padding: .16rem .28rem;
+    margin-bottom: .24rem
+}
+
+.income-com li[data-v-4f616302] {
+    padding: .16rem 0;
+    font-size: .26rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.income-com li .title[data-v-4f616302] {
+    color: #929292;
+    margin-right: .24rem
+}

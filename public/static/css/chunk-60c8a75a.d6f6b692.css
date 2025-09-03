@@ -1,0 +1,48 @@
+.page[data-v-6e2d35de] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+         background: linear-gradient(180deg, #000000, #113b27);
+
+    display: flex;
+    color: #fff;
+    flex-direction: column
+}
+
+.page.full[data-v-6e2d35de] {
+    padding-top: .4rem
+}
+
+.page .headers[data-v-6e2d35de] {
+    width: 100%;
+    z-index: 9
+}
+
+.page .headers.fixed[data-v-6e2d35de] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%
+}
+
+.page .footer[data-v-6e2d35de] {
+    width: 100%;
+    max-width: 8.5rem;
+    z-index: 9
+}
+
+.page .content-container[data-v-6e2d35de] {
+    width: 100%;
+    flex: 1;
+    z-index: 4;
+    overflow-y: auto
+}
+
+.page .back-top[data-v-6e2d35de] {
+    position: absolute;
+    bottom: 3rem;
+    right: .1rem;
+    z-index: 99;
+    width: 1.4rem;
+    height: 1.6rem
+}

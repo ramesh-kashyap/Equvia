@@ -1,0 +1,87 @@
+.page[data-v-6b868a30] {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: #f5f8fd */
+    /* background: linear-gradient(180deg, #1A6B55, #043A2D); */
+    /* background: linear-gradient( 357deg, #001f16 0%, #0d3a2b 50%, #278e6b 100%); */
+    background: linear-gradient(180deg, #000000, #113b27);
+}
+
+.page .headers[data-v-6b868a30] {
+    position: relative;
+    height: 1.17333rem;
+    z-index: 50
+}
+
+.page .headers.fixed[data-v-6b868a30] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%
+}
+
+.page .footer[data-v-6b868a30] {
+    width: 100%;
+    height: 1.6rem;
+    z-index: 60;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(255 255 255); */
+    border-radius: 20px;
+    margin-bottom:10px
+}
+
+.page .content-container[data-v-6b868a30] {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch
+}
+
+.page .back-top[data-v-6b868a30] {
+    position: absolute;
+    bottom: 3rem;
+    right: .1rem;
+    z-index: 99;
+    width: 1.4rem;
+    height: 1.6rem
+}
+.actions {
+  display: flex;
+  justify-content: center;   /* Center the whole row */
+  gap: 22px;                 /* Space between each button */
+  margin-top: 20px;
+}
+
+.actions span {
+  display: flex;
+  flex-direction: column;    /* Stack icon & text */
+  align-items: center;
+  justify-content: center;
+  width: 80px;               /* Square size */
+  height: 80px;
+  background: rgb(25 140 82 / 11%);
+  border-radius: 15px;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 0.3px solid #3f3f3f
+}
+
+.actions span img {
+  height: 30px;
+  width: 30px;
+  margin-bottom: 8px;        /* Space between icon & text */
+}
+.actions span p{
+  font-size: 12px;
+}
+.actions span:hover {
+  background: rgba(255,255,255,0.2); /* Hover effect */
+}

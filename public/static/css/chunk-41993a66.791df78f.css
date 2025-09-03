@@ -1,0 +1,232 @@
+.page[data-v-792679aa] {
+    background: url(../../static/img/bj_1.e7f5d162.png) no-repeat 100% 100%;
+    background-size: 100% 100% !important
+}
+
+[data-v-792679aa] .head .str {
+    color: #222 !important
+}
+
+[data-v-792679aa] .head .str img {
+    margin-right: .1rem;
+    vertical-align: middle;
+    height: .32rem !important
+}
+
+.logo[data-v-792679aa] {
+    position: relative;
+    margin: .48rem 0;
+    text-align: left;
+    font-size: .32rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: .32rem;
+    align-items: center
+}
+
+.logo .icon[data-v-792679aa] {
+    margin-right: .24rem
+}
+
+.logo .icon img[data-v-792679aa] {
+    height: 1.28rem
+}
+
+.logo .s[data-v-792679aa] {
+    margin-top: .24rem;
+    font-size: .32rem
+}
+
+.logo .n[data-v-792679aa] {
+    font-size: .56rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: .56rem
+}
+
+.logo span[data-v-792679aa] {
+    display: block;
+    margin: 0 auto;
+    height: 2rem
+}
+
+.logo span img[data-v-792679aa] {
+    height: 100%
+}
+
+.tab[data-v-792679aa] {
+    margin-bottom: .4rem
+}
+
+.tab li[data-v-792679aa] {
+    border-bottom: .02rem solid #dadada;
+    text-align: center;
+    font-size: .32rem;
+    font-weight: 400;
+    color: var(--COcolor3);
+    line-height: .44rem;
+    padding: 0 0 .32rem 0
+}
+
+.tab li.on[data-v-792679aa] {
+    color: var(--COcolor1);
+    border-bottom: var(--COborder2)
+}
+
+.area[data-v-792679aa] {
+    font-size: .3rem;
+    margin-right: .2rem;
+    color: var(--COcolor1);
+    display: flex;
+    align-items: center;
+    justify-content: space-around
+}
+
+.area img[data-v-792679aa] {
+    height: .12rem;
+    vertical-align: middle;
+    margin-left: .1rem
+}
+
+.item[data-v-792679aa] {
+    width: 6.86rem;
+    background: url(../../static/img/bg-info.3ae1000c.png) no-repeat 50%;
+    padding: .48rem .28rem;
+    border-radius: .32rem;
+    padding-bottom: 1rem;
+    background-size: 100% 100%;
+    margin: 0 auto
+}
+
+.it[data-v-792679aa] {
+    margin-bottom: .32rem
+}
+
+.it .db[data-v-792679aa] {
+    padding: .3rem .2rem
+}
+
+.it .db .ico img[data-v-792679aa] {
+    height: .4rem
+}
+
+.it .db .flexs[data-v-792679aa] {
+    padding: 0 0 0 .12rem;
+    position: relative;
+    z-index: 2
+}
+
+.it .db .flexs input[data-v-792679aa] {
+    height: .4rem;
+    width: 100%;
+    background: none;
+    border: 0
+}
+
+.it .db .yj[data-v-792679aa] {
+    height: .28rem
+}
+
+.it .db .str[data-v-792679aa],
+.it .db .str[data-v-792679aa] .van-count-down span {
+    color: var(--COcolor2);
+    font-size: .3rem
+}
+
+.container[data-v-792679aa] {
+    padding: 0 .32rem
+}
+
+.go .submit[data-v-792679aa] {
+    text-align: center;
+    margin-top: -.6rem;
+    margin-bottom: .4rem
+}
+
+.go .submit button[data-v-792679aa] {
+    background: none;
+    border: 0
+}
+
+.go .submit img[data-v-792679aa] {
+    width: 1.16rem;
+    height: 1.16rem
+}
+
+.go p[data-v-792679aa] {
+    margin-top: .2rem;
+    color: hsla(0, 0%, 100%, .6);
+    font-size: .26rem;
+    text-align: center
+}
+
+.go p span[data-v-792679aa] {
+    color: var(--COcolor2)
+}
+
+.doc[data-v-792679aa] {
+    color: var(--COcolor1)
+}
+
+.str[data-v-792679aa] {
+    color: var(--COcolor2)
+}
+
+.box3[data-v-792679aa] {
+    width: 100%;
+    display: flex;
+    align-items: center
+}
+
+.box3 .kfBox[data-v-792679aa] {
+    text-align: right;
+    margin-left: auto;
+    color: var(--COcolor1)
+}
+
+[data-v-792679aa] .cache_account .van-checkbox__label {
+    color: var(--COcolor2)
+}
+
+.dow_com[data-v-792679aa] {
+    text-align: center
+}
+
+.dow_com .download[data-v-792679aa] {
+    margin-top: 1.4rem;
+    margin-bottom: .68rem;
+    text-align: center;
+    padding: .32rem .8rem;
+    font-size: .32rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: .32rem;
+    display: inline-block;
+    border-radius: .8rem;
+    border: .02rem solid #282c35
+}
+
+.dow_com .download img[data-v-792679aa] {
+    height: .4rem;
+    margin-right: .16rem
+}
+
+.cname[data-v-792679aa] {
+    font-size: .32rem;
+    font-weight: 500;
+    line-height: .32rem;
+    margin-bottom: .4rem
+}
+
+.valMob .inp[data-v-792679aa] {
+    border: 0;
+    border-bottom: .02rem solid hsla(0, 0%, 100%, .1);
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    border-radius: 0
+}
+
+.valMob .inp input[data-v-792679aa]::placeholder {
+    color: hsla(0, 0%, 100%, .5)
+}

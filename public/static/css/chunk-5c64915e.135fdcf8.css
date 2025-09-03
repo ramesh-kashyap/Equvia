@@ -1,0 +1,30 @@
+.page-auth {
+    background-image: url(../../static/img/bg_header.7611010a.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0 0
+}
+
+.page-auth-header {
+    height: 1.70667rem
+}
+
+.page-auth-form-footer,
+.page-auth-form-title {
+    padding: .42667rem;
+    width: 5.33333rem;
+    height: 1.6rem;
+    line-height: 1;
+    font-size: .42667rem;
+    background-image: url(../img/bg_left_arrow.c7db5e77.png);
+    background-repeat: no-repeat;
+    background-size: contain
+}
+
+.page-auth-form-footer {
+    color : #000;
+    padding-top: .69333rem;
+    background-position: 100% 0;
+    text-align: right;
+    background-image: url(../../static/img/bg_right_arrow.3a796cd8.png)
+}

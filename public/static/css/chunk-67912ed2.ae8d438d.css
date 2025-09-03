@@ -1,0 +1,205 @@
+.heads[data-v-610da18b] {
+    padding: .2rem 0 .3rem 0
+}
+
+.heads .ico[data-v-610da18b] {
+    border-radius: 50%;
+    padding: .05rem;
+    background: hsla(0, 0%, 100%, .1)
+}
+
+.heads .ico img[data-v-610da18b] {
+    border: .025rem solid #ccc;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%
+}
+
+.heads .arr img[data-v-610da18b] {
+    height: .38rem
+}
+
+.heads .flexs[data-v-610da18b] {
+    padding: 0 .24rem
+}
+
+.heads .flexs .n[data-v-610da18b] {
+    margin-bottom: .04rem;
+    font-size: .36rem;
+    font-weight: 600;
+    line-height: .5rem
+}
+
+.heads .flexs .copy[data-v-610da18b] {
+    color: #64748b;
+    line-height: .4rem
+}
+
+.heads .flexs .copy img[data-v-610da18b] {
+    height: .2rem;
+    vertical-align: middle
+}
+
+.heads .flexs .cid[data-v-610da18b] {
+    color: #64748b;
+    line-height: .4rem
+}
+
+.heads .str[data-v-610da18b] {
+    text-align: center
+}
+
+.heads .str img[data-v-610da18b] {
+    height: .68rem
+}
+
+.heads .str span[data-v-610da18b] {
+    display: block;
+    margin-top: .04rem;
+    font-size: .22rem;
+    color: #999;
+    line-height: .32rem
+}
+
+.line[data-v-610da18b] {
+    margin: .24rem 0
+}
+
+.line li[data-v-610da18b] {
+    position: relative;
+    height: .88rem
+}
+
+.line li .status[data-v-610da18b] {
+    margin-right: .2rem;
+    font-size: .24rem
+}
+
+.line li .status .s1[data-v-610da18b],
+.line li .status .s2[data-v-610da18b] {
+    color: #dc3b35
+}
+
+.line li .status .s3[data-v-610da18b] {
+    color: #0e519f
+}
+
+.line li .status .s4[data-v-610da18b] {
+    color: #00b578
+}
+
+.line li .icos[data-v-610da18b] {
+    margin-right: .18rem
+}
+
+.line li .icos img[data-v-610da18b] {
+    height: .4rem;
+    width: auto
+}
+
+.line li>img[data-v-610da18b] {
+    height: .38rem;
+    vertical-align: middle
+}
+
+.line li[data-v-610da18b]:nth-child(4) {
+    margin-bottom: .24rem;
+    padding-bottom: .24rem;
+    height: 1.12rem
+}
+
+.line li[data-v-610da18b]:nth-child(4):after {
+    display: block;
+    content: "";
+    width: 100%;
+    border-bottom: .02rem solid #e2e8f0;
+    position: absolute;
+    bottom: 0;
+    left: 0
+}
+
+.level-box[data-v-610da18b] {
+    background: url(../../static/img/bg-level.431a3256.png) no-repeat;
+    background-size: 100% 100%;
+    color: #0f0e11;
+    display: flex
+}
+
+.level-box .ico[data-v-610da18b] {
+    background: #000;
+    height: .72rem;
+    width: .72rem;
+    border-radius: 50%;
+    border: .04rem solid #0f0e11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: .2rem .24rem
+}
+
+.level-box .ico img[data-v-610da18b] {
+    height: .28rem
+}
+
+.level-box .flex1[data-v-610da18b] {
+    margin-left: -.6rem
+}
+
+.level-box .name[data-v-610da18b] {
+    background: url(data:image/png;base64,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) no-repeat;
+    color: #333848;
+    font-size: .2rem;
+    height: .46rem;
+    line-height: .46rem;
+    padding-left: .7rem
+}
+
+.level-box .link[data-v-610da18b] {
+    font-size: .24rem;
+    color: hsla(0, 0%, 100%, .8);
+    padding: .2rem .24rem 0 .7rem;
+    display: flex;
+    align-items: center
+}
+
+.level-box .link .n[data-v-610da18b] {
+    flex: 1
+}
+
+.level-box .link .s img[data-v-610da18b] {
+    height: .24rem
+}
+
+.toast-box[data-v-610da18b] {
+    width: 5.5rem;
+    background: #0f0e11;
+    border-radius: .32rem;
+    padding: .26rem;
+    text-align: center
+}
+
+.toast-box .ico img[data-v-610da18b] {
+    height: 2rem
+}
+
+.toast-box .p[data-v-610da18b] {
+    padding: .26rem 0;
+    color: #242527;
+    line-height: .48rem
+}
+
+.toast-box .flex[data-v-610da18b] {
+    flex-wrap: nowrap
+}
+
+.toast-box .bot .btn2[data-v-610da18b] {
+    background: rgba(237, 29, 29, .1);
+    color: #ed1d1d;
+    margin-left: .2rem;
+    font-size: .28rem
+}
+
+.toast-box .btn[data-v-610da18b] {
+    font-size: .28rem;
+    height: .7rem
+}

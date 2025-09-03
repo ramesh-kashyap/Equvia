@@ -1,0 +1,30 @@
+.big_btn_box[data-v-49eaad67] {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: .4rem;
+    display: flex;
+    justify-content: center
+}
+
+.big_btn_box .btn_box[data-v-49eaad67] {
+    width: 100%;
+    padding: 0 .32rem;
+    border-radius: .8rem
+}
+
+.big_btn_box .btn_box .btn[data-v-49eaad67] {
+    height: .96rem;
+    background: #ebebeb;
+    border-radius: .2rem;
+    color: #bdbdbd;
+    font-weight: 500;
+    font-size: .32rem;
+    width: 100%;
+    border: 0
+}
+
+.big_btn_box .btn_box .on[data-v-49eaad67] {
+    background: #0a71f7;
+    color: #fff
+}
