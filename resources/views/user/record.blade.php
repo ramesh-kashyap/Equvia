@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Equvia Strategy</title>
 
+
     <script>
         window.addEventListener('error', function(event) {
             if (event.message.indexOf("Unexpected token '<'") > -1) {
@@ -155,6 +156,7 @@
     <!-- <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-51107498.d0f576b5.js"></script> -->
   
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
+
 
 
 </head>

@@ -3,17 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>SEOKORE Strategy</title>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#fff">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="expires" content="0">
-    <meta name="full-screen" content="true">
-    <meta name="x5-fullscreen" content="true">
-    <meta name="360-fullscreen" content="true">
-    <meta name="renderer" content="webkit">
-    <meta name="robots" content="noindex, nofollow">
+
     <script>
         window.addEventListener('error', function(event) {
             if (event.message.indexOf("Unexpected token '<'") > -1) {
@@ -75,6 +65,21 @@
             width: 100%;
             height: 100vh;
             object-fit: cover;
+        }
+
+        x-vue-echarts {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            min-width: 0
+        }
+
+        .vue-echarts-inner {
+            flex-grow: 1;
+            min-width: 0;
+            width: auto !important;
+            height: auto !important
         }
     </style>
     <link href="{{ asset('') }}static/css/chunk-02c8c6ba.f02a30c2.css" rel="prefetch">
@@ -140,91 +145,14 @@
     <link href="{{ asset('') }}static/css/chunk-f6532530.0eb12746.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="preload" as="style">
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="preload" as="style">
-    <!-- <link href="{{ asset('') }}static/eed/js/app.5acd7986.js" rel="preload" as="script">
-    <link href="{{ asset('') }}static/eed/js/chunk-vendors.b893e1dd.js" rel="preload" as="script"> -->
+
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="stylesheet">
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="stylesheet">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <!-- <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-b124f7bc.38a4e04a.js"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
-    <!-- <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-51107498.d0f576b5.js"></script> -->
-    <style type="text/css">
-        x-vue-echarts {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-            min-width: 0
-        }
 
-        .vue-echarts-inner {
-            flex-grow: 1;
-            min-width: 0;
-            width: auto !important;
-            height: auto !important
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
+
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
-    <!-- <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-18e03ad8.59f8f8a0.js"></script>
-    <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-2d0d09bb.e2e1a111.js"></script>
-    <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-2d0a482c.22971d1b.js"></script> -->
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <!-- <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-a961b78c.b074a75d.css">
-    <script charset="utf-8" src="/static/1756094289381/js/chunk-a961b78c.923cdbe2.js"></script> -->
-    <!-- <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-1ee97074.f442ee68.css"> -->
-    <!-- <script charset="utf-8" src="/static/1756094289381/js/chunk-1ee97074.56275ac5.js"></script> -->
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <!-- <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-ea0143b0.0982c731.css"> -->
-    <!-- <script charset="utf-8" src="/static/1756094289381/js/chunk-ea0143b0.df6a01ac.js"></script> -->
-    <!-- <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-267a32e6.0d9f6f8d.css"> -->
-    <!-- <script charset="utf-8" src="/static/1756094289381/js/chunk-267a32e6.193794b3.js"></script> -->
-    <!-- <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-926160c6.52e9758a.css"> -->
-    <!-- <script charset="utf-8" src="/static/1756094289381/js/chunk-926160c6.3f177ae1.js"></script> -->
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <!-- <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-2a53918e.7e78b090.css">
-    <script charset="utf-8" src="/static/1756094289381/js/chunk-2a53918e.f5cd7495.js"></script> -->
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+
 </head>
 
 <body class="">
@@ -236,28 +164,24 @@
                     data-v-6b868a30="" style="background-color: transparent;">
                     <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
                         <a href="{{ route('user.profile') }}">
-                            <svg data-v-3f1a7394="" aria-hidden="true"
-                                class="svg-icon"
-                                style="color: rgba(255, 255, 255, 1); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                                <use data-v-3f1a7394="" xlink:href="#svg-icon-arrow-back"></use>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                             </svg>
                         </a>
-                        
+
                     </div>
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
                         style="color: rgba(255, 255, 255, 1);"><span>Modify login password</span></div>
                     <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
-                        <a href="{{ route('user.lang') }}">
-                            <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                        </a>
-                        
+
+
                         <div>
                             <a href="{{ route('user.notice') }}">
                                 <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                             </a>
                         </div>
-                        
-                        
+
+
                     </div>
                 </div>
             </div>
@@ -280,7 +204,7 @@
                                                 class="van-field__control1">
                                             <div class="van-field__right-icon"><i data-v-7c19a79c="" id="eyeIcon2"
                                                     class="van-icon van-icon-closed-eye tw-text-secondary" onclick="togglePassword('passwordInput2','eyeIcon2')">
-                                                    </i></div>
+                                                </i></div>
                                         </div>
                                     </div>
                                 </div>
@@ -337,7 +261,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div class="van-overlay" style="display: none;">
             <div class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
@@ -353,26 +277,10 @@
             </div>
         </div>
         <div data-v-4d1ba5fa="">
-            
+
         </div>
     </div>
-    <!-- <script src="/static/1756094289381/js/chunk-vendors.b893e1dd.js"></script> -->
-    <!-- <script src="/static/1756094289381/js/app.5acd7986.js"></script> -->
-    <!-- <script>
-        function togglePassword(inputId, iconId) {
-            const passwordInput = document.getElementById(inputId);
-            const eyeIcon = document.getElementById(iconId);
 
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                eyeIcon.className = "van-icon van-icon-eye tw-text-primary"; // show icon when visible
-            } else {
-                passwordInput.type = "password";
-                eyeIcon.className = "van-icon van-icon-closed-eye tw-text-secondary"; // hide icon
-            }
-        }
-    </script> -->
-    @include('partials.notify')
 
     <script>
         function sendVerificationCode() {
@@ -389,14 +297,11 @@
                 return;
             }
 
-            // Disable the button to prevent multiple clicks
             sendButton.disabled = true;
 
-            // Hide the "Send" label and show the countdown timer
             buttonLabel.style.display = 'none';
             countdownTimer.style.display = 'inline';
 
-            // Initialize countdown
             let countdown = 60;
             countdownTimer.textContent = `${countdown}s`;
 
@@ -412,7 +317,6 @@
                 }
             }, 1000);
 
-            // Proceed with sending the verification code
             fetch("{{ route('send_forgot') }}", {
                     method: "POST",
                     headers: {

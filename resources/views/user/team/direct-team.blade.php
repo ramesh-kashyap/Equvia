@@ -42,10 +42,10 @@
             box-sizing: border-box;
         }
 
-        html,
-        body {
-            width: 100%;
-        }
+      html,
+      body {
+         width: 100%;
+      }
 
         #startLogo {
             width: 100%;
