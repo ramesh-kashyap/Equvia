@@ -2,18 +2,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SEOKORE Strategy</title>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#fff">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="expires" content="0">
-    <meta name="full-screen" content="true">
-    <meta name="x5-fullscreen" content="true">
-    <meta name="360-fullscreen" content="true">
-    <meta name="renderer" content="webkit">
-    <meta name="robots" content="noindex, nofollow">
+    <title>Equvia Strategy</title>
+
     <script>
         window.addEventListener('error', function(event) {
             if (event.message.indexOf("Unexpected token '<'") > -1) {
@@ -75,6 +65,21 @@
             width: 100%;
             height: 100vh;
             object-fit: cover;
+        }
+
+        x-vue-echarts {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            min-width: 0
+        }
+
+        .vue-echarts-inner {
+            flex-grow: 1;
+            min-width: 0;
+            width: auto !important;
+            height: auto !important
         }
     </style>
     <link href="{{ asset('') }}static/css/chunk-02c8c6ba.f02a30c2.css" rel="prefetch">
@@ -138,93 +143,17 @@
     <link href="{{ asset('') }}static/css/chunk-ea0143b0.0982c731.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-ee39cd88.8adb81bc.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-f6532530.0eb12746.css" rel="prefetch">
- 
+
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="preload" as="style">
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="preload" as="style">
-    <link href="{{ asset('') }}static/eed/js/app.5acd7986.js" rel="preload" as="script">
-    <link href="{{ asset('') }}static/eed/js/chunk-vendors.b893e1dd.js" rel="preload" as="script">
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="stylesheet">
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="stylesheet">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
 
-    <style type="text/css">
-        x-vue-echarts {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-            min-width: 0
-        }
 
-        .vue-echarts-inner {
-            flex-grow: 1;
-            min-width: 0;
-            width: auto !important;
-            height: auto !important
-        }
-    </style>
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-a961b78c.b074a75d.css">
-    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-1ee97074.f442ee68.css">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-ea0143b0.0982c731.css">
-    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-267a32e6.0d9f6f8d.css">
-    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-926160c6.52e9758a.css">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-2a53918e.7e78b090.css">
-    <script charset="utf-8" src="/static/1756094289381/js/chunk-2a53918e.f5cd7495.js"></script>
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
 </head>
-<style>
-    .tw-rounded-10px {
-        border-radius: .26667rem;
-        border: none;
-        /* border-radius: 10px; */
-    }
-</style>
+
 
 <body>
     <div id="app">
@@ -242,11 +171,8 @@
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
                         style="color: rgba(255, 255, 255, 1);"><span>Profile</span></div>
                     <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
-                        <a href="{{ route('user.lang') }}">
-                            <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt=""
-                                class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                        </a>
-                        
+
+
                         <div>
                             <a href="{{ route('user.notice') }}">
                                 <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt=""
@@ -255,8 +181,8 @@
 
                             </a>
                         </div>
-                        
-                        
+
+
                     </div>
                 </div>
 
@@ -306,14 +232,16 @@
                                         class="tw-pl-8px tw-text-16px tw-text-white"> SK 0 </span>
                                 </div>
                                 <div data-v-6b868a30="" class="level-btn">
-                                    <button data-v-6b868a30="" {{ route('user.vip') }}
-                                        class="tw-w-8 van-button van-button--default1 van-button--mini van-button--round">
-                                        <div data-v-6b868a30="" class="van-button__content">
-                                            <a href="{{ route('user.vip') }}">
+                                    <a href="{{ route('user.vip') }}">
+
+                                        <button data-v-6b868a30=""
+                                            class="tw-w-8 van-button van-button--default1 van-button--mini van-button--round">
+                                            <div data-v-6b868a30="" class="van-button__content">
                                                 <span data-v-6b868a30="" class="van-button__text"> Upgrade </span>
-                                            </a>
-                                        </div>
-                                    </button>
+
+                                            </div>
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -355,7 +283,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-rules"></use>
                                     </svg> -->
-                                    <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/langu.png"
+                                    <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/langu.png"
                                         alt=""
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                     <a href="{{ route('user.terms') }}">
@@ -371,7 +299,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-kyc"></use>
                                     </svg> -->
-                                    <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/download (9).png"
+                                    <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/download (9).png"
                                         alt=""
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                     <div data-v-6b868a30="" class="tw-text-12px tw-break-words tw-text-center"> Verify
@@ -394,7 +322,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-lock"></use>
                                     </svg> -->
-                                    <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/download (6).png"
+                                    <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/download (6).png"
                                         alt=""
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                     <a href="{{ route('user.ChangePass') }}">
@@ -410,7 +338,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-security"></use>
                                     </svg> -->
-                                    <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/download (3).png"
+                                    <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/download (3).png"
                                         alt=""
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                     <a href="{{ route('user.change-trx-password') }}">
@@ -431,7 +359,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-feedback"></use>
                                     </svg> -->
-                                        <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/download (9).png"
+                                        <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/download (9).png"
                                             alt=""
                                             style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <div data-v-6b868a30="" class="tw-text-12px tw-break-words tw-text-center">
@@ -447,7 +375,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-question"></use>
                                     </svg> -->
-                                        <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/download (10).png"
+                                        <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/download (10).png"
                                             alt=""
                                             style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <div data-v-6b868a30="" class="tw-text-12px tw-break-words tw-text-center">
@@ -462,7 +390,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-i18n"></use>
                                     </svg> -->
-                                    <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/download (6).png"
+                                    <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/download (6).png"
                                         alt=""
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                     <div data-v-6b868a30="" class="tw-text-12px tw-break-words tw-text-center"> Switch
@@ -475,7 +403,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-service"></use>
                                     </svg> -->
-                                    <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/support.png"
+                                    <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/support.png"
                                         alt=""
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                     <div data-v-6b868a30="" class="tw-text-12px tw-break-words tw-text-center">
@@ -503,7 +431,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div class="van-overlay" style="display: none;">
             <div class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
@@ -519,12 +447,10 @@
             </div>
         </div>
         <div data-v-4d1ba5fa="">
-            
+
         </div>
     </div>
 
-    <script src="/static/1756094289381/js/chunk-vendors.b893e1dd.js"></script>
-    <script src="/static/1756094289381/js/app.5acd7986.js"></script>
     <script>
         function copyById(elementId) {
             const text = document.getElementById(elementId)?.innerText?.trim();
@@ -553,7 +479,7 @@
             }, 2000);
         }
     </script>
-    
+
 </body>
 
 </html>

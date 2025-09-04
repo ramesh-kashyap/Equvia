@@ -5,7 +5,7 @@
     .tw-text-secondary {
         --tw-text-opacity: 1;
         color: rgba(255, 255, 255, var(--tw-text-opacity));
-        margin-top: 10px;
+        /* margin-top: 10px; */
     }
 
     .van-popup {
@@ -13,16 +13,17 @@
         background-color: rgb(9 28 19);
 
     }
+
     .btn1 {
-    height: .9rem;
-    border-radius: .24rem;
-    color: #ffff;
-    font-size: .28rem;
-    width: 100%;
-    background: none;
-    border: .02rem solid #eee;
-    margin: 11px;
-}
+        height: .9rem;
+        border-radius: .24rem;
+        color: #ffff;
+        font-size: .28rem;
+        width: 100%;
+        background: none;
+        border: .02rem solid #eee;
+        margin: 11px;
+    }
 </style>
 <div data-v-6b868a30="" id="scroll" class="content-container">
     <div data-v-6b868a30="" id="content" class="content-scroll">
@@ -56,25 +57,26 @@
                     </div>
                 </div>
             </div>
-            <form action="{{ route('user.tradeOn') }}" method="GET">
+
             <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-mt-16px tw-p-16px tw-bg-white3 tw-rounded-10px">
-                
+
                 <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-mb-8px tw-text-16px tw-flex">
                     <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-flex-1"> Investment Amount </div>
                     <span data-v-29a06c8f="" data-v-6b868a30="" class="tw-text-12px"
-                        style="color: rgb(121, 129, 143);">Foreign Exchange Stocks</span>
+                        style="color: rgb(121, 129, 143);">Crypto Exchange Stocks</span>
                 </div>
                 <div data-v-29a06c8f=""
                     class="tw-rounded-10px cell-after-hidden custom-focus van-cell1 van-cell--large van-field"
                     data-v-6b868a30="">
                     <div class="van-cell__value van-cell__value--alone van-field__value">
                         <div class="van-field__body">
-                            <input type="number" name="amount" id="amount" inputmode="decimal" placeholder="Input amount"
-                                class="van-field__control1" min="1" max="{{ $balance }}">
+                            <input type="number" name="amount" id="amount" inputmode="decimal"
+                                placeholder="Input amount" class="van-field__control1" min="1"
+                                max="{{ $balance }}">
                             <div class="van-field__right-icon">
                                 <div data-v-29a06c8f="" class="tw-flex tw-items-center">
                                     <div data-v-29a06c8f="" class="tw-pr-4px tw-text-12px">USDT</div>
-                                    <div data-v-29a06c8f="" class="tw-pl-4px tw-text-primary"> All </div>
+                                    <div data-v-29a06c8f="" class="tw-pl-4px tw-text-primary" id="fillAll"> All </div>
                                 </div>
                             </div>
                         </div>
@@ -84,25 +86,31 @@
                     class="tw-mt-8px tw-flex tw-justify-between tw-items-center tw-text-12px">
                     <div data-v-29a06c8f="" data-v-6b868a30="">Amount that can be invested</div>
                     <div data-v-29a06c8f="" data-v-6b868a30=""><span data-v-29a06c8f="" data-v-6b868a30=""
-                            class="tw-text-primary">{{ $balance }}</span><span data-v-29a06c8f="" data-v-6b868a30=""
+                            class="tw-text-primary"> <span id="amountDisplay" class="tw-text-primary">0</span>
+                            /{{ $balance }}</span><span data-v-29a06c8f="" data-v-6b868a30=""
                             class="tw-text-secondary"></span></div>
                 </div>
             </div>
-            <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-mb-16px tw-mt-16px tw-grid tw-grid-cols-2 tw-gap-16px">
+            <div data-v-29a06c8f="" data-v-6b868a30=""
+                class="tw-mb-16px tw-mt-16px tw-grid tw-grid-cols-2 tw-gap-16px">
                 <div data-v-29a06c8f="" data-v-6b868a30=""
                     class="tw-flex tw-items-center tw-p-12px tw-bg-white3 tw-rounded-10px">
-                    <img src="{{ asset('/static/icon/download (9).png') }}" data-v-3f1a7394=""
-                        data-v-29a06c8f="" aria-hidden="true" class="svg-icon" data-v-6b868a30=""
+                    <img src="{{ asset('/static/icon/download (9).png') }}" data-v-3f1a7394="" data-v-29a06c8f=""
+                        aria-hidden="true" class="svg-icon" data-v-6b868a30=""
                         style="width: 0.6588rem; height: 0.6588rem; font-size: 0.6588rem;">
                     <span data-v-29a06c8f="" data-v-6b868a30="" class="tw-flex-1 tw-pl-8px">To Be
-                        Released Details</span></div>
+                        Released Details</span>
+                </div>
                 <div data-v-29a06c8f="" data-v-6b868a30=""
                     class="tw-flex tw-items-center tw-p-12px tw-bg-white3 tw-rounded-10px">
-                    <img src="{{ asset('/static/icon/langu.png') }}" data-v-3f1a7394=""
-                        data-v-29a06c8f="" aria-hidden="true" class="svg-icon" data-v-6b868a30=""
-                        style="width: 0.6588rem; height: 0.6588rem; font-size: 0.6588rem;"><span data-v-29a06c8f=""
-                        data-v-6b868a30="" class="tw-flex-1 tw-pl-8px">Order
-                        History</span></div>
+                    <a href="{{route('user.record')}}">
+                        <img src="{{ asset('/static/icon/langu.png') }}" data-v-3f1a7394="" data-v-29a06c8f=""
+                            aria-hidden="true" class="svg-icon" data-v-6b868a30=""
+                            style="width: 0.6588rem; height: 0.6588rem; font-size: 0.6588rem;"><span
+                            data-v-29a06c8f="" data-v-6b868a30="" class="tw-flex-1 tw-pl-8px">Order
+                            History</span>
+                    </a>
+                </div>
             </div>
             <button data-v-29a06c8f="" data-v-6b868a30="" id="createOrderBtn"
                 class="van-button van-button--primary van-button--normal van-button--block">
@@ -110,70 +118,7 @@
                         data-v-6b868a30="" class="van-button__text"> Create Order </span>
                 </div>
             </button>
-           </form>
-            <div data-v-29a06c8f="" data-v-6b868a30="" id="countdownSection" style="display: none;">
-                <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-mb-16px tw-flex tw-justify-between tw-items-start">
-                    <div data-v-29a06c8f="" data-v-6b868a30="" style="color:#fff">grid transaction is in progress</div>
-         
-                <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-mt-16px tw-p-16px tw-bg-white3 tw-rounded-10px">
 
-                    <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-mb-8px tw-text-16px tw-flex">
-                        <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-flex-1"> Investment Amount </div>
-                        <span data-v-29a06c8f="" data-v-6b868a30="" class="tw-text-12px"
-                            style="color: rgb(121, 129, 143);">Crypto Exchange Stocks</span>
-                    </div>
-                    <div data-v-29a06c8f=""
-                        class="tw-rounded-10px cell-after-hidden custom-focus van-cell1 van-cell--large van-field"
-                        data-v-6b868a30="">
-                        <div class="van-cell__value van-cell__value--alone van-field__value">
-                            <div class="van-field__body">
-                                <input type="number" name="amount" id="amount" inputmode="decimal"
-                                    placeholder="Input amount" class="van-field__control1" min="1"
-                                    max="{{ $balance }}">
-                                <div class="van-field__right-icon">
-                                    <div data-v-29a06c8f="" class="tw-flex tw-items-center">
-                                        <div data-v-29a06c8f="" class="tw-pr-4px tw-text-12px">USDT</div>
-                                        <div data-v-29a06c8f="" class="tw-pl-4px tw-text-primary" id="fillAll"> All </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-v-29a06c8f="" data-v-6b868a30=""
-                        class="tw-mt-8px tw-flex tw-justify-between tw-items-center tw-text-12px">
-                        <div data-v-29a06c8f="" data-v-6b868a30="">Amount that can be invested</div>
-                        <div data-v-29a06c8f="" data-v-6b868a30=""><span data-v-29a06c8f="" data-v-6b868a30=""
-                                class="tw-text-primary"> <span id="amountDisplay" class="tw-text-primary">0</span>
-                                /{{ $balance }}</span><span data-v-29a06c8f="" data-v-6b868a30=""
-                                class="tw-text-secondary"></span></div>
-                    </div>
-                </div>
-                <div data-v-29a06c8f="" data-v-6b868a30=""
-                    class="tw-mb-16px tw-mt-16px tw-grid tw-grid-cols-2 tw-gap-16px">
-                    <div data-v-29a06c8f="" data-v-6b868a30=""
-                        class="tw-flex tw-items-center tw-p-12px tw-bg-white3 tw-rounded-10px">
-                        <img src="{{ asset('/static/icon/download (9).png') }}" data-v-3f1a7394="" data-v-29a06c8f=""
-                            aria-hidden="true" class="svg-icon" data-v-6b868a30=""
-                            style="width: 0.6588rem; height: 0.6588rem; font-size: 0.6588rem;">
-                        <span data-v-29a06c8f="" data-v-6b868a30="" class="tw-flex-1 tw-pl-8px">To Be
-                            Released Details</span>
-                    </div>
-                    <div data-v-29a06c8f="" data-v-6b868a30=""
-                        class="tw-flex tw-items-center tw-p-12px tw-bg-white3 tw-rounded-10px">
-                        <img src="{{ asset('/static/icon/langu.png') }}" data-v-3f1a7394="" data-v-29a06c8f=""
-                            aria-hidden="true" class="svg-icon" data-v-6b868a30=""
-                            style="width: 0.6588rem; height: 0.6588rem; font-size: 0.6588rem;"><span
-                            data-v-29a06c8f="" data-v-6b868a30="" class="tw-flex-1 tw-pl-8px">Order
-                            History</span>
-                    </div>
-                </div>
-                <button data-v-29a06c8f="" data-v-6b868a30="" id="createOrderBtn"
-                    class="van-button van-button--primary van-button--normal van-button--block">
-                    <div data-v-29a06c8f="" data-v-6b868a30="" class="van-button__content"><span data-v-29a06c8f=""
-                            data-v-6b868a30="" class="van-button__text"> Create Order </span>
-                    </div>
-                </button>
-           
             <br>
             <div data-v-29a06c8f="" data-v-6b868a30="" id="countdownSection" style="display: none;">
                 <div data-v-29a06c8f="" data-v-6b868a30=""
@@ -187,7 +132,6 @@
                     </div>
                 </div>
                 <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-flex tw-justify-center tw-items-center">
-                    <!-- From Uiverse.io by Nawsome -->
                     <div class="svg-frame">
                         <svg style="--i:0;--j:0;">
                             <g id="out1">
@@ -293,12 +237,12 @@
                             class="tw-w-24px tw-h-24px tw-mr-4px"> EQ 0 </div>
                 </div>
                 @if ($qualifiedLevel == 'EQ0')
-                    <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
-                        <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
-                                class="van-icon van-icon-success"
-                                style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                            </i></div>
-                    </div>
+                <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
+                    <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
+                            class="van-icon van-icon-success"
+                            style="border-color: white; background-color: white;">
+                        </i></div>
+                </div>
                 @endif
             </li>
             <li data-v-29a06c8f="" class="tw-h-76px tw-flex tw-justify-between tw-items-center van-hairline--bottom">
@@ -309,12 +253,12 @@
                             class="tw-w-24px tw-h-24px tw-mr-4px"> EQ 1 </div>
                 </div>
                 @if ($qualifiedLevel == 'EQ1')
-                    <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
-                        <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
-                                class="van-icon van-icon-success"
-                                style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                            </i></div>
-                    </div>
+                <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
+                    <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
+                            class="van-icon van-icon-success"
+                            style="border-color: white; background-color: white;">
+                        </i></div>
+                </div>
                 @endif
             </li>
             <li data-v-29a06c8f="" class="tw-h-76px tw-flex tw-justify-between tw-items-center van-hairline--bottom">
@@ -325,12 +269,12 @@
                             class="tw-w-24px tw-h-24px tw-mr-4px"> EQ 2 </div>
                 </div>
                 @if ($qualifiedLevel == 'EQ2')
-                    <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
-                        <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
-                                class="van-icon van-icon-success"
-                                style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                            </i></div>
-                    </div>
+                <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
+                    <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
+                            class="van-icon van-icon-success"
+                            style="border-color: white; background-color: white;">
+                        </i></div>
+                </div>
                 @endif
             </li>
             <li data-v-29a06c8f="" class="tw-h-76px tw-flex tw-justify-between tw-items-center van-hairline--bottom">
@@ -341,12 +285,12 @@
                             class="tw-w-24px tw-h-24px tw-mr-4px"> EQ 3 </div>
                 </div>
                 @if ($qualifiedLevel == 'EQ3')
-                    <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
-                        <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
-                                class="van-icon van-icon-success"
-                                style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                            </i></div>
-                    </div>
+                <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
+                    <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
+                            class="van-icon van-icon-success"
+                            style="border-color: white; background-color: white;">
+                        </i></div>
+                </div>
                 @endif
             </li>
             <li data-v-29a06c8f="" class="tw-h-76px tw-flex tw-justify-between tw-items-center van-hairline--bottom">
@@ -357,12 +301,12 @@
                             class="tw-w-24px tw-h-24px tw-mr-4px"> EQ 4 </div>
                 </div>
                 @if ($qualifiedLevel == 'EQ4')
-                    <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
-                        <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
-                                class="van-icon van-icon-success"
-                                style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                            </i></div>
-                    </div>
+                <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
+                    <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
+                            class="van-icon van-icon-success"
+                            style="border-color: white; background-color: white;">
+                        </i></div>
+                </div>
                 @endif
             </li>
             <li data-v-29a06c8f="" class="tw-h-76px tw-flex tw-justify-between tw-items-center van-hairline--bottom">
@@ -373,12 +317,12 @@
                             class="tw-w-24px tw-h-24px tw-mr-4px"> EQ 5 </div>
                 </div>
                 @if ($qualifiedLevel == 'EQ5')
-                    <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
-                        <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
-                                class="van-icon van-icon-success"
-                                style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                            </i></div>
-                    </div>
+                <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
+                    <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
+                            class="van-icon van-icon-success"
+                            style="border-color: white; background-color: white;">
+                        </i></div>
+                </div>
                 @endif
             </li>
             <li data-v-29a06c8f="" class="tw-h-76px tw-flex tw-justify-between tw-items-center van-hairline--bottom">
@@ -389,12 +333,12 @@
                             class="tw-w-24px tw-h-24px tw-mr-4px"> EQ 6 </div>
                 </div>
                 @if ($qualifiedLevel == 'EQ6')
-                    <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
-                        <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
-                                class="van-icon van-icon-success"
-                                style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                            </i></div>
-                    </div>
+                <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
+                    <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
+                            class="van-icon van-icon-success"
+                            style="border-color: rgba(255, 255, 255, 1); background-color: rgba(255, 255, 255, 1);">
+                        </i></div>
+                </div>
                 @endif
             </li>
         </ul>
@@ -429,120 +373,17 @@
         class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right">
     </i>
 </div>
-   
-               <!-- <script>
-document.getElementById("createOrderBtn").addEventListener("click", function () {
-    // Show countdown section
-    document.getElementById("countdownSection").style.display = "block";
+<div id="custom-toast"
+    class="van-toast van-toast--middle van-toast--text"
+    style="z-index: 2032; display: none;">
+    <div class="van-toast__text"></div>
+</div>
 
-    let countdownEl = document.getElementById("countdownTimer");
-    let duration = 60; // 1 minute in seconds
-
-    let timer = setInterval(function () {
-        let minutes = Math.floor(duration / 60);
-        let seconds = duration % 60;
-        countdownEl.textContent =
-            "00:" + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
-
-        if (duration <= 0) {
-            clearInterval(timer);
-
-            // Hide countdown, show popup
-            document.getElementById("countdownSection").style.display = "none";
-            document.getElementById("sucesspop").style.display = "block";
-        }
-        duration--;
-    }, 1000);
-});
-
-// Close popup
-function closePopup() {
-    document.getElementById("sucesspop").style.display = "none";
-}
-
-</script> -->
-             
-   <script>
-function tradeOn(amount) {
-    if (!amount || amount <= 0) {
-        alert("Please enter a valid amount greater than 0");
-        return;
-    }
-
-    // 1. Call backend first
-    fetch(`/tradeOn?amount=${amount}`)
-        .then(res => res.json())
-        .then(data => {
-            if (data.status === 'success') {
-                // 2. Show countdown section
-                document.getElementById('countdownSection').style.display = 'block';
-
-                let time = 60;
-                let timerEl = document.getElementById('countdownTimer');
-                let interval = setInterval(() => {
-                    let minutes = Math.floor(time / 60);
-                    let seconds = time % 60;
-
-                    timerEl.textContent = `00:0${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-
-                    if (time === 0) {
-                        clearInterval(interval);
-
-                        // 3. Hide countdown, show success popup
-                        document.getElementById('countdownSection').style.display = 'none';
-                        document.getElementById('profitAmount').innerText = data.trade_profit + ' USDT';
-                        document.getElementById('sucesspop').style.display = 'block';
-                    }
-
-                    time--;
-                }, 1000);
-            }
-        })
-        .catch(err => console.error(err));
-}
-
-// Close popup manually
-function closeSuccessPopup() {
-    document.getElementById('sucesspop').style.display = 'none';
-}
-</script>
-<div class="van-toast van-toast--middle van-toast--text" style="z-index: 2018; display: none;"><div class="van-toast__text">Today’s strategies have been used up</div></div>
-
-<!-- <script>
-    document.getElementById("createOrderBtn").addEventListener("click", function() {
-        // Show countdown section
-        document.getElementById("countdownSection").style.display = "block";
-
-        let countdownEl = document.getElementById("countdownTimer");
-        let duration = 60; // 1 minute in seconds
-
-        let timer = setInterval(function() {
-            let minutes = Math.floor(duration / 60);
-            let seconds = duration % 60;
-            countdownEl.textContent =
-                "00:" + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
-
-            if (duration <= 0) {
-                clearInterval(timer);
-
-                // Hide countdown, show popup
-                document.getElementById("countdownSection").style.display = "none";
-                document.getElementById("sucesspop").style.display = "block";
-            }
-            duration--;
-        }, 1000);
-    });
-
-    // Close popup
-    function closePopup() {
-        document.getElementById("sucesspop").style.display = "none";
-    }
-</script> -->
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const amountInput = document.getElementById("amount");
         const amountDisplay = document.getElementById("amountDisplay");
-         const fillAllBtn    = document.getElementById("fillAll");
+        const fillAllBtn = document.getElementById("fillAll");
         const maxBalance = parseFloat("{{ $balance }}");
         amountInput.addEventListener("input", function() {
             let value = parseFloat(amountInput.value) || 0; // default 0 if empty/invalid
@@ -555,125 +396,127 @@ function closeSuccessPopup() {
             amountDisplay.textContent = value;
         });
 
-          // ✅ All button → fill balance
-    fillAllBtn.addEventListener("click", function() {
-        amountInput.value = maxBalance;
-        amountDisplay.textContent = maxBalance;
-    });
+        // ✅ All button → fill balance
+        fillAllBtn.addEventListener("click", function() {
+            amountInput.value = maxBalance;
+            amountDisplay.textContent = maxBalance;
+        });
 
     });
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const createOrderBtn   = document.getElementById("createOrderBtn");
-    const amountInput      = document.getElementById("amount");
-    const countdownSection = document.getElementById("countdownSection");
-    const countdownTimer   = document.getElementById("countdownTimer");
-    const successPopup     = document.getElementById("sucesspop");
+    document.addEventListener("DOMContentLoaded", function() {
+        const createOrderBtn = document.getElementById("createOrderBtn");
+        const amountInput = document.getElementById("amount");
+        const countdownSection = document.getElementById("countdownSection");
+        const countdownTimer = document.getElementById("countdownTimer");
+        const successPopup = document.getElementById("sucesspop");
 
-    let countdownInterval;
+        let countdownInterval;
 
-    // ✅ Create Order
-    createOrderBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        const amount = amountInput.value;
+        // ✅ Create Order
+        createOrderBtn.addEventListener("click", function(e) {
+            e.preventDefault();
+            const amount = amountInput.value;
 
-        if (!amount || amount <= 0) {
-            showToast("Please enter a valid amount.");
-            return;
-        }
-
-        fetch("{{ route('user.tradeOn') }}", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-CSRF-TOKEN": "{{ csrf_token() }}"
-            },
-            body: JSON.stringify({ amount: amount })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                // Show countdown
-                countdownSection.style.display = "block";
-                startCountdown(60); // 1 min = 60 sec
-            } else {
-                showToast(data.message || "Failed to create order.");
-
+            if (!amount || amount <= 0) {
+                showToast("Please enter a valid amount.");
+                return;
             }
-        })
-        .catch(err => console.error("Order Error:", err));
-    });
 
-    // ✅ Countdown Function
-    function startCountdown(seconds) {
-        let timeLeft = seconds;
+            fetch("{{ route('user.tradeOn') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: JSON.stringify({
+                        amount: amount
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        // Show countdown
+                        countdownSection.style.display = "block";
+                        startCountdown(60); // 1 min = 60 sec
+                    } else {
+                        showToast(data.message || "Failed to create order.");
 
-        countdownTimer.innerText = formatTime(timeLeft);
+                    }
+                })
+                .catch(err => console.error("Order Error:", err));
+        });
 
-        countdownInterval = setInterval(() => {
-            timeLeft--;
+        // ✅ Countdown Function
+        function startCountdown(seconds) {
+            let timeLeft = seconds;
+
             countdownTimer.innerText = formatTime(timeLeft);
 
-            if (timeLeft <= 0) {
-                clearInterval(countdownInterval);
-                closeTrade();
-            }
-        }, 1000);
+            countdownInterval = setInterval(() => {
+                timeLeft--;
+                countdownTimer.innerText = formatTime(timeLeft);
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    closeTrade();
+                }
+            }, 1000);
+        }
+
+        // ✅ Format time MM:SS
+        function formatTime(sec) {
+            let m = String(Math.floor(sec / 60)).padStart(2, "0");
+            let s = String(sec % 60).padStart(2, "0");
+            return `00:${m}:${s}`;
+        }
+
+        // ✅ Close Trade after 1 min
+        function closeTrade() {
+            fetch("{{ route('user.close-trade') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    }
+                })
+                .then(res => res.json())
+                .then(data => {
+                    countdownSection.style.display = "none";
+
+                    if (data.status) {
+                        // Show success popup
+                        successPopup.style.display = "block";
+                        successPopup.querySelector(".tw-mt-10px div").innerText = data.profit + " USDT";
+                    } else {
+                        showToast(data.message || "Trade closing failed.");
+                    }
+                })
+                .catch(err => console.error("Close Trade Error:", err));
+        }
+
+        // ✅ Close success popup
+        window.closeSuccessPopup = function() {
+            successPopup.style.display = "none";
+        };
+    });
+
+
+
+    function showToast(message, duration = 2000) {
+        const toast = document.getElementById("custom-toast");
+        const text = toast.querySelector(".van-toast__text");
+
+        text.innerText = message;
+        toast.style.display = "block";
+
+        // Hide after some time
+        setTimeout(() => {
+            toast.style.display = "none";
+        }, duration);
     }
-
-    // ✅ Format time MM:SS
-    function formatTime(sec) {
-        let m = String(Math.floor(sec / 60)).padStart(2, "0");
-        let s = String(sec % 60).padStart(2, "0");
-        return `00:${m}:${s}`;
-    }
-
-    // ✅ Close Trade after 1 min
-    function closeTrade() {
-        fetch("{{ route('user.close-trade') }}", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-CSRF-TOKEN": "{{ csrf_token() }}"
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            countdownSection.style.display = "none";
-
-            if (data.status) {
-                // Show success popup
-                successPopup.style.display = "block";
-                successPopup.querySelector(".tw-mt-10px div").innerText = data.profit + " USDT";
-            } else {
-                showToast(data.message || "Trade closing failed.");
-            }
-        })
-        .catch(err => console.error("Close Trade Error:", err));
-    }
-
-    // ✅ Close success popup
-    window.closeSuccessPopup = function () {
-        successPopup.style.display = "none";
-    };
-});
-
-
-
-function showToast(message, duration = 2000) {
-    const toast = document.getElementById("custom-toast");
-    const text = toast.querySelector(".van-toast__text");
-
-    text.innerText = message;
-    toast.style.display = "block";
-
-    // Hide after some time
-    setTimeout(() => {
-        toast.style.display = "none";
-    }, duration);
-}
 </script>
 
 <script>
