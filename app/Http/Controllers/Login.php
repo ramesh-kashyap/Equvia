@@ -112,7 +112,7 @@ class Login extends Controller
     {
         $code = verificationCode(6);
       
-        $emailId = $request->emailId;
+        $emailId = $request->email;
         
        
         PasswordReset::where('email', $emailId)->delete();

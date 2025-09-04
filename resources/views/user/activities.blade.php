@@ -122,12 +122,12 @@
                         <div data-v-1c7b237a="" class="container flex">
                             <div data-v-1c7b237a="" class="back"><a href="{{route('user.dashboard')}}"><img data-v-1c7b237a=""
                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEeSURBVHgB7Ze9DcIwEIWf+W1ZgQ0oWIBJYBMoqekoEUJsQAsFA7ACYgCYAHNWbBGO2ICVEBf3SU9Ozufk6ZzYCSAIQrVorQekMVLEmrvqjLRMMnO6KpMNRGDMUbMn9VhXH3XjqZxhhroRc7GIuVjEXCwpmVM8oP2L8JI0R7a4N1lbFGtG5Lrji1LqYG7a+tLchrQjDUkdUteqE2iL8nif71pb0gHIbXUBcyvS2qTYc1d1nctRuXOeB0++r++FX/ZixY7VhxvowHgeU54xzymmOT9RFUd4r6L5QrmTFqQ2smekbcc6uXhRjOeG5HKP8BF4g6dIBTFZFmKyLMRkWYjJsvinyaj/YrMtUmO2xRvrOiMlWCUnSBFrcgJBEOrhAfmtScdij3WYAAAAAElFTkSuQmCC"
-                                    alt=""></a></div><!----><!----><!---->
-                            <div data-v-1c7b237a="" class="name tac"> Mission Center </div><!----><!----><!---->
-                            <div data-v-1c7b237a="" class="flex1"></div><!----><!----><!----><!----><!---->
+                                    alt=""></a></div>
+                            <div data-v-1c7b237a="" class="name tac"> Mission Center </div>
+                            <div data-v-1c7b237a="" class="flex1"></div>
                             <div data-v-1c7b237a="" class="head_right"></div>
                         </div>
-                        <div data-v-1c7b237a=""><!----></div>
+                        <div data-v-1c7b237a=""></div>
                     </div>
                 </div>
                 <div data-v-887483d6="" id="scroll" class="content-container">
@@ -489,7 +489,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!---->
+                </div>
             </div>
         </div>
 
@@ -504,7 +504,7 @@
 
     <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2007; display: none;">
         <div class="van-toast__text">Verification code error</div>
-    </div><!----><!---->
+    </div>
 </body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
 
 </html>

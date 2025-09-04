@@ -100,12 +100,12 @@
                 <div data-v-b73557e2="" data-v-39479e50="" class="head" data-v-6e2d35de="">
                     <div data-v-b73557e2="" class="safe"></div>
                     <div data-v-b73557e2="" class="container flex">
-                        <div data-v-b73557e2="" class="back"><a href="{{route('user.profile')}}"><img data-v-b73557e2="" src="{{ asset('') }}static/img/eroo.png" alt=""> </a></div><!----><!----><!---->
-                        <div data-v-b73557e2="" class="name tac"> @lang('Bind Email') </div><!----><!----><!---->
-                        <div data-v-b73557e2="" class="flex1"></div><!----><!----><!----><!----><!---->
+                        <div data-v-b73557e2="" class="back"><a href="{{route('user.profile')}}"><img data-v-b73557e2="" src="{{ asset('') }}static/img/eroo.png" alt=""> </a></div>
+                        <div data-v-b73557e2="" class="name tac"> @lang('Bind Email') </div>
+                        <div data-v-b73557e2="" class="flex1"></div>
                         <div data-v-b73557e2="" class="head_right"></div>
                     </div>
-                    <div data-v-b73557e2=""><!----></div>
+                    <div data-v-b73557e2=""></div>
                 </div>
             </div>
             <form method="post" action="{{ route('user.bindemail-action') }}">            {{ csrf_field() }}
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-            </div><!---->
+            </div>
     </form>
         </div>
         <div data-v-a7d12cfc="" class="global-loading default" style="display: none;">

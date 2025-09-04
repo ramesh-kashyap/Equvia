@@ -201,7 +201,7 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
@@ -218,7 +218,7 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
@@ -235,7 +235,7 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
@@ -252,7 +252,7 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
@@ -269,7 +269,7 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
@@ -286,7 +286,7 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
@@ -303,14 +303,14 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
         </ul>
     </div><i role="button" tabindex="0" id="close"
         class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right">
-        <!----></i>
+        </i>
 </div>
 
 <div class="van-overlay" style="display :none;z-index: 2005;"></div>
@@ -328,7 +328,7 @@
                 class="btn2 btns" onclick="closeSuccessPopup()"> Confirm </button></div>
     </div><i role="button" tabindex="0" 
         class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right">
-        <!----></i>
+        </i>
 </div>
    
                <!-- <script>
