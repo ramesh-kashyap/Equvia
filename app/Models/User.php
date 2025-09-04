@@ -146,6 +146,11 @@ class User extends Authenticatable
     $balance = (Auth::user()->investment->sum('amount')+Auth::user()->users_incomes()+Auth::user()->tradingProfit->sum('profit')) - (Auth::user()->withdraw());
     return $balance;
     } 
+    public function deposite_balance()
+    {
+    $balance = (Auth::user()->investment->sum('amount'));
+    return $balance;
+    }
 
     public function principleBalance()
     {

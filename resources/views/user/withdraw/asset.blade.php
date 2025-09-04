@@ -10,23 +10,23 @@
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-usdt-large"></use>
                                     </svg>
                                 </div>
-                                <div data-v-6b868a30="" class="tw-text-12px tw-opacity-80"> Total Assets (USDT) </div>
+                                <div data-v-6b868a30="" class="tw-text-12px tw-opacity-80" style="margin: 5px;"> Total Assets (USDT) </div>
                                 <div data-v-6b868a30="" class=" tw-font-bold" style="font-size: 25px;"> ${{ number_format(Auth::user()->available_balance(), 2) }} </div>
                                 <div data-v-6b868a30=""
                                     class="list tw-flex tw-justify-between tw-px-28px tw-py-16px tw-bg-white3 tw-bg-opacity-90 tw-rounded-8px" style="margin-top:10px;">
                                     <div data-v-6b868a30="" class="item tw-flex-1 tw-px-4px tw-text-center">
                                         <div data-v-6b868a30="" class="tw-text-primary tw-text-18px">  {{ number_format(Auth::user()->available_balance(), 2) }} </div>
-                                        <div data-v-6b868a30="" class="name tw-text-12px tw-text-secondary"> Flexible
+                                        <div data-v-6b868a30="" class="name tw-text-12px tw-text-secondary" style="margin: 5px;"> Flexible
                                             Funds </div>
                                     </div>
                                     <div data-v-6b868a30="" class="item tw-flex-1 tw-text-center">
-                                        <div data-v-6b868a30="" class="tw-text-dark tw-text-18px"> 6.09 </div>
-                                        <div data-v-6b868a30="" class="name tw-text-12px tw-text-secondary"> Strategic
+                                        <div data-v-6b868a30="" class="tw-text-dark tw-text-18px">  {{ number_format(Auth::user()->deposite_balance(), 2) }} </div>
+                                        <div data-v-6b868a30="" class="name tw-text-12px tw-text-secondary" style="margin: 5px;"> Strategic
                                             Funds </div>
                                     </div>
                                     <div data-v-6b868a30="" class="item tw-flex-1 tw-text-center">
                                         <div data-v-6b868a30="" class="tw-text-dark tw-text-18px"> ${{number_format(Auth::user()->withdraw(),2)}} </div>
-                                        <div data-v-6b868a30="" class="tw-text-12px tw-text-secondary"> To Be Released
+                                        <div data-v-6b868a30="" class="tw-text-12px tw-text-secondary" style="margin: 5px;"> To Be Released
                                         </div>
                                     </div>
                                 </div>
@@ -54,9 +54,9 @@
                         <div class="revenue" data-v-6b868a30="" style="margin-top: 30px;">
                             <div class="tw-mb-12px tw-flex tw-justify-between tw-items-center">
                                 <div class="tw-text-16px">Total Income</div>
-                                <div class="tw-flex tw-items-center"><span class="tw-pr-4px tw-text-14px">Last 7
+                                <!-- <div class="tw-flex tw-items-center"><span class="tw-pr-4px tw-text-14px">Last 7
                                         days</span><i class="van-icon van-icon-arrow-down">
-                                        </i></div>
+                                        </i></div> -->
                             </div>
                             <div class="tw-bg-white3 tw-rounded-10px">
                                 <div class="tw-px-14px tw-py-16px">

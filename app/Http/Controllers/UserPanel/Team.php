@@ -28,8 +28,9 @@ class Team extends Controller
   {
     $user = Auth::user();
     // print_r($user->username);die();
-    $my_level_team = $this->my_level_team_count($user->id);
-
+    $data = $this->my_level_team_count($user->id);
+    // $my_level_team = $this->my_level_team_count($user->id);
+    $my_level_team = $data['team'];
 
     // print_r($ids);die;
     $limit = $request->limit ? $request->limit : paginationLimit();
@@ -83,10 +84,27 @@ class Team extends Controller
   public function LevelTeam(Request $request)
   {
     $user = Auth::user();
+    $filter = $request->input('filter', 'all'); 
+    $startDate = null;
+    if ($filter == 'today') {
+        $startDate = now()->startOfDay();
+    } elseif ($filter == '7days') {
+        $startDate = now()->subDays(7)->startOfDay();
+    } elseif ($filter == '30days') {
+        $startDate = now()->subDays(30)->startOfDay();
+    } elseif ($filter == '60days') {
+        $startDate = now()->subDays(60)->startOfDay();
+    }
     // print_r($user->username);die();
     $ids = $this->my_level_team($user->id);
     $data = $this->my_level_team_count($user->id);
 
+    $notes = User::whereIn('id', $ids);
+     if ($startDate) {
+        $notes->where('created_at', '>=', $startDate);
+    }
+    $notes = $notes->orderBy('id', 'DESC')->get();
+    
     $my_level_team = $data['team'];      // all team
     $this->data['newUsers']   = array_sum($data['new_users']);
     
@@ -132,7 +150,11 @@ class Team extends Controller
       } else {
         $query->where('id', null);
       }
-    })->orderBy('id', 'DESC')->get();
+    });
+    if ($startDate) {
+    $gen_team1->where('created_at', '>=', $startDate);
+     }
+    $gen_team1 = $gen_team1->orderBy('id', 'DESC')->get();
 
     $gen_team2 = User::where(function ($query) use ($gen_team2) {
       if (!empty($gen_team2)) {
@@ -144,7 +166,12 @@ class Team extends Controller
       } else {
         $query->where('id', null);
       }
-    })->orderBy('id', 'DESC')->get();
+    });
+    if ($startDate) {
+    $gen_team2->where('created_at', '>=', $startDate);
+     }
+    $gen_team2 = $gen_team2->orderBy('id', 'DESC')->get();
+
     $gen_team3 = User::where(function ($query) use ($gen_team3) {
       if (!empty($gen_team3)) {
         foreach ($gen_team3 as $key => $value) {
@@ -155,7 +182,11 @@ class Team extends Controller
       } else {
         $query->where('id', null);
       }
-    })->orderBy('id', 'DESC')->get();
+    });
+    if ($startDate) {
+    $gen_team3->where('created_at', '>=', $startDate);
+     }
+    $gen_team3 = $gen_team3->orderBy('id', 'DESC')->get();
 
 
     $gen_team1UserName = $gen_team1->pluck('username');
@@ -174,55 +205,69 @@ class Team extends Controller
     $totalrecharge = Investment::whereIn('user_id', (!empty($ids) ? $ids : array()))->where('status', 'Active')->sum("amount");
 
 
-    if ($gen_team1->isNotEmpty()) {
-      $gen_teamIncome = Income::where(function ($query) use ($gen_team1UserName) {
-        if (!empty($gen_team1UserName)) {
-          foreach ($gen_team1UserName as $key => $value) {
-            //   $f = explode(",", $value);
-            //   print_r($f)."<br>";
-            $query->orWhere('rname', $value);
+      if ($gen_team1->isNotEmpty()) {
+        $gen_teamIncome = Income::where(function ($query) use ($gen_team1UserName) {
+          if (!empty($gen_team1UserName)) {
+            foreach ($gen_team1UserName as $key => $value) {
+              //   $f = explode(",", $value);
+              //   print_r($f)."<br>";
+              $query->orWhere('rname', $value);
+            }
+          } else {
+            $query->where('rname', null);
           }
-        } else {
-          $query->where('rname', null);
-        }
-      })->where('user_id', $user->id)->orderBy('id', 'DESC')->sum('comm');
-    } else {
-      $gen_teamIncome = 0;
-    }
+        })->where('user_id', $user->id)->when($startDate, function ($query) use ($startDate) {   // 👈 filter added
+        $query->where('created_at', '>=', $startDate);
+    })
+    ->orderBy('id', 'DESC')
+    ->sum('comm');
+      } else {
+        $gen_teamIncome = 0;
+      }
 
-    if ($gen_team2->isNotEmpty()) {
-      $gen_team2Income = Income::where(function ($query) use ($gen_team2UserName) {
-        // dd($gen_team2UserName);
-        if ($gen_team2UserName) {
-          foreach ($gen_team2UserName as $key => $value) {
-            //   $f = explode(",", $value);
-            //   print_r($f)."<br>";
-            $query->orWhere('rname', $value);
+      if ($gen_team2->isNotEmpty()) {
+        $gen_team2Income = Income::where(function ($query) use ($gen_team2UserName) {
+          // dd($gen_team2UserName);
+          if ($gen_team2UserName) {
+            foreach ($gen_team2UserName as $key => $value) {
+              //   $f = explode(",", $value);
+              //   print_r($f)."<br>";
+              $query->orWhere('rname', $value);
+            }
+          } else {
+            $query->where('rname', null);
           }
-        } else {
-          $query->where('rname', null);
-        }
-      })->where('user_id', $user->id)->orderBy('id', 'DESC')->sum('comm');
-    } else {
-      $gen_team2Income = 0;
-    }
+        })->where('user_id', $user->id)
+    ->when($startDate, function ($query) use ($startDate) {
+        $query->where('created_at', '>=', $startDate);
+    })
+    ->orderBy('id', 'DESC')
+    ->sum('comm');
+      } else {
+        $gen_team2Income = 0;
+      }
 
-    if ($gen_team3->isNotEmpty()) {
+      if ($gen_team3->isNotEmpty()) {
 
-      $gen_team3Income = Income::where(function ($query) use ($gen_team3UserName) {
-        if (!empty($gen_team3UserName)) {
-          foreach ($gen_team3UserName as $key => $value) {
-            //   $f = explode(",", $value);
-            //   print_r($f)."<br>";
-            $query->orWhere('rname', $value);
+        $gen_team3Income = Income::where(function ($query) use ($gen_team3UserName) {
+          if (!empty($gen_team3UserName)) {
+            foreach ($gen_team3UserName as $key => $value) {
+              //   $f = explode(",", $value);
+              //   print_r($f)."<br>";
+              $query->orWhere('rname', $value);
+            }
+          } else {
+            $query->where('rname', null);
           }
-        } else {
-          $query->where('rname', null);
-        }
-      })->where('user_id', $user->id)->orderBy('id', 'DESC')->sum('comm');
-    } else {
-      $gen_team3Income = 0;
-    }
+        })->where('user_id', $user->id)
+    ->when($startDate, function ($query) use ($startDate) {
+        $query->where('created_at', '>=', $startDate);
+    })
+    ->orderBy('id', 'DESC')
+    ->sum('comm');
+      } else {
+        $gen_team3Income = 0;
+      }
 
     $teamUserName = $gen_team1->pluck('username');
     $todaysIncome =  \DB::table('incomes')->where('user_id', $user->id)->where('ttime', date('Y-m-d'))->where('remarks', 'Level Income')->sum('comm');

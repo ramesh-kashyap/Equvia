@@ -225,11 +225,12 @@
                                 style="border:0.3px solid #3f3f3f; border-radius:5px">
                                 <div data-v-6b868a30="" class="tw-flex tw-items-center">
                                     <div data-v-6b868a30=""
-                                        class="tw-w-36px tw-h-36px tw-rounded-full tw-overflow-hidden"><img
+                                        class="tw-w-36px tw-h-36px tw-rounded-full tw-overflow-hidden">
+                                        <img
                                             data-v-6b868a30=""
-                                            src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240821/2990dbe8b66676d6d1602405620a8d2b.png"
+                                            src="{{ asset('static/img/rank/eq' . strtolower($rank) . '.png') }}"
                                             alt=""></div><span data-v-6b868a30=""
-                                        class="tw-pl-8px tw-text-16px tw-text-white"> SK 0 </span>
+                                        class="tw-pl-8px tw-text-16px tw-text-white"> EQ{{$rank}} </span>
                                 </div>
                                 <div data-v-6b868a30="" class="level-btn">
                                     <a href="{{ route('user.vip') }}">
