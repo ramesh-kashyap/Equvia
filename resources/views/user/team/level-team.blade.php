@@ -239,19 +239,19 @@
                     <div data-v-91b14df4="" class="scroll">
                         <div data-v-91b14df4="" class="ul">
                             <div data-v-91b14df4="">
-                                <div data-v-91b14df4="" class="item"> All </div>
+                                <div data-v-91b14df4="" class="item"  onclick="applyFilter('all')"> All </div>
                             </div>
                             <div data-v-91b14df4="">
-                                <div data-v-91b14df4="" class="item"> Today </div>
+                                <div data-v-91b14df4="" class="item" onclick="applyFilter('today')"> Today </div>
                             </div>
                             <div data-v-91b14df4="">
-                                <div data-v-91b14df4="" class="item active"> Last 7 days </div>
+                                <div data-v-91b14df4="" class="item " onclick="applyFilter('7days')"> Last 7 days </div>
                             </div>
                             <div data-v-91b14df4="">
-                                <div data-v-91b14df4="" class="item"> Last 30 days </div>
+                                <div data-v-91b14df4="" class="item" onclick="applyFilter('30days')"> Last 30 days </div>
                             </div>
                             <div data-v-91b14df4="">
-                                <div data-v-91b14df4="" class="item"> Last 60 days </div>
+                                <div data-v-91b14df4="" class="item" onclick="applyFilter('60days')"> Last 60 days </div>
                             </div>
                         </div>
                     </div>
@@ -285,4 +285,10 @@
     });
 
 </script>
+<script>
+function applyFilter(range) {
+    window.location.href = "?filter=" + range; // reload with filter
+}
+</script>
+
             @include('layouts.upnl.footer')
