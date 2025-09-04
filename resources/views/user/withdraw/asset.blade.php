@@ -72,7 +72,7 @@
                                             <div class="tw-text-12px tw-text-secondary"> ≈6.096 USDT </div>
                                         </div>
                                     </div>
-                                    <div class="tw-mb-16px tw-flex tw-justify-between tw-items-center">
+                                    <!-- <div class="tw-mb-16px tw-flex tw-justify-between tw-items-center">
                                         <div class="tw-flex tw-items-center">
                                             <div class="tw-mr-8px tw-w-36px tw-h-36px"><img
                                                     src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240904/baa89f4d0b494fec297b855f2740d8f2.png"
@@ -83,7 +83,7 @@
                                             <div class="tw-text-14px tw-text-dark"> 0 </div>
                                             <div class="tw-text-12px tw-text-secondary"> ≈0 USDT </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="tw-h-260px">
                                     <div
