@@ -37,6 +37,7 @@ class Profile extends Controller
         $user_direct = User::where('sponsor', $user->id)->where('active_status', 'Active')->count();
 
         $this->data['user_direct'] = $user_direct;
+        $this->data['rank'] =getVip($user->id);
 
         $this->data['profile_data'] = $profile_data;
 
