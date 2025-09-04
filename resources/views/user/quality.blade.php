@@ -199,7 +199,7 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
@@ -216,7 +216,7 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
@@ -233,7 +233,7 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
@@ -250,7 +250,7 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
@@ -267,7 +267,7 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
@@ -284,7 +284,7 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
@@ -301,14 +301,14 @@
                         <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                                 class="van-icon van-icon-success"
                                 style="border-color: rgb(10, 113, 247); background-color: rgb(10, 113, 247);">
-                                <!----></i></div>
+                                </i></div>
                     </div>
                 @endif
             </li>
         </ul>
     </div><i role="button" tabindex="0" id="close"
         class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right">
-        <!----></i>
+        </i>
 </div>
 
 <div class="van-overlay" style="display :none;z-index: 2005;"></div>
@@ -319,14 +319,14 @@
         <div data-v-29a06c8f="" class="tw-mt-16px">Congratulations to get</div>
         <div data-v-29a06c8f="" class="tw-mt-10px tw-mb-16px tw-text-14px">
             <div data-v-29a06c8f=""> 0.0157 USDT </div>
-            <!---->
+            
         </div>
         <div data-v-29a06c8f="" class="tw-flex tw-items-center" style="justify-content: space-between;"><button
                 data-v-29a06c8f="" class="btn1 btns tw-text-14px"> View Order </button><button data-v-29a06c8f=""
                 class="btn2 btns"> Confirm </button></div>
     </div><i role="button" tabindex="0"
         class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right">
-        <!----></i>
+        </i>
 </div>
 
 <script>

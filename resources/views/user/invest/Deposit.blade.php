@@ -13,7 +13,7 @@
                         readonly="readonly" class="tw-pl-8px van-field__control1">
                 </div><i data-v-4bcdfc27="" data-v-6b868a30=""
                     class="van-icon van-icon-arrow" style="color: rgb(182, 188, 198);">
-                    <!----></i>
+                    </i>
             </div>
             <div data-v-4bcdfc27="" data-v-6b868a30="" class="tw-mt-18px tw-mb-10px tw-text-14px"> Select
                 Network </div>
@@ -64,7 +64,7 @@
                 <div data-v-4bcdfc27="" data-v-6b868a30="" class="tw-flex tw-items-center"><i
                         data-v-4bcdfc27="" data-v-6b868a30="" class="tw-text-20px van-icon van-icon-warning"
                         style="color: rgba(255, 255, 255, 1);">
-                        <!----></i><span data-v-4bcdfc27="" data-v-6b868a30=""
+                        </i><span data-v-4bcdfc27="" data-v-6b868a30=""
                         class="tw-text-primary tw-pl-8px">Note</span></div>
                 <div data-v-4bcdfc27="" data-v-6b868a30="" class="tw-text-14px tw-text-secondary tw-mt-8px">
                     <p>1. Minimum deposit amount: 1 USDT, (if the deposit is lower than the minimum deposit
@@ -84,7 +84,7 @@
     </div>
 </div>
 
-<!---->
+
 </div>
 <div class="van-overlay" style="display: none;">
     <div class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
@@ -100,7 +100,7 @@
     </div>
 </div>
 <div data-v-4d1ba5fa="">
-    <!---->
+    
 </div>
 </div>
 <!-- <script>

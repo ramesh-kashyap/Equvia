@@ -193,13 +193,13 @@
 
 
                                 </a>
-                            </div><!----><!----><!---->
+                            </div>
                             <div data-v-b73557e2="" class="name tac"> Community List
-                            </div><!----><!----><!---->
-                            <div data-v-b73557e2="" class="flex1"></div><!----><!----><!----><!----><!---->
+                            </div>
+                            <div data-v-b73557e2="" class="flex1"></div>
                             <div data-v-b73557e2="" class="head_right"></div>
                         </div>
-                        <div data-v-b73557e2=""><!----></div>
+                        <div data-v-b73557e2=""></div>
                     </div>
                     <div data-v-4f616302="" data-v-6e2d35de="" class="container">
                         <div data-v-0d336a05="" data-v-4f616302="" class="tab_list" data-v-6e2d35de="">
@@ -271,7 +271,7 @@
 
                 </div>
             </div>
-        </div><!---->
+        </div>
 
 
 
@@ -317,7 +317,7 @@
                 event.preventDefault();
             });
         };
-    </script><!---->
+    </script>
     <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2036; display: none;">
         <div class="van-toast__text">Incorrect password format</div>
     </div>

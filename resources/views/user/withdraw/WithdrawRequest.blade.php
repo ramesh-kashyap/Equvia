@@ -1736,7 +1736,7 @@
                                 <use data-v-3f1a7394="" xlink:href="#svg-icon-arrow-back"></use>
                             </svg>
                         </a>
-                        <!---->
+                        
                     </div>
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
                         style="color: rgba(255, 255, 255, 1);"><span>Withdrawal</span></div>
@@ -1744,14 +1744,14 @@
                         <a href="{{ route('user.lang') }}">
                             <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                         </a>
-                        <!---->
+                        
                         <div>
                             <a href="{{ route('user.notice') }}">
                                 <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                             </a>
                         </div>
-                        <!---->
-                        <!---->
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -1769,7 +1769,7 @@
                                     <input data-v-6b868a30="" class="tw-pl-8px van-field__control1" value="USDT" readonly="readonly" type="text">
                                 </div><i data-v-6b868a30="" class="van-icon van-icon-arrow"
                                     style="color: rgb(182, 188, 198);">
-                                    <!----></i>
+                                    </i>
                             </div>
                             <div data-v-6b868a30="" class="tw-mt-18px tw-mb-10px tw-text-14px"> Select Network </div>
                             <!-- <div data-v-6b868a30=""
@@ -1825,14 +1825,15 @@
                             <div class="tw-rounded-10px van-cell1 van-field tw-mb-16px" data-v-6b868a30="">
                                 <div class="van-cell__value van-cell__value--alone van-field__value">
                                     <div class="van-field__body">
-                                        <input type="hidden" id="emailId" value="{{ Auth::user()->email }}">
+                                        <input type="hidden" id="emailId" name="email"  value="{{ Auth::user()->email }}">
 
                                         <input type="text" name="code" style="color:#fff"
                                             placeholder="Please enter the verification code" class="van-field__control">
 
-                                        <div class="code-btn van-field__right-icon">
-                                            Send Code
-                                        </div>
+                                          <button type="button" style="width:40px;color:white;border-radius: 0 1rem 1rem 0;" class="btn" id="sendButton" onclick="sendVerificationCode()">
+                                                <span id="buttonLabel" style="margin: -12px;font-size:15px;">Send</span>
+                                                <span id="countdownTimer" style="display: none;margin: -12px;font-size:18px;"></span>
+                                            </button>
                                     </div>
 
                                 </div>
@@ -1862,14 +1863,14 @@
                             <input type="hidden" id="min_withdrawal" value="{{$min_withdrawal}}">
                             <input type="hidden" id="max_withdrawal" value="{{$maximum_withdrawal}}">
                             <div data-v-6b868a30="" class="tw-mb-12px tw-flex tw-justify-between tw-items-center"><span
-                                    data-v-6b868a30="" class="tw-text-secondary"> Withdraw Process Fee {{ $chargeAmt }} % </span><span
+                                    data-v-6b868a30="" class="tw-text-secondary"> Withdraw Process Fee {{ $chargeAmt }} % </span><span id="chargefee"
                                     data-v-6b868a30="">0 USDT</span></div>
                             <div data-v-6b868a30="" class="tw-mb-12px tw-flex tw-justify-between tw-items-center"><span
                                     data-v-6b868a30="" class="tw-text-secondary"> Days to Free Withdrawal </span>
-                                <!---->
-                                <!---->
+                                
+                                
                                 <div data-v-6b868a30=""> 21 days </div>
-                                <!---->
+                                
                             </div>
                             <div data-v-6b868a30="" class="tw-mb-12px tw-flex tw-justify-between tw-items-center"><span
                                     data-v-6b868a30="" class="tw-text-secondary"> Minimum Withdrawal Amount </span><span
@@ -1881,7 +1882,7 @@
                                 class="tw-mt-18px tw-mb-24px tw-p-14px tw-text-14px tw-bg-white3 tw-rounded-10px">
                                 <div data-v-6b868a30="" class="tw-flex tw-items-center"><i data-v-6b868a30=""
                                         class="tw-text-20px van-icon van-icon-warning" style="color: rgba(211, 255, 231, 1);">
-                                        <!----></i><span data-v-6b868a30="" class="tw-text-primary tw-pl-8px"> Note </span>
+                                        </i><span data-v-6b868a30="" class="tw-text-primary tw-pl-8px"> Note </span>
                                 </div>
                                 <div data-v-6b868a30="" class="tw-text-14px tw-text-secondary tw-mt-8px">
                                     <p>1. The estimated processing time for each withdrawal is a maximum of 72 hours on
@@ -1934,11 +1935,10 @@
                             @endif
                         </div>
                     </form>
-                    @include('partials.notify')
 
                 </div>
             </div>
-            <!---->
+            
         </div>
 
         <div class="van-overlay" style="display: none;">
@@ -1955,7 +1955,7 @@
             </div>
         </div>
         <div data-v-4d1ba5fa="">
-            <!---->
+            
         </div>
     </div>
     <script>
@@ -2083,80 +2083,73 @@
             });
         })
     </script>
+    @include('partials.notify')
+
     <script>
-        $(document).ready(function() {
-            var countdown;
-            var timer;
+        function sendVerificationCode() {
+            const email = document.querySelector('input[name="email"]').value;
+            const sendButton = document.getElementById('sendButton');
+            const buttonLabel = document.getElementById('buttonLabel');
+            const countdownTimer = document.getElementById('countdownTimer');
 
-            $('.code-btn').click(function(e) {
-                var emailId = $('#emailId').val();
-                if (!emailId) {
-
-                    showVanToast('Invalid Email');
-                    return false;
-                }
-                startTimer(); // Start the timer after sending the code
-                $('.code-btn').hide();
-                $('.resend-btn').show();
-                showVanToast('Email sent Successfully');
-                $.ajax({
-                    type: "POST",
-                    url: "{{ route('send_forgot') }}",
-                    data: {
-                        "emailId": emailId,
-                        "_token": "{{ csrf_token() }}"
-                    },
-                    success: function(response) {
-                        if (response) {
-
-
-
-                        } else {
-
-                            showVanToast('Error');
-                        }
-                    }
+            if (!email) {
+                iziToast.error({
+                    message: "Please enter your email first.",
+                    position: "topRight"
                 });
-            });
-
-            function showVanToast(message, duration = 3000) {
-                const toast = document.getElementById('customToast');
-                const text = document.getElementById('customToastText');
-
-                text.innerText = message;
-                toast.style.display = 'block';
-
-                setTimeout(() => {
-                    toast.style.display = 'none';
-                }, duration);
+                return;
             }
 
-            function startTimer() {
-                var resendButton = $('.resend-btn');
-                countdown = 60; // 60 seconds
-                resendButton.prop('disabled', true); // Disable the resend button
-                resendButton.text('Wait ' + countdown + 's');
+            // Disable the button to prevent multiple clicks
+            sendButton.disabled = true;
 
-                timer = setInterval(function() {
-                    countdown--;
-                    resendButton.text('Wait ' + countdown + 's');
+            // Hide the "Send" label and show the countdown timer
+            buttonLabel.style.display = 'none';
+            countdownTimer.style.display = 'inline';
 
-                    if (countdown <= 0) {
-                        clearInterval(timer);
-                        resendButton.prop('disabled',
-                            false); // Enable the resend button after the timer ends
-                        resendButton.text('Resend Code'); // Reset button text
-                    }
-                }, 1000);
-            }
+            // Initialize countdown
+            let countdown = 60;
+            countdownTimer.textContent = `${countdown}s`;
 
-            // Optional: Handle Resend Button Click
-            $('.resend-btn').click(function(e) {
-                $('.code-btn').trigger('click'); // Simulate a click on the original send button
-            });
-        });
+            const timerInterval = setInterval(() => {
+                countdown--;
+                countdownTimer.textContent = `${countdown}s`;
+
+                if (countdown <= 0) {
+                    clearInterval(timerInterval);
+                    countdownTimer.style.display = 'none';
+                    buttonLabel.style.display = 'inline';
+                    sendButton.disabled = false;
+                }
+            }, 1000);
+
+            // Proceed with sending the verification code
+            fetch("{{ route('send_forgot') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: JSON.stringify({
+                        email: email
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    iziToast.success({
+                        message: data.message || "Code sent successfully.",
+                        position: "topRight"
+                    });
+                })
+                .catch(err => {
+                    iziToast.error({
+                        message: data.message || "Code sent failed.",
+
+                    });
+                    console.error(err);
+                });
+        }
     </script>
-
     <script>
         function copyWallet() {
             const walletText = document.getElementById("walletAddress").innerText;

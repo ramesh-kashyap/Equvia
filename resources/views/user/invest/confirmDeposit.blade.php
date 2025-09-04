@@ -60,7 +60,7 @@
 <body class="">
     <div id="app" data-v-app="">
         <div class="van-config-provider">
-            <!---->
+            
         </div>
         <div data-v-e85f0186="" data-v-56930b78="" class="page" style="background-color: rgb(254, 254, 251);">
             <div data-v-e85f0186="" class="headers">
@@ -93,9 +93,9 @@
                                 </div>
                                 <!-- <i data-v-56930b78="" class="van-badge__wrapper van-icon van-icon-arrow"
                                     style="color: rgb(0, 0, 0);"> -->
-                                    <!---->
-                                    <!---->
-                                    <!----></i>
+                                    
+                                    
+                                    </i>
                             </div>
                         </div>
                         <div data-v-56930b78="" class="box-con">
@@ -151,8 +151,8 @@
                                    
 
                                     <div class="van-button__content">
-                                        <!----><span class="van-button__text">@lang('Cancel')</span>
-                                        <!---->
+                                        <span class="van-button__text">@lang('Cancel')</span>
+                                        
                                     </div>
 
                                     

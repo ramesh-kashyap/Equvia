@@ -17,7 +17,7 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="manifest" href="/manifest.json">
     <script>
-        window.addEventListener("error", function (event) {
+        window.addEventListener("error", function(event) {
             if (event.message.indexOf("Unexpected token '<'") > -1) {
                 location.reload();
             }
@@ -27,7 +27,7 @@
                 remotes = false;
             document.addEventListener(
                 "click",
-                function (event) {
+                function(event) {
                     noddy = event.target;
                     while (noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
                         noddy = noddy.parentNode;
@@ -44,7 +44,6 @@
                 false
             );
         }
-
     </script>
     <style>
         * {
@@ -80,7 +79,6 @@
             height: 100vh;
             object-fit: cover;
         }
-
     </style>
     <link href="/js1743619988925/app.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
     <link href="/js1743619988925/axios.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
@@ -112,7 +110,7 @@
     <script charset="utf-8" src="/js1743619988925/chunk-7f362702.d968e27a.1743619988925.js?v=1743619988925"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-05e98ee6.bea82fa2.css">
     <script charset="utf-8" src="/js1743619988925/chunk-05e98ee6.d968e27a.1743619988925.js?v=1743619988925"></script>
-    <link rel="icon"  href="{{ asset('static/img/logo2.png') }}">
+    <link rel="icon" href="{{ asset('static/img/logo2.png') }}">
 
 </head>
 
@@ -124,70 +122,70 @@
                     <div data-v-b73557e2="" data-v-73b46d99="" class="head head_isModule" data-v-6e2d35de="">
                         <div data-v-b73557e2="" class="safe"></div>
                         <div data-v-b73557e2="" class="container flex">
-                        <div data-v-b73557e2="" class="back"><a href="{{route('user.profile')}}"><img data-v-b73557e2=""
-                                    src="{{ asset('') }}static/img/eroo.png"
-                                    alt=""></a></div>
-                            <!---->
-                            <!---->
-                            <!---->
-                            <!---->
-                            <div data-v-b73557e2="" class="name tac"> My income </div>
-                            <!---->
-                            <!---->
-                            <!---->
+                            <div data-v-b73557e2="" class="back"><a href="{{route('user.profile')}}"><img data-v-b73557e2=""
+                                        src="{{ asset('') }}static/img/eroo.png"
+                                        alt=""></a></div>
+
+
+
+
+                            <div data-v-b73557e2="" class="name tac"> My Transaction </div>
+
+
+
                             <div data-v-b73557e2="" class="flex1"></div>
-                            <!---->
-                            <!---->
-                            <!---->
-                            <!---->
-                            <!---->
+
+
+
+
+
                             <div data-v-b73557e2="" class="head_right"></div>
                         </div>
                         <div data-v-b73557e2="">
-                            <!---->
+
                         </div>
                     </div>
                 </div>
                 <div data-v-6e2d35de="" id="scroll" class="content-container">
                     <div data-v-6e2d35de="" id="content" class="content-scroll">
                         <div data-v-73b46d99="" data-v-6e2d35de="" class="container">
-                        <div id="dateFilterPopup" style="display:none; background: rgb(17 18 22); padding: 20px; border-radius: 12px; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; z-index: 999; box-shadow: rgb(0 0 0) 0px 10px 25px;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-        <h3 style="margin: 0; font-size: 18px; font-weight: bold;color:#fff">Select Date Range</h3>
-        <button onclick="document.getElementById('dateFilterPopup').style.display='none'" style="border: none; background: transparent; font-size: 20px; cursor: pointer;color:#fff">&times;</button>
-    </div>
+                            <div id="dateFilterPopup" style="display:none; background: #06140d; padding: 20px; border-radius: 12px; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; z-index: 999; box-shadow: rgb(0 0 0) 0px 10px 25px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                    <h3 style="margin: 0; font-size: 18px; font-weight: bold;color:#fff">Select Date Range</h3>
+                                    <button onclick="document.getElementById('dateFilterPopup').style.display='none'" style="border: none; background: transparent; font-size: 20px; cursor: pointer;color:#fff">&times;</button>
+                                </div>
 
-    <form method="GET" action="{{ route('user.Withdraw-History') }}">
-        <div style="margin-bottom: 15px;">
-            <label style="display:block; font-size: 14px; margin-bottom: 5px;color:#fff">Start Date</label>
-            <input type="date" name="start_date" required style="width: 100%; padding: 10px; border: 1px solid #403d3d; border-radius: 6px;background-color: #0f0e11;color:#929292">
-        </div>
+                                <form method="GET" action="{{ route('user.Withdraw-History') }}">
+                                    <div style="margin-bottom: 15px;">
+                                        <label style="display:block; font-size: 14px; margin-bottom: 5px;color:#fff">Start Date</label>
+                                        <input type="date" name="start_date" required style="width: 100%; padding: 10px; border: 1px solid #403d3d; border-radius: 6px;background-color: #06140d;color:#929292">
+                                    </div>
 
-        <div style="margin-bottom: 15px;">
-            <label style="display:block; font-size: 14px; margin-bottom: 5px;color:#fff">End Date</label>
-            <input type="date" name="end_date" required style="width: 100%; padding: 10px; border: 1px solid #403d3d; border-radius: 6px;background-color: #0f0e11;color:#929292">
-        </div>
+                                    <div style="margin-bottom: 15px;">
+                                        <label style="display:block; font-size: 14px; margin-bottom: 5px;color:#fff">End Date</label>
+                                        <input type="date" name="end_date" required style="width: 100%; padding: 10px; border: 1px solid #403d3d; border-radius: 6px;background-color: #06140d;color:#929292">
+                                    </div>
 
-        <div style="display: flex; justify-content: flex-end; gap: 10px;">
-            <button type="submit" style="padding: 8px 16px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-weight: bold; cursor: pointer;">Apply</button>
-        </div>
-    </form>
-</div>
-                           
-                            <div data-v-73b46d99="" data-v-6e2d35de="" class="cname"> Revenue distribution </div>
+                                    <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                                        <button type="submit" style="padding: 8px 16px; border: none; border-radius: 5px; background-color: #185c28ff; color: white; font-weight: bold; cursor: pointer;">Apply</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- <div data-v-73b46d99="" data-v-6e2d35de="" class="cname"> Revenue distribution </div> -->
                             <ul data-v-73b46d99="" data-v-6e2d35de="" class="setList">
                                 <li data-v-73b46d99="" data-v-6e2d35de="" id="openPopupBtn"> All <img data-v-73b46d99=""
                                         data-v-6e2d35de=""
                                         src="{{ asset('') }}static/img/bb.png"
                                         alt="">
-                                    
-                                    </li>
-                                    <li id="openDateFilter" data-v-73b46d99="" data-v-6e2d35de=""><span data-v-73b46d99=""
+
+                                </li>
+                                <li id="openDateFilter" data-v-73b46d99="" data-v-6e2d35de=""><span data-v-73b46d99=""
                                         data-v-6e2d35de="">time</span><img data-v-73b46d99="" data-v-6e2d35de=""
                                         src="{{ asset('') }}static/img/bb.png"
                                         alt=""></li>
                             </ul>
-                            <!---->
+
                             <div data-v-73b46d99="" class="van-pull-refresh" data-v-6e2d35de="">
                                 <div class="van-pull-refresh__track" style="transition-duration: 0ms;">
                                     <div class="van-pull-refresh__head" style="height: 100px;"></div>
@@ -196,37 +194,37 @@
 
 
 
-                                        <?php if(is_array($withdraw_report) || is_object($withdraw_report)){ ?>
+                                            <?php if (is_array($withdraw_report) || is_object($withdraw_report)) { ?>
 
-<?php
- date_default_timezone_set('UTC');
-  $cnt = 0; ?>
-  @foreach($withdraw_report as $value)
-  
-  
-  <li data-v-8b8e62ac="">
-
-                   
-
-<div data-v-8b8e62ac="" class="flex">
-    <div data-v-8b8e62ac="" class="title">Withdrawal</div>
-    <div data-v-8b8e62ac="" class="amount" >{{$value->amount}} USDT</div>
-</div>
-<div data-v-8b8e62ac="" class="flex">
-    <div data-v-8b8e62ac="" class="time">{{ date('D, d M Y H:i:s', strtotime($value->created_at)) }}</div>
-    <div data-v-8b8e62ac="" class="str"><span data-v-8b8e62ac=""
-            class="s1"></span>
-            <?=($value->status=="Active")?'completed':$value->status?> </div>
-</div>
-
-                     
+                                                <?php
+                                                date_default_timezone_set('UTC');
+                                                $cnt = 0; ?>
+                                                @foreach($withdraw_report as $value)
 
 
-</li>
+                                                <li data-v-8b8e62ac="">
 
-@endforeach   
-                            
-                            <?php }?>  
+
+
+                                                    <div data-v-8b8e62ac="" class="flex">
+                                                        <div data-v-8b8e62ac="" class="title">Withdrawal</div>
+                                                        <div data-v-8b8e62ac="" class="amount">{{$value->amount}} USDT</div>
+                                                    </div>
+                                                    <div data-v-8b8e62ac="" class="flex">
+                                                        <div data-v-8b8e62ac="" class="time">{{ date('D, d M Y H:i:s', strtotime($value->created_at)) }}</div>
+                                                        <div data-v-8b8e62ac="" class="str"><span data-v-8b8e62ac=""
+                                                                class="s1"></span>
+                                                            <?= ($value->status == "Active") ? 'completed' : $value->status ?> </div>
+                                                    </div>
+
+
+
+
+                                                </li>
+
+                                                @endforeach
+
+                                            <?php } ?>
 
                                         </ul>
                                         <div class="van-list__finished-text">No more</div>
@@ -236,34 +234,34 @@
                             </div>
                         </div>
                         <div data-v-554f6835="" data-v-73b46d99="" data-v-6e2d35de="">
-    <!-- Overlay -->
-    <div id="popupOverlay" class="van-overlay" style="z-index: 2004; display: none;"></div>
+                            <!-- Overlay -->
+                            <div id="popupOverlay" class="van-overlay" style="z-index: 2004; display: none;"></div>
 
-    <!-- Popup Box -->
-    <div id="popupContainer" data-v-554f6835="" class="van-popup van-popup--round van-popup--bottom"
-         style="background: none; z-index: 2005; display: none;">
-        <div data-v-554f6835="" class="popup_box">
-            <div data-v-554f6835="" class="scroll">
-                <div data-v-554f6835="" class="ul">
-                <div data-v-554f6835="">
-                        <div data-v-554f6835="" class="item"> <a href="{{('roi-bonus')}}">Income<a></div>
-                    </div>
+                            <!-- Popup Box -->
+                            <div id="popupContainer" data-v-554f6835="" class="van-popup van-popup--round van-popup--bottom"
+                                style="background: red; z-index: 2005; display: none;">
+                                <div data-v-554f6835="" class="popup_box">
+                                    <div data-v-554f6835="" class="scroll">
+                                        <div data-v-554f6835="" class="ul">
+                                            <div data-v-554f6835="">
+                                                <div data-v-554f6835="" class="item"> <a href="{{('roi-bonus')}}">Income<a></div>
+                                            </div>
 
 
-                    <div data-v-554f6835="">
-                        <div data-v-554f6835="" class="item"> <a href="{{('record')}}">Deposit</a></div>
-                    </div>
-                    <div data-v-554f6835="">
-                        <div data-v-554f6835="" class="item"> <a href="{{('WithdrawHistory')}}">Withdrawal</a></div>
-                    </div>
-                  
-                  
-                </div>
-            </div>
-            <div data-v-554f6835="" class="esc" id="closePopupBtn" style="color:white;">Cancel</div>
-        </div>
-    </div>
-</div>
+                                            <div data-v-554f6835="">
+                                                <div data-v-554f6835="" class="item"> <a href="{{('record')}}">Deposit</a></div>
+                                            </div>
+                                            <div data-v-554f6835="">
+                                                <div data-v-554f6835="" class="item"> <a href="{{('WithdrawHistory')}}">Withdrawal</a></div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div data-v-554f6835="" class="esc" id="closePopupBtn" style="color:white; background: #06140d;    ">Cancel</div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="van-overlay" style="z-index: 2006; display: none;"></div>
                         <div data-v-73b46d99="" class="van-popup van-popup--round van-popup--bottom"
                             style="z-index: 2007; display: none;">
@@ -271,7 +269,7 @@
                                 <div class="van-picker__toolbar"><button type="button"
                                         class="van-picker__cancel">Cancel</button><button type="button"
                                         class="van-picker__confirm">Confirm</button></div>
-                                <!---->
+
                                 <div class="van-picker__columns" style="height: 264px;">
                                     <div class="van-picker-column">
                                         <ul class="van-picker-column__wrapper"
@@ -313,12 +311,12 @@
                                     <div class="van-hairline-unset--top-bottom van-picker__frame" style="height: 44px;">
                                     </div>
                                 </div>
-                                <!---->
+
                             </div>
                         </div>
                     </div>
                 </div>
-                <!---->
+
             </div>
         </div>
         <div data-v-a7d12cfc="" class="global-loading default" style="display: none;">
@@ -336,26 +334,25 @@
     <script src="/js1743619988925/vendors~app.d968e27a.1743619988925.js?v=1743619988925"></script>
     <script src="/js1743619988925/app.d968e27a.1743619988925.js?v=1743619988925"></script>
     <script>
-  document.getElementById('openDateFilter').onclick = function () {
-      document.getElementById('dateFilterPopup').style.display = 'block';
-  };
-</script>
-<script>
-  const popup = document.getElementById('dateFilterPopup');
-  document.getElementById('openDateFilter').onclick = () => {
-      popup.style.display = 'block';
-      popup.style.opacity = 0;
-      setTimeout(() => {
-          popup.style.transition = 'opacity 0.3s';
-          popup.style.opacity = 1;
-      }, 10);
-  };
-</script>
+        document.getElementById('openDateFilter').onclick = function() {
+            document.getElementById('dateFilterPopup').style.display = 'block';
+        };
+    </script>
     <script>
-
-        window.onload = function () {
+        const popup = document.getElementById('dateFilterPopup');
+        document.getElementById('openDateFilter').onclick = () => {
+            popup.style.display = 'block';
+            popup.style.opacity = 0;
+            setTimeout(() => {
+                popup.style.transition = 'opacity 0.3s';
+                popup.style.opacity = 1;
+            }, 10);
+        };
+    </script>
+    <script>
+        window.onload = function() {
             // 禁用双指放大
-            document.addEventListener("touchstart", function (event) {
+            document.addEventListener("touchstart", function(event) {
                 if (event.touches.length > 1) {
                     event.preventDefault();
                 }
@@ -364,7 +361,7 @@
             let lastTouchEnd = 0;
             document.addEventListener(
                 "touchend",
-                function (event) {
+                function(event) {
                     const now = new Date().getTime();
                     if (now - lastTouchEnd <= 300) {
                         event.preventDefault();
@@ -373,30 +370,29 @@
                 },
                 false
             );
-            document.addEventListener("gesturestart", function (event) {
+            document.addEventListener("gesturestart", function(event) {
                 event.preventDefault();
             });
         };
-
     </script>
 
 
-<script>
-    document.getElementById('openPopupBtn').addEventListener('click', function () {
-        document.getElementById('popupContainer').style.display = 'block';
-    });
+    <script>
+        document.getElementById('openPopupBtn').addEventListener('click', function() {
+            document.getElementById('popupContainer').style.display = 'block';
+        });
 
-    document.getElementById('closePopupBtn').addEventListener('click', function () {
-        document.getElementById('popupContainer').style.display = 'none';
-    });
-</script>
+        document.getElementById('closePopupBtn').addEventListener('click', function() {
+            document.getElementById('popupContainer').style.display = 'none';
+        });
+    </script>
 
     <div class="van-toast van-toast--middle van-toast--success" style="z-index: 2001; display: none;"><i
             class="van-icon van-icon-success van-toast__icon">
-            <!----></i>
+        </i>
         <div class="van-toast__text">Login successful</div>
     </div>
-    <!---->
+
 </body>
 
 </html>

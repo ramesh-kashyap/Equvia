@@ -162,7 +162,7 @@ Route::post('/change-trxpasswword', [App\Http\Controllers\UserPanel\Profile::cla
 
 //quality
 Route::get('/quality', [App\Http\Controllers\UserPanel\Invest::class, 'quality'])->name('user.quality');
-Route::get('/quality/records', [App\Http\Controllers\UserPanel\Invest::class, 'records'])->name('user.record');
+Route::get('/records', [App\Http\Controllers\UserPanel\Invest::class, 'records'])->name('user.records');
 Route::get('/get-address-details/{currency}', [App\Http\Controllers\UserPanel\Invest::class, 'getAddressDetails']);
 
 // add fund
@@ -180,7 +180,7 @@ Route::get('/register/{sponsorCode}', [App\Http\Controllers\Register::class, 'sh
 // Route::get('/generate-qr-code', [Register::class, 'generateQrCode']);
 
 
-Route::get('/record', [App\Http\Controllers\UserPanel\Invest::class, 'showrecord'])->name('user.records');
+Route::get('/record', [App\Http\Controllers\UserPanel\Invest::class, 'showrecord'])->name('user.record');
 Route::get('/raj', [App\Http\Controllers\UserPanel\Invest::class, 'raj'])->name('user.raj');
 
 Route::get('/vip', [App\Http\Controllers\UserPanel\Invest::class, 'vip'])->name('user.vip');
@@ -205,7 +205,7 @@ Route::get('/withdrawPrinciple', [App\Http\Controllers\UserPanel\WithdrawRequest
 
 Route::any('/WithdrawRequest', [App\Http\Controllers\UserPanel\WithdrawRequest::class, 'WithdrawRequest'])->name('user.Withdraw-Request');
 Route::post('/WithdrawRequestPrinciple', [App\Http\Controllers\UserPanel\WithdrawRequest::class, 'WithdrawRequestPrinciple'])->name('user.WithdrawRequestPrinciple');
-Route::get('/WithdrawHistory', [App\Http\Controllers\UserPanel\WithdrawRequest::class, 'WithdrawHistory'])->name('user.Withdraw-History');
+Route::get('/my-transaction', [App\Http\Controllers\UserPanel\WithdrawRequest::class, 'WithdrawHistory'])->name('user.Withdraw-History');
 // end withdraw
 
 //team
