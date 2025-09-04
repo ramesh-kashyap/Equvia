@@ -252,190 +252,164 @@ class Dashboard extends Controller
       
 
          public function tradeOn(Request $request)
-{
-     $balance = $request->amount;
-    $user = Auth::user();
-    date_default_timezone_set("Asia/Kolkata");
-    $pendingTrade = \DB::table('contract')->where('user_id', $user->id)->where('c_status', 1)->first();
-    if ($pendingTrade) {
-        return redirect()->route('user.quality', 'trade');
-    }
-      
-     // Fetch team levels
-    // $my_level_team = $this->my_level_team_count($user->id);
-    // $levels = [1, 2, 3];
-    // $gen_teams = [];
-    // foreach ($levels as $level) {
-    //     $ids = $my_level_team[$level] ?? [];
-    //     $gen_teams[$level] = User::whereIn('id', $ids)->orderBy('id', 'DESC')->get();
-    // }
-    // $gen_team1Active = $gen_teams[1]->where('active_status', 'Active')->count();
-    // $gen_team2Active = $gen_teams[2]->where('active_status', 'Active')->count();
-    // $gen_team3Active = $gen_teams[3]->where('active_status', 'Active')->count();
-    // $totalTeam = $gen_team2Active + $gen_team3Active;
+         {
+          $request->validate([
+        'amount' => 'required|numeric|min:1',
+          ]);
+         $balance = $request->amount;
+         $user = Auth::user();
+         date_default_timezone_set("Asia/Kolkata");
+         $pendingTrade = \DB::table('contract')->where('user_id', $user->id)->where('c_status', 1)->first();         
+         if ($pendingTrade) {
+         return redirect()->route('user.quality', 'trade');
+         }
+
+         $investm = Investment::where('user_id', $user->id)->sum('amount');
+         if ($investm < 1) { $notify[]=['error', 'insufficient funds' ]; return redirect()->
+             back()->withNotify($notify);
+             }
+
+             $todaysRoi = \DB::table('contract')->where('user_id', $user->id)->where('ttime', date('Y-m-d'))->count();
+              
+             // Quantifiable ROI conditions
+             $quantifiable_count = 1;
+             if ($todaysRoi >= 1) {
+             return redirect()->route('user.quality', 'notrade');
+             }
+
+             // Deduct today's ROI sum from balance
+             $todaysRoiSum = \DB::table('contract')->where('user_id', $user->id)->where('ttime',
+             date('Y-m-d'))->sum('profit') ?? 0;
+            //  $balance2 = $balance - $todaysRoiSum;
+            //  $forthhalf = $balance2 / $quantifiable_count;
+            //  $minQuan = max(0, $quantifiable_count - ($todaysRoi + 1));
+            //  $updateBalance = $forthhalf * $minQuan;
 
 
-    // $userDirect = User::where('sponsor', $user->id)->where('active_status', 'Active')->where('package', '>=', 100)->count();
-    // $balance = round($user->available_balance()+$user->principleBalance(), 2);
-    // $balance = round($user->principleBalance(), 2);
-    $investm = Investment::where('user_id', $user->id)->sum('amount');
-    if ($balance < 50) {
-        $notify[] = ['error', 'insufficient funds'];
-        return redirect()->back()->withNotify($notify);
-    }
+             \DB::table('users')->where('id', $user->id)->update(['tradeAmt' => $balance]);
 
-    $todaysRoi = \DB::table('contract')->where('user_id', $user->id)->where('ttime', date('Y-m-d'))->count();
+             // Continue with trade if quantifiable_count == 3 or 4 or 6
+             $trade_index_data = \DB::table('variables')->where('v_id', 11)->first();
+             $trade_index = $trade_index_data->trade_index;
+             if ($trade_index < 0) exit(); if ($trade_index==15) { \DB::table('variables')->where('v_id',
+                 11)->update(['trade_index' => 0]);
+                 $trade_index = 0;
+                 }
 
-    // Quantifiable ROI conditions
-    $quantifiable_count = 1;
-    if ($todaysRoi >= $quantifiable_count) {
-        return redirect()->route('user.quality', 'notrade');
-    }
+                 $factor_arr = [435, 193, 146, 193, 435, 146, 193, 146, 435, 435, 146, 193, 193, 146, 435];
+                 $tcoins_arr = coinrates();
 
-    // Deduct today's ROI sum from balance
-    $todaysRoiSum = \DB::table('contract')->where('user_id', $user->id)->where('ttime', date('Y-m-d'))->sum('profit') ?? 0;
-    $balance2 = $balance - $todaysRoiSum;
-    $forthhalf = $balance2 / $quantifiable_count;
-    $minQuan = $quantifiable_count - ($todaysRoi + 1);
-    $updateBalance = $forthhalf * $minQuan;
+                 $factor = $factor_arr[$trade_index];
+                 $trade_index++;
+                 \DB::table('variables')->where('v_id', 11)->update(['trade_index' => $trade_index]);
 
-    \DB::table('users')->where('id', $user->id)->update(['tradeAmt' => $updateBalance]);
+                 $todays = date("Y-m-d");
+                 $day = date("l");
+                 $userID = $user->id;
+                 $u_str = $request->amount;
 
-    // Continue with trade if quantifiable_count == 3 or 4 or 6
-    $trade_index_data = \DB::table('variables')->where('v_id', 11)->first();
-    $trade_index = $trade_index_data->trade_index;
-    if ($trade_index < 0) exit();
-    if ($trade_index == 15) {
-        \DB::table('variables')->where('v_id', 11)->update(['trade_index' => 0]);
-        $trade_index = 0;
-    }
+                 $idx = 1;
+                 $levels = [];
+                 $currentLevelIds = collect([$user->id]);
+                 for($i=1; $i<=3; $i++){ $currentLevelIds=User::whereIn('sponsor', $currentLevelIds)->
+                     where('active_status', 'Active')->pluck('id');
+                     $levels["level{$i}Count"] = $currentLevelIds->count();
+                     }
+                     $levelACount = $levels['level1Count']; // Direct (A)
+                     $levelBCount = $levels['level2Count']; // Under A (B)
+                     $levelCCount = $levels['level3Count'] + $levels['level2Count'];
+                     $this->data['balance'] = $balance;
+                     $this->data['levelACount'] = $levelACount;
+                     $this->data['levelBCount'] = $levelBCount;
+                     $this->data['levelCCount'] = $levelCCount;
+                     switch (true) {
+                     case ($balance >= 50000 && $levelACount > 100 && $levelCCount > 300):
+                     $idx = 6;
+                     break;
+                     case ($balance >= 20000 && $levelACount > 80 && $levelCCount > 200):
+                     $idx = 5;
+                     break;
+                     case ($balance >= 5000 && $levelACount > 50 && $levelCCount > 100):
+                     $idx = 4;
+                     break;
+                     case ($balance >= 2000 && $levelACount > 30 && $levelCCount > 60):
+                     $idx = 3;
+                     break;
+                     case ($balance >= 500 && $levelACount > 20 && $levelCCount > 40):
+                     $idx = 2;
+                     break;
+                     case ($balance >= 50 && $levelACount > 10 && $levelCCount > 20):
+                     $idx = 1;
+                     break;
+                     case ($balance >= 1 && $levelACount > 5 && $levelCCount > 10):
+                     $idx = 1;
+                     break;
+                     default:
+                     $idx = 1;
+                     }
 
-    $factor_arr = [435, 193, 146, 193, 435, 146, 193, 146, 435, 435, 146, 193, 193, 146, 435];
-    $tcoins_arr = coinrates();
+                     $zero_arr = ["eth", "doge", "btc", "btc", "bnb", "btc", "eth", "eth", "btc", "btc", "bnb", "btc",
+                     "eth", "btc", "eth", "car"];
+                     $v_index = $trade_index_data->v_index;
+                     $trade = isEven($v_index) ? "Sell" : "Buy";
 
-    $factor = $factor_arr[$trade_index];
-    $trade_index++;
-    \DB::table('variables')->where('v_id', 11)->update(['trade_index' => $trade_index]);
+                     $new_index = ($v_index == 15) ? 0 : $v_index + 1;
+                     \DB::table('variables')->where('v_id', 11)->update(['v_index' => $new_index]);
 
-    $todays = date("Y-m-d");
-    $day = date("l");
-    $userID = $user->id;
-    $u_str = round(+$user->principleBalance(), 3);
+                     $sym = $zero_arr[$v_index];
+                     $bots = \DB::table('machines')->where('m_id', $idx)->first();
+                     if (!$bots) return redirect()->route('user.quality', 'notrade');
+                     
+                     $bot_name = $bots->m_name;
+                     $percent = round($bots->m_return );
+                     $usd = ($u_str);
+                     $buy_price_btc = number_format($tcoins_arr[$sym], 5, '.', '');
+                     $sell_price_btc = number_format($tcoins_arr[$sym] + ($tcoins_arr[$sym] * $percent / 100), 5, '.',
+                     '');
+                     $buy_price_usd = $usd / $buy_price_btc;
+                    //  $trade_profit = $usd * $percent;
+                     $trade_profit = ($balance * $percent) / 100;
 
-    $idx = 1;
-    // if ($u_str >= 50) $idx = 1;
-    // if ($u_str >= 500) $idx = 2;
-    // if ($u_str >= 2000) $idx = 5;
-    // if ($u_str >= 5000) $idx = 6;
-    // if ($u_str >= 8000) $idx = 7;
-     $levels = [];
-            $currentLevelIds = collect([$user->id]);
-            for($i=1; $i<=3; $i++){
-               $currentLevelIds = User::whereIn('sponsor', $currentLevelIds)->where('active_status', 'Active')->pluck('id');
-                $levels["level{$i}Count"] = $currentLevelIds->count();
-            }
-            $levelACount = $levels['level1Count']; // Direct (A)
-            $levelBCount = $levels['level2Count']; // Under A (B)
-            $levelCCount = $levels['level3Count'] + $levels['level2Count'];  
-            $this->data['balance']     = $balance;
-            $this->data['levelACount'] = $levelACount;
-            $this->data['levelBCount'] = $levelBCount;
-            $this->data['levelCCount'] = $levelCCount;
-    switch (true) {
-    case ($balance >= 50000 && $levelACount > 100 && $levelCCount > 300):
-       $idx = 6;
-        break;
-    case ($balance >= 20000 && $levelACount > 80 && $levelCCount > 200):
-        $idx = 5;
-        break;
-    case ($balance >= 5000 && $levelACount > 50 && $levelCCount > 100):
-        $idx = 4;
-        break;
-    case ($balance >= 2000 && $levelACount > 30 && $levelCCount > 60):
-       $idx = 3;
-        break;
-    case ($balance >= 500 && $levelACount > 20 && $levelCCount > 40):
-        $idx = 2;
-        break;
-    case ($balance >= 50 && $levelACount > 10 && $levelCCount > 20):
-        $idx = 1;
-        break;
-    case ($balance >= 1 && $levelACount > 5 && $levelCCount > 10):
-        $idx = 1;
-        break;
-    default:
-        $idx = 1;
-}
+                    //  $trade_profit = getEligibleIncomeAmount($userID,$trade_profit);
 
-    $zero_arr = ["eth", "doge", "btc", "btc", "bnb", "btc", "eth", "eth", "btc", "btc", "bnb", "btc", "eth", "btc", "eth", "car"];
-    $v_index = $trade_index_data->v_index;
-    $trade = isEven($v_index) ? "Sell" : "Buy";
 
-    $new_index = ($v_index == 15) ? 0 : $v_index + 1;
-    \DB::table('variables')->where('v_id', 11)->update(['v_index' => $new_index]);
+                    //  if ($trade_profit <= 0) { $notify[]=['error', 'Maximum Limit Reached' ]; return redirect()->
+                    //      back()->withNotify($notify);
+                    //      }
 
-    $sym = $zero_arr[$v_index];
-    $bots = \DB::table('machines')->where('m_id', $idx)->first();
-    if (!$bots) return redirect()->route('user.quality', 'notrade');
+                         \DB::table('users')->where('id', $userID)->update(['last_trade' => now()]);
+                         // }
+                         $currentDateTime = now();
+                         $baseInsert = [
+                         'user_id' => $userID,
+                         'trade' => $trade,
+                         'c_bot' => $bot_name,
+                         'qty' => $balance,
+                         'profit' => $trade_profit,
+                         'c_name' => $sym,
+                         'c_status' => 1,
+                         'c_ref' => $u_str,
+                         'created_at' => $currentDateTime,
+                         'ttime' => $currentDateTime,
+                         ];
 
-    $bot_name = $bots->m_name;
-    $percent = number_format($bots->m_return / $factor, 5, '.', '');
-    $usd = ($u_str * 0.7);
-    $buy_price_btc = number_format($tcoins_arr[$sym], 5, '.', '');
-    $sell_price_btc = number_format($tcoins_arr[$sym] + ($tcoins_arr[$sym] * $percent / 100), 5, '.', '');
-    $buy_price_usd = $usd / $buy_price_btc;
-    $trade_profit = $usd * $percent;
-    $trade_profit = $user->$balance*100/$percent;
-    
-      $trade_profit = getEligibleIncomeAmount($userID,$trade_profit);
-      
-      
-    if ($trade_profit <= 0) {
-        $notify[] = ['error', 'Maximum Limit Reached'];
-        return redirect()->back()->withNotify($notify);
-    }
-    
-    // Cap today's profit at max ROI on last trade
-    // REMOVE OR COMMENT THIS BLOCK TO FIX TRADE PROFIT TO 1%
-// if ($todaysRoi == ($quantifiable_count - 1)) {
-//     $u_str_2 = $u_str - $todaysRoiSum;
-//     $maxRoi = $u_str_2 * $bots->m_return / 100;
-//     $total_profit_b = $todaysRoiSum + $trade_profit;
-//     $n_m_t = $maxRoi - $total_profit_b;
-//     if ($trade_profit >= $n_m_t || $trade_profit <= $n_m_t) {
-//         $trade_profit += $n_m_t;
-//     }
+                         if ($trade === "Buy") {
+                         $sell_price_btc = number_format($tcoins_arr[$sym], 5, '.', '');
+                         $buy_price_btc = number_format($tcoins_arr[$sym] - ($tcoins_arr[$sym] * $percent / 100), 5,
+                         '.', '');
+                         $baseInsert['c_buy'] = $balance;
+                         $baseInsert['c_sell'] = $trade_profit +$balance;
+                         } else {
+                         $baseInsert['c_buy'] = $balance;
+                         $baseInsert['c_sell'] = $trade_profit +$balance;
+                         }
 
-    \DB::table('users')->where('id', $userID)->update(['last_trade' => now()]);
-// }
-    $currentDateTime = now();
-    $baseInsert = [
-        'user_id' => $userID,
-        'trade' => $trade,
-        'c_bot' => $bot_name,
-        'qty' => $buy_price_usd,
-        'profit' => $trade_profit,
-        'c_name' => $sym,
-        'c_status' => 1,
-        'c_ref' => $u_str,
-        'created_at' => $currentDateTime,
-        'ttime' => $currentDateTime,
-    ];
+                         \DB::table('contract')->insert($baseInsert);
 
-    if ($trade === "Buy") {
-        $sell_price_btc = number_format($tcoins_arr[$sym], 5, '.', '');
-        $buy_price_btc = number_format($tcoins_arr[$sym] - ($tcoins_arr[$sym] * $percent / 100), 5, '.', '');
-        $baseInsert['c_buy'] = $buy_price_btc;
-        $baseInsert['c_sell'] = $sell_price_btc;
-    } else {
-        $baseInsert['c_buy'] = $sell_price_btc;
-        $baseInsert['c_sell'] = $buy_price_btc;
-    }
+                         return redirect()->route('user.quality', ['trade' => $trade_profit]);
+                        // return response()->json(['success' => true, 'message' => 'Strategy Complete', 'trade_profit' => $trade_profit,]);
 
-    \DB::table('contract')->insert($baseInsert);
-
-    return redirect()->route('user.quality', 'trade');
-}
+                         }
 
       public function tradeOnBack()
       {
