@@ -53,7 +53,6 @@
                     </div>
                 </div>
 
-
                 <div data-v-77e1eeea="" role="alert" class="van-notice-bar" vertical=""
                     style="color: rgb(24, 25, 28); background: none;"><i class="van-icon van-notice-bar__left-icon">
                         <img src="{{ asset('static/icon/speaker.png') }}" class="van-icon__image">
