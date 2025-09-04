@@ -362,7 +362,11 @@
         class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right">
     </i>
 </div>
-<div class="van-toast van-toast--middle van-toast--text" style="z-index: 2018; display: none;"><div class="van-toast__text">Today’s strategies have been used up</div></div>
+<div id="custom-toast" 
+     class="van-toast van-toast--middle van-toast--text" 
+     style="z-index: 2032; display: none;">
+  <div class="van-toast__text"></div>
+</div>
 
 <!-- <script>
     document.getElementById("createOrderBtn").addEventListener("click", function() {
@@ -436,7 +440,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const amount = amountInput.value;
 
         if (!amount || amount <= 0) {
-            alert("Please enter a valid amount.");
+            showToast("Please enter a valid amount.");
             return;
         }
 
@@ -455,7 +459,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 countdownSection.style.display = "block";
                 startCountdown(60); // 1 min = 60 sec
             } else {
-                alert(data.message || "Failed to create order.");
+                showToast(data.message || "Failed to create order.");
 
             }
         })
@@ -504,7 +508,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 successPopup.style.display = "block";
                 successPopup.querySelector(".tw-mt-10px div").innerText = data.profit + " USDT";
             } else {
-                alert(data.message || "Trade closing failed.");
+                showToast(data.message || "Trade closing failed.");
             }
         })
         .catch(err => console.error("Close Trade Error:", err));
@@ -515,6 +519,21 @@ document.addEventListener("DOMContentLoaded", function () {
         successPopup.style.display = "none";
     };
 });
+
+
+
+function showToast(message, duration = 2000) {
+    const toast = document.getElementById("custom-toast");
+    const text = toast.querySelector(".van-toast__text");
+
+    text.innerText = message;
+    toast.style.display = "block";
+
+    // Hide after some time
+    setTimeout(() => {
+        toast.style.display = "none";
+    }, duration);
+}
 </script>
 
 <script>
