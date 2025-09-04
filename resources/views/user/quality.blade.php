@@ -362,7 +362,7 @@
         class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right">
     </i>
 </div>
-<div class="van-toast van-toast--middle van-toast--text" style="z-index: 2018; display: block;"><div class="van-toast__text">Today’s strategies have been used up</div></div>
+<div class="van-toast van-toast--middle van-toast--text" style="z-index: 2018; display: none;"><div class="van-toast__text">Today’s strategies have been used up</div></div>
 
 <!-- <script>
     document.getElementById("createOrderBtn").addEventListener("click", function() {
