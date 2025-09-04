@@ -80,6 +80,91 @@
             object-fit: cover;
         }
     </style>
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: flex-start;
+            list-style: none;
+            padding-left: 0;
+            margin: 20px auto;
+            gap: 6px;
+            max-width: 480px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            scrollbar-width: thin;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .pagination::-webkit-scrollbar {
+            height: 6px;
+            display: none;
+        }
+
+        .pagination::-webkit-scrollbar-thumb {
+            background: #35604b;
+            border-radius: 10px;
+        }
+
+        .pagination::-webkit-scrollbar-track {
+            background: #35604b;
+        }
+
+        .page-item {
+            display: inline-block;
+            background: #35604b;
+
+        }
+
+        .page-link {
+            display: block;
+            padding: 8px 14px;
+            color: #06140d;
+            background-color: #35604b;
+            border: 1px solid #35604b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .page-link:hover {
+            background-color: #06140d;
+            color: white;
+        }
+
+        .page-item.active .page-link {
+            background-color: #06140d;
+            color: white;
+            border-color: #35604b;
+            font-weight: 600;
+        }
+
+        .page-item.disabled .page-link {
+            color: #fff;
+            background-color: #eee;
+            border-color: #ddd;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .page-link {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .page-link {
+            background-color: #113926;
+            color: #fff;
+            border: 1px solid #35604b;
+        }
+
+        .page-link:hover,
+        .page-item.active .page-link {
+            background-color: #06140d;
+            color: #fff;
+        }
+    </style>
+
     <link href="/js1743619988925/app.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
     <link href="/js1743619988925/axios.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
     <link href="/js1743619988925/compressorjs.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
@@ -93,96 +178,17 @@
     <link href="{{asset('')}}static/css/vant.d14f5539.css" rel="stylesheet">
     <link href="{{asset('')}}static/css/app.6328f701.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-6f896b4e.5bb66763.css">
-    <script charset="utf-8" src="/js1743619988925/chunk-6f896b4e.d968e27a.1743619988925.js?v=1743619988925"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-5576a184.9f52f39a.css">
-    <script charset="utf-8" src="/js1743619988925/chunk-5576a184.d968e27a.1743619988925.js?v=1743619988925"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-60c8a75a.d6f6b692.css">
-    <script charset="utf-8" src="/js1743619988925/chunk-60c8a75a.d968e27a.1743619988925.js?v=1743619988925"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-a7d8f170.c87a4291.css">
-    <script charset="utf-8" src="/js1743619988925/chunk-a7d8f170.d968e27a.1743619988925.js?v=1743619988925"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-67912ed2.ae8d438d.css">
-    <script charset="utf-8" src="/js1743619988925/chunk-67912ed2.d968e27a.1743619988925.js?v=1743619988925"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-375cccc2.6ddcb41c.css">
-    <script charset="utf-8" src="/js1743619988925/chunk-375cccc2.d968e27a.1743619988925.js?v=1743619988925"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-00b1464f.674dbd13.css">
-    <script charset="utf-8" src="/js1743619988925/chunk-00b1464f.d968e27a.1743619988925.js?v=1743619988925"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-7f362702.6a53b834.css">
-    <script charset="utf-8" src="/js1743619988925/chunk-7f362702.d968e27a.1743619988925.js?v=1743619988925"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-05e98ee6.bea82fa2.css">
-    <script charset="utf-8" src="/js1743619988925/chunk-05e98ee6.d968e27a.1743619988925.js?v=1743619988925"></script>
-    <link rel="icon" href="{{ asset('static/img/logo2.png') }}">
+    <link rel="icon" href="{{ asset('2.png') }}">
 
 </head>
-<style>
-    /* Base pagination styling */
-    .pagination {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        padding-left: 0;
-        margin: 20px 0;
-        gap: 6px;
-    }
-
-    /* Page items */
-    .page-item {
-        display: inline-block;
-    }
-
-    /* Page links */
-    .page-link {
-        display: block;
-        padding: 8px 14px;
-        color: #10e1cc;
-        /* Highlight color */
-        background-color: #f9f9f9;
-        border: 1px solid #10e1cc;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 500;
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    /* Hover effect */
-    .page-link:hover {
-        background-color: #10e1cc;
-        color: white;
-    }
-
-    /* Active page */
-    .page-item.active .page-link {
-        background-color: #10e1cc;
-        color: white;
-        border-color: #10e1cc;
-        font-weight: 600;
-    }
-
-    /* Disabled links */
-    .page-item.disabled .page-link {
-        color: #aaa;
-        background-color: #eee;
-        border-color: #ddd;
-        cursor: not-allowed;
-        pointer-events: none;
-    }
-
-    /* Optional: Smooth animation on hover */
-    .page-link {
-        transition: all 0.2s ease-in-out;
-    }
-
-    .page-link {
-        background-color: #222;
-        color: #10e1cc;
-        border: 1px solid #10e1cc;
-    }
-
-    .page-link:hover,
-    .page-item.active .page-link {
-        background-color: #10e1cc;
-        color: #fff;
-    }
-</style>
 
 <body class="w856">
     <div id="app" class="applang">
@@ -195,23 +201,23 @@
                             <div data-v-b73557e2="" class="back"> <a href="{{route('user.profile')}}"><img data-v-b73557e2=""
                                         src="{{ asset('') }}static/img/eroo.png"
                                         alt=""></a></div>
-                            <!---->
-                            <!---->
-                            <!---->
+
+
+
                             <div data-v-b73557e2="" class="name tac"> My income </div>
-                            <!---->
-                            <!---->
-                            <!---->
+
+
+
                             <div data-v-b73557e2="" class="flex1"></div>
-                            <!---->
-                            <!---->
-                            <!---->
-                            <!---->
-                            <!---->
+
+
+
+
+
                             <div data-v-b73557e2="" class="head_right"></div>
                         </div>
                         <div data-v-b73557e2="">
-                            <!---->
+
                         </div>
                     </div>
                 </div>
@@ -243,7 +249,6 @@
                                 </form>
                             </div>
 
-                            <div data-v-73b46d99="" data-v-6e2d35de="" class="cname"> Revenue distribution </div>
                             <ul data-v-73b46d99="" data-v-6e2d35de="" class="setList">
                                 <li data-v-73b46d99="" data-v-6e2d35de="" id="openPopupBtn"> All <img data-v-73b46d99=""
                                         data-v-6e2d35de=""
@@ -256,7 +261,7 @@
                                         src="{{ asset('') }}static/img/bb.png"
                                         alt=""></li>
                             </ul>
-                            <!---->
+
 
 
 
@@ -270,38 +275,41 @@
                                                 <?php
                                                 date_default_timezone_set('UTC');
                                                 $cnt = 0; ?>
-                                                @foreach($level_income as $value)
-                                                <li data-v-8b8e62ac="">
+                                                <?php if (count($level_income) > 0) { ?>
+                                                    @foreach($level_income as $value)
+                                                    <li data-v-8b8e62ac="">
 
 
 
-                                                    <div data-v-8b8e62ac="" class="flex">
-                                                        <div data-v-8b8e62ac="" class="title">{{$value->remarks}}</div>
-                                                        <div data-v-8b8e62ac="" class="amount">{{$value->comm}} USDT</div>
-                                                    </div>
-                                                    <div data-v-8b8e62ac="" class="flex">
-                                                        <div data-v-8b8e62ac="" class="time">{{ date('D, d M Y H:i:s', strtotime($value->created_at)) }}</div>
-                                                        <div data-v-8b8e62ac="" class="str"><span data-v-8b8e62ac=""
-                                                                class="s1"></span>
-                                                            Completed </div>
-                                                    </div>
+                                                        <div data-v-8b8e62ac="" class="flex">
+                                                            <div data-v-8b8e62ac="" class="title">{{$value->remarks}}</div>
+                                                            <div data-v-8b8e62ac="" class="amount">{{$value->comm}} USDT</div>
+                                                        </div>
+                                                        <div data-v-8b8e62ac="" class="flex">
+                                                            <div data-v-8b8e62ac="" class="time">{{ date('D, d M Y H:i:s', strtotime($value->created_at)) }}</div>
+                                                            <div data-v-8b8e62ac="" class="str"><span data-v-8b8e62ac=""
+                                                                    class="s1"></span>
+                                                                Completed </div>
+                                                        </div>
 
 
 
 
-                                                </li>
+                                                    </li>
 
-                                                @endforeach
-
+                                                    @endforeach
+                                                <?php } else { ?>
+                                                    <li>
+                                                        <div class="van-list__finished-text">No Data</div>
+                                                    </li>
+                                                <?php } ?>
                                             <?php } ?>
 
                                         </ul>
 
 
                                         {{ $level_income->withQueryString()->links() }}
-                                        <div class="van-list__finished-text">No more</div>
                                         <div class="van-list__placeholder"></div>
-                                        <!-- {{ $level_income->withQueryString()->links() }} -->
 
                                     </div>
                                 </div>
@@ -318,15 +326,15 @@
                                     <div data-v-554f6835="" class="scroll">
                                         <div data-v-554f6835="" class="ul">
                                             <div data-v-554f6835="">
-                                                <div data-v-554f6835="" class="item"> <a href="{{('roi-bonus')}}">Income<a></div>
+                                                <div data-v-554f6835="" class="item"> <a href="{{route('user.roi-bonus')}}">Income<a></div>
                                             </div>
 
 
                                             <div data-v-554f6835="">
-                                                <div data-v-554f6835="" class="item"> <a href="{{('record')}}">Deposit</a></div>
+                                                <div data-v-554f6835="" class="item"> <a href="{{route('user.DepositHistory')}}">Deposit</a></div>
                                             </div>
                                             <div data-v-554f6835="">
-                                                <div data-v-554f6835="" class="item"> <a href="{{('WithdrawHistory')}}">Withdrawal</a></div>
+                                                <div data-v-554f6835="" class="item"> <a href="{{route  ('user.Withdraw-History')}}">Withdrawal</a></div>
                                             </div>
 
 
@@ -343,7 +351,7 @@
                                 <div class="van-picker__toolbar"><button type="button"
                                         class="van-picker__cancel">Cancel</button><button type="button"
                                         class="van-picker__confirm">Confirm</button></div>
-                                <!---->
+
                                 <div class="van-picker__columns" style="height: 264px;">
                                     <div class="van-picker-column">
                                         <ul class="van-picker-column__wrapper"
@@ -385,12 +393,12 @@
                                     <div class="van-hairline-unset--top-bottom van-picker__frame" style="height: 44px;">
                                     </div>
                                 </div>
-                                <!---->
+
                             </div>
                         </div>
                     </div>
                 </div>
-                <!---->
+
             </div>
         </div>
         <div data-v-a7d12cfc="" class="global-loading default" style="display: none;">
@@ -426,13 +434,11 @@
 
     <script>
         window.onload = function() {
-            // 禁用双指放大
             document.addEventListener("touchstart", function(event) {
                 if (event.touches.length > 1) {
                     event.preventDefault();
                 }
             });
-            // 禁用双击放大
             let lastTouchEnd = 0;
             document.addEventListener(
                 "touchend",
@@ -464,10 +470,10 @@
 
     <div class="van-toast van-toast--middle van-toast--success" style="z-index: 2001; display: none;"><i
             class="van-icon van-icon-success van-toast__icon">
-            <!----></i>
+        </i>
         <div class="van-toast__text">Login successful</div>
     </div>
-    <!---->
+
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Equvia Strategy</title>
+    <title>{{siteName()}} Strategy</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#fff">
@@ -14,6 +14,8 @@
     <meta name="360-fullscreen" content="true">
     <meta name="renderer" content="webkit">
     <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="{{ asset('2.png') }}" >
+
     <script>
         window.addEventListener('error', function(event) {
             if (event.message.indexOf("Unexpected token '<'") > -1) {

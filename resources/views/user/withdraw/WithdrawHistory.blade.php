@@ -80,6 +80,91 @@
             object-fit: cover;
         }
     </style>
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: flex-start;
+            list-style: none;
+            padding-left: 0;
+            margin: 20px auto;
+            gap: 6px;
+            max-width: 480px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            scrollbar-width: thin;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .pagination::-webkit-scrollbar {
+            height: 6px;
+            display: none;
+        }
+
+        .pagination::-webkit-scrollbar-thumb {
+            background: #35604b;
+            border-radius: 10px;
+        }
+
+        .pagination::-webkit-scrollbar-track {
+            background: #35604b;
+        }
+
+        .page-item {
+            display: inline-block;
+            background: #35604b;
+
+        }
+
+        .page-link {
+            display: block;
+            padding: 8px 14px;
+            color: #06140d;
+            background-color: #35604b;
+            border: 1px solid #35604b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .page-link:hover {
+            background-color: #06140d;
+            color: white;
+        }
+
+        .page-item.active .page-link {
+            background-color: #06140d;
+            color: white;
+            border-color: #35604b;
+            font-weight: 600;
+        }
+
+        .page-item.disabled .page-link {
+            color: #fff;
+            background-color: #eee;
+            border-color: #ddd;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .page-link {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .page-link {
+            background-color: #113926;
+            color: #fff;
+            border: 1px solid #35604b;
+        }
+
+        .page-link:hover,
+        .page-item.active .page-link {
+            background-color: #06140d;
+            color: #fff;
+        }
+    </style>
+
     <link href="/js1743619988925/app.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
     <link href="/js1743619988925/axios.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
     <link href="/js1743619988925/compressorjs.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
@@ -110,7 +195,7 @@
     <script charset="utf-8" src="/js1743619988925/chunk-7f362702.d968e27a.1743619988925.js?v=1743619988925"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-05e98ee6.bea82fa2.css">
     <script charset="utf-8" src="/js1743619988925/chunk-05e98ee6.d968e27a.1743619988925.js?v=1743619988925"></script>
-    <link rel="icon" href="{{ asset('static/img/logo2.png') }}">
+    <link rel="icon" href="{{ asset('2.png') }}">
 
 </head>
 
@@ -129,7 +214,7 @@
 
 
 
-                            <div data-v-b73557e2="" class="name tac"> My Transaction </div>
+                            <div data-v-b73557e2="" class="name tac"> My Withdraw </div>
 
 
 
@@ -172,7 +257,6 @@
                                 </form>
                             </div>
 
-                            <!-- <div data-v-73b46d99="" data-v-6e2d35de="" class="cname"> Revenue distribution </div> -->
                             <ul data-v-73b46d99="" data-v-6e2d35de="" class="setList">
                                 <li data-v-73b46d99="" data-v-6e2d35de="" id="openPopupBtn"> All <img data-v-73b46d99=""
                                         data-v-6e2d35de=""
@@ -199,35 +283,44 @@
                                                 <?php
                                                 date_default_timezone_set('UTC');
                                                 $cnt = 0; ?>
-                                                @foreach($withdraw_report as $value)
+
+                                                <?php if (count($withdraw_report) > 0) { ?>
+
+                                                    @foreach($withdraw_report as $value)
 
 
-                                                <li data-v-8b8e62ac="">
-
-
-
-                                                    <div data-v-8b8e62ac="" class="flex">
-                                                        <div data-v-8b8e62ac="" class="title">Withdrawal</div>
-                                                        <div data-v-8b8e62ac="" class="amount">{{$value->amount}} USDT</div>
-                                                    </div>
-                                                    <div data-v-8b8e62ac="" class="flex">
-                                                        <div data-v-8b8e62ac="" class="time">{{ date('D, d M Y H:i:s', strtotime($value->created_at)) }}</div>
-                                                        <div data-v-8b8e62ac="" class="str"><span data-v-8b8e62ac=""
-                                                                class="s1"></span>
-                                                            <?= ($value->status == "Active") ? 'completed' : $value->status ?> </div>
-                                                    </div>
+                                                    <li data-v-8b8e62ac="">
 
 
 
+                                                        <div data-v-8b8e62ac="" class="flex">
+                                                            <div data-v-8b8e62ac="" class="title">Withdrawal</div>
+                                                            <div data-v-8b8e62ac="" class="amount">{{$value->amount}} USDT</div>
+                                                        </div>
+                                                        <div data-v-8b8e62ac="" class="flex">
+                                                            <div data-v-8b8e62ac="" class="time">{{ date('D, d M Y H:i:s', strtotime($value->created_at)) }}</div>
+                                                            <div data-v-8b8e62ac="" class="str"><span data-v-8b8e62ac=""
+                                                                    class="s1"></span>
+                                                                <?= ($value->status == "Active") ? 'completed' : $value->status ?> </div>
+                                                        </div>
 
-                                                </li>
 
-                                                @endforeach
 
+
+                                                    </li>
+
+                                                    @endforeach
+
+                                                <?php } else { ?>
+                                                    <li>
+                                                         <div class="van-list__finished-text">No Data</div>
+                                                    </li>
+                                                <?php } ?>
                                             <?php } ?>
 
                                         </ul>
-                                        <div class="van-list__finished-text">No more</div>
+                                        {{ $withdraw_report->withQueryString()->links() }}
+
                                         <div class="van-list__placeholder"></div>
                                     </div>
                                 </div>
@@ -244,15 +337,15 @@
                                     <div data-v-554f6835="" class="scroll">
                                         <div data-v-554f6835="" class="ul">
                                             <div data-v-554f6835="">
-                                                <div data-v-554f6835="" class="item"> <a href="{{('roi-bonus')}}">Income<a></div>
+                                                <div data-v-554f6835="" class="item"> <a href="{{route('user.roi-bonus')}}">Income<a></div>
                                             </div>
 
 
                                             <div data-v-554f6835="">
-                                                <div data-v-554f6835="" class="item"> <a href="{{('record')}}">Deposit</a></div>
+                                                <div data-v-554f6835="" class="item"> <a href="{{route('user.DepositHistory')}}">Deposit</a></div>
                                             </div>
                                             <div data-v-554f6835="">
-                                                <div data-v-554f6835="" class="item"> <a href="{{('WithdrawHistory')}}">Withdrawal</a></div>
+                                                <div data-v-554f6835="" class="item"> <a href="{{route('user.Withdraw-History')}}">Withdrawal</a></div>
                                             </div>
 
 
