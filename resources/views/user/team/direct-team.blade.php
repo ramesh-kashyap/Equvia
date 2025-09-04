@@ -1,78 +1,169 @@
-<html class="pc" style="font-size: 50px;background:white;">
+<html data-dpr="1" style="font-size: 42.5px; max-width: 425px; margin: 0px auto;">
 
 <head>
-   <meta charset="utf-8">
-   <title>{{ siteName() }}</title>
-   <style>
-      * {
-         margin: 0;
-         padding: 0;
-         box-sizing: border-box;
-      }
+    <meta charset="utf-8">
+    <title>{{siteName()}} Strategy</title>
+
+    <link rel="icon" href="{{ asset('2.png') }}">
+
+    <script>
+        window.addEventListener('error', function(event) {
+            if (event.message.indexOf("Unexpected token '<'") > -1) {
+                location.reload();
+            }
+        });
+        if ('standalone' in window.navigator && window.navigator.standalone) {
+            var noddy,
+                remotes = false;
+            document.addEventListener(
+                'click',
+                function(event) {
+                    noddy = event.target;
+                    while (noddy.nodeName !== 'A' && noddy.nodeName !== 'HTML') {
+                        noddy = noddy.parentNode;
+                    }
+                    if (
+                        'href' in noddy &&
+                        noddy.href.indexOf('http') !== -1 &&
+                        (noddy.href.indexOf(document.location.host) !== -1 || remotes)
+                    ) {
+                        event.preventDefault();
+                        document.location.href = noddy.href;
+                    }
+                },
+                false
+            );
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
       html,
       body {
          width: 100%;
       }
 
-      #startLogo {
-         width: 100%;
-         min-width: 7.5rem;
-         height: 100vh;
-         max-width: 8.5rem;
-         position: fixed;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         z-index: 1000000;
-         background: #020503;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         display: none;
-      }
+        #startLogo {
+            width: 100%;
+            min-width: 7.5rem;
+            height: 100vh;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000000;
+            background: #020503;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
 
-      #startLogo img {
-         width: 100%;
-         height: 100vh;
-         object-fit: cover;
-      }
-   </style>
-   <link href="{{ asset('') }}static/css/app.6328f701.css" rel="preload" as="style">
-   <link href="{{ asset('') }}static/css/vant.d14f5539.css" rel="preload" as="style">
-   <link href="{{ asset('') }}static/css/vant.d14f5539.css" rel="stylesheet">
-   <link href="{{ asset('') }}static/css/app.6328f701.css" rel="stylesheet">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-7f362702.6a53b834.css">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-5576a184.9f52f39a.css">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-60c8a75a.d6f6b692.css">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-a7d8f170.c87a4291.css">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-00b1464f.674dbd13.css">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-67912ed2.ae8d438d.css">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-0b116a05.250ed6be.css">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-0d09da43.555d1171.css">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-115aa5d8.9d416f08.css">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-5f936813.7deb1a32.css">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-17ff7542.34892cae.css">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-747287e5.9009fee8.css">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-bb17762c.89cc2aa3.css">
-   <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-27780c3e.ddc32929.css">
-   <link rel="icon" href="{{ asset('static/img/logo2.png') }}">
-</head>
+        #startLogo img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        x-vue-echarts {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            min-width: 0
+        }
+
+        .vue-echarts-inner {
+            flex-grow: 1;
+            min-width: 0;
+            width: auto !important;
+            height: auto !important
+        }
+    </style>
+    <link href="{{ asset('') }}static/css/chunk-02c8c6ba.f02a30c2.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-03c1575b.3035c347.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-0566fd30.1e11c8e5.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-08efff57.d1c57c5a.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-146e34fc.2bd67213.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-19b6a8e4.44d66000.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-19e32f24.1162d6ae.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-1cc9e062.bb2c1f95.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-1ee97074.f442ee68.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-23dc19ae.78dc4650.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-256b9400.46bcaa64.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-25a0e88c.c5a59136.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-267a32e6.0d9f6f8d.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-29126459.fe5ce88a.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-2a53918e.7e78b090.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-2c3295d4.68d7e20d.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-2cd18a7d.c47d657b.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-2ec80ff3.d777b076.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-3d3dcf32.c3875b9f.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-4e5f1a7a.de8b1aed.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-50b10c92.241dffcb.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-51107498.c550911e.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-54637b65.30970f55.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5872ff8d.12cc21e8.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5a04fba1.4a4b249e.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5b6ac7a8.56edffb4.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5c64915e.135fdcf8.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5f0d6286.33002893.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-616795b6.5cc48433.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-6c7affd0.660ce06f.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-6da4369c.fd57190d.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-6de1bc62.d01efc86.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-7136a154.e2d1f0d3.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-74147bd1.876e2c63.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-757ca954.b15553a7.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-75ad7c0e.b67017d0.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-785ac04e.d5101bf5.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-78742a63.3df502ae.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-78fb2058.3f8e5458.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-7aea5d2b.f8ad3983.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-7c80ecb0.8195c814.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-7dfd5052.01550f14.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-84d1de02.29c87bce.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-891177f6.0e8a2793.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-926160c6.52e9758a.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-a704e872.b44651a8.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-a961b78c.b074a75d.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-ad302a42.529caf45.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-b205bdbe.123b5f57.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-b45589e4.41a14156.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-b68f65e0.f4e5dd07.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-bc37b504.24b0d89b.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-bf393944.1940f3bc.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-c0a3e2fa.5d784513.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-c5fb740a.89eacbb4.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-dab37d56.632af7dd.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-ded9edba.aa2bfcd6.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-ea0143b0.0982c731.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-ee39cd88.8adb81bc.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-f6532530.0eb12746.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="stylesheet">
+    <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
 <style>
-   .pagination {
+      .pagination {
       display: flex;
       justify-content: center;
       list-style: none;
       padding-left: 0;
       margin: 20px 0;
       gap: 6px;
-   }
-
-   .page-item {
+      }
+      .page-item {
       display: inline-block;
-   }
-
-   .page-link {
+      }
+      .page-link {
       display: block;
       padding: 8px 14px;
       color: rgb(25 140 82 / 11%);
@@ -82,158 +173,180 @@
       text-decoration: none;
       font-weight: 500;
       transition: background-color 0.3s, color 0.3s;
-   }
-
-   .page-link:hover {
+      }
+      .page-link:hover {
       background-color: rgb(25 140 82 / 11%);
       color: white;
-   }
-
-   .page-item.active .page-link {
+      }
+      .page-item.active .page-link {
       background-color: rgb(25 140 82 / 11%);
       color: white;
       border-color: rgb(25 140 82 / 11%);
       font-weight: 600;
-   }
-
-   .page-item.disabled .page-link {
+      }
+      .page-item.disabled .page-link {
       color: #aaa;
       background-color: #eee;
       border-color: #ddd;
       cursor: not-allowed;
       pointer-events: none;
-   }
-
-   .page-link {
+      }
+      .page-link {
       transition: all 0.2s ease-in-out;
-   }
-
-   .page-link {
+      }
+      .page-link {
       background-color: #222;
       color: rgb(25 140 82 / 11%);
       border: 1px solid rgb(25 140 82 / 11%);
-   }
-
-   .page-link:hover,
-   .page-item.active .page-link {
+      }
+      .page-link:hover,
+      .page-item.active .page-link {
       background-color: rgb(25 140 82 / 11%);
       color: #fff;
-   }
-</style>
+      }
+   </style>
+ 
+</head>
 
-<body class="mein_cn">
-   <div id="app" class="applang">
-      <div data-v-6e2d35de="" data-v-4f616302="" class="page" style="">
-         <div data-v-6e2d35de="" class="headers">
-            <div data-v-4f616302="" data-v-6e2d35de="">
-               <div data-v-b73557e2="" data-v-4f616302="" class="head" data-v-6e2d35de="">
-                  <div data-v-b73557e2="" class="safe"></div>
-                  <div data-v-b73557e2="" class="container flex">
-                     <div data-v-b73557e2="" class="back">
-                        <a href="{{ route('user.level-team') }}"> <img data-v-b73557e2=""
-                              src="{{ asset('') }}static/img/kumar.png" alt="">
+<body>
+    <div id="app">
+        <div data-v-6b868a30="" data-v-6a8ea654="" class="page">
+           <div data-v-6b868a30="" class="headers">
+                <div data-v-7c19a79c="" class="tw-px-16px tw-w-full tw-h-full tw-flex tw-items-center"
+                    data-v-6b868a30="" style="background-color: transparent;">
+                    <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
+                        <a href="{{ route('user.asset') }}">
+                            <svg data-v-3f1a7394="" aria-hidden="true"
+                                class="svg-icon"
+                                style="color: rgba(255, 255, 255, 1); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                                <use data-v-3f1a7394="" xlink:href="#svg-icon-arrow-back"></use>
+                            </svg>
                         </a>
-                     </div>
-                     <div data-v-b73557e2="" class="name tac"> Community List
-                     </div>
-                     <div data-v-b73557e2="" class="flex1"></div>
-                     <div data-v-b73557e2="" class="head_right"></div>
-                  </div>
-                  <div data-v-b73557e2=""></div>
-               </div>
-               <div data-v-4f616302="" data-v-6e2d35de="" class="container">
-                  <div data-v-0d336a05="" data-v-4f616302="" class="tab_list" data-v-6e2d35de="">
-                     @for ($l = 1; $l <= 3; $l++)
-                        <div id="van-tabs-1-0" role="tab"
-                        class="van-tab van-tab--line van-tab--grow {{ Session::get('selected_level') == $l ? 'van-tab--active' : '' }}"
-                        style="background: {{ Session::get('selected_level') == $l ? 'rgb(0, 188, 129)':'rgb(25 140 82 / 11%)'  }};
-                           border-radius: 5px; padding: 8px 15px; margin: 5px;">
-                        <a href="{{ route('user.referral-team') }}?selected_level={{ $l }}"
-                           style="color: {{ Session::get('selected_level') == $l ? '#000' : '#fff' }};
-                              font-weight: bold; text-decoration: none;">
-                           <span class="van-tab__text">
-                              Level {{ $l }}
-                           </span>
-                        </a>
-                  </div>
-                  @endfor
-               </div>
+                        
+                    </div>
+                    <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
+                        style="color: rgba(255, 255, 255, 1);"><span>Team List</span></div>
+                    <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
+                        <!-- <a href="{{ route('user.lang') }}">
+                            <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                        </a> -->
+                        
+                        <div>
+                            <a href="{{ route('user.notice') }}">
+                                <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                            </a>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-      <div data-v-6e2d35de="" id="scroll" class="content-container">
-         <div data-v-6e2d35de="" id="content" class="content-scroll">
-            <div data-v-4f616302="" data-v-6e2d35de="" class="container" style="padding-top: 0.5rem;">
-               <?php if (is_array($direct_team) || is_object($direct_team)) { ?>
-                  <?php $cnt = $direct_team->perPage() * ($direct_team->currentPage() - 1); ?>
-                  @foreach ($direct_team as $value)
-                  <ul data-v-4f616302="" data-v-6e2d35de="" class="income-com">
-                     <li data-v-4f616302="" data-v-6e2d35de="">
-                        <div data-v-4f616302="" data-v-6e2d35de="" class="title">ID</div>
-                        <div data-v-4f616302="" data-v-6e2d35de="" class="val">
-                           {{ $value->username }}
+            <div data-v-6b868a30="" id="scroll" class="content-container">
+                <div data-v-6b868a30="" id="content" class="content-scroll">
+                    <div data-v-6a8ea654="" data-v-6b868a30="" class="page-team-record tw-min-h-full tw-p-16px">
+                        <ul data-v-6a8ea654="" data-v-6b868a30=""
+                            class="tab-list tw-mb-16px tw-h-40px tw-p-4px tw-flex tw-justify-between tw-items-stretch tw-bg-white1 tw-rounded-10px">
+                            @for ($l = 1; $l <= 3; $l++)
+                            <li data-v-6a8ea654="" data-v-6b868a30=""
+                                class="tab tw-flex-1 tw-h-32px tw-flex tw-justify-center tw-items-center tw-text-secondary tw-rounded-8px tw-text-primary {{ Session::get('selected_level') == $l ? 'tw-bg-primary tw-bg-opacity-10' : '' }}">
+                                <a href="{{ route('user.referral-team') }}?selected_level={{ $l }}">{{ $l }} Gen</a>
+                             </li>
+                                @endfor
+                        </ul>
+                        <div data-v-6a8ea654="" class="van-pull-refresh" data-v-6b868a30="">
+                            <div class="van-pull-refresh__track" style="transition-duration: 0ms;">
+                                <div class="van-pull-refresh__head" style="height: 50px;"></div>
+                                <div data-v-6a8ea654="" role="feed" class="van-list" style="overflow:scroll; height:100%">
+                                    <?php if(is_array($direct_team) || is_object($direct_team)){ ?>
+
+                        <?php $cnt = $direct_team->perPage() * ($direct_team->currentPage() - 1); ?>
+                        @foreach ($direct_team as $value)
+                                    <div data-v-6a8ea654=""
+                                        class="tw-relative tw-mb-12px tw-px-16px tw-py-12px tw-bg-white1 tw-rounded-10px">
+                                        <div data-v-6a8ea654=""
+                                            class="tw-mb-16px tw-pb-14px tw-h-74px tw-flex tw-items-center van-hairline--bottom">
+                                            <div data-v-6a8ea654="" class="tw-flex-1 tw-flex tw-items-center"><img
+                                                    data-v-6a8ea654=""
+                                                    src="https://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240821/6f1c046d21d2d1e024a4052d47d58a4e.png"
+                                                    alt="" class="tw-mr-8px tw-w-36px tw-h-36px tw-rounded-full">
+                                                <ul data-v-6a8ea654="">
+                                                    <li data-v-6a8ea654="">ID：{{ $value->username }}</li>
+                                                    <li data-v-6a8ea654="" class="tw-text-secondary tw-text-12px"> (+1
+                                                        456****2584) </li>
+                                                    <li data-v-6a8ea654="" class="tw-text-secondary tw-text-12px">
+                                                       {{ date('D, d M Y H:i:s', strtotime($value->created_at)) }} </li>
+                                                    <li data-v-6a8ea654=""><span data-v-6a8ea654=""
+                                                            class="tw-text-secondary tw-text-12px">User
+                                                            level：</span><span data-v-6a8ea654=""
+                                                            style="text-transform: uppercase;">SK 0</span></li>
+                                                </ul>
+                                            </div>
+                                            <!-- <div data-v-6a8ea654=""
+                                                class="team-count tw--mr-16px tw-h-32px tw-flex tw-justify-center tw-items-center tw-text-white tw-bg-primary tw-rounded-tl-full tw-rounded-bl-full tw-shadow-md">
+                                                0 Users </div> -->
+                                        </div>
+                                        <ul data-v-6a8ea654="" class="tw-flex tw-justify-between tw-items-center">
+                                            <li data-v-6a8ea654="" class="tw-flex-1 tw-text-center">
+                                                <div data-v-6a8ea654="" class="tw-mb-4px"> 6 USDT </div>
+                                                <div data-v-6a8ea654="" class="tw-text-secondary tw-text-12px"> Total
+                                                    Income </div>
+                                            </li>
+                                            <li data-v-6a8ea654="" class="tw-flex-1 tw-text-center">
+                                                <div data-v-6a8ea654="" class="tw-mb-4px"> {{ $value->investments->sum('amount') }} USDT </div>
+                                                <div data-v-6a8ea654="" class="tw-text-secondary tw-text-12px"> Total
+                                                    Deposit </div>
+                                            </li>
+                                            <li data-v-6a8ea654="" class="tw-flex-1 tw-text-center">
+                                                <div data-v-6a8ea654="" class="tw-mb-4px"> {{ $value->withdrawals->sum('amount') }} USDT </div>
+                                                <div data-v-6a8ea654="" class="tw-text-secondary tw-text-12px"> Total
+                                                    Withdrawal </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    @endforeach
+                                   <?php }?>
+                           
+                                    <!-- <div class="van-list__finished-text">No more</div> -->
+                                    <div class="van-list__placeholder"></div>
+                                    
+                                </div>
+                            </div>
                         </div>
-                     </li>
-                     <li data-v-4f616302="" data-v-6e2d35de="">
-                        <div data-v-4f616302="" data-v-6e2d35de="" class="title">Deposit</div>
-                        <div data-v-4f616302="" data-v-6e2d35de="" class="val">
-                           {{ $value->investment->sum('amount') ? $value->investment->sum('amount') : 0 }}
-                           USDT
-                        </div>
-                     </li>
-                     <li data-v-4f616302="" data-v-6e2d35de="">
-                        <div data-v-4f616302="" data-v-6e2d35de="" class="title">Join Date</div>
-                        <div data-v-4f616302="" data-v-6e2d35de="" class="val">
-                           {{ date('D, d M Y H:i:s', strtotime($value->created_at)) }}
-                        </div>
-                     </li>
-                     <li data-v-4f616302="" data-v-6e2d35de="">
-                        <div data-v-4f616302="" data-v-6e2d35de="" class="title">Status</div>
-                        <div data-v-4f616302="" data-v-6e2d35de="" class="val">
-                           {{ $value->active_status }}
-                        </div>
-                     </li>
-                  </ul>
-                  @endforeach
-               <?php } ?>
-               {{ $direct_team->withQueryString()->links() }}
+                        <!---->
+                        <div class="pagination">
+                           {{ $direct_team->withQueryString()->links() }}
+                           </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
-   <div data-v-a7d12cfc="" class="global-loading default" style="display: none;">
-      <div data-v-a7d12cfc="" class="global-spinner"><img data-v-a7d12cfc=""
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAArCAYAAAADgWq5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAF6WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMi0wNC0xMlQxNTo0MTowNiswODowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDQtMTJUMTU6NDM6MTQrMDg6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDQtMTJUMTU6NDM6MTQrMDg6MDAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NWU0ZGQwNmEtMWExNS1kYjRmLTkyZmQtZjIzNTAwNzJkMGNmIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjlGMTI0NjE1NTQzQzExRThCQzhCQzEyQjVDOUMzOEJGIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6OUYxMjQ2MTU1NDNDMTFFOEJDOEJDMTJCNUM5QzM4QkYiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5RjEyNDYxMjU0M0MxMUU4QkM4QkMxMkI1QzlDMzhCRiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5RjEyNDYxMzU0M0MxMUU4QkM4QkMxMkI1QzlDMzhCRiIvPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo1ZTRkZDA2YS0xYTE1LWRiNGYtOTJmZC1mMjM1MDA3MmQwY2YiIHN0RXZ0OndoZW49IjIwMjItMDQtMTJUMTU6NDM6MTQrMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+hddYGwAABHhJREFUWIXN2XuoFVUUx/HPXG9WmmIPJQtNwQwqe5paEI1pCBZCRvVXDwlKCsLpIURgIZZG1KEXRVJJWPRnIv3TAw/0UCsrUlBLLQ1T01Ip6eZr+mPPOHOP56jXcz3XHxzu3nv2nv29a/bstdaeyJIXdYOG4bLs77k4AzvQFyvxKw7gJ/xZHpjGSZcmam8Csg/uxU0Yi8HHMGYz1uAtfIh/uzrp8QBPwFO4HgfR1oWx52e/CViX3ef9rkwedWFJXIQncE+da7uwHcuwF1uQClbvi1G4tMF9V+GuNE5+6C7gUzANT2Joqb0Dm/A6XsO+I9yjD/7DaMzArTi1ps/iNE6mNAvcjqfxKE4rtS/BXHxytAnqqBcuwHQ8XnNtP0amcfJLo8FHWn/98QIeK8Fuw3W48ThhCbvFBsxEhMWla+3YEFUrfbsKfDpewcOKR/e5sBssPU7QusqWwTTBurlWN+rfCHg67i7V3xasurFZwHpK42QBxmFP1jQkqlbW1utbD3g0ygt7Fe7T2QLdrjROVmBSqWlkVK28WtuvHvB7pfImXNvNbA2VxsmXeKnU9FBUrVxT7lMLHGNkVt6JO/DPiQKspzROZuC3UtM7UbVyiLMMPBDzSvWFWHFC6RprrLCbwCU4ZOUy8G24OivvxCwneN02UhonWwSD5Xo3L5SBpypii/mCu+1JzRHcOwyPqpVhFMD9MSYr78OnLUWrozRO1gk7FCE8mEwBPE7hzVbiu5bSNdabpfKkqFqJcuCr0Dsrr1ETZPegPiiVJ6dxkubAQwW/TohTTxa1K4x3IKpWLmwToqfhWWMqpDEnhdI42SrENYSYpqNN2O+uyBojfN16tPqKqpV2fJNVD+LK3MJbS/0GtRqskdI42Y+zsmob/moTlkHuVQ7qHKifDCpnJtvbBMg8XmjD2S1HaqCoWhmgCDl3o1e+S3xf6tey6OwY1K4IxrZhcw68rNRpjJNHA4WsG7ancbI7B/5CcagxCv1aTVarLKS8OaumAuMh17xFsVb64YaW0tVXO27PyvuxiAL4oJC35Xq+dVwNdbEiDv5btmzL4eXcUnmEwpn0lGYpwoVFaZykdAbeJZziEB7HG0JY13JF1crlyE+BdmQsODynm60ImkcIS6WliqqVQXhO8MCEg5Yf8+u1wFvxANbjfoUHbImiaqU3XsbErGkf5qRx0pH3qXfcOj/79YSeFXaG3JAz0zjZUO7QzIF2tymLyp7BI4oXbYVg7U7qceCoWhmKBRhfal6NKWmcHPYOdeX0/EQoxkc6wy7FxDROfq83oKcsfIvw+MfXtC8VLLuj0cBmgXsLb/RIfCVkK72FrXGfELjsEXLGFHcK580DdI5zd2F2GieVo03YLPCDwqF3nmr1Ek6N1grfN7Zn/8xenNPgHsuFbxw/H8uEzQLvVLwH+UZ/pnDOQfg0UKsD2biPMS+Nk5VdmbBZ4IVCVjtVyAXPE2LYsjqEtGs9vhWCrM8cp1NqFviA4OdzXz9ESLcGC+Abhe9yy4Vk8o8m5/M/9rYMi48jzWIAAAAASUVORK5CYII="
-            alt=""></div>
-   </div>
-   </div>
-   <script>
-      window.onload = function() {
-         document.addEventListener("touchstart", function(event) {
-            if (event.touches.length > 1) {
-               event.preventDefault();
-            }
-         });
-         let lastTouchEnd = 0;
-         document.addEventListener(
-            "touchend",
-            function(event) {
-               const now = new Date().getTime();
-               if (now - lastTouchEnd <= 300) {
-                  event.preventDefault();
-               }
-               lastTouchEnd = now;
-            },
-            false
-         );
-         document.addEventListener("gesturestart", function(event) {
-            event.preventDefault();
-         });
-      };
-   </script>
-   <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2036; display: none;">
-      <div class="van-toast__text">Incorrect password format</div>
-   </div>
+            <!---->
+            
+        </div>
+        <div class="van-overlay" style="display: none;">
+            <div class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
+                <div
+                    class="tw-w-100px tw-h-100px tw-flex tw-justify-center tw-items-center tw-bg-dark tw-bg-opacity-10 tw-rounded-10px">
+                    <div class="van-loading van-loading--circular"><span
+                            class="van-loading__spinner van-loading__spinner--circular"
+                            style="color: rgb(23, 114, 248); width: 1rem; height: 1rem;"><svg viewBox="25 25 50 50"
+                                class="van-loading__circular">
+                                <circle cx="50" cy="50" r="20" fill="none"></circle>
+                            </svg></span></div>
+                </div>
+            </div>
+        </div>
+        
+        <div data-v-4d1ba5fa="">
+            <!---->
+        </div>
+    </div>
+    <script src="/static/1756094289381/js/chunk-vendors.b893e1dd.js"></script>
+    <script src="/static/1756094289381/js/app.5acd7986.js"></script>
+    <div class="van-toast van-toast--middle van-toast--success" style="z-index: 2001; display: none;"><i
+            class="van-icon van-icon-success van-toast__icon">
+            <!----></i>
+        <div class="van-toast__text">Login successful</div>
+    </div>
 </body>
 
 </html>
