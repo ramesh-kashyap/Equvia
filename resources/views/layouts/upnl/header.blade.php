@@ -168,7 +168,8 @@
         content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
 </head>
 
-<body><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         style="position: absolute; width: 0; height: 0" aria-hidden="true" id="__SVG_SPRITE_NODE__">
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" id="svg-icon-address-book">
             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1653,14 +1654,15 @@
                         <a href="{{ route('user.lang') }}">
                             <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                         </a>
-                        <a href="{{ route('user.dashboard') }}">
-                            <img data-v-6b868a30="" src="{{ asset('static/icon/langu.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                        </a>
+                        
                         <div>
                             <a href="{{ route('user.notice') }}">
                                 <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                             </a>
                         </div>
+                        <a href="{{ route('user.Withdraw-History') }}">
+                            <img data-v-6b868a30="" src="{{ asset('static/icon/langu.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                        </a>
                         <!---->
                         <!---->
                     </div>

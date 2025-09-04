@@ -234,12 +234,10 @@
                     style="background-color: transparent;">
                     <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
                         <a href="{{ route('user.dashboard') }}">
-                            <svg data-v-3f1a7394="" aria-hidden="true" class="svg-icon"
-                                style="color: rgba(255, 255, 255, 1); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                                <use data-v-3f1a7394="" xlink:href="#svg-icon-arrow-back"></use>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                             </svg>
                         </a>
-                        <!---->
                     </div>
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
                         style="color: rgba(255, 255, 255, 1);"><span>Mine</span></div>
@@ -248,7 +246,7 @@
                             <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt=""
                                 class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                         </a>
-                        <!---->
+                        
                         <div>
                             <a href="{{ route('user.notice') }}">
                                 <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt=""
@@ -257,8 +255,8 @@
 
                             </a>
                         </div>
-                        <!---->
-                        <!---->
+                        
+                        
                     </div>
                 </div>
 
@@ -379,7 +377,7 @@
                                     <div data-v-6b868a30="" class="tw-text-12px tw-break-words tw-text-center"> Verify
                                     </div>
                                 </li>
-                                <li data-v-6b868a30=""
+                                <!-- <li data-v-6b868a30=""
                                     class="tw-mb-16px tw-w-1/4 tw-flex tw-flex-col tw-items-center">
                                     <svg data-v-3f1a7394="" aria-hidden="true" class="tw-mb-4px svg-icon"
                                         alt="" data-v-6b868a30=""
@@ -388,7 +386,7 @@
                                     </svg>
                                     <div data-v-6b868a30="" class="tw-text-12px tw-break-words tw-text-center"> Google
                                         Authenticator </div>
-                                </li>
+                                </li> -->
                                 <li data-v-6b868a30=""
                                     class="tw-mb-16px tw-w-1/4 tw-flex tw-flex-col tw-items-center">
                                     <!-- <svg data-v-3f1a7394="" aria-hidden="true" class="tw-mb-4px svg-icon" alt=""
@@ -505,7 +503,7 @@
                     </div>
                 </div>
             </div>
-            <!---->
+            
         </div>
         <div class="van-overlay" style="display: none;">
             <div class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
@@ -521,7 +519,7 @@
             </div>
         </div>
         <div data-v-4d1ba5fa="">
-            <!---->
+            
         </div>
     </div>
 
@@ -555,7 +553,7 @@
             }, 2000);
         }
     </script>
-    <!---->
+    
 </body>
 
 </html>

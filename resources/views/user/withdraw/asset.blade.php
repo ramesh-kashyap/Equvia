@@ -11,9 +11,9 @@
                                     </svg>
                                 </div>
                                 <div data-v-6b868a30="" class="tw-text-12px tw-opacity-80"> Total Assets (USDT) </div>
-                                <div data-v-6b868a30="" class="tw-text-28px tw-font-bold"> ${{ number_format(Auth::user()->available_balance(), 2) }} </div>
+                                <div data-v-6b868a30="" class=" tw-font-bold" style="font-size: 25px;"> ${{ number_format(Auth::user()->available_balance(), 2) }} </div>
                                 <div data-v-6b868a30=""
-                                    class="list tw-flex tw-justify-between tw-px-28px tw-py-16px tw-bg-white3 tw-bg-opacity-90 tw-rounded-8px">
+                                    class="list tw-flex tw-justify-between tw-px-28px tw-py-16px tw-bg-white3 tw-bg-opacity-90 tw-rounded-8px" style="margin-top:10px;">
                                     <div data-v-6b868a30="" class="item tw-flex-1 tw-px-4px tw-text-center">
                                         <div data-v-6b868a30="" class="tw-text-primary tw-text-18px">  {{ number_format(Auth::user()->available_balance(), 2) }} </div>
                                         <div data-v-6b868a30="" class="name tw-text-12px tw-text-secondary"> Flexible
@@ -32,7 +32,10 @@
                                 </div>
                             </div>
                             <div data-v-6b868a30=""
-                                class="tw-pt-28px tw-pb-12px tw-flex tw-justify-between tw-items-center tw-text-dark tw-bg-white3">
+                                class="tw-pt-28px tw-pb-12px tw-flex tw-justify-between tw-items-center tw-text-dark tw-bg-white1" style="background-color:#0d3220;  border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;">
                                 <div data-v-6b868a30="" class="tw-flex-1 tw-flex tw-justify-center tw-items-center">
                                 <!-- <svg data-v-3f1a7394="" aria-hidden="true" class="svg-icon" data-v-6b868a30=""
                                         style="width: 0.6588rem; height: 0.6588rem; font-size: 0.6588rem;">
@@ -48,12 +51,12 @@
                                     <a href="{{ route('user.Withdraw') }}"><span data-v-6b868a30="" class="tw-pl-8px">Withdraw</span></a></div>
                             </div>
                         </div>
-                        <div class="revenue" data-v-6b868a30="">
+                        <div class="revenue" data-v-6b868a30="" style="margin-top: 30px;">
                             <div class="tw-mb-12px tw-flex tw-justify-between tw-items-center">
                                 <div class="tw-text-16px">Total Income</div>
                                 <div class="tw-flex tw-items-center"><span class="tw-pr-4px tw-text-14px">Last 7
                                         days</span><i class="van-icon van-icon-arrow-down">
-                                        <!----></i></div>
+                                        </i></div>
                             </div>
                             <div class="tw-bg-white3 tw-rounded-10px">
                                 <div class="tw-px-14px tw-py-16px">

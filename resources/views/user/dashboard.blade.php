@@ -7,7 +7,7 @@
         white-space: nowrap;
         box-sizing: border-box;
         background: transparent;
-        /* optional */
+        /* optional */  
         padding: 5px 0;
     }
 
@@ -56,7 +56,7 @@
                 <div data-v-77e1eeea="" role="alert" class="van-notice-bar" vertical=""
                     style="color: rgb(24, 25, 28); background: none;"><i class="van-icon van-notice-bar__left-icon">
                         <img src="{{ asset('static/icon/speaker.png') }}" class="van-icon__image">
-                        <!----></i>
+                        </i>
                     <div class="marquee-container">
                         <div class="marquee-item">
                             Welcome to Equvia! We’re excited to see your success!
@@ -140,7 +140,7 @@
                                             alt="">
                                         <div data-v-40a6c17a="" class="coin-name">
                                             <div data-v-40a6c17a="" style="line-height: 0.64rem;">BTC</div>
-                                            <!---->
+                                            
                                         </div>
                                     </div>
                                     <div data-v-40a6c17a="" class="list-price" id="btc-rate">$64312.76</div>
@@ -156,7 +156,7 @@
                                             alt="">
                                         <div data-v-40a6c17a="" class="coin-name">
                                             <div data-v-40a6c17a="" style="line-height: 0.64rem;">ETH</div>
-                                            <!---->
+                                            
                                         </div>
                                     </div>
                                     <div data-v-40a6c17a="" class="list-price" id="eth-rate">$3140.45</div>
@@ -188,7 +188,7 @@
                                             alt="">
                                         <div data-v-40a6c17a="" class="coin-name">
                                             <div data-v-40a6c17a="" style="line-height: 0.64rem;">ADA</div>
-                                            <!---->
+                                            
                                         </div>
                                     </div>
                                     <div data-v-40a6c17a="" class="list-price" id="ada-rate">$307.77</div>
@@ -204,7 +204,7 @@
                                             alt="">
                                         <div data-v-40a6c17a="" class="coin-name">
                                             <div data-v-40a6c17a="" style="line-height: 0.64rem;">AVAX</div>
-                                            <!---->
+                                            
                                         </div>
                                     </div>
                                     <div data-v-40a6c17a="" class="list-price" id="avax-rate">$179</div>
@@ -221,7 +221,7 @@
                                             alt="">
                                         <div data-v-40a6c17a="" class="coin-name">
                                             <div data-v-40a6c17a="" style="line-height: 0.64rem;">BCH</div>
-                                            <!---->
+                                            
                                         </div>
                                     </div>
                                     <div data-v-40a6c17a="" class="list-price" id="bch-rate">$110.2</div>
@@ -237,7 +237,7 @@
                                             alt="">
                                         <div data-v-40a6c17a="" class="coin-name">
                                             <div data-v-40a6c17a="" style="line-height: 0.64rem;">UNH</div>
-                                            <!---->
+                                            
                                         </div>
                                     </div>
                                     <div data-v-40a6c17a="" class="list-price">$533.37</div>
@@ -253,7 +253,7 @@
                                             alt="">
                                         <div data-v-40a6c17a="" class="coin-name">
                                             <div data-v-40a6c17a="" style="line-height: 0.64rem;">CVX</div>
-                                            <!---->
+                                            
                                         </div>
                                     </div>
                                     <div data-v-40a6c17a="" class="list-price">$155.89</div>
@@ -311,7 +311,7 @@
                                         <div data-v-40a6c17a="" class="">-3.00%</div>
                                     </div>
                                 </div>
-                                <!---->
+                                
                             </div>
                         </div>
                     </div>

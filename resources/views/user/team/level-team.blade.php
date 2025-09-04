@@ -7,7 +7,7 @@
                             <div data-v-6b868a30="" class="tw-flex tw-items-center"><span data-v-6b868a30=""
                                     class="tw-pr-4px">Today</span><i data-v-6b868a30=""
                                     class="van-icon van-icon-arrow-down">
-                                    <!----></i></div>
+                                    </i></div>
                         </div>
                         <div data-v-6b868a30="" class="page-team-header tw-text-white tw-relative">
                             <div data-v-6b868a30="" class="page-team-header-top">
@@ -135,8 +135,8 @@
                                 </svg>
                                 <div data-v-6b868a30="" class="tw-pl-8px">
                                     <div data-v-6b868a30="" class="tw-text-14px"> First Generation Data </div>
-                                    <!---->
-                                    <!---->
+                                    
+                                    
                                     <div data-v-6b868a30="" class="tw-text-12px"><span data-v-6b868a30=""
                                             class="tw-pr-4px tw-text-secondary"> Number of Users: </span><span
                                             data-v-6b868a30="" class="tw-text-primary"> {{$active_gen_team1total}} / {{$gen_team1total}} </span></div>
@@ -168,9 +168,9 @@
                                     <use data-v-3f1a7394="" xlink:href="#svg-icon-gen-2"></use>
                                 </svg>
                                 <div data-v-6b868a30="" class="tw-pl-8px">
-                                    <!---->
+                                    
                                     <div data-v-6b868a30="" class="tw-text-14px"> Second Generation Data </div>
-                                    <!---->
+                                    
                                     <div data-v-6b868a30="" class="tw-text-12px"><span data-v-6b868a30=""
                                             class="tw-pr-4px tw-text-secondary"> Number of Users: </span><span
                                             data-v-6b868a30="" class="tw-text-primary"> {{$active_gen_team2total}} / {{$gen_team2total}} </span></div>
@@ -202,8 +202,8 @@
                                     <use data-v-3f1a7394="" xlink:href="#svg-icon-gen-3"></use>
                                 </svg>
                                 <div data-v-6b868a30="" class="tw-pl-8px">
-                                    <!---->
-                                    <!---->
+                                    
+                                    
                                     <div data-v-6b868a30="" class="tw-text-14px"> Third Generation Data </div>
                                     <div data-v-6b868a30="" class="tw-text-12px"><span data-v-6b868a30=""
                                             class="tw-pr-4px tw-text-secondary"> Number of Users: </span><span

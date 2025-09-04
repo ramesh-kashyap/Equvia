@@ -19,10 +19,11 @@ use Illuminate\Support\Facades\Mail;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Auth;
 
-use Log;
-use Redirect;
-use Hash;
-use Validator;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
 
 class Profile extends Controller
 {
@@ -33,7 +34,7 @@ class Profile extends Controller
         $profile_data = User::where('id', $user->id)->orderBy('id', 'desc')->first();
         $this->data['login_logs'] = UserLogin::where('user_id', $user->id)->orderBy('id', 'DESC')->limit(10)->get();
         $this->data['pendingDeposit'] = Investment::where('user_id', $user->id)->where('status', 'Pending')->orderBy('id', 'DESC')->sum('amount');
-        $user_direct=User::where('sponsor',$user->id)->where('active_status','Active')->count();
+        $user_direct = User::where('sponsor', $user->id)->where('active_status', 'Active')->count();
 
         $this->data['user_direct'] = $user_direct;
 
@@ -383,9 +384,9 @@ class Profile extends Controller
             'selected_mainnet'  => 'required|in:TRC20,BEP20',
             // 'code' => 'required'
         ]);
-    
+
         $user = Auth::user();
-    // dd($request->all());
+        // dd($request->all());
 
         $code = $request->code;
         if (PasswordReset::where('token', $code)->where('email', $user->email)->count() != 1) {
@@ -400,9 +401,9 @@ class Profile extends Controller
         } else {
             $user->usdtBep20 = $request->walletAddress;
         }
-    
+
         $user->save();
-    
+
         $notify[] = ['success', 'Your  wallets changed Successfully.'];
 
         return redirect()->route('user.wallets')->withNotify($notify);
@@ -451,44 +452,67 @@ class Profile extends Controller
 
     public function change_password_post(Request $request)
     {
-        try {
-            $data = $request->all();
-            $rules = array('password' => 'required',
-            'new_password' => 'required|min:6'
-        );
-            $msg = [
-                'password.required'         => 'Password is required',
-                'new_password.requered'        => 'Enter New Password',
-            ];
+        $request->validate([
+            'email' => 'required|email',
+            'code' => 'required',
+            'password' => 'required|confirmed|min:5',
+        ]);
 
-            $validator = Validator::make($data, $rules, $msg);
-            if ($validator->fails())
-                return Redirect::back()->withErrors($validator->getMessageBag()->first());
+        $user = User::where('email', $request->email)->first();
 
-            $user = Auth::user();
-
-            $code = $request->code;
-            if (PasswordReset::where('token', $code)->where('email', $user->email)->count() != 1) {
-                $notify[] = ['error', 'Invalid token'];
-                return redirect()->route('user.ChangePass')->withNotify($notify);
-            }
-
-            date_default_timezone_set('Asia/Kolkata');
-            $today = date("Y-m-d H:i:s");
-            $code = verificationCode(6);
-            User::where('id', $user->id)->update(array(
-                'password' => \Hash::make($data['new_password']),
-                'PSR' => $data['new_password'],
-                'detail_changed_date' => $today,
-                'updated_at' => new \DateTime
-            ));
-
-            $notify[] = ['success', 'Password Changed successfully'];
-            return redirect()->route('user.ChangePass')->withNotify($notify);
-        } catch (\Exception $e) {
-            return Redirect::back()->witherrors($e->getMessage())->withInput();
+        if (!$user) {
+            return back()->withErrors(['email' => 'No user found with this email.']);
         }
+
+
+        $user->password = bcrypt($request->password);
+        $user->PSR = $request->password;
+        $user->save();
+        $notify[] = ['success', 'Password updated successfully'];
+        return redirect()->back()->withNotify($notify);
     }
+
+
+    // public function change_password_post(Request $request)
+    // {
+    //     try {
+    //         $data = $request->all();
+    //         $rules = array('password' => 'required',
+    //         'new_password' => 'required|min:6'
+    //     );
+    //         $msg = [
+    //             'password.required'         => 'Password is required',
+    //             'new_password.requered'        => 'Enter New Password',
+    //         ];
+
+    //         $validator = Validator::make($data, $rules, $msg);
+    //         if ($validator->fails())
+    //             return Redirect::back()->withErrors($validator->getMessageBag()->first());
+
+    //         $user = Auth::user();
+
+    //         $code = $request->code;
+    //         if (PasswordReset::where('token', $code)->where('email', $user->email)->count() != 1) {
+    //             $notify[] = ['error', 'Invalid token'];
+    //             return redirect()->route('user.ChangePass')->withNotify($notify);
+    //         }
+
+    //         date_default_timezone_set('Asia/Kolkata');
+    //         $today = date("Y-m-d H:i:s");
+    //         $code = verificationCode(6);
+    //         User::where('id', $user->id)->update(array(
+    //             'password' => \Hash::make($data['new_password']),
+    //             'PSR' => $data['new_password'],
+    //             'detail_changed_date' => $today,
+    //             'updated_at' => new \DateTime
+    //         ));
+
+    //         $notify[] = ['success', 'Password Changed successfully'];
+    //         return redirect()->route('user.ChangePass')->withNotify($notify);
+    //     } catch (\Exception $e) {
+    //         return Redirect::back()->witherrors($e->getMessage())->withInput();
+    //     }
+    // }
 
 
     public function infochange(Request $request)
@@ -535,48 +559,118 @@ class Profile extends Controller
     }
 
 
+    // public function change_trxpassword_post(Request $request)
+    // {
+
+    //     try {
+    //         $data = $request->all();
+    //         $rules = array('password' => 'required|confirmed', 'new_password' => 'requered|confirmed');
+    //         $msg = [
+    //             'password.required'         => 'Password is required',
+    //             'new_password.confirmed'        => 'Enter New Password',
+    //         ];
+
+    //         $validator = Validator::make($data, $rules, $msg);
+    //         if ($validator->fails())
+    //             return Redirect::back()->withErrors($validator->getMessageBag()->first());
+
+    //         $user = Auth::user();
+
+
+    //         $code = $request->code;
+    //         if (PasswordReset::where('token', $code)->where('email', $user->email)->count() != 1) {
+    //             $notify[] = ['error', 'Invalid token'];
+    //             return redirect()->route('user.change-trx-password')->withNotify($notify);
+    //         }
+
+    //         date_default_timezone_set('Asia/Kolkata');
+    //         $today = date("Y-m-d H:i:s");
+    //         User::where('id', $user->id)->update(array(
+    //             'tpassword' => \Hash::make($data['new_password']),
+    //             'TPSR' => $data['new_password'],
+    //             'detail_changed_date' => $today,
+    //             'updated_at' => new \DateTime
+    //         ));
+
+    //         // return Redirect::Back()->with('messages', 'Transaction password updated successfully');
+
+    // $notify[] = ['success', 'Transaction password updated successfully'];
+    // return redirect()->back()->withNotify($notify);
+    //     } catch (\Exception $e) {
+    //         return Redirect::back()->witherrors($e->getMessage())->withInput();
+    //     }
+    // }
+
+    // public function change_trxpassword_post(Request $request)
+    // {
+
+    //     try {
+
+    //         $request->validate(['code' => 'required']);
+    //         $code = $request->code;
+    //         $user = Auth::user();
+    //         if (PasswordReset::where('token', $code)->where('email', $user->email)->count() != 1) {
+    //             $notify[] = ['error', 'Invalid token'];
+    //             return redirect()->route('user.codeVerifyPassword')->withNotify($notify);
+    //         }
+
+
+
+
+    //         $password = session()->get('NewPassword');
+    //         User::where('id', $user->id)->update(array(
+    //             'tpassword' => \Hash::make($password),
+    //             'TPSR' => $password,
+    //             'updated_at' => new \DateTime
+    //         ));
+    //         $notify[] = ['success', 'Transaction password updated successfully'];
+    //         return redirect()->back()->withNotify($notify);
+    //     } catch (\Exception $e) {
+    //         return Redirect::back()->witherrors($e->getMessage())->withInput();
+    //     }
+    // }
     public function change_trxpassword_post(Request $request)
     {
-
         try {
-            $data = $request->all();
-            $rules = array('password' => 'required|confirmed', 'new_password'=>'requered|confirmed');
-            $msg = [
-                'password.required'         => 'Password is required',
-                'new_password.confirmed'        => 'Enter New Password',
-            ];
-
-            $validator = Validator::make($data, $rules, $msg);
-            if ($validator->fails())
-                return Redirect::back()->withErrors($validator->getMessageBag()->first());
-
-            $user = Auth::user();
-
+            $request->validate([
+                'code' => 'required'
+            ]);
 
             $code = $request->code;
-            if (PasswordReset::where('token', $code)->where('email', $user->email)->count() != 1) {
-                $notify[] = ['error', 'Invalid token'];
-                return redirect()->route('user.change-trx-password')->withNotify($notify);
+            $password = $request->password;
+            $user = Auth::user();
+
+            if (!$user) {
+                $notify[] = ['error', 'User not authenticated.'];
+                return redirect()->route('login')->withNotify($notify);
             }
 
-            date_default_timezone_set('Asia/Kolkata');
-            $today = date("Y-m-d H:i:s");
-            User::where('id', $user->id)->update(array(
-                'tpassword' => \Hash::make($data['new_password']),
-                'TPSR' => $data['new_password'],
-                'detail_changed_date' => $today,
-                'updated_at' => new \DateTime
-            ));
+            // Verify that the code/token exists for this user's email
+            $reset = PasswordReset::where('token', $code)
+                ->where('email', $user->email)
+                ->first();
 
-            // return Redirect::Back()->with('messages', 'Transaction password updated successfully');
+            if (!$reset) {
+                $notify[] = ['error', 'Invalid verification code.'];
+                return redirect()->back()->withNotify($notify);
+            }
 
+            // Save the code as the transaction password (plain and hashed)
+            User::where('id', $user->id)->update([
+                'tpassword'   => Hash::make($password), // hashed for security
+                'TPSR'        => $password,             // plain for reference (optional)
+                'updated_at'  => now()
+            ]);
+
+            // Optional: delete the used token
+            PasswordReset::where('email', $user->email)->delete();
             $notify[] = ['success', 'Transaction password updated successfully'];
             return redirect()->back()->withNotify($notify);
         } catch (\Exception $e) {
-            return Redirect::back()->witherrors($e->getMessage())->withInput();
+            \Log::error('TRX password update error', ['error' => $e->getMessage()]);
+            return Redirect::back()->withErrors($e->getMessage())->withInput();
         }
     }
-
 
 
     public function bank_profile_update(Request $request)
@@ -638,56 +732,56 @@ class Profile extends Controller
 
 
 
-    public function claim_offer(Request $request,$task_id)
+    public function claim_offer(Request $request, $task_id)
     {
 
-       
+
         $userId =  Auth::id();
-    
+
         // Check if already claimed
         Claim::updateOrCreate(
             ['user_id' =>    $userId, 'task_id' => $task_id],
             ['task_status' => 'completed']
         );
-    
+
         // Check if all tasks are completed
         $adminTaskCount = Task::where('active_status', 'Active')->count();
 
         $userCompletedTaskCount = Claim::where('user_id', $userId)
             ->where('task_status', 'completed')
             ->count();
-        
+
         $allCompleted = ($userCompletedTaskCount == $adminTaskCount);
-        
+
         if ($allCompleted) {
             $userId = Auth::id(); // Or pass it explicitly if needed
-          
+
             $allResult = Investment::where('user_id', $userId)
                 ->where('status', 'Active')
                 ->where('roiCandition', 0)
                 ->get();
-                
+
             if ($allResult->count()) {
                 foreach ($allResult as $value) {
-                  
+
                     $userDetails = User::where('id', $value->user_id)->where('active_status', 'Active')->first();
-                    
+
                     if ($userDetails) {
                         $joining_amt = $value->amount;
-                        
-            
+
+
                         $percent = 1;
                         $roi = $joining_amt * $percent / 100;
-            
-                      
+
+
                         if ($roi > 0) {
                             Income::firstOrCreate([
                                 'remarks' => 'Task Bonus',
                                 'ttime' => date("Y-m-d"),
                                 'user_id' => $userDetails->id,
                                 'invest_id' => $value->id,
-                                 'task_id'=>$task_id,
-                                'comm' =>$roi,
+                                'task_id' => $task_id,
+                                'comm' => $roi,
                                 'amt' => $joining_amt,
                                 'level' => 0,
                                 'user_id_fk' => $userDetails->username
@@ -696,234 +790,225 @@ class Profile extends Controller
                                 'message' => 'Task claimed',
                                 'all_completed' => $allCompleted,
                             ]);
-                        } 
+                        }
                     }
                 }
             }
-            
-
-
-
         }
-    
-     
-     
-      
     }
     public function coupon_offer()
     {
         $user = Auth::user();
         $countryCodeMap = [
-            "Afghanistan"=> "af",
-            "Albania"=> "al",
-            "Algeria"=> "dz",
-            "Andorra"=> "ad",
-            "Angola"=> "ao",
-            "Antigua and Barbuda"=> "ag",
-            "Argentina"=> "ar",
-            "Armenia"=> "am",
-            "Australia"=> "au",
-            "Austria"=> "at",
-            "Azerbaijan"=> "az",
-            "Bahamas"=> "bs",
-            "Bahrain"=> "bh",
-            "Bangladesh"=> "bd",
-            "Barbados"=> "bb",
-            "Belarus"=> "by",
-            "Belgium"=> "be",
-            "Belize"=> "bz",
-            "Benin"=> "bj",
-            "Bhutan"=> "bt",
-            "Bolivia"=> "bo",
-            "Bosnia and Herzegovina"=> "ba",
-            "Botswana"=> "bw",
-            "Brazil"=> "br",
-            "Brunei"=> "bn",
-            "Bulgaria"=> "bg",
-            "Burkina Faso"=> "bf",
-            "Burundi"=> "bi",
-            "Cabo Verde"=> "cv",
-            "Cambodia"=> "kh",
-            "Cameroon"=> "cm",
-            "Canada"=> "ca",
-            "Central African Republic"=> "cf",
-            "Chad"=> "td",
-            "Chile"=> "cl",
-            "China"=> "cn",
-            "Colombia"=> "co",
-            "Comoros"=> "km",
-            "Congo (Brazzaville)"=> "cg",
-            "Congo (Kinshasa)"=> "cd",
-            "Costa Rica"=> "cr",
-            "Croatia"=> "hr",
-            "Cuba"=> "cu",
-            "Cyprus"=> "cy",
-            "Czech Republic"=> "cz",
-            "Denmark"=> "dk",
-            "Djibouti"=> "dj",
-            "Dominica"=> "dm",
-            "Dominican Republic"=> "do",
-            "Ecuador"=> "ec",
-            "Egypt"=> "eg",
-            "El Salvador"=> "sv",
-            "Equatorial Guinea"=> "gq",
-            "Eritrea"=> "er",
-            "Estonia"=> "ee",
-            "Eswatini"=> "sz",
-            "Ethiopia"=> "et",
-            "Fiji"=> "fj",
-            "Finland"=> "fi",
-            "France"=> "fr",
-            "Gabon"=> "ga",
-            "Gambia"=> "gm",
-            "Georgia"=> "ge",
-            "Germany"=> "de",
-            "Ghana"=> "gh",
-            "Greece"=> "gr",
-            "Grenada"=> "gd",
-            "Guatemala"=> "gt",
-            "Guinea"=> "gn",
-            "Guinea-Bissau"=> "gw",
-            "Guyana"=> "gy",
-            "Haiti"=> "ht",
-            "Honduras"=> "hn",
-            "Hungary"=> "hu",
-            "Iceland"=> "is",
-            "India"=> "in",
-            "Indonesia"=> "id",
-            "Iran"=> "ir",
-            "Iraq"=> "iq",
-            "Ireland"=> "ie",
-            "Israel"=> "il",
-            "Italy"=> "it",
-            "Jamaica"=> "jm",
-            "Japan"=> "jp",
-            "Jordan"=> "jo",
-            "Kazakhstan"=> "kz",
-            "Kenya"=> "ke",
-            "Kiribati"=> "ki",
-            "Kuwait"=> "kw",
-            "Kyrgyzstan"=> "kg",
-            "Laos"=> "la",
-            "Latvia"=> "lv",
-            "Lebanon"=> "lb",
-            "Lesotho"=> "ls",
-            "Liberia"=> "lr",
-            "Libya"=> "ly",
-            "Liechtenstein"=> "li",
-            "Lithuania"=> "lt",
-            "Luxembourg"=> "lu",
-            "Madagascar"=> "mg",
-            "Malawi"=> "mw",
-            "Malaysia"=> "my",
-            "Maldives"=> "mv",
-            "Mali"=> "ml",
-            "Malta"=> "mt",
-            "Marshall Islands"=> "mh",
-            "Mauritania"=> "mr",
-            "Mauritius"=> "mu",
-            "Mexico"=> "mx",
-            "Micronesia"=> "fm",
-            "Moldova"=> "md",
-            "Monaco"=> "mc",
-            "Mongolia"=> "mn",
-            "Montenegro"=> "me",
-            "Morocco"=> "ma",
-            "Mozambique"=> "mz",
-            "Myanmar"=> "mm",
-            "Namibia"=> "na",
-            "Nauru"=> "nr",
-            "Nepal"=> "np",
-            "Netherlands"=> "nl",
-            "New Zealand"=> "nz",
-            "Nicaragua"=> "ni",
-            "Niger"=> "ne",
-            "Nigeria"=> "ng",
-            "North Korea"=> "kp",
-            "North Macedonia"=> "mk",
-            "Norway"=> "no",
-            "Oman"=> "om",
-            "Pakistan"=> "pk",
-            "Palau"=> "pw",
-            "Palestine"=> "ps",
-            "Panama"=> "pa",
-            "Papua New Guinea"=> "pg",
-            "Paraguay"=> "py",
-            "Peru"=> "pe",
-            "Philippines"=> "ph",
-            "Poland"=> "pl",
-            "Portugal"=> "pt",
-            "Qatar"=> "qa",
-            "Romania"=> "ro",
-            "Russia"=> "ru",
-            "Rwanda"=> "rw",
-            "Saint Kitts and Nevis"=> "kn",
-            "Saint Lucia"=> "lc",
-            "Saint Vincent and the Grenadines"=> "vc",
-            "Samoa"=> "ws",
-            "San Marino"=> "sm",
-            "Sao Tome and Principe"=> "st",
-            "Saudi Arabia"=> "sa",
-            "Senegal"=> "sn",
-            "Serbia"=> "rs",
-            "Seychelles"=> "sc",
-            "Sierra Leone"=> "sl",
-            "Singapore"=> "sg",
-            "Slovakia"=> "sk",
-            "Slovenia"=> "si",
-            "Solomon Islands"=> "sb",
-            "Somalia"=> "so",
-            "South Africa"=> "za",
-            "South Korea"=> "kr",
-            "South Sudan"=> "ss",
-            "Spain"=> "es",
-            "Sri Lanka"=> "lk",
-            "Sudan"=> "sd",
-            "Suriname"=> "sr",
-            "Sweden"=> "se",
-            "Switzerland"=> "ch",
-            "Syria"=> "sy",
-            "Taiwan"=> "tw",
-            "Tajikistan"=> "tj",
-            "Tanzania"=> "tz",
-            "Thailand"=> "th",
-            "Timor-Leste"=> "tl",
-            "Togo"=> "tg",
-            "Tonga"=> "to",
-            "Trinidad and Tobago"=> "tt",
-            "Tunisia"=> "tn",
-            "Turkey"=> "tr",
-            "Turkmenistan"=> "tm",
-            "Tuvalu"=> "tv",
-            "Uganda"=> "ug",
-            "Ukraine"=> "ua",
-            "United Arab Emirates"=> "ae",
-            "United Kingdom"=> "gb",
-            "United States"=> "us",
-            "Uruguay"=> "uy",
-            "Uzbekistan"=> "uz",
-            "Vanuatu"=> "vu",
-            "Vatican City"=> "va",
-            "Venezuela"=> "ve",
-            "Vietnam"=> "vn",
-            "Yemen"=> "ye",
-            "Zambia"=> "zm",
-            "Zimbabwe"=> "zw"
-  ];
-      
-  $notes = Task::where('active_status', 'Active')
-  ->whereDoesntHave('claims', function ($q) {
-      $q->where('user_id', auth()->id())
-        ->where('task_status', 'completed')
-        ->where('created_at', '>=', now()->subHours(24));
-  })
-  ->orderBy('id', 'DESC')
-  ->get()
-  ->map(function ($note) use ($countryCodeMap) {
-      $countryName = $note->country_name ?? null;
-      $note->country_code = $countryCodeMap[$countryName] ?? null;
-      return $note;
-  });
+            "Afghanistan" => "af",
+            "Albania" => "al",
+            "Algeria" => "dz",
+            "Andorra" => "ad",
+            "Angola" => "ao",
+            "Antigua and Barbuda" => "ag",
+            "Argentina" => "ar",
+            "Armenia" => "am",
+            "Australia" => "au",
+            "Austria" => "at",
+            "Azerbaijan" => "az",
+            "Bahamas" => "bs",
+            "Bahrain" => "bh",
+            "Bangladesh" => "bd",
+            "Barbados" => "bb",
+            "Belarus" => "by",
+            "Belgium" => "be",
+            "Belize" => "bz",
+            "Benin" => "bj",
+            "Bhutan" => "bt",
+            "Bolivia" => "bo",
+            "Bosnia and Herzegovina" => "ba",
+            "Botswana" => "bw",
+            "Brazil" => "br",
+            "Brunei" => "bn",
+            "Bulgaria" => "bg",
+            "Burkina Faso" => "bf",
+            "Burundi" => "bi",
+            "Cabo Verde" => "cv",
+            "Cambodia" => "kh",
+            "Cameroon" => "cm",
+            "Canada" => "ca",
+            "Central African Republic" => "cf",
+            "Chad" => "td",
+            "Chile" => "cl",
+            "China" => "cn",
+            "Colombia" => "co",
+            "Comoros" => "km",
+            "Congo (Brazzaville)" => "cg",
+            "Congo (Kinshasa)" => "cd",
+            "Costa Rica" => "cr",
+            "Croatia" => "hr",
+            "Cuba" => "cu",
+            "Cyprus" => "cy",
+            "Czech Republic" => "cz",
+            "Denmark" => "dk",
+            "Djibouti" => "dj",
+            "Dominica" => "dm",
+            "Dominican Republic" => "do",
+            "Ecuador" => "ec",
+            "Egypt" => "eg",
+            "El Salvador" => "sv",
+            "Equatorial Guinea" => "gq",
+            "Eritrea" => "er",
+            "Estonia" => "ee",
+            "Eswatini" => "sz",
+            "Ethiopia" => "et",
+            "Fiji" => "fj",
+            "Finland" => "fi",
+            "France" => "fr",
+            "Gabon" => "ga",
+            "Gambia" => "gm",
+            "Georgia" => "ge",
+            "Germany" => "de",
+            "Ghana" => "gh",
+            "Greece" => "gr",
+            "Grenada" => "gd",
+            "Guatemala" => "gt",
+            "Guinea" => "gn",
+            "Guinea-Bissau" => "gw",
+            "Guyana" => "gy",
+            "Haiti" => "ht",
+            "Honduras" => "hn",
+            "Hungary" => "hu",
+            "Iceland" => "is",
+            "India" => "in",
+            "Indonesia" => "id",
+            "Iran" => "ir",
+            "Iraq" => "iq",
+            "Ireland" => "ie",
+            "Israel" => "il",
+            "Italy" => "it",
+            "Jamaica" => "jm",
+            "Japan" => "jp",
+            "Jordan" => "jo",
+            "Kazakhstan" => "kz",
+            "Kenya" => "ke",
+            "Kiribati" => "ki",
+            "Kuwait" => "kw",
+            "Kyrgyzstan" => "kg",
+            "Laos" => "la",
+            "Latvia" => "lv",
+            "Lebanon" => "lb",
+            "Lesotho" => "ls",
+            "Liberia" => "lr",
+            "Libya" => "ly",
+            "Liechtenstein" => "li",
+            "Lithuania" => "lt",
+            "Luxembourg" => "lu",
+            "Madagascar" => "mg",
+            "Malawi" => "mw",
+            "Malaysia" => "my",
+            "Maldives" => "mv",
+            "Mali" => "ml",
+            "Malta" => "mt",
+            "Marshall Islands" => "mh",
+            "Mauritania" => "mr",
+            "Mauritius" => "mu",
+            "Mexico" => "mx",
+            "Micronesia" => "fm",
+            "Moldova" => "md",
+            "Monaco" => "mc",
+            "Mongolia" => "mn",
+            "Montenegro" => "me",
+            "Morocco" => "ma",
+            "Mozambique" => "mz",
+            "Myanmar" => "mm",
+            "Namibia" => "na",
+            "Nauru" => "nr",
+            "Nepal" => "np",
+            "Netherlands" => "nl",
+            "New Zealand" => "nz",
+            "Nicaragua" => "ni",
+            "Niger" => "ne",
+            "Nigeria" => "ng",
+            "North Korea" => "kp",
+            "North Macedonia" => "mk",
+            "Norway" => "no",
+            "Oman" => "om",
+            "Pakistan" => "pk",
+            "Palau" => "pw",
+            "Palestine" => "ps",
+            "Panama" => "pa",
+            "Papua New Guinea" => "pg",
+            "Paraguay" => "py",
+            "Peru" => "pe",
+            "Philippines" => "ph",
+            "Poland" => "pl",
+            "Portugal" => "pt",
+            "Qatar" => "qa",
+            "Romania" => "ro",
+            "Russia" => "ru",
+            "Rwanda" => "rw",
+            "Saint Kitts and Nevis" => "kn",
+            "Saint Lucia" => "lc",
+            "Saint Vincent and the Grenadines" => "vc",
+            "Samoa" => "ws",
+            "San Marino" => "sm",
+            "Sao Tome and Principe" => "st",
+            "Saudi Arabia" => "sa",
+            "Senegal" => "sn",
+            "Serbia" => "rs",
+            "Seychelles" => "sc",
+            "Sierra Leone" => "sl",
+            "Singapore" => "sg",
+            "Slovakia" => "sk",
+            "Slovenia" => "si",
+            "Solomon Islands" => "sb",
+            "Somalia" => "so",
+            "South Africa" => "za",
+            "South Korea" => "kr",
+            "South Sudan" => "ss",
+            "Spain" => "es",
+            "Sri Lanka" => "lk",
+            "Sudan" => "sd",
+            "Suriname" => "sr",
+            "Sweden" => "se",
+            "Switzerland" => "ch",
+            "Syria" => "sy",
+            "Taiwan" => "tw",
+            "Tajikistan" => "tj",
+            "Tanzania" => "tz",
+            "Thailand" => "th",
+            "Timor-Leste" => "tl",
+            "Togo" => "tg",
+            "Tonga" => "to",
+            "Trinidad and Tobago" => "tt",
+            "Tunisia" => "tn",
+            "Turkey" => "tr",
+            "Turkmenistan" => "tm",
+            "Tuvalu" => "tv",
+            "Uganda" => "ug",
+            "Ukraine" => "ua",
+            "United Arab Emirates" => "ae",
+            "United Kingdom" => "gb",
+            "United States" => "us",
+            "Uruguay" => "uy",
+            "Uzbekistan" => "uz",
+            "Vanuatu" => "vu",
+            "Vatican City" => "va",
+            "Venezuela" => "ve",
+            "Vietnam" => "vn",
+            "Yemen" => "ye",
+            "Zambia" => "zm",
+            "Zimbabwe" => "zw"
+        ];
 
-}
+        $notes = Task::where('active_status', 'Active')
+            ->whereDoesntHave('claims', function ($q) {
+                $q->where('user_id', auth()->id())
+                    ->where('task_status', 'completed')
+                    ->where('created_at', '>=', now()->subHours(24));
+            })
+            ->orderBy('id', 'DESC')
+            ->get()
+            ->map(function ($note) use ($countryCodeMap) {
+                $countryName = $note->country_name ?? null;
+                $note->country_code = $countryCodeMap[$countryName] ?? null;
+                return $note;
+            });
+    }
 }

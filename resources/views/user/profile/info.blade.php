@@ -1788,7 +1788,7 @@
                             <use data-v-3f1a7394="" xlink:href="#svg-icon-arrow-back"></use>
                         </svg>
     </a>
-                        <!---->
+                        
                     </div>
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
                         style="color: rgba(255, 255, 255, 1);"><span>Personal information</span></div>
@@ -1796,14 +1796,14 @@
                         <a href="{{ route('user.lang') }}">
                         <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                         </a>
-                        <!---->
+                        
                         <div>
                             <a href="{{ route('user.notice') }}">
                             <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                             </a>
                         </div>
-                        <!---->
-                        <!---->
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -1872,7 +1872,7 @@
                     </div>
                 </div>
             </div>
-            <!---->
+            
         </div>
         <div class="van-overlay" style="display: none;">
             <div class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
@@ -1888,7 +1888,7 @@
             </div>
         </div>
         <div data-v-4d1ba5fa="">
-            <!---->
+            
         </div>
     </div>
     <script src="/static/1756094289381/js/chunk-vendors.b893e1dd.js"></script>

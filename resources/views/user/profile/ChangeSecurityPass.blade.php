@@ -15,7 +15,7 @@
     <meta name="renderer" content="webkit">
     <meta name="robots" content="noindex, nofollow">
     <script>
-        window.addEventListener('error', function (event) {
+        window.addEventListener('error', function(event) {
             if (event.message.indexOf("Unexpected token '<'") > -1) {
                 location.reload();
             }
@@ -25,7 +25,7 @@
                 remotes = false;
             document.addEventListener(
                 'click',
-                function (event) {
+                function(event) {
                     noddy = event.target;
                     while (noddy.nodeName !== 'A' && noddy.nodeName !== 'HTML') {
                         noddy = noddy.parentNode;
@@ -1781,29 +1781,29 @@
                 <div data-v-7c19a79c="" class="tw-px-16px tw-w-full tw-h-full tw-flex tw-items-center"
                     data-v-6b868a30="" style="background-color: transparent;">
                     <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
-                       <a href="{{ route('user.profile') }}">
-                        <svg data-v-3f1a7394="" aria-hidden="true"
-                            class="svg-icon"
-                            style="color: rgba(255, 255, 255, 1); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                            <use data-v-3f1a7394="" xlink:href="#svg-icon-arrow-back"></use>
-                        </svg>
-    </a>
-                        <!---->
+                        <a href="{{ route('user.profile') }}">
+                            <svg data-v-3f1a7394="" aria-hidden="true"
+                                class="svg-icon"
+                                style="color: rgba(255, 255, 255, 1); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                                <use data-v-3f1a7394="" xlink:href="#svg-icon-arrow-back"></use>
+                            </svg>
+                        </a>
+                        
                     </div>
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
                         style="color: rgba(255, 255, 255, 1);"><span>Modify TRX password</span></div>
                     <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
                         <a href="{{ route('user.lang') }}">
-                        <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                            <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                         </a>
-                        <!---->
-                         <div>
+                        
+                        <div>
                             <a href="{{ route('user.notice') }}">
-                            <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                                <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                             </a>
                         </div>
-                        <!---->
-                        <!---->
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -1811,84 +1811,80 @@
                 <div data-v-6b868a30="" id="content" class="content-scroll">
                     <div data-v-7c19a79c="" data-v-6b868a30="" class="tw-h-full tw-p-16px tw-flex tw-flex-col">
                         <form method="post" action="{{ route('user.change-trxpasswword') }}">
-                         {{ csrf_field() }}
-                        <div data-v-7c19a79c="" data-v-6b868a30="" class="tw-flex-1 tw-mb-32px">
-                            <div data-v-7c19a79c="" data-v-6b868a30=""
-                                class="tw-mt-16px psd-title tw-mb-10px tw-text-14px"> Old password </div>
-                            <div data-v-7c19a79c="" class="van-cell1 van-field tw-rounded-10px" data-v-6b868a30="">
-                                <div class="van-cell__value van-cell__value--alone van-field__value">
-                                    <div class="van-field__body">
-                                        <input  name="password"  type="password" 
-                                            placeholder="Please enter the transaction password" class="van-field__control1">
-                                        <div class="van-field__right-icon"></div>
+                            {{ csrf_field() }}
+                            <div data-v-7c19a79c="" data-v-6b868a30="" class="tw-flex-1 tw-mb-32px">
+
+
+                                <div data-v-7c19a79c="" data-v-6b868a30="" class="tw-mt-16px tw-mb-10px tw-text-14px"> New
+                                    password </div>
+                                <div data-v-7c19a79c="" class="van-cell1 van-field .tw-rounded-11px" data-v-6b868a30="">
+                                    <div class="van-cell__value van-cell__value--alone van-field__value">
+                                        <div class="van-field__body">
+                                            <input type="password" name="password"
+                                                placeholder="Please enter a password "
+                                                class="van-field__control1">
+                                            <div class="van-field__right-icon"><i data-v-7c19a79c="" id="eyeIcon2"
+                                                    class="van-icon van-icon-closed-eye tw-text-secondary" onclick="togglePassword('passwordInput2','eyeIcon2')">
+                                                    </i></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div data-v-7c19a79c="" data-v-6b868a30="" class="tw-mt-16px tw-mb-10px tw-text-14px"> New
-                                password </div>
-                            <div data-v-7c19a79c="" class="van-cell1 van-field tw-rounded-10px" data-v-6b868a30="">
-                                <div class="van-cell__value van-cell__value--alone van-field__value">
-                                    <div class="van-field__body">
-                                        <input name="password_confirmation" type="password" placeholder="Enter the password again to confirm"  id="passwordInput"
-                                            class="van-field__control1">
-                                        <div class="van-field__right-icon"><i data-v-7c19a79c=""  id="eyeIcon1"
-                                                class="van-icon van-icon-closed-eye tw-text-secondary" onclick="togglePassword('passwordInput','eyeIcon')">
-                                                <!----></i></div>
+                                <div data-v-7c19a79c="" data-v-6b868a30="" class="tw-mt-16px tw-mb-10px tw-text-14px"> Confirm
+                                    password </div>
+                                <div data-v-7c19a79c="" class="van-cell1 van-field .tw-rounded-11px" data-v-6b868a30="">
+                                    <div class="van-cell__value van-cell__value--alone van-field__value">
+                                        <div class="van-field__body">
+                                            <input type="password" name="password_confirmation" id=""
+                                                placeholder="Please enter a password "
+                                                class="van-field__control1">
+                                            <div class="van-field__right-icon"><i data-v-7c19a79c="" id="eyeIcon2"
+                                                    class="van-icon van-icon-closed-eye tw-text-secondary" onclick="togglePassword('passwordInput2','eyeIcon2')">
+                                                    </i></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div> 
-                            <div data-v-7c19a79c="" data-v-6b868a30="" class="tw-mt-16px tw-mb-10px tw-text-14px"> Confirm
-                                password </div>
-                            <div data-v-7c19a79c="" class="van-cell1 van-field tw-rounded-10px" data-v-6b868a30="">
-                                <div class="van-cell__value van-cell__value--alone van-field__value">
-                                    <div class="van-field__body">
-                                        <input type="password" name="new_password" id="passwordInput2"
-                                            placeholder="Please enter a password "
-                                            class="van-field__control1">
-                                        <div class="van-field__right-icon"><i data-v-7c19a79c="" id="eyeIcon2"
-                                                class="van-icon van-icon-closed-eye tw-text-secondary"   onclick="togglePassword('passwordInput2','eyeIcon2')">
-                                                <!----></i></div>
+                                <input data-v-47636760="" data-v-6e2d35de="" type="hidden" name="email" id="emailId" value="{{Auth::user()->email}}">
+                                <div data-v-7c19a79c="" data-v-6b868a30="" class="tw-mt-16px tw-mb-10px tw-text-14px">
+                                    Varification Code </div>
+                                <div data-v-7c19a79c="" class="van-cell1 van-field .tw-rounded-11px" data-v-6b868a30="">
+                                    <div class="van-cell__value van-cell__value--alone van-field__value">
+                                        <div class="van-field__body">
+                                            <input type="text" name="code"
+                                                placeholder="Email Verification code"
+                                                class="van-field__control1">
+                                            <button type="button" style="width:40px;color:white;border-radius: 0 1rem 1rem 0;" class="btn" id="sendButton" onclick="sendVerificationCode()">
+                                                <span id="buttonLabel" style="margin: -12px;font-size:15px;">Send</span>
+                                                <span id="countdownTimer" style="display: none;margin: -12px;font-size:18px;"></span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>  
-                            <input data-v-47636760="" data-v-6e2d35de="" type="hidden" name="email"  id="emailId" value="{{Auth::user()->email}}">                          
-                            <div data-v-7c19a79c="" data-v-6b868a30="" class="tw-mt-16px tw-mb-10px tw-text-14px">
-                                Varification Code </div>
-                            <div data-v-7c19a79c="" class="van-cell1 van-field tw-rounded-10px" data-v-6b868a30="">
-                                <div class="van-cell__value van-cell__value--alone van-field__value">
-                                    <div class="van-field__body"><input type="text" name="code"
-                                            placeholder="Email Verification code" 
-                                            class="van-field__control1">
-                                       <div class="code-btn sendCode van-field__right-icon" id="getCodeBtn">Send Code
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-v-7c19a79c="" data-v-6b868a30=""
-                                class="tw-mt-18px tw-p-14px tw-text-14px tw-bg-white1 tw-rounded-10px">
-                                <div data-v-7c19a79c="" data-v-6b868a30="" class="tw-flex tw-items-center"><i
-                                        data-v-7c19a79c="" data-v-6b868a30=""
-                                        class="tw-text-20px van-icon van-icon-warning"
-                                        style="color: rgba(255, 255, 255, 1);">
-                                        <!----></i><span data-v-7c19a79c="" data-v-6b868a30=""
-                                        class="tw-text-primary tw-pl-8px"> Reminder </span></div>
+
                                 <div data-v-7c19a79c="" data-v-6b868a30=""
-                                    class="tw-text-14px tw-text-secondary tw-mt-8px"> To ensure the security of your
-                                    account, you can withdraw money only 48 hours after resetting your Transection password
+                                    class="tw-mt-18px tw-p-14px tw-text-14px tw-bg-white1 .tw-rounded-11px">
+                                    <div data-v-7c19a79c="" data-v-6b868a30="" class="tw-flex tw-items-center"><i
+                                            data-v-7c19a79c="" data-v-6b868a30=""
+                                            class="tw-text-20px van-icon van-icon-warning"
+                                            style="color: rgba(255, 255, 255, 1);">
+                                        </i><span data-v-7c19a79c="" data-v-6b868a30=""
+                                            class="tw-text-primary tw-pl-8px"> Reminder </span></div>
+                                    <div data-v-7c19a79c="" data-v-6b868a30=""
+                                        class="tw-text-14px tw-text-secondary tw-mt-8px"> To ensure the security of your
+                                        account, you can withdraw money only 48 hours after resetting your login password
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <button data-v-7c19a79c="" data-v-6b868a30="" type="submit"
-                            class="van-button van-button--primary van-button--normal van-button--block">
-                            <div data-v-7c19a79c="" data-v-6b868a30="" class="van-button__content"><span
-                                    data-v-7c19a79c="" data-v-6b868a30="" class="van-button__text"> Confirm </span>
-                            </div>
-                        </button>
+                            <button data-v-7c19a79c="" data-v-6b868a30="" type="submit"
+                                class="van-button van-button--default van-button--normal van-button--block">
+                                <div data-v-7c19a79c="" data-v-6b868a30="" class="van-button__content"><span
+                                        data-v-7c19a79c="" data-v-6b868a30="" class="van-button__text"> Confirm </span>
+                                </div>
+                            </button>
                         </form>
                     </div>
                 </div>
             </div>
-            <!---->
+            
         </div>
         <div class="van-overlay" style="display: none;">
             <div class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
@@ -1904,80 +1900,95 @@
             </div>
         </div>
         <div data-v-4d1ba5fa="">
-            <!---->
+            
         </div>
     </div>
     <script src="/static/1756094289381/js/chunk-vendors.b893e1dd.js"></script>
     <script src="/static/1756094289381/js/app.5acd7986.js"></script>
     <script>
-    function togglePassword(inputId, iconId) {
-        const passwordInput = document.getElementById(inputId);
-        const eyeIcon = document.getElementById(iconId);
+        function togglePassword(inputId, iconId) {
+            const passwordInput = document.getElementById(inputId);
+            const eyeIcon = document.getElementById(iconId);
 
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            eyeIcon.className = "van-icon van-icon-eye tw-text-primary"; // show icon when visible
-        } else {
-            passwordInput.type = "password";
-            eyeIcon.className = "van-icon van-icon-closed-eye tw-text-secondary"; // hide icon
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.className = "van-icon van-icon-eye tw-text-primary"; // show icon when visible
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.className = "van-icon van-icon-closed-eye tw-text-secondary"; // hide icon
+            }
         }
-    }
-</script>
- <script src="https://code.jquery.com//jquery-3.3.1.min.js"></script>
+    </script>
+    <script src="https://code.jquery.com//jquery-3.3.1.min.js"></script>
+
+    @include('partials.notify')
 
     <script>
-        $(document).ready(function() {
-            // First Email Code
-            $('#getCodeBtn').click(function() {
-    var emailId = $('#emailId').val();
+        function sendVerificationCode() {
+            const email = document.querySelector('input[name="email"]').value;
+            const sendButton = document.getElementById('sendButton');
+            const buttonLabel = document.getElementById('buttonLabel');
+            const countdownTimer = document.getElementById('countdownTimer');
 
-    if (!emailId) {
-        iziToast.error({
-            message: 'Invalid Email!',
-            position: "topRight"
-        });
-        return;
-    }
-
-    // startTimer('.code-btn');
-    // $('.code-btn').hide();
-
-    $.ajax({
-        type: "POST",
-        url: "{{ route('user.send_code') }}",
-        data: {
-            "emailId": emailId,
-            "name": name,
-            "_token": "{{ csrf_token() }}"
-        },
-        success: function(response) {
-            console.log(response);
-            if (response) {
-                iziToast.success({ message: 'Email sent Successfully', position: "topRight" });
-            } else {
-                iziToast.error({ message: 'Error!', position: "topRight" });
+            if (!email) {
+                iziToast.error({
+                    message: "Please enter your email first.",
+                    position: "topRight"
+                });
+                return;
             }
+
+            // Disable the button to prevent multiple clicks
+            sendButton.disabled = true;
+
+            // Hide the "Send" label and show the countdown timer
+            buttonLabel.style.display = 'none';
+            countdownTimer.style.display = 'inline';
+
+            // Initialize countdown
+            let countdown = 60;
+            countdownTimer.textContent = `${countdown}s`;
+
+            const timerInterval = setInterval(() => {
+                countdown--;
+                countdownTimer.textContent = `${countdown}s`;
+
+                if (countdown <= 0) {
+                    clearInterval(timerInterval);
+                    countdownTimer.style.display = 'none';
+                    buttonLabel.style.display = 'inline';
+                    sendButton.disabled = false;
+                }
+            }, 1000);
+
+            // Proceed with sending the verification code
+            fetch("{{ route('send_forgot') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: JSON.stringify({
+                        email: email
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    iziToast.success({
+                        message: data.message || "Code sent successfully.",
+                        position: "topRight"
+                    });
+                })
+                .catch(err => {
+                    iziToast.error({
+                        message: data.message || "Code sent failed.",
+
+                    });
+                    console.error(err);
+                });
         }
-    });
-});
-
-            // Timer Function (Reusable)
-            function startTimer(selector) {
-                var resendButton = $(selector);
-                var countdown = 60;
-                resendButton.prop('disabled', true).text('Wait ' + countdown + 's');
-
-                var timer = setInterval(function() {
-                    countdown--;
-                    resendButton.text('Wait ' + countdown + 's');
-                    if (countdown <= 0) {
-                        clearInterval(timer);
-                        resendButton.prop('disabled', false).text('Resend Code');
-                    }
-                }, 1000);
-            }
-        });
     </script>
+
 
 </body>
 

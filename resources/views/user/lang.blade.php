@@ -157,12 +157,12 @@
               6QAAAARnQU1BAACxjwv8YQUAAAEeSURBVHgB7Ze9DcIwEIWf+W1ZgQ0oWIBJYBMoqekoEUJsQAsFA7ACYgCYAHNWbBGO2ICVEBf3SU9Ozufk6ZzYCSA
               IQrVorQekMVLEmrvqjLRMMnO6KpMNRGDMUbMn9VhXH3XjqZxhhroRc7GIuVjEXCwpmVM8oP2L8JI0R7a4N1lbFGtG5Lrji1LqYG7a+tLchrQjDUkdUt
               eqE2iL8nif71pb0gHIbXUBcyvS2qTYc1d1nctRuXOeB0++r++FX/ZixY7VhxvowHgeU54xzymmOT9RFUd4r6L5QrmTFqQ2smekbcc6uXhRjOeG5HKP
-              8BF4g6dIBTFZFmKyLMRkWYjJsvinyaj/YrMtUmO2xRvrOiMlWCUnSBFrcgJBEOrhAfmtScdij3WYAAAAAElFTkSuQmCC" alt=""></a></div><!----><!----><!---->
-              <div data-v-b73557e2="" class="name tac"> Switch Language </div><!----><!----><!---->
-              <div data-v-b73557e2="" class="flex1"></div><!----><!----><!----><!----><!---->
+              8BF4g6dIBTFZFmKyLMRkWYjJsvinyaj/YrMtUmO2xRvrOiMlWCUnSBFrcgJBEOrhAfmtScdij3WYAAAAAElFTkSuQmCC" alt=""></a></div>
+              <div data-v-b73557e2="" class="name tac"> Switch Language </div>
+              <div data-v-b73557e2="" class="flex1"></div>
               <div data-v-b73557e2="" class="head_right"></div>
             </div>
-            <div data-v-b73557e2=""><!----></div>
+            <div data-v-b73557e2=""></div>
           </div>
         </div>
         <div data-v-6e2d35de="" id="scroll" class="content-container">
@@ -176,7 +176,7 @@
                       <div data-v-7668b55c="" class="flexs" style="color:white;">English</div>
                       <div data-v-7668b55c="" class="s">
                         <div data-v-7668b55c="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
-                          <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i class="van-icon van-icon-success" style="border-color: rgb(50, 192, 146); background-color: rgb(50, 192, 146);"><!----></i></div>
+                          <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i class="van-icon van-icon-success" style="border-color: rgb(50, 192, 146); background-color: rgb(50, 192, 146);"></i></div>
                         </div>
                       </div>
                     </li>
@@ -185,7 +185,7 @@
               </div>
             </div>
           </div>
-        </div><!---->
+        </div>
       </div>
     </div>
     <div data-v-a7d12cfc="" class="global-loading default" style="display: none;">
@@ -226,9 +226,9 @@
       });
     };
   </script>
-  <div class="van-toast van-toast--middle van-toast--success" style="z-index: 2013; display: none;"><i class="van-icon van-icon-success van-toast__icon"><!----></i>
+  <div class="van-toast van-toast--middle van-toast--success" style="z-index: 2013; display: none;"><i class="van-icon van-icon-success van-toast__icon"></i>
     <div class="van-toast__text">Login successful</div>
-  </div><!----><!---->
+  </div>
 </body>
 
 </html>

@@ -1,21 +1,48 @@
-<html class="pc" style="font-size: 50px;">
+<html data-dpr="1" style="font-size: 42.5px; max-width: 425px; margin: 0px auto;">
 
 <head>
     <meta charset="utf-8">
-    <title>My income</title>
+    <title>Equvia Strategy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#fff">
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="expires" content="0">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="full-screen" content="true">
     <meta name="x5-fullscreen" content="true">
     <meta name="360-fullscreen" content="true">
     <meta name="renderer" content="webkit">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="manifest" href="/manifest.json">
-    
+    <script>
+        window.addEventListener('error', function(event) {
+            if (event.message.indexOf("Unexpected token '<'") > -1) {
+                location.reload();
+            }
+        });
+        if ('standalone' in window.navigator && window.navigator.standalone) {
+            var noddy,
+                remotes = false;
+            document.addEventListener(
+                'click',
+                function(event) {
+                    noddy = event.target;
+                    while (noddy.nodeName !== 'A' && noddy.nodeName !== 'HTML') {
+                        noddy = noddy.parentNode;
+                    }
+                    if (
+                        'href' in noddy &&
+                        noddy.href.indexOf('http') !== -1 &&
+                        (noddy.href.indexOf(document.location.host) !== -1 || remotes)
+                    ) {
+                        event.preventDefault();
+                        document.location.href = noddy.href;
+                    }
+                },
+                false
+            );
+        }
+    </script>
     <style>
         * {
             margin: 0;
@@ -32,7 +59,6 @@
             width: 100%;
             min-width: 7.5rem;
             height: 100vh;
-            max-width: 8.5rem;
             position: fixed;
             top: 50%;
             left: 50%;
@@ -51,180 +77,302 @@
             object-fit: cover;
         }
     </style>
+    <link href="{{ asset('') }}static/css/chunk-02c8c6ba.f02a30c2.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-03c1575b.3035c347.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-0566fd30.1e11c8e5.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-08efff57.d1c57c5a.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-146e34fc.2bd67213.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-19b6a8e4.44d66000.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-19e32f24.1162d6ae.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-1cc9e062.bb2c1f95.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-1ee97074.f442ee68.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-23dc19ae.78dc4650.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-256b9400.46bcaa64.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-25a0e88c.c5a59136.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-267a32e6.0d9f6f8d.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-29126459.fe5ce88a.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-2a53918e.7e78b090.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-2c3295d4.68d7e20d.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-2cd18a7d.c47d657b.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-2ec80ff3.d777b076.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-3d3dcf32.c3875b9f.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-4e5f1a7a.de8b1aed.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-50b10c92.241dffcb.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-51107498.c550911e.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-54637b65.30970f55.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5872ff8d.12cc21e8.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5a04fba1.4a4b249e.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5b6ac7a8.56edffb4.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5c64915e.135fdcf8.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5f0d6286.33002893.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-616795b6.5cc48433.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-6c7affd0.660ce06f.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-6da4369c.fd57190d.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-6de1bc62.d01efc86.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-7136a154.e2d1f0d3.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-74147bd1.876e2c63.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-757ca954.b15553a7.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-75ad7c0e.b67017d0.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-785ac04e.d5101bf5.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-78742a63.3df502ae.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-78fb2058.3f8e5458.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-7aea5d2b.f8ad3983.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-7c80ecb0.8195c814.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-7dfd5052.01550f14.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-84d1de02.29c87bce.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-891177f6.0e8a2793.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-926160c6.52e9758a.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-a704e872.b44651a8.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-a961b78c.b074a75d.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-ad302a42.529caf45.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-b205bdbe.123b5f57.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-b45589e4.41a14156.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-b68f65e0.f4e5dd07.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-bc37b504.24b0d89b.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-bf393944.1940f3bc.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-c0a3e2fa.5d784513.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-c5fb740a.89eacbb4.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-dab37d56.632af7dd.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-ded9edba.aa2bfcd6.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-ea0143b0.0982c731.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-ee39cd88.8adb81bc.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-f6532530.0eb12746.css" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-02c8c6ba.e6ce0cf8.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-03c1575b.3e7d5deb.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-0566fd30.54cec5fc.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-08efff57.e7d2211e.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-146e34fc.71366adb.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-18e03ad8.59f8f8a0.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-19b6a8e4.3b65fe58.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-19e32f24.ec62c3f7.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-1cc9e062.1c851893.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-1ee97074.56275ac5.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-23dc19ae.41643e95.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-256b9400.f7e486aa.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-25a0e88c.4e08fd2e.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-267a32e6.193794b3.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-285466cd.1fee2e06.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-29126459.ce2f338d.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2a53918e.f5cd7495.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2c3295d4.abd7d7bd.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2cd18a7d.f37bfa04.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d0a482c.22971d1b.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d0a4bce.8bc33f3b.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d0aec69.24f884e8.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d0af4bb.4e868bee.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d0d09bb.e2e1a111.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d0d697d.1f674f19.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d0d6f02.dd6bdd21.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d0d8021.ccc86eec.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d0e48bf.df06201a.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d0f0f34.b139ae44.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d20979d.70a797b0.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d212f56.94099410.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d21b536.0c2aa775.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d21f097.e7facfb5.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d221444.770f7e37.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d22d3f8.67a86445.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2d22d813.61a8be3e.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-2ec80ff3.07938ce0.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-3d3dcf32.5d17c1d9.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-45610082.add35a6f.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-4e5f1a7a.c4ae6cc4.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-50b10c92.01a6be8c.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-51107498.d0f576b5.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-54637b65.847a74f5.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-5872ff8d.8ebbd8b2.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-5a04fba1.af03e330.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-5b6ac7a8.7a89b73b.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-5c64915e.c084ce21.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-5f0d6286.a7ae8bdc.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-616795b6.b7e63cc2.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-6c7affd0.065e9a8a.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-6da4369c.2a245889.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-6de1bc62.d4778e4b.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-7136a154.b8492953.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-74147bd1.ed438ba9.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-757ca954.ad69c870.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-75ad7c0e.428e52c8.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-785ac04e.31468def.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-78742a63.3b8a24a7.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-78fb2058.fdae4e23.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-7aea5d2b.8c73affa.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-7c80ecb0.6eedf55a.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-7dfd5052.0df840c3.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-84d1de02.7b169b0e.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-891177f6.c1b719a2.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-926160c6.3f177ae1.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-a704e872.ddbd067c.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-a961b78c.923cdbe2.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-ad302a42.bf25b888.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-b124f7bc.38a4e04a.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-b205bdbe.5c6a1f3c.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-b45589e4.b98ec75e.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-b68f65e0.5d60f042.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-bc37b504.f51a5405.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-bf393944.b3025197.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-c0a3e2fa.19a3da91.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-c5fb740a.bb7c7872.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-dab37d56.5c5b3cfd.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-ded9edba.70ade7c0.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-ea0143b0.df6a01ac.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-ee39cd88.ee49685e.js" rel="prefetch">
+    <link href="{{ asset('') }}static/eed/js/chunk-f6532530.1e0297b2.js" rel="prefetch">
+    <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="preload" as="style">
+    <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="preload" as="style">
+    <link href="{{ asset('') }}static/eed/js/app.5acd7986.js" rel="preload" as="script">
+    <link href="{{ asset('') }}static/eed/js/chunk-vendors.b893e1dd.js" rel="preload" as="script">
+    <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="stylesheet">
+    <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="stylesheet">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-b124f7bc.38a4e04a.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
+    <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-51107498.d0f576b5.js"></script>
+    <style type="text/css">
+        x-vue-echarts {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            min-width: 0
+        }
 
-    <link href="{{asset('')}}static/css/app.6328f701.css" rel="preload" as="style">
-    <link href="{{asset('')}}static/css/vant.d14f5539.css" rel="preload" as="style">
-    <link href="{{asset('')}}static/css/vant.d14f5539.css" rel="stylesheet">
-    <link href="{{asset('')}}static/css/app.6328f701.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-7f362702.6a53b834.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-7f362702.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-5576a184.9f52f39a.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-5576a184.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-60c8a75a.d6f6b692.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-60c8a75a.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-a7d8f170.c87a4291.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-a7d8f170.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-00b1464f.674dbd13.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-00b1464f.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-67912ed2.ae8d438d.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-67912ed2.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <!-- <script charset="utf-8" src="/js1743475952730/echarts.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-0119f9da.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-bb17762c.89cc2aa3.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-bb17762c.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-0b116a05.250ed6be.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-0b116a05.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-bcc45786.50818f65.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-bcc45786.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-6f896b4e.5bb66763.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-6f896b4e.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-6b11ef3e.540ca443.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-6b11ef3e.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-747287e5.9009fee8.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-747287e5.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-3553982a.589d4855.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-3553982a.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-46a98347.977e0db2.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-46a98347.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-39d146b7.e86e8ed5.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-39d146b7.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-b2c9775c.b1e4da02.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-b2c9775c.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-367626f4.8674be05.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-367626f4.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <!-- <script charset="utf-8" src="/js1743475952730/qrcodejs2.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-0d09da43.555d1171.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-0d09da43.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-5412a522.b373626a.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-5412a522.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-115aa5d8.9d416f08.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-115aa5d8.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-5f936813.7deb1a32.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-17ff7542.34892cae.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-17ff7542.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-41993a66.791df78f.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-41993a66.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-0dfccd70.12d33311.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-0dfccd70.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-05e98ee6.bea82fa2.css">
-    <!-- <script charset="utf-8" src="/js1743475952730/chunk-05e98ee6.fe8857a9.1743475952730.js?v=1743475952730"></script> -->
-    <link rel="icon"  href="{{ asset('static/img/logo2.png') }}">
+        .vue-echarts-inner {
+            flex-grow: 1;
+            min-width: 0;
+            width: auto !important;
+            height: auto !important
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
+    <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-18e03ad8.59f8f8a0.js"></script>
+    <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-2d0d09bb.e2e1a111.js"></script>
+    <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-2d0a482c.22971d1b.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-a961b78c.b074a75d.css">
+    <script charset="utf-8" src="/static/1756094289381/js/chunk-a961b78c.923cdbe2.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-1ee97074.f442ee68.css">
+    <script charset="utf-8" src="/static/1756094289381/js/chunk-1ee97074.56275ac5.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-ea0143b0.0982c731.css">
+    <script charset="utf-8" src="/static/1756094289381/js/chunk-ea0143b0.df6a01ac.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-267a32e6.0d9f6f8d.css">
+    <script charset="utf-8" src="/static/1756094289381/js/chunk-267a32e6.193794b3.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-926160c6.52e9758a.css">
+    <script charset="utf-8" src="/static/1756094289381/js/chunk-926160c6.3f177ae1.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-2a53918e.7e78b090.css">
+    <script charset="utf-8" src="/static/1756094289381/js/chunk-2a53918e.f5cd7495.js"></script>
 
 </head>
 
-<body class="mein_cn">
-    <div id="app" class="applang">
-        <div data-v-73b46d99="" class="home">
-            <div data-v-6e2d35de="" data-v-73b46d99="" class="page">
-                <div data-v-6e2d35de="" class="headers">
-                    <div data-v-b73557e2="" data-v-73b46d99="" class="head head_isModule" data-v-6e2d35de="">
-                        <div data-v-b73557e2="" class="safe"></div>
-                        <div data-v-b73557e2="" class="container flex">
-                            <div data-v-b73557e2="" class="back"><img data-v-b73557e2="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEeSURBVHgB7Ze9DcIwEIWf+W1ZgQ0oWIBJYBMoqekoEUJsQAsFA7ACYgCYAHNWbBGO2ICVEBf3SU9Ozufk6ZzYCSAIQrVorQekMVLEmrvqjLRMMnO6KpMNRGDMUbMn9VhXH3XjqZxhhroRc7GIuVjEXCwpmVM8oP2L8JI0R7a4N1lbFGtG5Lrji1LqYG7a+tLchrQjDUkdUteqE2iL8nif71pb0gHIbXUBcyvS2qTYc1d1nctRuXOeB0++r++FX/ZixY7VhxvowHgeU54xzymmOT9RFUd4r6L5QrmTFqQ2smekbcc6uXhRjOeG5HKP8BF4g6dIBTFZFmKyLMRkWYjJsvinyaj/YrMtUmO2xRvrOiMlWCUnSBFrcgJBEOrhAfmtScdij3WYAAAAAElFTkSuQmCC" alt=""></div><!----><!----><!---->
-                            <div data-v-b73557e2="" class="name tac"> My income </div><!----><!----><!---->
-                            <div data-v-b73557e2="" class="flex1"></div><!----><!----><!----><!----><!---->
-                            <div data-v-b73557e2="" class="head_right"></div>
-                        </div>
-                        <div data-v-b73557e2=""><!----></div>
+<body>
+
+    <div id="app">
+        <div data-v-6b868a30="" class="page page-invite">
+            <div data-v-6b868a30="" class="headers">
+                <div class="tw-px-16px tw-w-full tw-h-full tw-flex tw-items-center" data-v-6b868a30=""
+                    style="background-color: transparent;">
+                    <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
+                        <a href="{{ route('user.dashboard') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                            </svg>
+                        </a>
+
+                    </div>
+                    <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
+                        style="color: rgb(245, 248, 253);"><span>Asset Details </span></div>
+                    <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
+
+
+                        <div><a href="{{ route('user.notice') }}">
+                                <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+
+                            </a></div>
+
+
                     </div>
                 </div>
-                <div data-v-6e2d35de="" id="scroll" class="content-container">
-                    <div data-v-6e2d35de="" id="content" class="content-scroll">
-                        <div data-v-73b46d99="" data-v-6e2d35de="" class="container">
-                            <ul data-v-31cd11fc="" data-v-73b46d99="" class="flex" data-v-6e2d35de="">
-                                <li data-v-31cd11fc="" class="on"> Revenue Record </li>
-                                <li data-v-31cd11fc="" class=""> To be released </li>
-                            </ul>
-                            <div data-v-71077448="" data-v-73b46d99="" data-v-6e2d35de="">
-                                <ul data-v-71077448="" class="flex">
-                                    <li data-v-71077448="">
-                                        <div data-v-71077448="" class="title">Total Income(USDT)</div>
-                                        <div data-v-71077448="" class="val">0</div>
-                                    </li>
-                                    <li data-v-71077448="">
-                                        <div data-v-71077448="" class="title">Today's earnings(USDT)</div>
-                                        <div data-v-71077448="" class="val">0</div>
-                                    </li>
-                                    <li data-v-71077448="">
-                                        <div data-v-71077448="" class="title">Accumulated trading income(USDT)</div>
-                                        <div data-v-71077448="" class="val">0</div>
-                                    </li>
-                                    <li data-v-71077448="">
-                                        <div data-v-71077448="" class="title">Today's trading income(USDT)</div>
-                                        <div data-v-71077448="" class="val">0</div>
-                                    </li>
-                                    <li data-v-71077448="">
-                                        <div data-v-71077448="" class="title">Cumulative community income(USDT)</div>
-                                        <div data-v-71077448="" class="val">0</div>
-                                    </li>
-                                    <li data-v-71077448="">
-                                        <div data-v-71077448="" class="title">Today's community income(USDT)</div>
-                                        <div data-v-71077448="" class="val">0</div>
-                                    </li>
-                                </ul><!---->
-                            </div>
-                            <div data-v-73b46d99="" data-v-6e2d35de="" class="cname"> Revenue distribution </div>
-                            <ul data-v-73b46d99="" data-v-6e2d35de="" class="setList">
-                                <li data-v-73b46d99="" data-v-6e2d35de=""> All <img data-v-73b46d99="" data-v-6e2d35de="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAgCAYAAACcuBHKAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACQSURBVHgB7dPBEYMgFIThJRVYAqVQUkpIB0kHKcVSQgexg/U5cnB0RkUUL/vNcPHw+AcBEBGRE5H88rg3StkQz3J+bY/Hjo7OVsRx0TkXUSqdxp/5flunkBsSmC/gbDb0mRHwwlVs+OfWgElIuxLQogbbqOF46eaGbx61cPli6gZMQkIKGVbAXdKvaSAiIhX0NA2573NFoLgAAAAASUVORK5CYII=" alt=""></li>
-                                <li data-v-73b46d99="" data-v-6e2d35de=""><span data-v-73b46d99="" data-v-6e2d35de="">time</span><img data-v-73b46d99="" data-v-6e2d35de="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAgCAYAAACcuBHKAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACQSURBVHgB7dPBEYMgFIThJRVYAqVQUkpIB0kHKcVSQgexg/U5cnB0RkUUL/vNcPHw+AcBEBGRE5H88rg3StkQz3J+bY/Hjo7OVsRx0TkXUSqdxp/5flunkBsSmC/gbDb0mRHwwlVs+OfWgElIuxLQogbbqOF46eaGbx61cPli6gZMQkIKGVbAXdKvaSAiIhX0NA2573NFoLgAAAAASUVORK5CYII=" alt=""></li>
-                            </ul>
-                            <div data-v-73b46d99="" data-v-6e2d35de="" class="it">
-                                <div data-v-73b46d99="" data-v-6e2d35de="" class="empty db">
-                                    <div data-v-73b46d99="" data-v-6e2d35de="" class="flexs">
-                                        <div data-v-73b46d99="" class="custom-image van-empty" data-v-6e2d35de="">
-                                            <div class="van-empty__image"><img src="{{asset('')}}static/img/none.624b4d8f.png"></div>
-                                            <p class="van-empty__description">No record yet</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!---->
+            </div>
+            <div data-v-6b868a30="" id="scroll" class="content-container ">
+                <div data-v-6b868a30="" id="content" class="content-scroll">
+                    <div data-v-6b868a30="" class="tw-min-h-full tw-p-16px">
+                        <div data-v-56ac34c2="" data-v-6b868a30="" class="tw-mb-16px tw-flex tw-items-center tw-gap-16px">
+                            <div data-v-56ac34c2="" data-v-6b868a30="" class="tw-flex tw-items-center tw-gap-4px"> Currency <i data-v-56ac34c2="" data-v-6b868a30="" class="van-icon van-icon-arrow-down"><!----></i></div>
+                            <div data-v-56ac34c2="" data-v-6b868a30="" class="tw-flex tw-items-center tw-gap-4px"> type <i data-v-56ac34c2="" data-v-6b868a30="" class="van-icon van-icon-arrow-down"><!----></i></div>
+                            <div data-v-56ac34c2="" data-v-6b868a30="" class="tw-flex tw-items-center tw-gap-4px"> 09/2025 <i data-v-56ac34c2="" data-v-6b868a30="" class="van-icon van-icon-arrow-down"><!----></i></div>
                         </div>
-                        <div data-v-554f6835="" data-v-73b46d99="" data-v-6e2d35de=""><!----></div><!---->
+                        <div data-v-56ac34c2="" role="feed" class="van-list">
+                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
+                                <div data-v-56ac34c2="" class="tw-flex-1">
+                                    <div data-v-56ac34c2="" class="tw-mb-6px">strategic gain</div>
+                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-03 15:56:30 </div>
+                                </div>
+                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
+                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-success"> + 0.0988 USDT </div>
+                                </div>
+                            </div>
+                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
+                                <div data-v-56ac34c2="" class="tw-flex-1">
+                                    <div data-v-56ac34c2="" class="tw-mb-6px">Return of Strategic Funds</div>
+                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-03 15:56:25 </div>
+                                </div>
+                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
+                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-success"> + 6 USDT </div>
+                                </div>
+                            </div>
+                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
+                                <div data-v-56ac34c2="" class="tw-flex-1">
+                                    <div data-v-56ac34c2="" class="tw-mb-6px">strategic payment</div>
+                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-03 15:50:06 </div>
+                                </div>
+                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
+                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-error"> -6 USDT </div>
+                                </div>
+                            </div>
+                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
+                                <div data-v-56ac34c2="" class="tw-flex-1">
+                                    <div data-v-56ac34c2="" class="tw-mb-6px">strategic gain</div>
+                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-02 02:40:05 </div>
+                                </div>
+                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
+                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-success"> + 0.0959 USDT </div>
+                                </div>
+                            </div>
+                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
+                                <div data-v-56ac34c2="" class="tw-flex-1">
+                                    <div data-v-56ac34c2="" class="tw-mb-6px">Return of Strategic Funds</div>
+                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-02 02:40:00 </div>
+                                </div>
+                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
+                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-success"> + 6 USDT </div>
+                                </div>
+                            </div>
+                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
+                                <div data-v-56ac34c2="" class="tw-flex-1">
+                                    <div data-v-56ac34c2="" class="tw-mb-6px">strategic payment</div>
+                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-02 02:36:49 </div>
+                                </div>
+                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
+                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-error"> -6 USDT </div>
+                                </div>
+                            </div>
+                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
+                                <div data-v-56ac34c2="" class="tw-flex-1">
+                                    <div data-v-56ac34c2="" class="tw-mb-6px">Sign up to give away rewards</div>
+                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-02 02:36:40 </div>
+                                </div>
+                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
+                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-success"> + 6 USDT </div>
+                                </div>
+                            </div>
+                            <div class="van-list__finished-text">No more</div>
+                            <div class="van-list__placeholder"></div>
+                        </div>
                     </div>
-                </div><!---->
+                    <div data-v-91b14df4="" data-v-6b868a30=""></div>
+                </div>
             </div>
         </div>
-        <div data-v-a7d12cfc="" class="global-loading default" style="display: none;">
-            <div data-v-a7d12cfc="" class="global-spinner"><img data-v-a7d12cfc="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAArCAYAAAADgWq5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAF6WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMi0wNC0xMlQxNTo0MTowNiswODowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDQtMTJUMTU6NDM6MTQrMDg6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDQtMTJUMTU6NDM6MTQrMDg6MDAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NWU0ZGQwNmEtMWExNS1kYjRmLTkyZmQtZjIzNTAwNzJkMGNmIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjlGMTI0NjE1NTQzQzExRThCQzhCQzEyQjVDOUMzOEJGIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6OUYxMjQ2MTU1NDNDMTFFOEJDOEJDMTJCNUM5QzM4QkYiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5RjEyNDYxMjU0M0MxMUU4QkM4QkMxMkI1QzlDMzhCRiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5RjEyNDYxMzU0M0MxMUU4QkM4QkMxMkI1QzlDMzhCRiIvPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo1ZTRkZDA2YS0xYTE1LWRiNGYtOTJmZC1mMjM1MDA3MmQwY2YiIHN0RXZ0OndoZW49IjIwMjItMDQtMTJUMTU6NDM6MTQrMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+hddYGwAABHhJREFUWIXN2XuoFVUUx/HPXG9WmmIPJQtNwQwqe5paEI1pCBZCRvVXDwlKCsLpIURgIZZG1KEXRVJJWPRnIv3TAw/0UCsrUlBLLQ1T01Ip6eZr+mPPOHOP56jXcz3XHxzu3nv2nv29a/bstdaeyJIXdYOG4bLs77k4AzvQFyvxKw7gJ/xZHpjGSZcmam8Csg/uxU0Yi8HHMGYz1uAtfIh/uzrp8QBPwFO4HgfR1oWx52e/CViX3ef9rkwedWFJXIQncE+da7uwHcuwF1uQClbvi1G4tMF9V+GuNE5+6C7gUzANT2Joqb0Dm/A6XsO+I9yjD/7DaMzArTi1ps/iNE6mNAvcjqfxKE4rtS/BXHxytAnqqBcuwHQ8XnNtP0amcfJLo8FHWn/98QIeK8Fuw3W48ThhCbvFBsxEhMWla+3YEFUrfbsKfDpewcOKR/e5sBssPU7QusqWwTTBurlWN+rfCHg67i7V3xasurFZwHpK42QBxmFP1jQkqlbW1utbD3g0ygt7Fe7T2QLdrjROVmBSqWlkVK28WtuvHvB7pfImXNvNbA2VxsmXeKnU9FBUrVxT7lMLHGNkVt6JO/DPiQKspzROZuC3UtM7UbVyiLMMPBDzSvWFWHFC6RprrLCbwCU4ZOUy8G24OivvxCwneN02UhonWwSD5Xo3L5SBpypii/mCu+1JzRHcOwyPqpVhFMD9MSYr78OnLUWrozRO1gk7FCE8mEwBPE7hzVbiu5bSNdabpfKkqFqJcuCr0Dsrr1ETZPegPiiVJ6dxkubAQwW/TohTTxa1K4x3IKpWLmwToqfhWWMqpDEnhdI42SrENYSYpqNN2O+uyBojfN16tPqKqpV2fJNVD+LK3MJbS/0GtRqskdI42Y+zsmob/moTlkHuVQ7qHKifDCpnJtvbBMg8XmjD2S1HaqCoWhmgCDl3o1e+S3xf6tey6OwY1K4IxrZhcw68rNRpjJNHA4WsG7ancbI7B/5CcagxCv1aTVarLKS8OaumAuMh17xFsVb64YaW0tVXO27PyvuxiAL4oJC35Xq+dVwNdbEiDv5btmzL4eXcUnmEwpn0lGYpwoVFaZykdAbeJZziEB7HG0JY13JF1crlyE+BdmQsODynm60ImkcIS6WliqqVQXhO8MCEg5Yf8+u1wFvxANbjfoUHbImiaqU3XsbErGkf5qRx0pH3qXfcOj/79YSeFXaG3JAz0zjZUO7QzIF2tymLyp7BI4oXbYVg7U7qceCoWhmKBRhfal6NKWmcHPYOdeX0/EQoxkc6wy7FxDROfq83oKcsfIvw+MfXtC8VLLuj0cBmgXsLb/RIfCVkK72FrXGfELjsEXLGFHcK580DdI5zd2F2GieVo03YLPCDwqF3nmr1Ek6N1grfN7Zn/8xenNPgHsuFbxw/H8uEzQLvVLwH+UZ/pnDOQfg0UKsD2biPMS+Nk5VdmbBZ4IVCVjtVyAXPE2LYsjqEtGs9vhWCrM8cp1NqFviA4OdzXz9ESLcGC+Abhe9yy4Vk8o8m5/M/9rYMi48jzWIAAAAASUVORK5CYII=" alt=""></div>
-        </div>
-    </div>
-    <script src="/js1743475952730/core-js.fe8857a9.1743475952730.js?v=1743475952730"></script>
-    <script src="/js1743475952730/vue.fe8857a9.1743475952730.js?v=1743475952730"></script>
-    <script src="/js1743475952730/vant.fe8857a9.1743475952730.js?v=1743475952730"></script>
-    <script src="/js1743475952730/crypto-js.fe8857a9.1743475952730.js?v=1743475952730"></script>
-    <script src="/js1743475952730/axios.fe8857a9.1743475952730.js?v=1743475952730"></script>
-    <script src="/js1743475952730/compressorjs.fe8857a9.1743475952730.js?v=1743475952730"></script>
-    <script src="/js1743475952730/vendors~app.fe8857a9.1743475952730.js?v=1743475952730"></script>
-    <script src="/js1743475952730/app.fe8857a9.1743475952730.js?v=1743475952730"></script>
-    <script>
-        window.onload = function() {
-            // 禁用双指放大
-            document.addEventListener("touchstart", function(event) {
-                if (event.touches.length > 1) {
-                    event.preventDefault();
-                }
-            });
-            // 禁用双击放大
-            let lastTouchEnd = 0;
-            document.addEventListener(
-                "touchend",
-                function(event) {
-                    const now = new Date().getTime();
-                    if (now - lastTouchEnd <= 300) {
-                        event.preventDefault();
-                    }
-                    lastTouchEnd = now;
-                },
-                false
-            );
-            document.addEventListener("gesturestart", function(event) {
-                event.preventDefault();
-            });
-        };
-    </script><!---->
-    <div class="van-toast van-toast--middle van-toast--success" style="z-index: 2022; display: none;"><i class="van-icon van-icon-success van-toast__icon"><!----></i>
-        <div class="van-toast__text">Login successful</div>
-    </div><!---->
-</body>
-
-</html>
