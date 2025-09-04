@@ -240,7 +240,7 @@
                         </a>
                     </div>
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
-                        style="color: rgba(255, 255, 255, 1);"><span>Mine</span></div>
+                        style="color: rgba(255, 255, 255, 1);"><span>Profile</span></div>
                     <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
                         <a href="{{ route('user.lang') }}">
                             <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt=""

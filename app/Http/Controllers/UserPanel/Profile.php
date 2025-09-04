@@ -135,6 +135,10 @@ class Profile extends Controller
 
     public function showinfo()
     {
+
+        $user = Auth::user();
+
+        $this->data['user'] = $user;
         $this->data['page'] = 'user.profile.info';
 
         return $this->dashboard_layout();
@@ -520,7 +524,7 @@ class Profile extends Controller
     {
 
         $user = Auth::user(); // Get the authenticated user
-        $user->nickname = $request->nickname; // Update nickname
+        $user->name = $request->name; // Update nickname
         $user->gender = $request->gender; // Update gender
 
         $user->save(); // Save the user
