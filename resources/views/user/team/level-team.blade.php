@@ -5,16 +5,16 @@
                         <div data-v-6b868a30="" class="tw-mb-12px tw-flex tw-justify-between tw-items-center">
                             <div data-v-6b868a30="" class="tw-text-16px tw-font-bold">Team Data Overview</div>
                             <div data-v-6b868a30="" class="tw-flex tw-items-center"><span data-v-6b868a30=""
-                                    class="tw-pr-4px">Today</span><i data-v-6b868a30=""
+                                    class="tw-pr-4px">Today</span><i data-v-6b868a30="" id="openPopup"
                                     class="van-icon van-icon-arrow-down">
                                     </i></div>
                         </div>
                         <div data-v-6b868a30="" class="page-team-header tw-text-white tw-relative">
                             <div data-v-6b868a30="" class="page-team-header-top">
                                 <div data-v-6b868a30="" class="tw-text-12px tw-opacity-80"> Cumulative Income </div>
-                                <div data-v-6b868a30="" class="tw-text-28px tw-font-bold"> {{number_format($teamEarning,2)}} USDT </div>
+                                <div data-v-6b868a30=""  style="margin-top:15px"> {{number_format($teamEarning,2)}} USDT </div>
                                 <div data-v-6b868a30=""
-                                    class="tw-flex tw-justify-between tw-items-center tw-px-28px tw-py-16px tw-bg-white3 tw-bg-opacity-90 tw-rounded-8px">
+                                    class="tw-flex tw-justify-between tw-items-center tw-px-28px tw-py-16px tw-bg-white3 tw-bg-opacity-90 tw-rounded-8px" style="margin-top:10px">
                                     <div data-v-6b868a30="" class="tw-flex-1 tw-text-center">
                                         <div data-v-6b868a30="" class="tw-text-primary tw-text-18px tw-font-bold"> ${{ number_format($totalrecharge, 2) }}
                                         </div>
@@ -52,7 +52,7 @@
                                     style="width: 0.6588rem; height: 0.6588rem; font-size: 0.6588rem;">
                                 <div data-v-6b868a30="" class="tw-mt-6px tw-text-secondary tw-text-12px"> New Users
                                 </div>
-                                <div data-v-6b868a30="" class="tw-mt-12px tw-text-18px tw-text-success tw-font-bold"> 1
+                                <div data-v-6b868a30="" class="tw-mt-12px tw-text-18px tw-text-success tw-font-bold"> {{ $newUsers }}
                                 </div>
                             </div>
                             <div data-v-6b868a30="" class="tw-flex-1 tw-p-12px tw-bg-white3 tw-rounded-10px statisic">
@@ -233,4 +233,56 @@
                     <div data-v-91b14df4="" data-v-6b868a30=""></div>
                 </div>
             </div>
+            <div class="van-overlay" id="overlay" style="display :none; z-index: 2017;"></div>
+            <div data-v-91b14df4="" id="popup" class="van-popup van-popup--round van-popup--bottom" style="display :none; z-index: 2018;">
+                <div data-v-91b14df4="" class="popup_box">
+                    <div data-v-91b14df4="" class="scroll">
+                        <div data-v-91b14df4="" class="ul">
+                            <div data-v-91b14df4="">
+                                <div data-v-91b14df4="" class="item"> All </div>
+                            </div>
+                            <div data-v-91b14df4="">
+                                <div data-v-91b14df4="" class="item"> Today </div>
+                            </div>
+                            <div data-v-91b14df4="">
+                                <div data-v-91b14df4="" class="item active"> Last 7 days </div>
+                            </div>
+                            <div data-v-91b14df4="">
+                                <div data-v-91b14df4="" class="item"> Last 30 days </div>
+                            </div>
+                            <div data-v-91b14df4="">
+                                <div data-v-91b14df4="" class="item"> Last 60 days </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-v-91b14df4="" class="esc" id="close">Cancel</div>
+                </div>
+            </div>
+            <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const overlay = document.getElementById("overlay");
+        const popup = document.getElementById("popup");
+        const closeBtn = document.getElementById("close");
+        const openBtn = document.getElementById("openPopup"); // 👈 create a button with this ID
+
+        // Show popup
+        openBtn.addEventListener("click", () => {
+            overlay.style.display = "block";
+            popup.style.display = "block";
+        });
+
+        // Hide popup when clicking close button
+        closeBtn.addEventListener("click", () => {
+            overlay.style.display = "none";
+            popup.style.display = "none";
+        });
+
+        // Also hide when clicking overlay
+        overlay.addEventListener("click", () => {
+            overlay.style.display = "none";
+            popup.style.display = "none";
+        });
+    });
+
+</script>
             @include('layouts.upnl.footer')
