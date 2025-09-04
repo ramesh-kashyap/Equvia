@@ -56,6 +56,64 @@
                     </div>
                 </div>
             </div>
+            <form action="{{ route('user.tradeOn') }}" method="GET">
+            <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-mt-16px tw-p-16px tw-bg-white3 tw-rounded-10px">
+                
+                <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-mb-8px tw-text-16px tw-flex">
+                    <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-flex-1"> Investment Amount </div>
+                    <span data-v-29a06c8f="" data-v-6b868a30="" class="tw-text-12px"
+                        style="color: rgb(121, 129, 143);">Foreign Exchange Stocks</span>
+                </div>
+                <div data-v-29a06c8f=""
+                    class="tw-rounded-10px cell-after-hidden custom-focus van-cell1 van-cell--large van-field"
+                    data-v-6b868a30="">
+                    <div class="van-cell__value van-cell__value--alone van-field__value">
+                        <div class="van-field__body">
+                            <input type="number" name="amount" id="amount" inputmode="decimal" placeholder="Input amount"
+                                class="van-field__control1" min="1" max="{{ $balance }}">
+                            <div class="van-field__right-icon">
+                                <div data-v-29a06c8f="" class="tw-flex tw-items-center">
+                                    <div data-v-29a06c8f="" class="tw-pr-4px tw-text-12px">USDT</div>
+                                    <div data-v-29a06c8f="" class="tw-pl-4px tw-text-primary"> All </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-v-29a06c8f="" data-v-6b868a30=""
+                    class="tw-mt-8px tw-flex tw-justify-between tw-items-center tw-text-12px">
+                    <div data-v-29a06c8f="" data-v-6b868a30="">Amount that can be invested</div>
+                    <div data-v-29a06c8f="" data-v-6b868a30=""><span data-v-29a06c8f="" data-v-6b868a30=""
+                            class="tw-text-primary">{{ $balance }}</span><span data-v-29a06c8f="" data-v-6b868a30=""
+                            class="tw-text-secondary"></span></div>
+                </div>
+            </div>
+            <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-mb-16px tw-mt-16px tw-grid tw-grid-cols-2 tw-gap-16px">
+                <div data-v-29a06c8f="" data-v-6b868a30=""
+                    class="tw-flex tw-items-center tw-p-12px tw-bg-white3 tw-rounded-10px">
+                    <img src="{{ asset('/static/icon/download (9).png') }}" data-v-3f1a7394=""
+                        data-v-29a06c8f="" aria-hidden="true" class="svg-icon" data-v-6b868a30=""
+                        style="width: 0.6588rem; height: 0.6588rem; font-size: 0.6588rem;">
+                    <span data-v-29a06c8f="" data-v-6b868a30="" class="tw-flex-1 tw-pl-8px">To Be
+                        Released Details</span></div>
+                <div data-v-29a06c8f="" data-v-6b868a30=""
+                    class="tw-flex tw-items-center tw-p-12px tw-bg-white3 tw-rounded-10px">
+                    <img src="{{ asset('/static/icon/langu.png') }}" data-v-3f1a7394=""
+                        data-v-29a06c8f="" aria-hidden="true" class="svg-icon" data-v-6b868a30=""
+                        style="width: 0.6588rem; height: 0.6588rem; font-size: 0.6588rem;"><span data-v-29a06c8f=""
+                        data-v-6b868a30="" class="tw-flex-1 tw-pl-8px">Order
+                        History</span></div>
+            </div>
+            <button data-v-29a06c8f="" data-v-6b868a30="" id="createOrderBtn"
+                class="van-button van-button--primary van-button--normal van-button--block">
+                <div data-v-29a06c8f="" data-v-6b868a30="" class="van-button__content"><span data-v-29a06c8f=""
+                        data-v-6b868a30="" class="van-button__text"> Create Order </span>
+                </div>
+            </button>
+           </form>
+            <div data-v-29a06c8f="" data-v-6b868a30="" id="countdownSection" style="display: none;">
+                <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-mb-16px tw-flex tw-justify-between tw-items-start">
+                    <div data-v-29a06c8f="" data-v-6b868a30="" style="color:#fff">grid transaction is in progress</div>
          
                 <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-mt-16px tw-p-16px tw-bg-white3 tw-rounded-10px">
 
@@ -123,6 +181,7 @@
                     <div data-v-29a06c8f="" data-v-6b868a30="" style="color:#fff">grid transaction is in progress
                     </div>
                     <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-text-primary">
+                        <div data-v-29a06c8f="" id="countdownTimer" class="van-count-down" data-v-6b868a30="">00:01:00</div>
                         <div data-v-29a06c8f="" id="countdownTimer" class="van-count-down" data-v-6b868a30="">
                             00:01:00</div>
                     </div>
@@ -345,10 +404,16 @@
 </div>
 
 <div class="van-overlay" style="display :none;z-index: 2005;"></div>
+<div data-v-29a06c8f="" id="sucesspop" class="van-popup van-popup--round van-popup--center" style="display:none; z-index: 2006;">
 <div data-v-29a06c8f="" id="sucesspop" class="van-popup van-popup--round van-popup--center"
     style="display:none; z-index: 2006;">
     <div data-v-29a06c8f="" class="tw-w-32 tw-text-center tw-p-16px">
         <div data-v-29a06c8f="" class="tw-mb-16px tw-text-16px">Strategy Complete</div><img data-v-29a06c8f=""
+            src="/static/1756094289381/img/icon_13.bf296378.png" alt="" class="tw-mx-auto tw-w-140px">
+        <div data-v-29a06c8f="" class="tw-mt-16px">Congratulations to get</div>
+        <div data-v-29a06c8f="" class="tw-mt-10px tw-mb-16px tw-text-14px" id="profitAmount">
+            
+            <!---->
             src="{{asset('')}}static/img/icon_13.bf296378.png" alt="" class="tw-mx-auto tw-w-140px">
         <div data-v-29a06c8f="" class="tw-mt-16px" style="color: #fff">Congratulations to get</div>
         <div data-v-29a06c8f="" class="tw-mt-10px tw-mb-16px tw-text-14px">
@@ -358,10 +423,89 @@
         <div data-v-29a06c8f="" class="tw-flex tw-items-center" style="justify-content: space-between;"><button
                 data-v-29a06c8f="" class="btn1 btns tw-text-14px"> View Order </button><button data-v-29a06c8f=""
                 class="btn2 btns" onclick="closeSuccessPopup()"> Confirm </button></div>
+    </div><i role="button" tabindex="0" 
+                class="btn2 btns" onclick="closeSuccessPopup()"> Confirm </button></div>
     </div><i role="button" tabindex="0"
         class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right">
     </i>
 </div>
+   
+               <!-- <script>
+document.getElementById("createOrderBtn").addEventListener("click", function () {
+    // Show countdown section
+    document.getElementById("countdownSection").style.display = "block";
+
+    let countdownEl = document.getElementById("countdownTimer");
+    let duration = 60; // 1 minute in seconds
+
+    let timer = setInterval(function () {
+        let minutes = Math.floor(duration / 60);
+        let seconds = duration % 60;
+        countdownEl.textContent =
+            "00:" + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
+
+        if (duration <= 0) {
+            clearInterval(timer);
+
+            // Hide countdown, show popup
+            document.getElementById("countdownSection").style.display = "none";
+            document.getElementById("sucesspop").style.display = "block";
+        }
+        duration--;
+    }, 1000);
+});
+
+// Close popup
+function closePopup() {
+    document.getElementById("sucesspop").style.display = "none";
+}
+
+</script> -->
+             
+   <script>
+function tradeOn(amount) {
+    if (!amount || amount <= 0) {
+        alert("Please enter a valid amount greater than 0");
+        return;
+    }
+
+    // 1. Call backend first
+    fetch(`/tradeOn?amount=${amount}`)
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'success') {
+                // 2. Show countdown section
+                document.getElementById('countdownSection').style.display = 'block';
+
+                let time = 60;
+                let timerEl = document.getElementById('countdownTimer');
+                let interval = setInterval(() => {
+                    let minutes = Math.floor(time / 60);
+                    let seconds = time % 60;
+
+                    timerEl.textContent = `00:0${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+                    if (time === 0) {
+                        clearInterval(interval);
+
+                        // 3. Hide countdown, show success popup
+                        document.getElementById('countdownSection').style.display = 'none';
+                        document.getElementById('profitAmount').innerText = data.trade_profit + ' USDT';
+                        document.getElementById('sucesspop').style.display = 'block';
+                    }
+
+                    time--;
+                }, 1000);
+            }
+        })
+        .catch(err => console.error(err));
+}
+
+// Close popup manually
+function closeSuccessPopup() {
+    document.getElementById('sucesspop').style.display = 'none';
+}
+</script>
 <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2018; display: none;"><div class="van-toast__text">Today’s strategies have been used up</div></div>
 
 <!-- <script>
