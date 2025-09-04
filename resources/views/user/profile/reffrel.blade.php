@@ -66,7 +66,8 @@
             height: 100vh;
             object-fit: cover;
         }
-             x-vue-echarts {
+
+        x-vue-echarts {
             display: flex;
             flex-direction: column;
             width: 100%;
@@ -172,9 +173,7 @@
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
                         style="color: rgb(245, 248, 253);"><span>Invite friends</span></div>
                     <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
-                        <a href="{{ route('user.lang') }}">
-                            <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                        </a>
+
 
                         <div><a href="{{ route('user.notice') }}">
                                 <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
@@ -199,8 +198,10 @@
                             <div data-v-6b868a30=""
                                 class="tw-mx-auto tw-p-10px tw-w-150px tw-h-150px tw-flex tw-justify-center tw-items-center tw-bg-white3 tw-rounded-10px">
                                 <div value="https://h5.Equvia.com/user/register?inviteCode=3Q3X3V" level="H"
-                                    background="#fff" foreground="#000" class="custom-qrcode" data-v-6b868a30=""><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ url('') }}/register?inviteCode={{ Auth::user()->username }}"
-                                        height="360" width="360" style="width: 240px; height: 140px;"></div>
+                                    background="#fff" foreground="#000" class="custom-qrcode" data-v-6b868a30="">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ url('') }}/register?inviteCode={{ Auth::user()->username }}"
+                                        height="360" width="360" style="width: 240px; height: 140px;">
+                                </div>
                             </div>
                         </div>
                         <div data-v-6b868a30="" class="page-invite-bottom">
@@ -213,10 +214,9 @@
                                         {{ url('') }}/register?inviteCode={{ Auth::user()->username }}
                                     </div>
                                     <div data-v-6b868a30="" onclick="copyById('link')">
-                                        <svg data-v-3f1a7394="" aria-hidden="true" class="svg-icon"
-                                            data-v-6b868a30=""
-                                            style="color: rgba(255, 255, 255, 1); width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
-                                            <use data-v-3f1a7394="" xlink:href="#svg-icon-copy-line"></use>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="color: rgba(255, 255, 255, 1);  font-size: 0.6118rem;" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
                                         </svg>
                                     </div>
                                 </div>
@@ -229,10 +229,9 @@
                                     <div data-v-6b868a30="" class="tw-flex-1 tw-break-words tw-leading-none" id="code">{{ Auth::user()->username }}
                                     </div>
                                     <div data-v-6b868a30="" onclick="copyById('code')">
-                                        <svg data-v-3f1a7394="" aria-hidden="true" class="svg-icon"
-                                            data-v-6b868a30=""
-                                            style="color: rgba(255, 255, 255, 1); width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
-                                            <use data-v-3f1a7394="" xlink:href="#svg-icon-copy-line"></use>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="color: rgba(255, 255, 255, 1);  font-size: 0.6118rem;" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
                                         </svg>
                                     </div>
                                 </div>
@@ -282,12 +281,10 @@
             const toast = document.getElementById("copyToast");
             toast.innerText = message;
 
-            // Apply inline show styles
             toast.style.visibility = "visible";
             toast.style.opacity = "1";
             toast.style.bottom = "50px";
 
-            // Hide after 2 seconds
             setTimeout(() => {
                 toast.style.visibility = "hidden";
                 toast.style.opacity = "0";

@@ -13,7 +13,7 @@
                         readonly="readonly" class="tw-pl-8px van-field__control1">
                 </div><i data-v-4bcdfc27="" data-v-6b868a30=""
                     class="van-icon van-icon-arrow" style="color: rgb(182, 188, 198);">
-                    </i>
+                </i>
             </div>
             <div data-v-4bcdfc27="" data-v-6b868a30="" class="tw-mt-18px tw-mb-10px tw-text-14px"> Select
                 Network </div>
@@ -34,9 +34,6 @@
                         background="#fff" foreground="#000" class="custom-qrcode" data-v-6b868a30="">
                         <div class="d-flex justify-content-center mb-3">
                             <img src="" id="qrCodeImg" class="img-fluid">
-
-                            <!-- <img id="qrCodeImg" src="" width="180" height="180" style="margin-top: 10px;"> -->
-
 
                         </div>
 
@@ -64,7 +61,7 @@
                 <div data-v-4bcdfc27="" data-v-6b868a30="" class="tw-flex tw-items-center"><i
                         data-v-4bcdfc27="" data-v-6b868a30="" class="tw-text-20px van-icon van-icon-warning"
                         style="color: rgba(255, 255, 255, 1);">
-                        </i><span data-v-4bcdfc27="" data-v-6b868a30=""
+                    </i><span data-v-4bcdfc27="" data-v-6b868a30=""
                         class="tw-text-primary tw-pl-8px">Note</span></div>
                 <div data-v-4bcdfc27="" data-v-6b868a30="" class="tw-text-14px tw-text-secondary tw-mt-8px">
                     <p>1. Minimum deposit amount: 1 USDT, (if the deposit is lower than the minimum deposit
@@ -75,7 +72,7 @@
 
                     <p>3. Before each deposit, you need to obtain the deposit address on the deposit page.
                         The loss of funds caused by transferring the wrong deposit address will not be
-                        found. SEOKORE takes no responsibility for this!</p>
+                        found. Equvia takes no responsibility for this!</p>
 
                     <p style="text-align:justify">&nbsp;</p>
                 </div>
@@ -100,43 +97,24 @@
     </div>
 </div>
 <div data-v-4d1ba5fa="">
-    
+
 </div>
 </div>
-<!-- <script>
-        document.querySelector('.copy-btn').addEventListener('click', function() {
-            let copyText = document.getElementById('depositAddressDiv').innerText.trim();
 
-            navigator.clipboard.writeText(copyText).then(function() {
-                let toast = document.querySelector('.van-toast');
-                toast.style.display = 'block'; // Show the toast
-
-                // Hide after 3 seconds
-                setTimeout(() => {
-                    toast.style.display = 'none';
-                }, 3000);
-            }, function(err) {
-                console.error('Could not copy text: ', err);
-            });
-        });
-    </script> -->
 <script>
     let selectedCoin = null;
 
     function selectChain(element) {
-        // Remove previous selections
         document.querySelectorAll('.chains .item').forEach(item => {
             item.classList.remove('on');
             const check = item.querySelector('.check');
             if (check) check.style.display = 'none';
         });
 
-        // Mark selected item
         element.classList.add('on');
         const check = element.querySelector('.check');
         if (check) check.style.display = 'block';
 
-        // Save selected coin from attribute
         selectedCoin = element.getAttribute('data-coin');
     }
 
@@ -167,7 +145,7 @@
         fetch(`/user/get-address-details/${selectedCoin}`)
             .then(response => response.json())
             .then(data => {
-                console.log("API Response:", data); // Add this log
+                console.log("API Response:", data);
 
                 if (data.success) {
                     document.getElementById('global-loading').style.display = 'none';
@@ -210,13 +188,11 @@
 </script>
 <script>
     window.onload = function() {
-        // 禁用双指放大
         document.addEventListener("touchstart", function(event) {
             if (event.touches.length > 1) {
                 event.preventDefault();
             }
         });
-        // 禁用双击放大
         let lastTouchEnd = 0;
         document.addEventListener(
             "touchend",
@@ -264,7 +240,6 @@
             const selectedNetwork = $('#currencyId').val();
             const selectedAddress = addresses[selectedNetwork] || "";
 
-            // ✅ Update the <p> tag
             $('#walletAddress').text(selectedAddress);
             $('#walletAddress').val(selectedAddress);
             const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=" + encodeURIComponent(selectedAddress);

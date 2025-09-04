@@ -3,17 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Equvia Strategy</title>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#fff">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="expires" content="0">
-    <meta name="full-screen" content="true">
-    <meta name="x5-fullscreen" content="true">
-    <meta name="360-fullscreen" content="true">
-    <meta name="renderer" content="webkit">
-    <meta name="robots" content="noindex, nofollow">
+
     <script>
         window.addEventListener('error', function(event) {
             if (event.message.indexOf("Unexpected token '<'") > -1) {
@@ -75,6 +65,20 @@
             width: 100%;
             height: 100vh;
             object-fit: cover;
+        }
+              x-vue-echarts {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            min-width: 0
+        }
+
+        .vue-echarts-inner {
+            flex-grow: 1;
+            min-width: 0;
+            width: auto !important;
+            height: auto !important
         }
     </style>
     <link href="{{ asset('') }}static/css/chunk-02c8c6ba.f02a30c2.css" rel="prefetch">
@@ -138,132 +142,15 @@
     <link href="{{ asset('') }}static/css/chunk-ea0143b0.0982c731.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-ee39cd88.8adb81bc.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-f6532530.0eb12746.css" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-02c8c6ba.e6ce0cf8.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-03c1575b.3e7d5deb.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-0566fd30.54cec5fc.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-08efff57.e7d2211e.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-146e34fc.71366adb.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-18e03ad8.59f8f8a0.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-19b6a8e4.3b65fe58.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-19e32f24.ec62c3f7.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-1cc9e062.1c851893.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-1ee97074.56275ac5.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-23dc19ae.41643e95.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-256b9400.f7e486aa.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-25a0e88c.4e08fd2e.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-267a32e6.193794b3.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-285466cd.1fee2e06.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-29126459.ce2f338d.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2a53918e.f5cd7495.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2c3295d4.abd7d7bd.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2cd18a7d.f37bfa04.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d0a482c.22971d1b.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d0a4bce.8bc33f3b.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d0aec69.24f884e8.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d0af4bb.4e868bee.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d0d09bb.e2e1a111.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d0d697d.1f674f19.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d0d6f02.dd6bdd21.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d0d8021.ccc86eec.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d0e48bf.df06201a.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d0f0f34.b139ae44.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d20979d.70a797b0.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d212f56.94099410.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d21b536.0c2aa775.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d21f097.e7facfb5.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d221444.770f7e37.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d22d3f8.67a86445.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2d22d813.61a8be3e.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-2ec80ff3.07938ce0.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-3d3dcf32.5d17c1d9.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-45610082.add35a6f.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-4e5f1a7a.c4ae6cc4.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-50b10c92.01a6be8c.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-51107498.d0f576b5.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-54637b65.847a74f5.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-5872ff8d.8ebbd8b2.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-5a04fba1.af03e330.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-5b6ac7a8.7a89b73b.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-5c64915e.c084ce21.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-5f0d6286.a7ae8bdc.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-616795b6.b7e63cc2.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-6c7affd0.065e9a8a.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-6da4369c.2a245889.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-6de1bc62.d4778e4b.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-7136a154.b8492953.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-74147bd1.ed438ba9.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-757ca954.ad69c870.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-75ad7c0e.428e52c8.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-785ac04e.31468def.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-78742a63.3b8a24a7.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-78fb2058.fdae4e23.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-7aea5d2b.8c73affa.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-7c80ecb0.6eedf55a.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-7dfd5052.0df840c3.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-84d1de02.7b169b0e.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-891177f6.c1b719a2.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-926160c6.3f177ae1.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-a704e872.ddbd067c.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-a961b78c.923cdbe2.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-ad302a42.bf25b888.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-b124f7bc.38a4e04a.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-b205bdbe.5c6a1f3c.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-b45589e4.b98ec75e.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-b68f65e0.5d60f042.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-bc37b504.f51a5405.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-bf393944.b3025197.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-c0a3e2fa.19a3da91.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-c5fb740a.bb7c7872.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-dab37d56.5c5b3cfd.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-ded9edba.70ade7c0.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-ea0143b0.df6a01ac.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-ee39cd88.ee49685e.js" rel="prefetch">
-    <link href="{{ asset('') }}static/eed/js/chunk-f6532530.1e0297b2.js" rel="prefetch">
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="preload" as="style">
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="preload" as="style">
-    <link href="{{ asset('') }}static/eed/js/app.5acd7986.js" rel="preload" as="script">
-    <link href="{{ asset('') }}static/eed/js/chunk-vendors.b893e1dd.js" rel="preload" as="script">
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="stylesheet">
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="stylesheet">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-b124f7bc.38a4e04a.js"></script>
+    
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
-    <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-51107498.d0f576b5.js"></script>
-    <style type="text/css">
-        x-vue-echarts {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-            min-width: 0
-        }
 
-        .vue-echarts-inner {
-            flex-grow: 1;
-            min-width: 0;
-            width: auto !important;
-            height: auto !important
-        }
-    </style>
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
-    <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-18e03ad8.59f8f8a0.js"></script>
-    <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-2d0d09bb.e2e1a111.js"></script>
-    <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-2d0a482c.22971d1b.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-a961b78c.b074a75d.css">
-    <script charset="utf-8" src="/static/1756094289381/js/chunk-a961b78c.923cdbe2.js"></script>
-    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-1ee97074.f442ee68.css">
-    <script charset="utf-8" src="/static/1756094289381/js/chunk-1ee97074.56275ac5.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-ea0143b0.0982c731.css">
-    <script charset="utf-8" src="/static/1756094289381/js/chunk-ea0143b0.df6a01ac.js"></script>
-    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-267a32e6.0d9f6f8d.css">
-    <script charset="utf-8" src="/static/1756094289381/js/chunk-267a32e6.193794b3.js"></script>
-    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-926160c6.52e9758a.css">
-    <script charset="utf-8" src="/static/1756094289381/js/chunk-926160c6.3f177ae1.js"></script>
-    <link rel="stylesheet" type="text/css" href="/static/1756094289381/css/chunk-2a53918e.7e78b090.css">
-    <script charset="utf-8" src="/static/1756094289381/js/chunk-2a53918e.f5cd7495.js"></script>
 
 </head>
 
