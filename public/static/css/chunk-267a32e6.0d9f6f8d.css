@@ -1,1 +1,69 @@
-.popup_box[data-v-91b14df4]{background:#fff!important}.popup_box .scroll[data-v-91b14df4]{max-height:72vh;overflow-y:scroll}.popup_box .scroll .ul[data-v-91b14df4]{overflow:hidden;color:#e8e8e8}.popup_box .scroll .ul .item[data-v-91b14df4]{background-color:#fff;border-bottom:.02rem solid #ebebeb!important;padding:.32rem 0;text-align:center;color:#111}.popup_box .scroll .ul .active[data-v-91b14df4]{color:#0a71f7!important}.popup_box .esc[data-v-91b14df4]{background:#fff;border-top:.06rem solid #ebebeb;padding:.32rem 0;text-align:center;color:#000}.list{min-height:1.86667rem;padding:.24rem}.list .item{flex:0 0 33.33%;display:flex;align-items:center;justify-content:center;flex-direction:column}.list .item,.list .item .name{word-break:break-word!important}.page-assets-header{margin-bottom:.64rem;background-repeat:no-repeat;background-size:100% 4.26667rem;border-radius:0 0 .26667rem .26667rem;overflow:hidden}.page-assets-header-top{position:relative;z-index:20;padding:.42667rem;border-radius:.42667rem;background-image:url(../../../static/1756094289381/img/bg_header.309ce6c0.png);background-size:cover;margin-bottom:-.42667rem}
+.popup_box[data-v-91b14df4] {
+    background: #fff !important
+}
+
+.popup_box .scroll[data-v-91b14df4] {
+    max-height: 72vh;
+    overflow-y: scroll
+}
+
+.popup_box .scroll .ul[data-v-91b14df4] {
+    overflow: hidden;
+    color: #e8e8e8
+}
+
+.popup_box .scroll .ul .item[data-v-91b14df4] {
+    background-color: #fff;
+    border-bottom: .02rem solid #ebebeb !important;
+    padding: .32rem 0;
+    text-align: center;
+    color: #111
+}
+
+.popup_box .scroll .ul .active[data-v-91b14df4] {
+    color: #0a71f7 !important
+}
+
+.popup_box .esc[data-v-91b14df4] {
+    background: #fff;
+    border-top: .06rem solid #ebebeb;
+    padding: .32rem 0;
+    text-align: center;
+    color: #000
+}
+
+.list {
+    min-height: 1.86667rem;
+    padding: .24rem
+}
+
+.list .item {
+    flex: 0 0 33.33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
+
+.list .item,
+.list .item .name {
+    word-break: break-word !important
+}
+
+.page-assets-header {
+    margin-bottom: .64rem;
+    background-repeat: no-repeat;
+    background-size: 100% 4.26667rem;
+    border-radius: 0 0 .26667rem .26667rem;
+    overflow: hidden
+}
+
+.page-assets-header-top {
+    position: relative;
+    z-index: 20;
+    padding: .42667rem;
+    border-radius: .42667rem;
+    background-image: url(../../../static/1756094289381/img/bg_header.309ce6c0.png);
+    background-size: cover;
+    margin-bottom: -.42667rem
+}

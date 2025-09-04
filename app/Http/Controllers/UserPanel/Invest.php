@@ -745,99 +745,83 @@ class Invest extends Controller
     $gen_team2 =  (array_key_exists(2, $my_level_team) ? $my_level_team[2] : array());
     $gen_team3 =  (array_key_exists(3, $my_level_team) ? $my_level_team[3] : array());
 
-    $gen_team1 = User::where(function ($query) use ($gen_team1) {
-      if (!empty($gen_team1)) {
-        foreach ($gen_team1 as $key => $value) {
-          //   $f = explode(",", $value);
-          //   print_r($f)."<br>";
-          $query->orWhere('id', $value);
+      $gen_team1 = User::where(function ($query) use ($gen_team1) {
+        if (!empty($gen_team1)) {
+          foreach ($gen_team1 as $key => $value) {
+            //   $f = explode(",", $value);
+            //   print_r($f)."<br>";
+            $query->orWhere('id', $value);
+          }
+        } else {
+          $query->where('id', null);
         }
-      } else {
-        $query->where('id', null);
-      }
-    })->orderBy('id', 'DESC')->get();
+      })->orderBy('id', 'DESC')->get();
 
-    $gen_team2 = User::where(function ($query) use ($gen_team2) {
-      if (!empty($gen_team2)) {
-        foreach ($gen_team2 as $key => $value) {
-          //   $f = explode(",", $value);
-          //   print_r($f)."<br>";
-          $query->orWhere('id', $value);
-        }
-      } else {
-        $query->where('id', null);
-      }
-    })->orderBy('id', 'DESC')->get();
-    $gen_team3 = User::where(function ($query) use ($gen_team3) {
-      if (!empty($gen_team3)) {
-        foreach ($gen_team3 as $key => $value) {
-          //   $f = explode(",", $value);
-          //   print_r($f)."<br>";
-          $query->orWhere('id', $value);
-        }
-      } else {
-        $query->where('id', null);
-      }
-    })->orderBy('id', 'DESC')->get();
+        $gen_team2 = User::where(function ($query) use ($gen_team2) {
+          if (!empty($gen_team2)) {
+            foreach ($gen_team2 as $key => $value) {
+              //   $f = explode(",", $value);
+              //   print_r($f)."<br>";
+              $query->orWhere('id', $value);
+            }
+          } else {
+            $query->where('id', null);
+          }
+        })->orderBy('id', 'DESC')->get();
 
+        $gen_team3 = User::where(function ($query) use ($gen_team3) {
+          if (!empty($gen_team3)) {
+            foreach ($gen_team3 as $key => $value) {
+              //   $f = explode(",", $value);
+              //   print_r($f)."<br>";
+              $query->orWhere('id', $value);
+            }
+          } else {
+            $query->where('id', null);
+          }
+        })->orderBy('id', 'DESC')->get();
 
+      $levelACount = $gen_team1->where('active_status', 'Active')->count(); // Direct (A)
+      $levelBCount = $gen_team2->where('active_status', 'Active')->count(); // Under A (B)
+      $levelCCount = $gen_team3->where('active_status', 'Active')->count() ;  // Under B (C)
+
+            // Determine qualified level
 
            $balance = Auth::user()->available_balance();
-            $levels = [];
-            $currentLevelIds = collect([$user->id]);
-            for($i=1; $i<=3; $i++){
-               $currentLevelIds = User::whereIn('sponsor', $currentLevelIds)->where('active_status', 'Active')->pluck('id');
-                $levels["level{$i}Count"] = $currentLevelIds->count();
-            }
-            $levelACount = $levels['level1Count']; // Direct (A)
-            $levelBCount = $levels['level2Count']; // Under A (B)
-            $levelCCount = $levels['level3Count'] + $levels['level2Count'];  
+
             $this->data['balance']     = $balance;
             $this->data['levelACount'] = $levelACount;
             $this->data['levelBCount'] = $levelBCount;
             $this->data['levelCCount'] = $levelCCount;
-    switch (true) {
-    case ($balance >= 50000 && $levelACount > 100 && $levelCCount > 300):
-        $qualifiedLevel = "EQ6"; $earning = "4.1%-4.3%";
-        break;
-    case ($balance >= 20000 && $levelACount > 80 && $levelCCount > 200):
-        $qualifiedLevel = "EQ5"; $earning = "3.7%-3.9%";
-        break;
-    case ($balance >= 5000 && $levelACount > 50 && $levelCCount > 100):
-        $qualifiedLevel = "EQ4"; $earning = "3.2%-3.5%";
-        break;
-    case ($balance >= 2000 && $levelACount > 30 && $levelCCount > 60):
-        $qualifiedLevel = "EQ3"; $earning = "2.7%-3.0%";
-        break;
-    case ($balance >= 500 && $levelACount > 20 && $levelCCount > 40):
-        $qualifiedLevel = "EQ2"; $earning = "2.3%-2.5%";
-        break;
-    case ($balance >= 50 && $levelACount > 10 && $levelCCount > 20):
-        $qualifiedLevel = "EQ1"; $earning = "2.0%-2.1%";
-        break;
-    case ($balance >= 1 && $levelACount > 5 && $levelCCount > 10):
-        $qualifiedLevel = "EQ0"; $earning = "1.5%-1.7%";
-        break;
-    default:
-        $qualifiedLevel = "EQ0"; $earning = "1.5%-1.7%";
-}
+          // From your earlier result sets:
+            $A = $levelACount;                          // Direct (A)
+            $BC = $levelBCount + $levelCCount;          // B + C combined
+
+            if ($balance >= 50000 && $A >= 30 && $BC >= 300) {
+                $qualifiedLevel = "EQ6"; $earning = "4.1%-4.3%";
+            } elseif ($balance >= 20000 && $A >= 25 && $BC >= 100) {
+                $qualifiedLevel = "EQ5"; $earning = "3.7%-3.9%";
+            } elseif ($balance >= 5000 && $A >= 15 && $BC >= 50) {
+                $qualifiedLevel = "EQ4"; $earning = "3.2%-3.5%";
+            } elseif ($balance >= 2000 && $A >= 10 && $BC >= 30) {
+                $qualifiedLevel = "EQ3"; $earning = "2.7%-3.0%";
+            } elseif ($balance >= 500 && $A >= 2 && $BC >= 5) {
+                $qualifiedLevel = "EQ2"; $earning = "2.3%-2.5%";
+            } elseif ($balance >= 50) {  // EQ1 has no A/BC requirements
+                $qualifiedLevel = "EQ1"; $earning = "2.0%-2.1%";
+            } elseif ($balance >= 1) {   // EQ0 has no A/BC requirements
+                $qualifiedLevel = "EQ0"; $earning = "1.5%-1.7%";
+            } else {
+                // below $1 — treat as EQ0 or handle as unqualified per your business rules
+                $qualifiedLevel = "EQ0"; $earning = "1.5%-1.7%";
+            }
 
 
-// Pass to view
-     $this->data['qualifiedLevel'] = $qualifiedLevel;
-     $this->data['earning'] = $earning;
+      // Pass to view
+          $this->data['qualifiedLevel'] = $qualifiedLevel;
+          $this->data['earning'] = $earning;
 
 
-    $this->data['gen_team1total'] = $gen_team1->count();
-    $this->data['active_gen_team1total'] = $gen_team1->where('active_status', 'Active')->count();
-    $this->data['gen_team2total'] = $gen_team2->count();
-    $this->data['active_gen_team2total'] = $gen_team2->where('active_status', 'Active')->count();
-
-    $this->data['gen_team3total'] = $gen_team3->count();
-    $this->data['active_gen_team3total'] = $gen_team3->where('active_status', 'Active')->count();
-
-
-    $this->data['gen_team1Income'] = $gen_team1->count();
 
     $notes = Contract::where('user_id', $user->id)->orderBy('id', 'DESC')->get();
 

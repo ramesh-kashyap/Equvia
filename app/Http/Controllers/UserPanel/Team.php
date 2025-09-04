@@ -85,10 +85,15 @@ class Team extends Controller
     $user = Auth::user();
     // print_r($user->username);die();
     $ids = $this->my_level_team($user->id);
-    $my_level_team = $this->my_level_team_count($user->id);
+    $data = $this->my_level_team_count($user->id);
+
+    $my_level_team = $data['team'];      // all team
+    $this->data['newUsers']   = array_sum($data['new_users']);
+    
     $gen_team1 =  (array_key_exists(1, $my_level_team) ? $my_level_team[1] : array());
     $gen_team2 =  (array_key_exists(2, $my_level_team) ? $my_level_team[2] : array());
     $gen_team3 =  (array_key_exists(3, $my_level_team) ? $my_level_team[3] : array());
+    
 
     $notes = User::where(function ($query) use ($ids) {
       if (!empty($ids)) {
@@ -244,8 +249,7 @@ class Team extends Controller
     $this->data['active_gen_team3total'] = $gen_team3->where('active_status', 'Active')->count();
 
 
-    $this->data['gen_team1Income'] = $gen_team1->count();
-
+    $this->data['gen_team1Income'] = $gen_team1->count();    
     $this->data['totalwithdrawal'] = $teamwithdraw->sum('amount');
     $this->data['todaysuser'] = $notes->where('jdate', date('Y-m-d'))->count();
     $this->data['totalrecharge'] = $totalrecharge;
@@ -447,36 +451,43 @@ class Team extends Controller
 
 
   public function my_level_team_count($userid, $level = 3)
-  {
-    $arrin = array($userid);
-    $ret = array();
+{
+    $arrin = [$userid];
+    $ret = [];
+    $newUsers = []; // store today's users separately
 
     $i = 1;
     while (!empty($arrin)) {
-      $alldown = User::select('id')->whereIn('sponsor', $arrin)->get()->toArray();
-      if (!empty($alldown)) {
-        $arrin = array_column($alldown, 'id');
-        $ret[$i] = $arrin;
-        $i++;
+        $alldown = User::select('id', 'created_at')
+            ->whereIn('sponsor', $arrin)
+            ->get();
 
-        if ($i > $level) {
-          break;
+        if ($alldown->isNotEmpty()) {
+            $arrin = $alldown->pluck('id')->toArray();
+
+            // Save team members by level
+            $ret[$i] = $arrin;
+
+            // Save today's new users separately
+            $newUsers[$i] = $alldown->filter(function ($user) {
+                return $user->created_at->greaterThanOrEqualTo(now()->startOfDay());
+            })->pluck('id')->toArray();
+
+            $i++;
+            if ($i > $level) {
+                break;
+            }
+        } else {
+            $arrin = [];
         }
-      } else {
-        $arrin = array();
-      }
     }
 
-    // $final = array();
-    // if(!empty($ret)){
-    //     array_walk_recursive($ret, function($item, $key) use (&$final){
-    //         $final[] = $item;
-    //     });
-    // }
+    return [
+        'team' => $ret,        // all level users
+        'new_users' => $newUsers // today's users
+    ];
+}
 
-
-    return $ret;
-  }
 
 
 

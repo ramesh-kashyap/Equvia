@@ -61,6 +61,84 @@ if (!function_exists('addNotification')) {
   }
 }
 
+  function my_level_team_count($userid, $level = 3)
+  {
+    $arrin = array($userid);
+    $ret = array();
+
+    $i = 1;
+    while (!empty($arrin)) {
+      $alldown = User::select('id')->whereIn('sponsor', $arrin)->get()->toArray();
+      if (!empty($alldown)) {
+        $arrin = array_column($alldown, 'id');
+        $ret[$i] = $arrin;
+        $i++;
+
+        if ($i > $level) {
+          break;
+        }
+      } else {
+        $arrin = array();
+      }
+    }
+
+    // $final = array();
+    // if(!empty($ret)){
+    //     array_walk_recursive($ret, function($item, $key) use (&$final){
+    //         $final[] = $item;
+    //     });
+    // }
+
+
+    return $ret;
+  }
+
+
+   function getVip($userId = null)
+    {
+        $user = $userId ? User::find($userId) : Auth::user();
+        if (!$user) {
+            return 0; // default
+        }
+
+        // Count team members
+        $my_level_team = my_level_team_count($user->id);
+
+        $gen_team1 = $my_level_team[1] ?? [];
+        $gen_team2 = $my_level_team[2] ?? [];
+        $gen_team3 = $my_level_team[3] ?? [];
+
+        $gen_team1 = User::whereIn('id', $gen_team1)->where('active_status', 'Active')->get();
+        $gen_team2 = User::whereIn('id', $gen_team2)->where('active_status', 'Active')->get();
+        $gen_team3 = User::whereIn('id', $gen_team3)->where('active_status', 'Active')->get();
+
+        $levelACount = $gen_team1->count();
+        $levelBCount = $gen_team2->count();
+        $levelCCount = $gen_team3->count();
+
+        $A  = $levelACount;
+        $BC = $levelBCount + $levelCCount;
+        $balance = $user->available_balance();
+
+        // ✅ Return only numeric VIP level
+        if ($balance >= 50000 && $A >= 30 && $BC >= 300) {
+            return 6;
+        } elseif ($balance >= 20000 && $A >= 25 && $BC >= 100) {
+            return 5;
+        } elseif ($balance >= 5000 && $A >= 15 && $BC >= 50) {
+            return 4;
+        } elseif ($balance >= 2000 && $A >= 10 && $BC >= 30) {
+            return 3;
+        } elseif ($balance >= 500 && $A >= 2 && $BC >= 5) {
+            return 2;
+        } elseif ($balance >= 50) {
+            return 1;
+        } elseif ($balance >= 1) {
+            return 0;
+        }
+        return 0; // default fallback
+    }
+
 
 if (!function_exists('getPackageRoi')) {
   function getPackageRoi($package)
