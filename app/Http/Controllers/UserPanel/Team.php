@@ -28,8 +28,9 @@ class Team extends Controller
   {
     $user = Auth::user();
     // print_r($user->username);die();
-    $my_level_team = $this->my_level_team_count($user->id);
-
+    $data = $this->my_level_team_count($user->id);
+    // $my_level_team = $this->my_level_team_count($user->id);
+    $my_level_team = $data['team'];
 
     // print_r($ids);die;
     $limit = $request->limit ? $request->limit : paginationLimit();
