@@ -3,19 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>{{siteName()}}</title>
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="expires" content="0">
-    <meta name="viewport"
-        content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="full-screen" content="true">
-    <meta name="x5-fullscreen" content="true">
-    <meta name="360-fullscreen" content="true">
-    <meta name="renderer" content="webkit">
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="manifest" href="/manifest.json">
+
     <script>
         window.addEventListener("error", function(event) {
             if (event.message.indexOf("Unexpected token '<'") > -1) {
@@ -165,14 +153,7 @@
         }
     </style>
 
-    <link href="/js1743619988925/app.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
-    <link href="/js1743619988925/axios.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
-    <link href="/js1743619988925/compressorjs.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
-    <link href="/js1743619988925/core-js.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
-    <link href="/js1743619988925/crypto-js.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
-    <link href="/js1743619988925/vant.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
-    <link href="/js1743619988925/vendors~app.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
-    <link href="/js1743619988925/vue.d968e27a.1743619988925.js?v=1743619988925" rel="preload" as="script">
+
     <link href="{{asset('')}}static/css/app.6328f701.css" rel="preload" as="style">
     <link href="{{asset('')}}static/css/vant.d14f5539.css" rel="preload" as="style">
     <link href="{{asset('')}}static/css/vant.d14f5539.css" rel="stylesheet">
@@ -182,7 +163,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-60c8a75a.d6f6b692.css">
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-a7d8f170.c87a4291.css">
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-67912ed2.ae8d438d.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-375cccc2.6ddcb41c.css">
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-00b1464f.674dbd13.css">
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-7f362702.6a53b834.css">
     <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-05e98ee6.bea82fa2.css">
@@ -225,7 +205,6 @@
                     <div data-v-6e2d35de="" id="content" class="content-scroll">
                         <div data-v-73b46d99="" data-v-6e2d35de="" class="container">
 
-                            <!-- Date Filter Popup -->
                             <div id="dateFilterPopup" style="display:none; background: #06140d; padding: 20px; border-radius: 12px; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; z-index: 999; box-shadow: rgb(0 0 0) 0px 10px 25px;">
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                                     <h3 style="margin: 0; font-size: 18px; font-weight: bold;color:#fff">Select Date Range</h3>
@@ -407,14 +386,7 @@
                     alt=""></div>
         </div>
     </div>
-    <script src="/js1743619988925/core-js.d968e27a.1743619988925.js?v=1743619988925"></script>
-    <script src="/js1743619988925/vue.d968e27a.1743619988925.js?v=1743619988925"></script>
-    <script src="/js1743619988925/vant.d968e27a.1743619988925.js?v=1743619988925"></script>
-    <script src="/js1743619988925/crypto-js.d968e27a.1743619988925.js?v=1743619988925"></script>
-    <script src="/js1743619988925/axios.d968e27a.1743619988925.js?v=1743619988925"></script>
-    <script src="/js1743619988925/compressorjs.d968e27a.1743619988925.js?v=1743619988925"></script>
-    <script src="/js1743619988925/vendors~app.d968e27a.1743619988925.js?v=1743619988925"></script>
-    <script src="/js1743619988925/app.d968e27a.1743619988925.js?v=1743619988925"></script>
+
     <script>
         document.getElementById('openDateFilter').onclick = function() {
             document.getElementById('dateFilterPopup').style.display = 'block';
