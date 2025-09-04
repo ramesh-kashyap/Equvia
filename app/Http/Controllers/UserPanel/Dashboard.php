@@ -17,8 +17,8 @@ use App\Models\Withdraw;
 use App\Models\Notification;
 use App\Models\Order;
 use App\Models\Company;
-
-
+use App\Models\Machine;
+use App\Models\Variable;
 use App\Models\Activitie;
 use Illuminate\Support\Facades\DB;
 
@@ -210,45 +210,258 @@ class Dashboard extends Controller
 
    
 
-    public function stop_trade(){
-        $user=Auth::user();
-        $contract = Contract::where('c_status', 1)->where('user_id',$user->id)->first();
-        
-   
-          if ($user) {      
-              // Update profit
-              // Update contract status and profit
-              $contract->c_status = -1;
-              $contract->save();
-      
-              $ref = $contract->c_ref;
-              $user_id = $user->id;
-              
-              $data['remarks'] = 'Order revenue';
-              $data['comm'] = $contract->profit;
-              $data['amt'] = $ref;
-              $data['invest_id']=$contract->id;
-              $data['level']=0;
-              $data['ttime'] = date("Y-m-d");
-              $data['user_id_fk'] = $user->username;
-              $data['user_id']=$user->id;
-             $income = Income::create($data);
 
-              add_level_income($user_id,$contract->profit);
+      public function stop_trade(Request $request)
+    {
+        try {
+            $user = auth()->user(); // get authenticated user
 
-              $data = array(
+            if (!$user) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Unauthorized'
+                ], 401);
+            }
+
+            // Find active contract
+            $contract = Contract::where('user_id', $user->id)
+                ->where('c_status', 1)
+                ->first();
+
+            if (!$contract) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Active contract not found'
+                ], 404);
+            }
+
+            // Update contract status
+            $contract->c_status = -1;
+            $contract->save();
+
+            $nowTS = now()->format('Y-m-d H:i:s');
+
+            // Apply capping logic
+            $cappinAmount = $contract->profit;
+
+            if ($cappinAmount > 0) {
+                // Record income
+                $incomeData = [
+                    'remarks'    => 'Trade Profit',
+                    'comm'       => $cappinAmount,
+                    'amt'        => $contract->c_ref,
+                    'invest_id'  => $contract->id,
+                    'level'      => 0,
+                    'ttime'      => now()->format('Y-m-d'),
+                    'user_id_fk' => $user->username, // make sure `username` exists in users table
+                    'user_id'    => $user->id,
+                    'created_at' => $nowTS
+                ];
+
+                Income::create($incomeData);
+
+                // Add Team Commission
+                add_level_income($user->id, $cappinAmount);
+            }
+
+            return response()->json([
                 'status' => true,
-                 'profit' =>  $contract->profit // replace with dynamic value
-              );
-              $jsonData = json_encode($data);
-                header('Content-Type: application/json');
-                echo  $jsonData;
-          }
-  
+                'profit' => $cappinAmount
+            ]);
+
+        } catch (\Exception $error) {
+            \Log::error("stopTrade error: " . $error->getMessage());
+
+            return response()->json([
+                'status' => false,
+                'message' => 'Server error'
+            ], 500);
+        }
+    }
+
+
       
-      }
+ public function tradeOnJson(Request $req)
+    {
+        try {
+            /** @var \App\Models\User $user */
+            $user = auth()->user(); // or $req->user();
 
+            // 1) Start/End of day in IST, then converted to UTC for DB queries
+            $startOfDayUtc = Carbon::now('Asia/Kolkata')->startOfDay()->setTimezone('UTC');
+            $endOfDayUtc   = Carbon::now('Asia/Kolkata')->endOfDay()->setTimezone('UTC');
 
+            // 2) Prevent double-trading (pending contract)
+            $pending = Contract::where('user_id', $user->id)
+                ->where('c_status', 1)
+                ->orderByDesc('id')
+                ->first();
+
+            if ($pending) {
+                return response()->json([
+                    'success' => true,
+                    'code'    => 'TRADE_PLACED',
+                    'data'    => [
+                        'contractId' => $pending->id,
+                        'trade'      => $pending->trade,
+                        'bot'        => $pending->c_bot,
+                        'qty'        => $pending->qty,
+                        'profit'     => $pending->profit,
+                        'c_name'     => $pending->c_name,
+                    ],
+                ]);
+                // Or return an error if you want to block:
+                // return response()->json(['success'=>false,'code'=>'PENDING_TRADE','message'=>'You already have a pending trade.']);
+            }
+
+            // 3) Balance check
+             $balance = $req->amount > round($user->available_balance(),3) ? round($user->available_balance(),3) : $req->amount;
+
+            if ($balance < 1) {
+                return response()->json([
+                    'success' => false,
+                    'code'    => 'INSUFFICIENT_FUNDS',
+                    'message' => 'Insufficient funds to start a trade.',
+                ], 400);
+            }
+
+            // 4) Determine VIP (tier) & allowed trades
+            $vipIdx       = getVip($user->id);          // e.g. returns an int index
+            $quantifiable = 1;   // number of trades allowed today
+
+            // 5) Trades already today
+            $todayCount = Contract::where('user_id', $user->id)
+                ->where('ttime',date('Y-m-d'))->count();
+
+            if ($todayCount >= $quantifiable) {
+                return response()->json([
+                    'success' => false,
+                    'code'    => 'NO_TRADES_LEFT',
+                    'message' => 'You have used up your trades for today.',
+                ]);
+            }
+
+            // 6) Update front-end remaining-trade amount
+            $todaySum = Contract::where('user_id', $user->id)
+                ->where('ttime',date('Y-m-d'))
+                ->sum('profit') ?? 0;
+
+            $remaining  = $balance - $todaySum;
+            $perTrade   = $quantifiable > 0 ? ($remaining / $quantifiable) : 0;
+            $tradesLeft = $quantifiable - ($todayCount + 1);
+            $updateAmt  = max(0, $perTrade * max(0, $tradesLeft));
+
+            // Update on user (if you track this)
+            $user->update(['tradeAmt' => $updateAmt]);
+
+            // 7) Trade index rotation, factor, and pricing
+            $vars = Variable::where('v_id', 11)->firstOrFail();
+            $tIndex = $vars->trade_index ?? 0;
+            if ($tIndex < 0) { throw new \Exception('Invalid trade_index'); }
+            if ($tIndex === 15) { $tIndex = 0; }
+
+            $factorArr = [435,193,146,193,435,146,193,146,435,435,146,193,193,146,435];
+            $factor = $factorArr[$tIndex];
+            // bump index
+            $vars->update(['trade_index' => $tIndex + 1]);
+
+            // 8) Get coin rates
+            $prices = coinrates(); // should return assoc array: ['btc'=>..., 'eth'=>..., etc]
+            if (isset($prices['error'])) {
+                throw new \Exception($prices['error']);
+            }
+
+            // 9) Decide Buy vs Sell, rotate v_index
+            $zeroArr = ["eth","doge","btc","btc","bnb","btc","eth","eth","btc","btc","bnb","btc","eth","btc","eth","car"];
+            $vIndex  = $vars->v_index ?? 0;
+            $trade   = ($vIndex % 2 === 0) ? 'Sell' : 'Buy';
+            $newV    = ($vIndex === 15) ? 0 : $vIndex + 1;
+            $vars->update(['v_index' => $newV]);
+
+            $sym = $zeroArr[$vIndex] ?? 'btc';
+
+            $bot = Machine::where('m_id', $vipIdx)->first();
+            if (!$bot) {
+                return response()->json([
+                    'success' => false,
+                    'code'    => 'NO_BOT_FOUND',
+                    'message' => 'No trading bot available for your tier.',
+                ]);
+            }
+
+            // 🔟 Compute prices & profit
+            $uStr   = (float) $balance;
+            $pct    = (float) number_format(($bot->m_return / $factor), 5, '.', '');
+            $usdPool = $uStr * 0.7;
+
+            $base  = (float) ($prices[$sym] ?? 0);
+            if ($base <= 0) {
+                throw new \Exception("Invalid price for symbol: {$sym}");
+            }
+
+            $buyPx  = (float) number_format(($base - ($base * $pct/100)), 5, '.', '');
+            $sellPx = (float) number_format(($base + ($base * $pct/100)), 5, '.', '');
+            $qty    = $usdPool / ($trade === 'Buy' ? $buyPx : $sellPx);
+
+            $profit = $usdPool * $pct;          // ROI in USD
+            $refPool = $uStr * 0.3 * $pct;      // whatever this represents for referral
+
+            // Timestamps
+            $nowIST = Carbon::now('Asia/Kolkata')->format('Y-m-d H:i:s');
+
+            // Cap final-trade ROI (if last trade of the day)
+            if ($todayCount === ($quantifiable - 1)) {
+                $maxRoi = ($balance - $todaySum) * ($bot->m_return / 100);
+                $extra  = $maxRoi - ($todaySum + $profit);
+                $profit += $extra;
+
+                $user->update(['last_trade' => $nowIST]);
+            }
+
+         
+
+            // 11) Insert the trade (transaction around create is good practice)
+            $contract = DB::transaction(function () use (
+                $user, $trade, $bot, $buyPx, $sellPx, $qty, $profit, $sym, $refPool, $nowIST
+            ) {
+                return Contract::create([
+                    'user_id'  => $user->id,
+                    'trade'    => $trade,
+                    'c_bot'    => $bot->m_name,
+                    'c_buy'    => ($trade === 'Buy') ? $buyPx : $sellPx,
+                    'c_sell'   => ($trade === 'Buy') ? $sellPx : $buyPx,
+                    'qty'      => $qty,
+                    'profit'   => $profit,
+                    'c_name'   => $sym,
+                    'c_status' => 1,
+                    'c_ref'    => $refPool,
+                    'created_at' => $nowIST,
+                    'ttime'      => $nowIST, // You can store UTC if you prefer: Carbon::now('UTC')
+                ]);
+            });
+
+            return response()->json([
+                'success' => true,
+                'code'    => 'TRADE_PLACED',
+                'data'    => [
+                    'contractId'      => $contract->id,
+                    'trade'           => $trade,
+                    'bot'             => $bot->m_name,
+                    'qty'             => $qty,
+                    'profit'          => $profit,
+                    'c_name'          => $sym,
+                    'remainingTrades' => $quantifiable - ($todayCount + 1),
+                ],
+            ]);
+        } catch (\Throwable $e) {
+            \Log::error('tradeOnJson error: '.$e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json([
+                'success' => false,
+                'code'    => 'SERVER_ERROR',
+                'message' => $e->getMessage(),
+            ], 500);
+        }
+    }
       
 
          public function tradeOn(Request $request)
