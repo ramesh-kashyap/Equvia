@@ -196,7 +196,15 @@ class User extends Authenticatable
   public function Priciplewithdrawal(){
         return $this->hasMany('App\Models\Withdraw','user_id','id')->where('walletType',2);
     }
+    public function investments()
+{
+    return $this->hasMany(Investment::class, 'user_id');
+}
 
+public function withdrawals()
+{
+    return $this->hasMany(Withdraw::class, 'user_id');
+}
 
   
 

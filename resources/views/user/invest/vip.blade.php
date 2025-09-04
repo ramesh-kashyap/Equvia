@@ -277,13 +277,13 @@
                         ?>
                         <ul data-v-6b868a30=""
                             class="page-upgrade-vip-tab tw-px-24px tw-flex tw-justify-around tw-items-center">
-                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary active"> SK0 </li>
-                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary"> SK1 </li>
-                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary"> SK2 </li>
-                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary"> SK3 </li>
-                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary"> SK4 </li>
-                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary"> SK5 </li>
-                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary"> SK6 </li>
+                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary active"> EQ0 </li>
+                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary"> EQ1 </li>
+                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary"> EQ2 </li>
+                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary"> EQ3 </li>
+                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary"> EQ4 </li>
+                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary"> EQ5 </li>
+                            <li data-v-6b868a30="" class="tw-text-16px tw-text-secondary"> EQ6 </li>
                         </ul>
                         <div class="my-swipe van-swipe" data-v-6b868a30="">
                             <div class="van-swipe__track"
@@ -291,7 +291,7 @@
                                 <div class="van-swipe-item" style="width: 389px;">
                                     <div class="tw-my-24px tw-flex tw-flex-col tw-justify-center tw-items-center">
                                         <div class="tw-my-16px tw-w-160px tw-h-160px van-image"><img
-                                                src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240821/2990dbe8b66676d6d1602405620a8d2b.png"
+                                                src="{{ asset('static/img/rank/eq0.png') }}"
                                                 class="van-image__img" style="object-fit: cover;"></div>
                                         <?php
                                         $balance = round(Auth::user()->available_balance(), 2);
@@ -306,7 +306,7 @@
                                 <div class="van-swipe-item" style="width: 389px;">
                                     <div class="tw-my-24px tw-flex tw-flex-col tw-justify-center tw-items-center">
                                         <div class="tw-my-16px tw-w-160px tw-h-160px van-image">
-                                            <img src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240821/f0526c7e3a72f1b75faf25ff490d5247.png"
+                                            <img src="{{ asset('static/img/rank/eq1.png') }}"
                                                 class="van-image__img" style="object-fit: cover;">
                                         </div>
                                         @if($balance >= 50)
@@ -319,7 +319,7 @@
                                 <div class="van-swipe-item" style="width: 389px;">
                                     <div class="tw-my-24px tw-flex tw-flex-col tw-justify-center tw-items-center">
                                         <div class="tw-my-16px tw-w-160px tw-h-160px van-image">
-                                            <img src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240821/dba014d87ae58d28f36d2d5f9d08eec0.png"
+                                            <img src="{{ asset('static/img/rank/eq2.png') }}"
                                                 class="van-image__img" style="object-fit: cover;">
                                         </div>
                                         @if($balance >= 500 && $levelACount > 2 && $levelCCount > 5)
@@ -332,7 +332,7 @@
                                 <div class="van-swipe-item" style="width: 389px;">
                                     <div class="tw-my-24px tw-flex tw-flex-col tw-justify-center tw-items-center">
                                         <div class="tw-my-16px tw-w-160px tw-h-160px van-image"><img
-                                                src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240821/c95c56c8199451f64caf24f2813b4134.png"
+                                                src="{{ asset('static/img/rank/eq3.png') }}"
                                                 class="van-image__img" style="object-fit: cover;"></div>
                                         @if($balance >= 2000 && $levelACount > 10 && $levelCCount > 30)
                                         <div class="page-upgrade-vip-status active"> This level has been unlocked </div>
@@ -344,7 +344,7 @@
                                 <div class="van-swipe-item" style="width: 389px;">
                                     <div class="tw-my-24px tw-flex tw-flex-col tw-justify-center tw-items-center">
                                         <div class="tw-my-16px tw-w-160px tw-h-160px van-image"><img
-                                                src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240821/0cdded41432ee4e18a5b8e487e2b5172.png"
+                                                src="{{ asset('static/img/rank/eq4.png') }}"
                                                 class="van-image__img" style="object-fit: cover;"></div>
                                         @if($balance >= 5000 && $levelACount > 15 && $levelCCount > 50)
                                         <div class="page-upgrade-vip-status active"> This level has been unlocked </div>
@@ -356,7 +356,7 @@
                                 <div class="van-swipe-item" style="width: 389px;">
                                     <div class="tw-my-24px tw-flex tw-flex-col tw-justify-center tw-items-center">
                                         <div class="tw-my-16px tw-w-160px tw-h-160px van-image"><img
-                                                src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240821/a37d4c7ba9079fd1a97ffbe21d39e72b.png"
+                                                src="{{ asset('static/img/rank/eq5.png') }}"
                                                 class="van-image__img" style="object-fit: cover;"></div>
                                         @if($balance >= 20000 && $levelACount > 25 && $levelCCount > 100)
                                         <div class="page-upgrade-vip-status active"> This level has been unlocked </div>
@@ -368,7 +368,7 @@
                                 <div class="van-swipe-item" style="width: 389px;">
                                     <div class="tw-my-24px tw-flex tw-flex-col tw-justify-center tw-items-center">
                                         <div class="tw-my-16px tw-w-160px tw-h-160px van-image"><img
-                                                src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240821/8feadcb40d6ed95742885f00d9ab1024.png"
+                                                src="{{ asset('static/img/rank/eq6.png') }}"
                                                 class="van-image__img" style="object-fit: cover;"></div>
                                         @if($balance >= 50000 && $levelACount > 30 && $levelCCount > 300)
                                         <div class="page-upgrade-vip-status active"> This level has been unlocked </div>
