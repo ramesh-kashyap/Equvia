@@ -3,18 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>{{siteName()}} Strategy</title>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#fff">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="expires" content="0">
-    <meta name="full-screen" content="true">
-    <meta name="x5-fullscreen" content="true">
-    <meta name="360-fullscreen" content="true">
-    <meta name="renderer" content="webkit">
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="icon" href="{{ asset('2.png') }}" >
+
+    <link rel="icon" href="{{ asset('2.png') }}">
 
     <script>
         window.addEventListener('error', function(event) {
@@ -77,6 +67,21 @@
             width: 100%;
             height: 100vh;
             object-fit: cover;
+        }
+
+        x-vue-echarts {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            min-width: 0
+        }
+
+        .vue-echarts-inner {
+            flex-grow: 1;
+            min-width: 0;
+            width: auto !important;
+            height: auto !important
         }
     </style>
     <link href="{{ asset('') }}static/css/chunk-02c8c6ba.f02a30c2.css" rel="prefetch">
@@ -142,32 +147,11 @@
     <link href="{{ asset('') }}static/css/chunk-f6532530.0eb12746.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="stylesheet">
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="stylesheet">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
 
-    <style type="text/css">
-        x-vue-echarts {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-            min-width: 0
-        }
-
-        .vue-echarts-inner {
-            flex-grow: 1;
-            min-width: 0;
-            width: auto !important;
-            height: auto !important
-        }
-    </style>
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
 </head>
 
 <body>
@@ -1638,6 +1622,7 @@
                 fill="white"></path>
         </symbol>
     </svg>
+
     <div id="app">
         <div data-v-6b868a30="" class="page">
             <div data-v-6b868a30="" class="headers">
@@ -1656,7 +1641,7 @@
                         <a href="{{ route('user.lang') }}">
                             <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                         </a>
-                        
+
                         <div>
                             <a href="{{ route('user.notice') }}">
                                 <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
@@ -1665,8 +1650,8 @@
                         <a href="{{ route('user.Withdraw-History') }}">
                             <img data-v-6b868a30="" src="{{ asset('static/icon/langu.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                         </a>
-                        <!---->
-                        <!---->
+
+
                     </div>
                 </div>
             </div>

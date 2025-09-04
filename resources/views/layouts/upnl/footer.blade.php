@@ -46,7 +46,7 @@
                     class="tw-w-100px tw-h-100px tw-flex tw-justify-center tw-items-center tw-bg-dark tw-bg-opacity-10 tw-rounded-10px">
                     <div class="van-loading van-loading--circular"><span
                             class="van-loading__spinner van-loading__spinner--circular"
-                            style="color: rgb(23, 114, 248); width: 1rem; height: 1rem;"><svg viewBox="25 25 50 50"
+                            style="color: rgba(255, 255, 255, 1); width: 1rem; height: 1rem;"><svg viewBox="25 25 50 50"
                                 class="van-loading__circular">
                                 <circle cx="50" cy="50" r="20" fill="none"></circle>
                             </svg></span></div>
@@ -54,12 +54,11 @@
             </div>
         </div>
         <div data-v-4d1ba5fa="">
-            <!---->
+            
         </div>
     </div>
-    <script src="{{ asset('') }}static/eed/js/chunk-vendors.b893e1dd.js"></script>
-    <script src="injs/js/app.5acd7986.js"></script>
-    <!---->
+
+    
 </body>
 
 </html>
