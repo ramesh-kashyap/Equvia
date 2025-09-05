@@ -65,8 +65,8 @@
                                             <div class="tw-text-16px tw-text-dark">USDT</div>
                                         </div>
                                         <div class="tw-flex-1 tw-text-right">
-                                            <div class="tw-text-14px tw-text-dark"> 6.096 </div>
-                                            <div class="tw-text-12px tw-text-secondary"> ≈6.096 USDT </div>
+                                            <!-- <div class="tw-text-14px tw-text-dark"> 6.096 </div>
+                                            <div class="tw-text-12px tw-text-secondary"> ≈6.096 USDT </div> -->
                                         </div>
                                     </div>
                                     <!-- <div class="tw-mb-16px tw-flex tw-justify-between tw-items-center">
@@ -83,6 +83,18 @@
                                     </div> -->
                                 </div>
                                 <div class="tw-h-260px">
+                                    <div class="tw-h-full echarts">
+                                        <div class="vue-echarts-inner" _echarts_instance_="ec_1757068484502"
+                                            style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                            <div
+                                                style="position: relative; width: 389px; height: 295px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+                                                <canvas  id="profitChart" width="583" height="442"
+                                                    style="position: absolute; left: 0px; top: 0px; width: 389px; height: 295px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+                                            </div>
+                                        </div>
+                                      </div>
+                                </div>
+                                <!-- <div class="tw-h-260px">
                                     <div
                                         class="tw-w-full tw-py-12 tw-flex tw-justify-center tw-items-center tw-pt-2 tw-pb-2">
                                         <div class="custom-empty van-empty">
@@ -91,11 +103,30 @@
                                             <p class="van-empty__description">No record yet</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div data-v-91b14df4=""></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const profitChart = new Chart(document.getElementById('profitChart'), {
+        type: 'line',
+        data: {
+            labels: @json($dates),      // X-axis
+            datasets: [{
+                label: 'Profit',
+                data: @json($profit), // Y-axis
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.3
+            }]
+        }
+    });
+</script>
+
             @include('layouts.upnl.footer')

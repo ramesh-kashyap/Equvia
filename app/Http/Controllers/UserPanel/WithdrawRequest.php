@@ -390,7 +390,16 @@ class WithdrawRequest extends Controller
     {
         $user=Auth::user();
         date_default_timezone_set("Asia/Kolkata");   //India time (GMT+5:30)
-        $user=Auth::user();
+        
+         $contracts = Contract::where('user_id', $user->id)
+        ->orderBy('created_at', 'ASC')->get(['created_at', 'profit']); // only select fields we need
+
+       // Format data for chart
+       $dates = $contracts->pluck('created_at')->map(function($date) {
+         return $date->format('Y-m-d'); // format nicely
+        });
+        $this->data['profit'] = $contracts;
+        $this->data['dates']  = $dates; 
     
 
         $userDirect = User::where('sponsor',$user->id)->where('active_status','Active')->where('package','>=',30)->count();
