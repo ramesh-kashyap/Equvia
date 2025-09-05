@@ -172,19 +172,31 @@
                 <div class="tw-px-16px tw-w-full tw-h-full tw-flex tw-items-center" data-v-6b868a30=""
                     style="background-color: transparent;">
                     <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
-              
+                        <a href="{{route('register')}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                            </svg>
+                        </a>
 
                     </div>
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center rtw-text-16px van-ellipsis"
                         style="color: rgb(24, 25, 28);"><span></span></div>
                     <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
-                   
-                        <img data-v-6b868a30="" src="{{ asset('static/icon/langu.png') }}" alt=""
-                            class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                        <div>
-                            <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt=""
+
+                        <a href="{{route('user.Withdraw-History')}}">
+
+                            <img data-v-6b868a30="" src="{{ asset('static/icon/langu.png') }}" alt=""
                                 class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                        </div>
+
+                        </a>
+                        <a href="{{route('user.notice')}}">
+                            <div>
+                                <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt=""
+                                    class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                            </div>
+
+                        </a>
+
 
                     </div>
                 </div>
@@ -360,7 +372,7 @@
                     <i id="cancel" role="button" tabindex="0" class="van-icon van-icon-search"></i>
                 </div>
                 <div class="van-cell__value van-cell__value--alone van-field__value">
-                    <div class="van-field__body"style="border: 1px solid #d9d9d9;border-radius:5px;">
+                    <div class="van-field__body" style="border: 1px solid #d9d9d9;border-radius:5px;">
                         <input type="text" placeholder="Search area code" class="van-field__control"
                             id="country-search" autocomplete="off">
                     </div>
@@ -372,7 +384,7 @@
             </ul>
 
         </div>
-       
+
     </div>
     <script>
         function togglePassword() {
@@ -539,7 +551,7 @@
         var status = document.getElementById('status');
         var iti = window.intlTelInput(input, {
             initialCountry: "auto",
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" 
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
         });
 
         input.addEventListener('blur', function() {
