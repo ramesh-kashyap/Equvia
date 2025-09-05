@@ -1,22 +1,48 @@
-<html class="pc" style="font-size: 50px;">
+<html data-dpr="1" style="font-size: 42.5px; max-width: 425px; margin: 0px auto;">
 
 <head>
     <meta charset="utf-8">
     <title>Withdrawal Address</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#fff">
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="expires" content="0">
-    <meta name="viewport"
-        content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="full-screen" content="true">
     <meta name="x5-fullscreen" content="true">
     <meta name="360-fullscreen" content="true">
     <meta name="renderer" content="webkit">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="manifest" href="/manifest.json">
-
+      <script>
+        window.addEventListener('error', function(event) {
+            if (event.message.indexOf("Unexpected token '<'") > -1) {
+                location.reload();
+            }
+        });
+        if ('standalone' in window.navigator && window.navigator.standalone) {
+            var noddy,
+                remotes = false;
+            document.addEventListener(
+                'click',
+                function(event) {
+                    noddy = event.target;
+                    while (noddy.nodeName !== 'A' && noddy.nodeName !== 'HTML') {
+                        noddy = noddy.parentNode;
+                    }
+                    if (
+                        'href' in noddy &&
+                        noddy.href.indexOf('http') !== -1 &&
+                        (noddy.href.indexOf(document.location.host) !== -1 || remotes)
+                    ) {
+                        event.preventDefault();
+                        document.location.href = noddy.href;
+                    }
+                },
+                false
+            );
+        }
+    </script>
     <style>
         * {
             margin: 0;
@@ -33,7 +59,6 @@
             width: 100%;
             min-width: 7.5rem;
             height: 100vh;
-            max-width: 8.5rem;
             position: fixed;
             top: 50%;
             left: 50%;
@@ -51,364 +76,372 @@
             height: 100vh;
             object-fit: cover;
         }
+
+        x-vue-echarts {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            min-width: 0
+        }
+
+        .vue-echarts-inner {
+            flex-grow: 1;
+            min-width: 0;
+            width: auto !important;
+            height: auto !important
+        }
+
+
+    .custom-dropdown {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        font-family: inherit;
+    }
+
+    .dropdown-trigger {
+        color: #fff;
+        padding: 12px 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .dropdown-trigger::after {
+        content: "▼";
+        font-size: 0.7em;
+        margin-left: 8px;
+    }
+
+    .dropdown-options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0f2a20;
+        border-radius: 10px;
+        display: none;
+        flex-direction: column;
+        margin-top: 4px;
+        z-index: 10;
+    }
+
+    .dropdown-option {
+        padding: 12px 16px;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .dropdown-option:hover,
+    .dropdown-option.selected {
+        background: #1e3a30;
+    }
+
+    @media (max-width: 600px) {
+        .custom-dropdown {
+            max-width: 100%;
+        }
+
+        .dropdown-trigger {
+            padding: 14px;
+            font-size: 16px;
+        }
+
+        .dropdown-option {
+            padding: 14px;
+            font-size: 16px;
+        }
+    }
     </style>
+    <link href="{{ asset('') }}static/css/chunk-02c8c6ba.f02a30c2.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-03c1575b.3035c347.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-0566fd30.1e11c8e5.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-08efff57.d1c57c5a.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-146e34fc.2bd67213.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-19b6a8e4.44d66000.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-19e32f24.1162d6ae.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-1cc9e062.bb2c1f95.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-1ee97074.f442ee68.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-23dc19ae.78dc4650.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-256b9400.46bcaa64.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-25a0e88c.c5a59136.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-267a32e6.0d9f6f8d.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-29126459.fe5ce88a.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-2a53918e.7e78b090.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-2c3295d4.68d7e20d.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-2cd18a7d.c47d657b.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-2ec80ff3.d777b076.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-3d3dcf32.c3875b9f.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-4e5f1a7a.de8b1aed.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-50b10c92.241dffcb.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-51107498.c550911e.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-54637b65.30970f55.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5872ff8d.12cc21e8.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5a04fba1.4a4b249e.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5b6ac7a8.56edffb4.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5c64915e.135fdcf8.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-5f0d6286.33002893.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-616795b6.5cc48433.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-6c7affd0.660ce06f.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-6da4369c.fd57190d.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-6de1bc62.d01efc86.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-7136a154.e2d1f0d3.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-74147bd1.876e2c63.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-757ca954.b15553a7.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-75ad7c0e.b67017d0.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-785ac04e.d5101bf5.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-78742a63.3df502ae.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-78fb2058.3f8e5458.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-7aea5d2b.f8ad3983.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-7c80ecb0.8195c814.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-7dfd5052.01550f14.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-84d1de02.29c87bce.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-891177f6.0e8a2793.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-926160c6.52e9758a.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-a704e872.b44651a8.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-a961b78c.b074a75d.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-ad302a42.529caf45.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-b205bdbe.123b5f57.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-b45589e4.41a14156.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-b68f65e0.f4e5dd07.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-bc37b504.24b0d89b.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-bf393944.1940f3bc.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-c0a3e2fa.5d784513.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-c5fb740a.89eacbb4.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-dab37d56.632af7dd.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-ded9edba.aa2bfcd6.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-ea0143b0.0982c731.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-ee39cd88.8adb81bc.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/chunk-f6532530.0eb12746.css" rel="prefetch">
+    <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="preload" as="style">
+    <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="preload" as="style">
+    <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="stylesheet">
+    <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="stylesheet">
 
-    <link href="{{asset('')}}static/css/app.6328f701.css" rel="preload" as="style">
-    <link href="{{asset('')}}static/css/vant.d14f5539.css" rel="preload" as="style">
-    <link href="{{asset('')}}static/css/vant.d14f5539.css" rel="stylesheet">
-    <link href="{{asset('')}}static/css/app.6328f701.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-5576a184.9f52f39a.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-60c8a75a.d6f6b692.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-a7d8f170.c87a4291.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-00b1464f.674dbd13.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-67912ed2.ae8d438d.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-7f362702.6a53b834.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-55778048.d9711f02.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-747287e5.9009fee8.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-6b11ef3e.540ca443.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('')}}static/css/chunk-3553982a.589d4855.css">
-    <link rel="icon" href="{{ asset('static/img/logo2.png') }}">
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
 </head>
 
-<style>
-    .valMob .cname,
-    .valMob .n {
-        color: #ffffff;
-        margin-bottom: .2rem;
-    }
-
-    .valMob .inp input {
-        height: .48rem;
-        background: none;
-        border: 0;
-        width: 100%;
-        color: #ffffff;
-    }
-
-    .big_btn_box .btn_box .btn[data-v-d8bb9fe2] {
-        height: .96rem;
-        background: #00fefb;
-        border-radius: .2rem;
-        color: #000;
-        font-weight: 500;
-        font-size: .32rem;
-        width: 100%;
-        border: 0;
-    }
-    .popup_box .scroll .ul .item[data-v-554f6835] {
-    border-bottom: .02rem solid #2b2d36;
-    padding: .32rem 0;
-    text-align: center;
-    color: #ffffff;
-}
-.popup_box .esc[data-v-554f6835] {
-    background: #17181d;
-    border-top: .06rem solid #2b2d36;
-    padding: .32rem 0;
-    text-align: center;
-    color: #ffffff;
-}
-.popup_box .scroll .ul .active[data-v-554f6835] {
-    color: #06c9b8 !important;
-}
-</style>
-
-<body class="mein_cn">
-    <div id="app" class="applang">
-        <div data-v-6e2d35de="" data-v-3969a708="" class="page">
-            <div data-v-6e2d35de="" class="headers">
-                <div data-v-b73557e2="" data-v-3969a708="" class="head" data-v-6e2d35de="">
-                    <div data-v-b73557e2="" class="safe"></div>
-                    <div data-v-b73557e2="" class="container flex">
-                        <div data-v-b73557e2="" class="back"><a href="{{route('user.Withdraw')}}"
-                               >
-                                <img data-v-b73557e2="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAA
-                            BYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEeSURBVHgB7Ze9DcIwEIWf+W1ZgQ0oWIBJYBMoqekoEUJsQAsFA7
-                            ACYgCYAHNWbBGO2ICVEBf3SU9Ozufk6ZzYCSAIQrVorQekMVLEmrvqjLRMMnO6KpMNRGDMUbMn9VhXH3XjqZxhhroRc7GIuVjEXCwpmVM8oP2
-                            L8JI0R7a4N1lbFGtG5Lrji1LqYG7a+tLchrQjDUkdUteqE2iL8nif71pb0gHIbXUBcyvS2qTYc1d1nctRuXOeB0++r++FX/ZixY7VhxvowHge
-                            U54xzymmOT9RFUd4r6L5QrmTFqQ2smekbcc6uXhRjOeG5HKP8BF4g6dIBTFZFmKyLMRkWYjJsvinyaj/YrMtUmO2xRvrOiMlWCUnSBFrcgJBEO
-                            rhAfmtScdij3WYAAAAAElFTkSuQmCC" alt=""></a></div>
-                        <!---->
-                        <!---->
-                        <!---->
-                        <div data-v-b73557e2="" class="name tac"> Withdrawal Address </div>
-                        <!---->
-                        <!---->
-                        <!---->
-                        <div data-v-b73557e2="" class="flex1"></div>
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <div data-v-b73557e2="" class="head_right"></div>
+<body class="">
+    <div id="app">
+        <div data-v-6b868a30="" data-v-62bda71e="" class="page">
+            <div data-v-6b868a30="" class="headers">
+                <div data-v-62bda71e="" class="tw-px-16px tw-w-full tw-h-full tw-flex tw-items-center"
+                    data-v-6b868a30="" style="background-color: transparent;">
+                    <div class="tw-w-44px tw-h-full tw-flex tw-items-center"><svg data-v-3f1a7394="" aria-hidden="true"
+                            class="svg-icon"
+                            style="color: rgb(24, 25, 28); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                            <use data-v-3f1a7394="" xlink:href="#svg-icon-arrow-back"></use>
+                        </svg>
+                        
                     </div>
-                    <div data-v-b73557e2="">
-                        <!---->
+                    <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
+                        style="color: rgb(24, 25, 28);"><span>Withdrawal Address</span></div>
+                    <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px"><svg
+                            data-v-3f1a7394="" aria-hidden="true" class="svg-icon"
+                            style="color: rgb(24, 25, 28); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                            <use data-v-3f1a7394="" xlink:href="#svg-icon-website"></use>
+                        </svg>
+                        
+                        <div><svg data-v-3f1a7394="" aria-hidden="true" class="svg-icon"
+                                style="color: rgb(24, 25, 28); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                                <use data-v-3f1a7394="" xlink:href="#svg-icon-bell"></use>
+                            </svg></div>
+                        
+                        
                     </div>
                 </div>
             </div>
-            <div data-v-6e2d35de="" id="scroll" class="content-container">
-                <div data-v-6e2d35de="" id="content" class="content-scroll">
+            <div data-v-6b868a30="" id="scroll" class="content-container">
+                <div data-v-6b868a30="" id="content" class="content-scroll">
                     <form method="POST" action="{{ route('user.wallet_change') }}">
                         @csrf
-
-
-                    <div data-v-3969a708="" data-v-6e2d35de="" class="container">
-                        <div data-v-3969a708="" data-v-6e2d35de="" class="list">
-                            <div data-v-3969a708="" data-v-6e2d35de="" class="item valMob">
-                                <div data-v-3969a708="" data-v-6e2d35de="" class="cname">Select Currency</div>
-                                <div data-v-3969a708="" data-v-6e2d35de="" class="val inp flex set">
-                                    <div data-v-3969a708="" data-v-6e2d35de="" class="icon"><img data-v-3969a708=""
-                                            data-v-6e2d35de=""
-                                            src="https://lumex-all.s3.ap-southeast-1.amazonaws.com/upload/20250303/f710b0ea16ca629941e92e00e453fd1b.png"
-                                            alt=""></div>
-                                    <div data-v-3969a708="" data-v-6e2d35de="" class="name name1 flex1">USDT</div><i
-                                        data-v-3969a708="" data-v-6e2d35de="" class="arrow van-icon van-icon-play">
-                                        <!---->
+                    <div data-v-62bda71e="" data-v-6b868a30="" class="tw-min-h-full tw-p-16px tw-flex tw-flex-col">                        
+                        <div data-v-62bda71e="" data-v-6b868a30="" class="tw-flex-1">
+                            <div data-v-62bda71e="" data-v-6b868a30="" class="tw-mb-10px tw-text-14px">Select Currency
+                            </div>
+                            <div data-v-62bda71e="" data-v-6b868a30=""
+                                class="van-cell1 tw-h-44px tw-px-14px tw-flex tw-justify-between tw-items-center tw-bg-white1 tw-rounded-10px">
+                                <div data-v-62bda71e="" data-v-6b868a30="" class="tw-flex tw-items-center">
+                                    <img data-v-62bda71e="" data-v-6b868a30=""
+                                        src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20241119/a374614d2b1d9d3b68ad00f1b2b38e68.jpeg"
+                                        alt="" class="tw-w-24px">
+                                        <span data-v-62bda71e="" data-v-6b868a30="" class="tw-pl-8px">USDT</span>
+                                    </div>
+                                    <i data-v-62bda71e="" data-v-6b868a30=""
+                                    class="van-icon van-icon-arrow" style="color: rgb(182, 188, 198);">
                                     </i>
-                                </div>
                             </div>
-                            <div data-v-3969a708="" data-v-6e2d35de="" class="item valMob">
-                                <div data-v-3969a708="" data-v-6e2d35de="" class="cname">Select Network</div>
-                                <div data-v-3969a708="" data-v-6e2d35de="" class="val inp flex set" >
-                                    <div data-v-3969a708="" data-v-6e2d35de="" class="icon"><img data-v-3969a708=""
-                                            data-v-6e2d35de="" id="currencyImg"
-                                            src="https://tux-all.s3.ap-southeast-1.amazonaws.com/upload/20240723/284411f22a828b42a327a5a8586fae88.png"
-                                            alt=""></div>
-                                    <div data-v-3969a708="" data-v-6e2d35de="" class="name name1 flex1" id="currencyId">BEP20</div><i
-                                        data-v-3969a708="" data-v-6e2d35de="" class="arrow van-icon van-icon-play">
-                                        <!---->
-                                    </i>
+                            <div data-v-62bda71e="" data-v-6b868a30="" class="tw-mt-18px tw-mb-10px tw-text-14px">
+                                Select Network </div>
+                            <div data-v-62bda71e="" data-v-6b868a30=""
+                                class="van-cell1 tw-h-44px tw-px-14px tw-flex tw-justify-between tw-items-center tw-bg-white1 tw-rounded-10px">
+                                <span data-v-62bda71e="" data-v-6b868a30="" id="showType">TRC20</span><i data-v-62bda71e=""
+                                    data-v-6b868a30="" class="van-icon van-icon-arrow" id="openPopup"
+                                    style="color: rgb(182, 188, 198);">
+                                    </i></div>
+                                    <input type="hidden" name="selected_mainnet" value="BEP20" id="walletType">
 
-                                <input type="hidden" name="selected_mainnet" value="BEP20" id="walletType">
+                            <div data-v-62bda71e="" data-v-6b868a30="" class="tw-mt-16px tw-mb-10px tw-text-14px">
+                                Withdrawal Address </div>
+                            <div data-v-62bda71e="" class="van-cell1 van-field tw-rounded-10px" data-v-6b868a30="">
+                                <div class="van-cell__value van-cell__value--alone van-field__value">
+                                    <div class="van-field__body">
+                                        <input  type="text"  name="walletAddress" placeholder="Please enter the withdrawal address"
+                                            class="van-field__control1"></div>
+                                </div>
+                            </div>
+                            <div data-v-62bda71e="" data-v-6b868a30="" class="tw-mt-16px tw-mb-10px tw-text-14px">
+                                Transaction Password </div>
+                            <div data-v-62bda71e="" class="van-cell1 van-field tw-rounded-10px" data-v-6b868a30="">
+                                <div class="van-cell__value van-cell__value--alone van-field__value">
+                                    <div class="van-field__body"><input type="password" name="code" id="passwordInput"
+                                            placeholder="Please enter the transaction password"
+                                            class="van-field__control1">
+                                        <div class="van-field__right-icon"  onclick="togglePassword()"><i data-v-62bda71e="" id="eyeIcon"
+                                                class="van-icon van-icon-closed-eye tw-text-secondary">
+                                                </i></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div data-v-3969a708="" data-v-6e2d35de="" class="item valMob">
-                            <div data-v-3969a708="" data-v-6e2d35de="" class="cname">Withdrawal Address</div>
-                            <div data-v-3969a708="" data-v-6e2d35de="" class="inp val flex"><input data-v-3969a708=""
-                                    data-v-6e2d35de="" type="text"  name="walletAddress"  placeholder="Please enter the withdrawal address">
+                        <button data-v-62bda71e="" data-v-6b868a30="" type="submit"
+                            class="van-button van-button--primary van-button--normal">
+                            <div data-v-62bda71e="" data-v-6b868a30="" class="van-button__content"><span
+                                    data-v-62bda71e="" data-v-6b868a30="" class="van-button__text"> Confirm </span>
                             </div>
-                        </div>
-                        <div data-v-3969a708="" data-v-6e2d35de="" class="item valMob">
-                            <div data-v-3969a708="" data-v-6e2d35de="" class="cname"><span data-v-3969a708=""
-                                    data-v-6e2d35de="">Mailbox</span>
-                                <!---->
-                            </div>
-                            <div data-v-3969a708="" data-v-6e2d35de="" class="inp val flex"><input data-v-3969a708=""
-                                    data-v-6e2d35de="" type="text" name="email" id="emailId" disabled="disabled" value="{{Auth::user()->email}}"
-                                    placeholder="Please enter your email address"></div>
-                        </div>
-                        <div data-v-3969a708="" data-v-6e2d35de="" class="item valMob">
-                            <div data-v-3969a708="" data-v-6e2d35de="" class="cname">Verification code</div>
-                            <div data-v-3969a708="" data-v-6e2d35de="" class="inp val flex">
-                                <div data-v-3969a708="" data-v-6e2d35de="" class="flex1"><input data-v-3969a708=""
-                                        data-v-6e2d35de="" type="text" name="code"
-                                        placeholder="Please enter the email verification code"></div>
-                                <div data-v-3969a708="" data-v-6e2d35de="" class="sendCode code-btn"> Send </div>
-                                <div data-v-3969a708="" data-v-6e2d35de="" class="sendCode resend-btn" style="display: none;">
-                                    <div data-v-3969a708="" class="van-count-down" data-v-6e2d35de=""><span
-                                            data-v-3969a708="">46 <var data-v-3969a708="">s</var></span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-v-d8bb9fe2="" data-v-3969a708="" data-v-6e2d35de="" style="height: 1.4rem;">
-                            <div data-v-d8bb9fe2="" class="big_btn_box">
-                                <div data-v-d8bb9fe2="" class="btn_box"><button data-v-d8bb9fe2=""
-                                        class="btn">Confirm</button></div>
-                            </div>
-                        </div>
+                        </button>                        
+                    </div>
                     </form>
-                    </div>
-                    <div data-v-554f6835="" data-v-3969a708="" data-v-6e2d35de="">
-                        <!---->
-                    </div>
-                    <div data-v-554f6835="" data-v-3969a708="" data-v-6e2d35de="">
-                        <!---->
-                    </div>
                 </div>
             </div>
-            <!---->
+            
         </div>
-        <div data-v-a7d12cfc="" class="global-loading default" style="display: none;">
-            <div data-v-a7d12cfc="" class="global-spinner"><img data-v-a7d12cfc=""
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAArCAYAAAADgWq5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAF6WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMi0wNC0xMlQxNTo0MTowNiswODowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDQtMTJUMTU6NDM6MTQrMDg6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDQtMTJUMTU6NDM6MTQrMDg6MDAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NWU0ZGQwNmEtMWExNS1kYjRmLTkyZmQtZjIzNTAwNzJkMGNmIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjlGMTI0NjE1NTQzQzExRThCQzhCQzEyQjVDOUMzOEJGIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6OUYxMjQ2MTU1NDNDMTFFOEJDOEJDMTJCNUM5QzM4QkYiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5RjEyNDYxMjU0M0MxMUU4QkM4QkMxMkI1QzlDMzhCRiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5RjEyNDYxMzU0M0MxMUU4QkM4QkMxMkI1QzlDMzhCRiIvPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo1ZTRkZDA2YS0xYTE1LWRiNGYtOTJmZC1mMjM1MDA3MmQwY2YiIHN0RXZ0OndoZW49IjIwMjItMDQtMTJUMTU6NDM6MTQrMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+hddYGwAABHhJREFUWIXN2XuoFVUUx/HPXG9WmmIPJQtNwQwqe5paEI1pCBZCRvVXDwlKCsLpIURgIZZG1KEXRVJJWPRnIv3TAw/0UCsrUlBLLQ1T01Ip6eZr+mPPOHOP56jXcz3XHxzu3nv2nv29a/bstdaeyJIXdYOG4bLs77k4AzvQFyvxKw7gJ/xZHpjGSZcmam8Csg/uxU0Yi8HHMGYz1uAtfIh/uzrp8QBPwFO4HgfR1oWx52e/CViX3ef9rkwedWFJXIQncE+da7uwHcuwF1uQClbvi1G4tMF9V+GuNE5+6C7gUzANT2Joqb0Dm/A6XsO+I9yjD/7DaMzArTi1ps/iNE6mNAvcjqfxKE4rtS/BXHxytAnqqBcuwHQ8XnNtP0amcfJLo8FHWn/98QIeK8Fuw3W48ThhCbvFBsxEhMWla+3YEFUrfbsKfDpewcOKR/e5sBssPU7QusqWwTTBurlWN+rfCHg67i7V3xasurFZwHpK42QBxmFP1jQkqlbW1utbD3g0ygt7Fe7T2QLdrjROVmBSqWlkVK28WtuvHvB7pfImXNvNbA2VxsmXeKnU9FBUrVxT7lMLHGNkVt6JO/DPiQKspzROZuC3UtM7UbVyiLMMPBDzSvWFWHFC6RprrLCbwCU4ZOUy8G24OivvxCwneN02UhonWwSD5Xo3L5SBpypii/mCu+1JzRHcOwyPqpVhFMD9MSYr78OnLUWrozRO1gk7FCE8mEwBPE7hzVbiu5bSNdabpfKkqFqJcuCr0Dsrr1ETZPegPiiVJ6dxkubAQwW/TohTTxa1K4x3IKpWLmwToqfhWWMqpDEnhdI42SrENYSYpqNN2O+uyBojfN16tPqKqpV2fJNVD+LK3MJbS/0GtRqskdI42Y+zsmob/moTlkHuVQ7qHKifDCpnJtvbBMg8XmjD2S1HaqCoWhmgCDl3o1e+S3xf6tey6OwY1K4IxrZhcw68rNRpjJNHA4WsG7ancbI7B/5CcagxCv1aTVarLKS8OaumAuMh17xFsVb64YaW0tVXO27PyvuxiAL4oJC35Xq+dVwNdbEiDv5btmzL4eXcUnmEwpn0lGYpwoVFaZykdAbeJZziEB7HG0JY13JF1crlyE+BdmQsODynm60ImkcIS6WliqqVQXhO8MCEg5Yf8+u1wFvxANbjfoUHbImiaqU3XsbErGkf5qRx0pH3qXfcOj/79YSeFXaG3JAz0zjZUO7QzIF2tymLyp7BI4oXbYVg7U7qceCoWhmKBRhfal6NKWmcHPYOdeX0/EQoxkc6wy7FxDROfq83oKcsfIvw+MfXtC8VLLuj0cBmgXsLb/RIfCVkK72FrXGfELjsEXLGFHcK580DdI5zd2F2GieVo03YLPCDwqF3nmr1Ek6N1grfN7Zn/8xenNPgHsuFbxw/H8uEzQLvVLwH+UZ/pnDOQfg0UKsD2biPMS+Nk5VdmbBZ4IVCVjtVyAXPE2LYsjqEtGs9vhWCrM8cp1NqFviA4OdzXz9ESLcGC+Abhe9yy4Vk8o8m5/M/9rYMi48jzWIAAAAASUVORK5CYII="
-                    alt=""></div>
+        <div class="van-overlay" style="display: none;">
+            <div class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
+                <div
+                    class="tw-w-100px tw-h-100px tw-flex tw-justify-center tw-items-center tw-bg-dark tw-bg-opacity-10 tw-rounded-10px">
+                    <div class="van-loading van-loading--circular"><span
+                            class="van-loading__spinner van-loading__spinner--circular"
+                            style="color: rgb(23, 114, 248); width: 1rem; height: 1rem;"><svg viewBox="25 25 50 50"
+                                class="van-loading__circular">
+                                <circle cx="50" cy="50" r="20" fill="none"></circle>
+                            </svg></span></div>
+                </div>
+            </div>
+        </div>
+        <div data-v-4d1ba5fa="">
+            
         </div>
     </div>
-
-    
-
-        <div data-v-554f6835="" id="popupBox" class="van-popup van-popup--round van-popup--bottom"
-            style="background: none; z-index: 2022; display: none;">
-            <div data-v-554f6835="" class="popup_box">
-                <div data-v-554f6835="" class="scroll">
-                    <div data-v-554f6835="" class="ul">
-                        <div data-v-554f6835="">
-                            <div data-v-554f6835="" class="item active" onclick="selectChain(this)" data-coin="USDT_TRX"> TRC20 </div>
+    <script src="/static/1756094289381/js/chunk-vendors.b893e1dd.js"></script>
+    <script src="/static/1756094289381/js/app.5acd7986.js"></script>
+    <div class="van-toast van-toast--middle van-toast--success" style="z-index: 2001; display: none;"><i
+            class="van-icon van-icon-success van-toast__icon">
+            </i>
+        <div class="van-toast__text">Login successful</div>
+    </div>
+    <div class="van-overlay" id="overlay" style="z-index: 2008; display: none;"></div>
+    <div data-v-62bda71e="" id="popup" class="chain-select-popup van-popup van-popup--round van-popup--bottom"
+        style="display: none; z-index: 2009">
+        <div class="tw-p-14px tw-text-16px tw-text-center"> Select Network </div>
+        <div class="tw-px-16px tw-pb-16px">
+            <div class="tw-mb-16px van-tabs van-tabs--line">
+                <div class="van-tabs__wrap">
+                    <!-- <div role="tablist" class="van-tabs__nav van-tabs__nav--line">
+                        <div role="tab" aria-selected="true" class="van-tab van-tab--active"><span
+                                class="van-tab__text van-tab__text--ellipsis">
+                                <div class="tw-flex tw-items-center tw-gap-4px"><img
+                                        src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20241119/a374614d2b1d9d3b68ad00f1b2b38e68.jpeg"
+                                        class="tw-w-24px tw-h-24px"> USDT </div>
+                            </span></div>
+                        <div role="tab" class="van-tab"><span class="van-tab__text van-tab__text--ellipsis">
+                                <div class="tw-flex tw-items-center tw-gap-4px"><img
+                                        src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240904/baa89f4d0b494fec297b855f2740d8f2.png"
+                                        class="tw-w-24px tw-h-24px"> USDC </div>
+                            </span></div>
+                        <div class="van-tabs__line"
+                            style="transform: translateX(97px) translateX(-50%); transition-duration: 0.3s;"></div>
+                    </div> -->
+                </div>
+                <div class="van-tabs__content">
+                    <div role="tabpanel" class="van-tab__pane" style="">
+                        <div
+                            class="chain-item tw-mt-16px tw-p-14px tw-border tw-border-solid tw-border-hairline tw-rounded-10px " id="tron">
+                            <div class="tw-text-14px">Tron</div>
+                            <div class="tw-text-12px tw-text-secondary"> Minimum Withdrawal Amount≥ 50 USDT </div>
                         </div>
-                        <div data-v-554f6835="">
-                            <div data-v-554f6835="" class="item" onclick="selectChain(this)" data-coin="USDT_BSC"> BEPP20 </div>
+                        <div
+                            class="chain-item tw-mt-16px tw-p-14px tw-border tw-border-solid tw-border-hairline tw-rounded-10px active " id="bep20">
+                            <div class="tw-text-14px">Bep20</div>
+                            <div class="tw-text-12px tw-text-secondary"> Minimum Withdrawal Amount≥ 50 USDT </div>
                         </div>
                     </div>
+                    <div role="tabpanel" class="van-tab__pane" style="display: none;">
+                        
+                    </div>
                 </div>
-                <div data-v-554f6835="" class="esc">Cancel</div>
-            </div>
-        </div>
-
-        <div class="van-toast van-toast--middle van-toast--text" id="customToast" style="z-index: 2007; display: none;">
-            <div class="van-toast__text" id="customToastText">Verification code error</div>
-        </div>
-        <script>
-            function showPopup() {
-            document.getElementById('popupBox').style.display = 'block';
-        }
-
-        function hidePopup() {
-            document.getElementById('popupBox').style.display = 'none';
-        }
-
-        function changeTab(type) {
-            const h2 = document.getElementById('networkText');
-            const tabs = document.querySelectorAll('.van-tab');
-
-            tabs.forEach(tab => tab.classList.remove('van-tab--active'));
-
-            if (type === 'usdt') {
-                h2.textContent = 'USDT(BEP20)';
-                tabs[0].classList.add('van-tab--active');
-            } else if (type === 'usdc') {
-                h2.textContent = 'USDT(TRC20)';
-                tabs[1].classList.add('van-tab--active');
-            }
-        }
-
-        </script>
-
-        <script>
-            let selectedCoin = null;
-
-function selectChain(element) {
-    // Remove previous selections
-    document.querySelectorAll('.popup_box .item').forEach(item => {
-        item.classList.remove('active');
-        const check = item.querySelector('.check');
-        if (check) check.style.display = 'none';
-    });
-
-    // Mark selected item
-    element.classList.add('active');
-    const check = element.querySelector('.check');
-    if (check) check.style.display = 'block';
-    // Save selected coin from attribute
-    selectedCoin = element.getAttribute('data-coin');
-
-    if (selectedCoin == "USDT_BSC") {
-        document.getElementById('currencyImg').src =
-            "https://tux-all.s3.ap-southeast-1.amazonaws.com/upload/20240723/284411f22a828b42a327a5a8586fae88.png";
-        document.getElementById('currencyId').innerHTML = "BEP20";
-        document.getElementById('walletType').value = "TRC20";
-    } else {
-        document.getElementById('currencyImg').src =
-            "https://tux-all.s3.ap-southeast-1.amazonaws.com/upload/20240723/bcabd0a39b535b0c04e14dc6b5f16bdd.png";
-        document.getElementById('currencyId').innerHTML = "TRC20";
-        document.getElementById('walletType').value = "TRC20";
-        
-    }
-
-    document.getElementById('popupBox').style.display = 'none';
-
-
-}
-
-
-        </script>
-
-<script src="https://code.jquery.com//jquery-3.3.1.min.js"></script>
-
-<style>
-    .van-toast {
-    color: #fcfaff;
-    line-height: 6px;
-}
-</style>
-<script>
-    $(document).ready(function () {
-        var countdown;
-        var timer;
-
-        $('.code-btn').click(function (e) {
-            var emailId = $('#emailId').val();
-
-            if (!emailId) {
-             
-                showVanToast('Invalid Email');
-                return false;
-            }
-
-            startTimer(); // Start the timer after sending the code
-            $('.code-btn').hide();
-            $('.resend-btn').show();
-            showVanToast('Email sent Successfully');
-            $.ajax({
-                type: "POST",
-                url: "{{ route('send_forgot') }}",
-                data: {
-                    "emailId": emailId,
-                    "_token": "{{ csrf_token() }}"
-                },
-                success: function (response) {
-                    if (response) {
-                     
-                    } else {
-                     
-                        showVanToast('Error');
-                    }
-                }
-            });
+            </div><button class="van-button van-button--primary van-button--normal van-button--block" id="close">
+                <div class="van-button__content"><span class="van-button__text" > Confirm </span></div>
+            </button>
+        </div><i role="button" tabindex="0"
+            class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right" id="close">
+            </i>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const overlay = document.getElementById("overlay");
+        const popup = document.getElementById("popup");
+        const closeBtn = document.getElementById("close");
+        const openBtn = document.getElementById("openPopup"); // 👈 create a button with this ID
+        const tron = document.getElementById("tron");
+        const bep20 = document.getElementById("bep20");
+        const walletType = document.getElementById("walletType");
+        const showType = document.getElementById("showType");
+         tron.addEventListener("click", () => {
+            walletType.value = "TRC20";  
+            showType.textContent = "Trc20";           
         });
-        function showVanToast(message, duration = 3000) {
-                const toast = document.getElementById('customToast');
-                const toastText = document.getElementById('customToastText');
+        bep20.addEventListener("click", () => {
+            walletType.value = "BEP20"; 
+            showType.textContent = "Bep20";           
+        })
 
-                toastText.innerText = message;
-                toast.style.display = 'block';
+        openBtn.addEventListener("click", () => {
+            overlay.style.display = "block";
+            popup.style.display = "block";
+        });
 
-                setTimeout(() => {
-                    toast.style.display = 'none';
-                }, duration);
-            }
+        closeBtn.addEventListener("click", () => {
+            overlay.style.display = "none";
+            popup.style.display = "none";
+        });
 
-        function startTimer() {
-            var resendButton = $('.resend-btn');
-            countdown = 60; // 60 seconds
-            resendButton.prop('disabled', true); // Disable the resend button
-            resendButton.text('Wait ' + countdown + 's');
-
-            timer = setInterval(function () {
-                countdown--;
-                resendButton.text('Wait ' + countdown + 's');
-
-                if (countdown <= 0) {
-                    clearInterval(timer);
-                    resendButton.prop('disabled',
-                    false); // Enable the resend button after the timer ends
-                    resendButton.text('Resend'); // Reset button text
-                }
-            }, 1000);
-        }
-
-        // Optional: Handle Resend Button Click
-        $('.resend-btn').click(function (e) {
-            $('.code-btn').trigger('click'); // Simulate a click on the original send button
+        overlay.addEventListener("click", () => {
+            overlay.style.display = "none";
+            popup.style.display = "none";
         });
     });
 
+    function togglePassword() {
+            const passwordInput = document.getElementById("passwordInput");
+            const eyeIcon = document.getElementById("eyeIcon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.className = "van-icon van-icon-eye tw-text-primary"; // show icon when password visible
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.className = "van-icon van-icon-closed-eye tw-text-secondary"; // hide icon
+            }
+        }
 </script>
-
 </body>
 
 </html>
