@@ -396,7 +396,7 @@ class WithdrawRequest extends Controller
 
        // Format data for chart
        $dates = $contracts->pluck('created_at')->map(function($date) {
-         return $date->format('Y-m-d'); // format nicely
+         return $date->format('Y-m-d'); 
         });
         $this->data['profit'] = $contracts;
         $this->data['dates']  = $dates; 
