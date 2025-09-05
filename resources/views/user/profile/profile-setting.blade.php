@@ -205,7 +205,7 @@
                                         <img data-v-6b868a30="" src="{{ asset('') }}2.png" alt="">
                                     </div>
                                     <div data-v-6b868a30="" class="tw-ml-12px">
-                                        <div data-v-6b868a30="" class="tw-text-18px">{{ sitename('') }}</div>
+                                        <div data-v-6b868a30="" class="tw-text-18px">{{ Auth::user()->name }}</div>
                                         <div data-v-6b868a30="" class="tw-text-12px tw-flex tw-items-center"><span
                                                 data-v-6b868a30="" class="tw-text-secondary"> Invitation Code:
                                             </span><span data-v-6b868a30=""

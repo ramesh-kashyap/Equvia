@@ -2325,7 +2325,8 @@
                 if (!selectedNetwork) return;
 
                 // Update dropdown text
-                dropdownTrigger.textContent = selectedNetwork.toUpperCase();
+               const networkDisplay = selectedNetwork === "trc20" ? "TRON" : "Binance Smart Chain"; 
+                dropdownTrigger.textContent = networkDisplay;
                 currencyInput.value = selectedNetwork;
 
                 // Close popup

@@ -140,12 +140,25 @@ class User extends Authenticatable
     } 
     
     
-    
     public function available_balance()
     {
-    $balance = (Auth::user()->investment->sum('amount')+Auth::user()->users_incomes()+Auth::user()->tradingProfit->sum('profit')) - (Auth::user()->withdraw());
+    $balance = (Auth::user()->investment->sum('amount')+Auth::user()->users_incomes()) - (Auth::user()->withdraw());
     return $balance;
     } 
+
+
+        public function withdrawalble_balance()
+    {
+        $user = Auth::user();
+        // Profits (always withdrawable)
+        $profits = $user->users_incomes();
+        $withdrawn = $user->withdraw();
+        // Principal only if unlocked
+        $unlockedPrincipal = $user->investment()->where('unlock_at', '<=', now())->sum('amount');
+        $balance = ($unlockedPrincipal + $profits) - $withdrawn;
+        return max($balance, 0);
+    }
+
     public function deposite_balance()
     {
     $balance = (Auth::user()->investment->sum('amount'));

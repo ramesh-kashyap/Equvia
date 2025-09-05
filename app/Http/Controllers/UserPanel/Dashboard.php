@@ -314,6 +314,8 @@ class Dashboard extends Controller
                 // return response()->json(['success'=>false,'code'=>'PENDING_TRADE','message'=>'You already have a pending trade.']);
             }
 
+         
+
             // 3) Balance check
              $balance = $req->amount > round($user->available_balance(),3) ? round($user->available_balance(),3) : $req->amount;
 
@@ -408,6 +410,13 @@ class Dashboard extends Controller
 
             // Timestamps
             $nowIST = Carbon::now('Asia/Kolkata')->format('Y-m-d H:i:s');
+            $carbon = Carbon::now('Asia/Kolkata');
+
+            $user->investment()
+            ->where('unlock_at', '<=', now())
+            ->update([
+                'unlock_at' => $carbon->copy()->addDays(21)
+            ]);
 
             // Cap final-trade ROI (if last trade of the day)
             if ($todayCount === ($quantifiable - 1)) {
