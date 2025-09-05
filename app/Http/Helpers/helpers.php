@@ -93,6 +93,19 @@ if (!function_exists('addNotification')) {
     return $ret;
   }
 
+  function getWithdrawalFeePercent($vip)
+{
+    switch ($vip) {
+        case '0': return 9;
+        case '1': return 7;
+        case '2': return 5;
+        case '3': return 5;
+        case '4': return 4;
+        case '5': return 4;
+        case '6': return 3;
+        default:    return 9; // fallback
+    }
+}
 
    function getVip($userId = null)
     {
