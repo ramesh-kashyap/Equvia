@@ -2,13 +2,13 @@
 <div data-v-6b868a30="" id="scroll" class="content-container">
     <div data-v-6b868a30="" id="content" class="content-scroll">
         <div data-v-6b868a30="" class="page-team-container tw-min-h-full tw-p-16px">
-            <div data-v-6b868a30="" class="tw-mb-12px tw-flex tw-justify-between tw-items-center">
+            <!-- <div data-v-6b868a30="" class="tw-mb-12px tw-flex tw-justify-between tw-items-center">
                 <div data-v-6b868a30="" class="tw-text-16px tw-font-bold">Team Data Overview</div>
                 <div data-v-6b868a30="" class="tw-flex tw-items-center"><span data-v-6b868a30=""
                         class="tw-pr-4px">Today</span><i data-v-6b868a30="" id="openPopup"
                         class="van-icon van-icon-arrow-down">
                     </i></div>
-            </div>
+            </div> -->
             <div data-v-6b868a30="" class="page-team-header tw-text-white tw-relative">
                 <div data-v-6b868a30="" class="page-team-header-top">
                     <div data-v-6b868a30="" class="tw-text-12px tw-opacity-80"> Cumulative Income </div>
