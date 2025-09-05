@@ -396,9 +396,11 @@ class WithdrawRequest extends Controller
 
        // Format data for chart
        $dates = $contracts->pluck('created_at')->map(function($date) {
-         return $date->format('Y-m-d'); 
-        });
-        $this->data['profit'] = $contracts;
+       return \Carbon\Carbon::parse($date)->format('Y-m-d');
+     });
+     $profits = $contracts->pluck('profit');
+
+        $this->data['profit'] = $profits;
         $this->data['dates']  = $dates; 
     
 
