@@ -37,7 +37,7 @@ class Profile extends Controller
         $user_direct = User::where('sponsor', $user->id)->where('active_status', 'Active')->count();
 
         $this->data['user_direct'] = $user_direct;
-        $this->data['rank'] =getVip($user->id);
+        $this->data['rank'] = getVip($user->id);
 
         $this->data['profile_data'] = $profile_data;
 
@@ -424,35 +424,40 @@ class Profile extends Controller
     // send code for validation 
     public function sendCode(Request $request)
     {
+        try {
+            $user = Auth::user();
+            $code = verificationCode(6);
 
-        $user = Auth::user();
-        $code = verificationCode(6);
+            $emailId = $request->email ?? $request->emailId ?? $user->email;
 
-        $emailId = $request->emailId;
-        if ($emailId != "") {
-            $emailId = $emailId;
-        } else {
-            $emailId = $user->email;
+            PasswordReset::where('email', $emailId)->delete();
+
+            $password = new PasswordReset();
+            $password->email = $emailId;
+            $password->token = $code;
+            $password->created_at = \Carbon\Carbon::now();
+            $password->save();
+
+            sendEmail($emailId, 'Your One-Time Password', [
+                'name' => $user->name,
+                'code' => $code,
+                'purpose' => 'Change Password',
+                'viewpage' => 'one_time_password',
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Email sent successfully',
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to send email',
+                'error'   => $e->getMessage(),
+            ], 500);
         }
-
-        PasswordReset::where('email', $emailId)->delete();
-
-        $password = new PasswordReset();
-        $password->email = $emailId;
-        $password->token = $code;
-        $password->created_at = \Carbon\Carbon::now();
-        $password->save();
-
-        // sendEmail($emailId, 'Your One-Time Password', [
-        //     'name' => $user->name,
-        //     'code' => $code,
-        //     'purpose' => 'Change Password',
-        //     'viewpage' => 'one_time_password',
-
-        // ]);
-
-        return true;
     }
+
 
 
     public function change_password_post(Request $request)

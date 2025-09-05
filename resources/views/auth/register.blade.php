@@ -186,21 +186,7 @@
                                     @endphp
 
 
-                                    @if(session('success'))
-                                    <div class="alert alert-success">{{ session('success') }}</div>
-                                    @endif
 
-                                    @if(session('error'))
-                                    <div class="alert alert-danger">{{ session('error') }}</div>
-                                    @endif
-
-                                    @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        @foreach ($errors->all() as $error)
-                                        <p>{{ $error }}</p>
-                                        @endforeach
-                                    </div>
-                                    @endif
                                     <div data-v-6b868a30=""
                                         class="tw-relative tw-z-0 tw-top-10px tw-flex tw-justify-between tw-items-start">
                                         <div data-v-6b868a30="" class="page-auth-form-title"> Registration </div>
@@ -216,32 +202,32 @@
                                             </div>
                                         </div>
                                         <div class="tw-mt-20px rtw-text-16px"> Mobile phone </div>
-                                                    <div class="van-cell van-field tw-rounded-11px">
-                                                        <div class="van-field__left-icon">
-                                                            <div class="tw-flex rtw-items-center" id="phone_code">
-                                                                <input type="hidden" id="country-name"
-                                                                    name="country" value="CANADA">
-                                                                <input type="hidden" id="dial-code" name="dialCode"
-                                                                    value="1">
-                                                                <input type="hidden" id="country_iso"
-                                                                    name="country_iso" value="CA">
-                                                                <span class="tw-pr-4px"
-                                                                    style="display: block;">+1</span>
-                                                                <i class="van-icon van-icon-arrow-down">
-                                                                </i>
-                                                            </div>
-                                                        </div>
-                                                        <div
-                                                            class="van-cell__value van-cell__value--alone van-field__value">
-                                                            <div class="van-field__body">
-                                                                <input type="text"
-                                                                    onkeyup="this.value=this.value.replace(/[ ]/g,'')"
-                                                                    name="phone"
-                                                                    placeholder="Please enter your phone number"
-                                                                    class="van-field__control">
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                        <div class="van-cell van-field tw-rounded-11px">
+                                            <div class="van-field__left-icon">
+                                                <div class="tw-flex rtw-items-center" id="phone_code">
+                                                    <input type="hidden" id="country-name"
+                                                        name="country" value="CANADA">
+                                                    <input type="hidden" id="dial-code" name="dialCode"
+                                                        value="1">
+                                                    <input type="hidden" id="country_iso"
+                                                        name="country_iso" value="CA">
+                                                    <span class="tw-pr-4px"
+                                                        style="display: block;">+1</span>
+                                                    <i class="van-icon van-icon-arrow-down">
+                                                    </i>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="van-cell__value van-cell__value--alone van-field__value">
+                                                <div class="van-field__body">
+                                                    <input type="text"
+                                                        onkeyup="this.value=this.value.replace(/[ ]/g,'')"
+                                                        name="phone"
+                                                        placeholder="Please enter your phone number"
+                                                        class="van-field__control">
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div data-v-6b868a30="" class="tw-mt-16px rtw-text-16px">Mailbox</div>
                                         <div class="van-cell van-field tw-rounded-11px" data-v-6b868a30="">
                                             <div class="van-cell__value van-cell__value--alone van-field__value">
@@ -260,14 +246,9 @@
                                                         placeholder="Please enter the verification code"
                                                         class="van-field__control">
                                                     <div class="van-field__right-icon">
-                                                        <button type="button" id="getCodeBtn"
-                                                            class="!tw-border-none tw-w-8 van-button  van-button--mini van-button--plain" style="color: #2a9862;">
-                                                            <div class="van-button__content">
-                                                                <span class="code-btn van-button__text"><span>Get code</span>
-                                                                    <span class="resend-btn-new van-button__text" style="display: none;"><span>Get code</span>
-                                                                        <span
-                                                                            style="display: none;">60 s</span></span>
-                                                            </div>
+                                                        <button type="button" style="width:40px;color:black;border-radius: 0 1rem 1rem 0;" class="btn" id="sendButton" onclick="sendVerificationCode()">
+                                                            <span id="buttonLabel" style="font-size:15px;">Send</span>
+                                                            <span id="countdownTimer" style="display: none;margin: -12px;font-size:18px;"></span>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -357,29 +338,29 @@
 
         </div>
     </div>
-    <div class="van-popup van-popup--round van-popup--bottom" style="z-index: 2005; display: none" id="overlay">
+    <div class="van-popup van-popup--round van-popup--bottom" style="z-index: 2005; display: none; background:#fff; color:black;" id="overlay">
         <div class="tw-p-16px tw-overflow-hidden" style="z-index: 2010; display: none" id="popup">
-            <div class="tw-text-center tw-text-16px"> Choose an international phone area code </div>
+            <div class="tw-text-center tw-text-16px" style="color: #020503;"> Choose an international phone area code </div>
             <div class="van-cell van-field">
                 <div class="van-field__left-icon">
                     <i id="cancel" role="button" tabindex="0" class="van-icon van-icon-search"></i>
                 </div>
                 <div class="van-cell__value van-cell__value--alone van-field__value">
-                    <div class="van-field__body">
+                    <div class="van-field__body" style="border: 1px solid #d9d9d9;border-radius:5px;">
                         <input type="text" placeholder="Search area code"
                             class="van-field__control" id="country-search" autocomplete="off">
                     </div>
                 </div>
             </div>
-            <ul class="tw-h-32 tw-overflow-y-auto">
+            <ul class="tw-h-32 tw-overflow-y-auto" style="color: #020503;">
                 <div class="country-list" id="country-list"></div>
 
             </ul>
 
         </div>
-        <i role="button" tabindex="0"
+        <!-- <i role="button" tabindex="0"
             class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right">
-        </i>
+        </i> -->
     </div>
 
 
@@ -457,11 +438,11 @@
                 $list.empty();
                 filteredCountries.forEach(country => {
                     $list.append(`           
-                     <li class="tw-h-42px tw-flex tw-items-center">
+                     <li class="tw-h-42px tw-flex rtw-items-center" >
                 <div class="tw-w-24px tw-h-24px" >
                     <span class="fi fi-${country.flag}"></span>
                     </div>
-                <div class="tw-h-full tw-flex-1 tw-flex tw-items-center van-hairline--bottom" data-code="${country.code}" data-flag="${country.flag}"> ${country.name} (${country.code}) </div>
+                <div class="tw-h-full tw-flex-1 tw-flex rtw-items-center van-hairline--bottom" data-code="${country.code}" data-flag="${country.flag}"> ${country.name} (${country.code}) </div>
             </li>
                     
                 `);
@@ -549,7 +530,7 @@
         var status = document.getElementById('status');
         var iti = window.intlTelInput(input, {
             initialCountry: "auto",
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" 
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
         });
 
         input.addEventListener('blur', function() {
@@ -578,6 +559,71 @@
 
         // Initialize with the current selected country's info
         document.addEventListener('DOMContentLoaded', updateCountryInfo);
+    </script>
+
+    <script src="https://code.jquery.com//jquery-3.3.1.min.js"></script>
+    <script>
+        function sendVerificationCode() {
+            const email = document.querySelector('input[name="email"]').value;
+            const sendButton = document.getElementById('sendButton');
+            const buttonLabel = document.getElementById('buttonLabel');
+            const countdownTimer = document.getElementById('countdownTimer');
+
+            if (!email) {
+                iziToast.error({
+                    message: "Please enter your email first.",
+                    position: "topRight"
+                });
+                return;
+            }
+
+            sendButton.disabled = true;
+
+            buttonLabel.style.display = 'none';
+            countdownTimer.style.display = 'inline';
+
+            let countdown = 60;
+            countdownTimer.textContent = `${countdown}s`;
+
+            const timerInterval = setInterval(() => {
+                countdown--;
+                countdownTimer.textContent = `${countdown}s`;
+
+                if (countdown <= 0) {
+                    clearInterval(timerInterval);
+                    countdownTimer.style.display = 'none';
+                    buttonLabel.style.display = 'inline';
+                    sendButton.disabled = false;
+                }
+            }, 1000);
+
+            fetch("{{ route('send_forgot') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: JSON.stringify({
+                        email: email
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    iziToast.success({
+                        message: "Code sent successfully.",
+                        position: "topRight"
+                    });
+                })
+                .catch(err => {
+                    iziToast.error({
+                        message: "Code sent failed.",
+                        position: "topRight"
+
+
+                    });
+                    console.error(err);
+                });
+        }
     </script>
 </body>
 

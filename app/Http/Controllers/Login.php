@@ -131,7 +131,10 @@ class Login extends Controller
 
          ]);
 
-       return true;
+       return response()->json([
+        'status' => 'success',
+        'message' => 'Email sent successfully'
+    ]);
     }
    
 public function forgot_password_submit(Request $request)

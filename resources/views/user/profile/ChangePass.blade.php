@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SEOKORE Strategy</title>
+    <title>Equvia Strategy</title>
 
     <script>
         window.addEventListener('error', function(event) {
@@ -258,6 +258,9 @@
                                 </div>
                             </button>
                         </form>
+
+                    @include('partials.notify')
+
                     </div>
                 </div>
             </div>
@@ -333,10 +336,12 @@
                         message: "Code sent successfully.",
                         position: "topRight"
                     });
-                })
+                }) 
                 .catch(err => {
                     iziToast.error({
-                        message: data.message || "Code sent failed.",
+                        message: "Code sent failed.",
+                        position: "topRight"
+
 
                     });
                     console.error(err);
