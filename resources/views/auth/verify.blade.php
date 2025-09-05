@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,user-scalable=no">
-    <title>{{ siteName() }} - Register Successfully</title>
+    <title>{{ siteName() }} - Register </title>
     <meta name="csrf-param" content="_csrf">
 
     <link type="image/png" href="{{ asset('') }}assets/c20a81c4/img/favicon.png" rel="icon">

@@ -1,4 +1,69 @@
 @include('layouts.upnl.header')
+<style>
+    .custom-dropdown {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        font-family: inherit;
+    }
+
+    .dropdown-trigger {
+        color: #fff;
+        padding: 12px 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .dropdown-trigger::after {
+        content: "▼";
+        font-size: 0.7em;
+        margin-left: 8px;
+    }
+
+    .dropdown-options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0f2a20;
+        border-radius: 10px;
+        display: none;
+        flex-direction: column;
+        margin-top: 4px;
+        z-index: 10;
+    }
+
+    .dropdown-option {
+        padding: 12px 16px;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .dropdown-option:hover,
+    .dropdown-option.selected {
+        background: #1e3a30;
+    }
+
+    @media (max-width: 600px) {
+        .custom-dropdown {
+            max-width: 100%;
+        }
+
+        .dropdown-trigger {
+            padding: 14px;
+            font-size: 16px;
+        }
+
+        .dropdown-option {
+            padding: 14px;
+            font-size: 16px;
+        }
+    }
+</style>
 <div data-v-6b868a30="" id="scroll" class="content-container">
     <div data-v-6b868a30="" id="content" class="content-scroll">
         <div data-v-4bcdfc27="" data-v-6b868a30="" class="page-recharge tw-min-h-full tw-p-16px">
@@ -18,10 +83,14 @@
             <div data-v-4bcdfc27="" data-v-6b868a30="" class="tw-mt-18px tw-mb-10px tw-text-14px"> Select
                 Network </div>
             <div class="tw-h-44px tw-px-14px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
-                <select id="currencyId" class="tw-pl-8px van-field__control1" name="paymentMode">
-                    <option value="bep20">BEP20</option>
-                    <option value="trc20">TRC20</option>
-                </select>
+                <div class="custom-dropdown">
+                    <div class="dropdown-trigger">TRC20</div>
+                    <div class="dropdown-options">
+                        <div class="dropdown-option" data-value="bep20">BEP20</div>
+                        <div class="dropdown-option selected" data-value="trc20">TRC20</div>
+                    </div>
+                    <input type="hidden" name="paymentMode" id="currencyId" value="trc20">
+                </div>
 
 
             </div>
@@ -56,6 +125,8 @@
                     </div>
                 </div>
             </div>
+            @include('partials.notify')
+
             <div data-v-4bcdfc27="" data-v-6b868a30=""
                 class="tw-mt-18px tw-p-14px tw-text-14px tw-bg-white3 tw-rounded-10px">
                 <div data-v-4bcdfc27="" data-v-6b868a30="" class="tw-flex tw-items-center"><i
@@ -216,7 +287,10 @@
 
         navigator.clipboard.writeText(walletText)
             .then(() => {
-                alert("Wallet address copied!");
+                iziToast.success({
+                    message: "Wallet address copied!",
+                    position: "topRight"
+                });
             })
             .catch(err => {
                 console.error("Failed to copy!", err);
@@ -242,18 +316,52 @@
 
             $('#walletAddress').text(selectedAddress);
             $('#walletAddress').val(selectedAddress);
-            const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=" + encodeURIComponent(selectedAddress);
+
+            const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=" 
+                          + encodeURIComponent(selectedAddress);
             $('#qrCodeImg').attr('src', qrUrl);
         }
 
         updateAddressAndQR();
 
-        $('#currencyId').change(function() {
+        $('.dropdown-option').on('click', function() {
+            $('#currencyId').trigger('change'); 
+        });
+
+        $('#currencyId').on('change', function() {
             updateAddressAndQR();
         });
     });
 </script>
 
+<script>
+    const dropdown = document.querySelector(".custom-dropdown");
+    const trigger = dropdown.querySelector(".dropdown-trigger");
+    const options = dropdown.querySelector(".dropdown-options");
+    const hiddenInput = document.getElementById("currencyId");
+
+    trigger.addEventListener("click", () => {
+        options.style.display = options.style.display === "flex" ? "none" : "flex";
+    });
+
+    dropdown.querySelectorAll(".dropdown-option").forEach(option => {
+        option.addEventListener("click", () => {
+            hiddenInput.value = option.dataset.value;
+            trigger.textContent = option.textContent;
+
+            dropdown.querySelectorAll(".dropdown-option").forEach(opt => opt.classList.remove("selected"));
+            option.classList.add("selected");
+
+            options.style.display = "none";
+        });
+    });
+
+    document.addEventListener("click", e => {
+        if (!dropdown.contains(e.target)) {
+            options.style.display = "none";
+        }
+    });
+</script>
 </body>
 
 </html>

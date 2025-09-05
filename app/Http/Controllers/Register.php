@@ -106,7 +106,7 @@ class Register extends Controller
             }
             //check if email exist
           
-        //   dd($validation);
+          dd($validation);
             if (isset($request->captcha)) {
                 if (!captchaVerify($request->captcha, $request->captcha_secret)) {
                     $notify[] = ['error', "Invalid Captcha"];

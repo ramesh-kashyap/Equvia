@@ -356,15 +356,15 @@
 
 
 
-    <div class="van-popup van-popup--round van-popup--bottom" style="z-index: 2005; display: none" id="overlay">
+    <div class="van-popup van-popup--round van-popup--bottom" style="z-index: 2005; display: none; background:#fff;" id="overlay">
         <div class="tw-p-16px tw-overflow-hidden" style="z-index: 2010; display: none" id="popup">
-            <div class="tw-text-center tw-text-16px"> Choose an international phone area code </div>
+            <div class="tw-text-center tw-text-16px" style="color: #020503;"> Choose an international phone area code </div>
             <div class="van-cell van-field">
                 <div class="van-field__left-icon">
                     <i id="cancel" role="button" tabindex="0" class="van-icon van-icon-search"></i>
                 </div>
                 <div class="van-cell__value van-cell__value--alone van-field__value">
-                    <div class="van-field__body">
+                    <div class="van-field__body"style="border: 1px solid #d9d9d9;border-radius:5px;">
                         <input type="text" placeholder="Search area code" class="van-field__control"
                             id="country-search" autocomplete="off">
                     </div>
@@ -376,9 +376,7 @@
             </ul>
 
         </div>
-        <i role="button" tabindex="0"
-            class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right">
-        </i>
+       
     </div>
     <script>
         function togglePassword() {
@@ -453,11 +451,11 @@
                 $list.empty();
                 filteredCountries.forEach(country => {
                     $list.append(`           
-                     <li class="tw-h-42px tw-flex tw-items-center">
+                     <li class="tw-h-42px tw-flex rtw-items-center">
                 <div class="tw-w-24px tw-h-24px" >
                     <span class="fi fi-${country.flag}"></span>
                     </div>
-                <div class="tw-h-full tw-flex-1 tw-flex tw-items-center van-hairline--bottom" data-code="${country.code}" data-flag="${country.flag}"> ${country.name} (${country.code}) </div>
+                <div class="tw-h-full tw-flex-1 tw-flex rtw-items-center van-hairline--bottom" data-code="${country.code}" data-flag="${country.flag}"> ${country.name} (${country.code}) </div>
             </li>
                     
                 `);

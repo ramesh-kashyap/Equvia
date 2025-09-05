@@ -81,6 +81,71 @@
             width: auto !important;
             height: auto !important
         }
+
+
+    .custom-dropdown {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        font-family: inherit;
+    }
+
+    .dropdown-trigger {
+        color: #fff;
+        padding: 12px 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .dropdown-trigger::after {
+        content: "▼";
+        font-size: 0.7em;
+        margin-left: 8px;
+    }
+
+    .dropdown-options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0f2a20;
+        border-radius: 10px;
+        display: none;
+        flex-direction: column;
+        margin-top: 4px;
+        z-index: 10;
+    }
+
+    .dropdown-option {
+        padding: 12px 16px;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .dropdown-option:hover,
+    .dropdown-option.selected {
+        background: #1e3a30;
+    }
+
+    @media (max-width: 600px) {
+        .custom-dropdown {
+            max-width: 100%;
+        }
+
+        .dropdown-trigger {
+            padding: 14px;
+            font-size: 16px;
+        }
+
+        .dropdown-option {
+            padding: 14px;
+            font-size: 16px;
+        }
+    }
     </style>
     <link href="{{ asset('') }}static/css/chunk-02c8c6ba.f02a30c2.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-03c1575b.3035c347.css" rel="prefetch">
@@ -206,10 +271,14 @@
                                     </i>
                             </div> -->
                             <div class="tw-h-44px tw-px-14px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
-                                <select id="currencyId" class="tw-pl-8px van-field__control1" name="paymentMode">
-                                    <option value="bep20">BEP20</option>
-                                    <option value="trc20">TRC20</option>
-                                </select>
+                                <div class="custom-dropdown">
+                                    <div class="dropdown-trigger">TRC20</div>
+                                    <div class="dropdown-options">
+                                        <div class="dropdown-option" data-value="bep20">BEP20</div>
+                                        <div class="dropdown-option selected" data-value="trc20">TRC20</div>
+                                    </div>
+                                    <input type="hidden" name="paymentMode" id="currencyId" value="trc20">
+                                </div>
                             </div>
 
 
@@ -256,8 +325,7 @@
                                     <div class="van-field__body">
                                         <input type="hidden" id="emailId" name="email" value="{{ Auth::user()->email }}">
 
-                                        <input type="text" name="code" style="color:#fff"
-                                            placeholder="Please enter the verification code" class="van-field__control">
+                                        <input type="text" name="code" style="color:#fff" placeholder="Please enter the verification code" class="van-field__control">
 
                                         <button type="button" style="width:40px;color:white;border-radius: 0 1rem 1rem 0;" class="btn" id="sendButton" onclick="sendVerificationCode()">
                                             <span id="buttonLabel" style="margin: -12px;font-size:15px;">Send</span>
@@ -361,6 +429,7 @@
                             @endif
                         </div>
                     </form>
+                    @include('partials.notify')
 
                 </div>
             </div>
@@ -506,7 +575,6 @@
             });
         })
     </script>
-    @include('partials.notify')
 
     <script>
         function sendVerificationCode() {
@@ -523,7 +591,7 @@
                 return;
             }
 
-            sendButton.disabled = true;
+            sendButton.disabled = false;
 
             buttonLabel.style.display = 'none';
             countdownTimer.style.display = 'inline';
@@ -553,19 +621,21 @@
                         email: email
                     })
                 })
-                .then(res => res.json())
+                .then(res => {
+                    if (!res.ok) throw new Error(res.statusText); // status 200 check
+                    return res.json();
+                })
                 .then(data => {
                     iziToast.success({
-                        message: data.message || "Code sent successfully.",
+                        message: 'Email sent Successfully',
                         position: "topRight"
                     });
                 })
                 .catch(err => {
                     iziToast.error({
-                        message: data.message || "Code sent failed.",
-
+                        message: "Code sent failed.",
+                        position: "topRight"
                     });
-                    console.error(err);
                 });
         }
     </script>
@@ -575,7 +645,10 @@
 
             navigator.clipboard.writeText(walletText)
                 .then(() => {
-                    alert("Wallet address copied!");
+                    iziToast.success({
+                        message: 'Wallet address copied!',
+                        position: "topRight"
+                    });
                 })
                 .catch(err => {
                     console.error("Failed to copy!", err);
@@ -583,7 +656,7 @@
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+    <!-- <script>
         $(document).ready(function() {
             const addresses = {
                 bep20: "{{ Auth::user()->usdtBep20 }}",
@@ -602,6 +675,64 @@
             updateAddress();
 
             $('#currencyId').on('change', updateAddress);
+        });
+    </script> -->
+
+    <script>
+        $(document).ready(function() {
+            const addresses = {
+                bep20: "{{ Auth::user()->usdtBep20 }}",
+                trc20: "{{ Auth::user()->usdtTrc20 }}"
+            };
+
+            function updateAddressAndQR() {
+                const selectedNetwork = $('#currencyId').val();
+                const selectedAddress = addresses[selectedNetwork] || "";
+
+                $('#walletAddress').text(selectedAddress);
+                $('#walletAddress').val(selectedAddress);
+
+
+            }
+
+            updateAddressAndQR();
+
+            $('.dropdown-option').on('click', function() {
+                $('#currencyId').trigger('change');
+            });
+
+            $('#currencyId').on('change', function() {
+                updateAddressAndQR();
+            });
+        });
+    </script>
+
+    <script>
+        const dropdown = document.querySelector(".custom-dropdown");
+        const trigger = dropdown.querySelector(".dropdown-trigger");
+        const options = dropdown.querySelector(".dropdown-options");
+        const hiddenInput = document.getElementById("currencyId");
+
+        trigger.addEventListener("click", () => {
+            options.style.display = options.style.display === "flex" ? "none" : "flex";
+        });
+
+        dropdown.querySelectorAll(".dropdown-option").forEach(option => {
+            option.addEventListener("click", () => {
+                hiddenInput.value = option.dataset.value;
+                trigger.textContent = option.textContent;
+
+                dropdown.querySelectorAll(".dropdown-option").forEach(opt => opt.classList.remove("selected"));
+                option.classList.add("selected");
+
+                options.style.display = "none";
+            });
+        });
+
+        document.addEventListener("click", e => {
+            if (!dropdown.contains(e.target)) {
+                options.style.display = "none";
+            }
         });
     </script>
 
