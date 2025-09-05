@@ -271,7 +271,7 @@
                                 class="van-cell1 tw-h-44px tw-px-14px tw-flex tw-justify-between tw-items-center tw-bg-white1 tw-rounded-10px">
                                 <div data-v-62bda71e="" data-v-6b868a30="" class="tw-flex tw-items-center">
                                     <img data-v-62bda71e="" data-v-6b868a30=""
-                                        src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20241119/a374614d2b1d9d3b68ad00f1b2b38e68.jpeg"
+                                        src="{{ asset('/static/img/usdt.png') }}"
                                         alt="" class="tw-w-24px">
                                         <span data-v-62bda71e="" data-v-6b868a30="" class="tw-pl-8px">USDT</span>
                                     </div>
