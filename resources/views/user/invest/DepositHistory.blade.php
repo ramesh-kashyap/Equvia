@@ -67,6 +67,21 @@
             height: 100vh;
             object-fit: cover;
         }
+
+        .status-active {
+            color: #16a34a;
+            font-weight: 400;
+        }
+
+        .status-decline {
+            color: #dc2626;
+
+            font-weight: 400;
+        }
+
+        .status-default {
+            color: #334155;
+        }
     </style>
     <link href="{{asset('')}}static/css/app.6328f701.css" rel="preload" as="style">
     <link href="{{asset('')}}static/css/vant.d14f5539.css" rel="preload" as="style">
@@ -193,22 +208,6 @@
                                                             </div>
 
                                                         </div>
-                                                        <style>
-                                                            .status-active {
-                                                                color: #16a34a;
-                                                                font-weight: 400;
-                                                            }
-
-                                                            .status-decline {
-                                                                color: #dc2626;
-                                                                
-                                                                font-weight: 400;
-                                                            }
-
-                                                            .status-default {
-                                                                color: #334155;
-                                                            }
-                                                        </style>
 
 
 

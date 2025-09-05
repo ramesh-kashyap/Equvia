@@ -151,6 +151,21 @@
             background-color: #06140d;
             color: #fff;
         }
+
+        .status-active {
+            color: #16a34a;
+            font-weight: 400;
+        }
+
+        .status-decline {
+            color: #dc2626;
+
+            font-weight: 400;
+        }
+
+        .status-default {
+            color: #334155;
+        }
     </style>
 
 
@@ -262,9 +277,14 @@
                                                         </div>
                                                         <div data-v-8b8e62ac="" class="flex">
                                                             <div data-v-8b8e62ac="" class="time">{{ date('D, d M Y H:i:s', strtotime($value->created_at)) }}</div>
-                                                            <div data-v-8b8e62ac="" class="str"><span data-v-8b8e62ac=""
-                                                                    class="s1"></span>
-                                                                <?= ($value->status == "Active") ? 'completed' : $value->status ?> </div>
+                                                            <div class="str">
+                                                                <span class="s1"></span>
+                                                                <span class="
+                                            {{ $value->status == 'Decline' ? 'status-decline' : ($value->status == 'Active' ? 'status-active' : 'status-default') }}
+                                                                  ">
+                                                                    {{ $value->status == 'Active' ? 'completed' : $value->status }}
+                                                                </span>
+                                                            </div>
                                                         </div>
 
 
