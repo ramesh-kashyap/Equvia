@@ -279,10 +279,7 @@
                                                             style="text-transform: uppercase;">SK 0</span></li> -->
                                                 </ul>
                                             </div>
-                                            <div data-v-6a8ea654=""
-                                                class="team-count tw--mr-16px tw-h-32px tw-flex tw-justify-center tw-items-center tw-text-white tw-bg-primary tw-rounded-tl-full tw-rounded-bl-full tw-shadow-md">
-                                                &nbsp;{{ substr($value->name, 0, 7) }}
-                                             </div>
+                                            
                                         </div>
                                         <ul data-v-6a8ea654="" class="tw-flex tw-justify-between tw-items-center">
                                             <!-- <li data-v-6a8ea654="" class="tw-flex-1 tw-text-center">

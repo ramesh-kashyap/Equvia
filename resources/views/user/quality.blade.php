@@ -2,15 +2,11 @@
 
 
 <style>
-    .tw-text-secondary {
-        --tw-text-opacity: 1;
-        color: rgba(255, 255, 255, var(--tw-text-opacity));
-        /* margin-top: 10px; */
-    }
+   
 
     .van-popup {
 
-        background-color: rgb(9 28 19);
+        background-color: #fbfbfb;
 
     }
 
@@ -24,6 +20,18 @@
         border: .02rem solid #eee;
         margin: 11px;
     }
+    .tw-text-14px {
+    font-size: .37333rem;
+    color: #000000;
+}
+.tw-text-secondary {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0);
+    /* margin-top: 10px; */
+}
+.tw-p-16px.tw-text-16px {
+    color: #050505;
+}
 </style>
 <div data-v-6b868a30="" id="scroll" class="content-container">
     <div data-v-6b868a30="" id="content" class="content-scroll">
@@ -241,7 +249,7 @@
                 <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
                     <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                             class="van-icon van-icon-success"
-                            style="border-color: white; background-color: white;">
+                            style="border-color: #164c39;background-color: #164c39;;">
                         </i></div>
                 </div>
                 @endif
@@ -257,7 +265,7 @@
                 <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
                     <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                             class="van-icon van-icon-success"
-                            style="border-color: white; background-color: white;">
+                            style="border-color: #164c39;background-color: #164c39;;">
                         </i></div>
                 </div>
                 @endif
@@ -273,7 +281,7 @@
                 <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
                     <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                             class="van-icon van-icon-success"
-                            style="border-color: white; background-color: white;">
+                            style="border-color: #164c39;background-color: #164c39;;">
                         </i></div>
                 </div>
                 @endif
@@ -289,7 +297,7 @@
                 <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
                     <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                             class="van-icon van-icon-success"
-                            style="border-color: white; background-color: white;">
+                            style="border-color: #164c39;background-color: #164c39;;">
                         </i></div>
                 </div>
                 @endif
@@ -305,7 +313,7 @@
                 <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
                     <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                             class="van-icon van-icon-success"
-                            style="border-color: white; background-color: white;">
+                            style="border-color: #164c39;background-color: #164c39;;">
                         </i></div>
                 </div>
                 @endif
@@ -321,7 +329,7 @@
                 <div data-v-29a06c8f="" role="radio" tabindex="0" aria-checked="true" class="van-radio">
                     <div class="van-radio__icon van-radio__icon--round van-radio__icon--checked"><i
                             class="van-icon van-icon-success"
-                            style="border-color: white; background-color: white;">
+                            style="border-color: #164c39;background-color: #164c39;;">
                         </i></div>
                 </div>
                 @endif
