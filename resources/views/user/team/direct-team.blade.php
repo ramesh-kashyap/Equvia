@@ -265,32 +265,31 @@
                                         class="tw-relative tw-mb-12px tw-px-16px tw-py-12px tw-bg-white1 tw-rounded-10px">
                                         <div data-v-6a8ea654=""
                                             class="tw-mb-16px tw-pb-14px tw-h-74px tw-flex tw-items-center van-hairline--bottom">
-                                            <div data-v-6a8ea654="" class="tw-flex-1 tw-flex tw-items-center"><img
-                                                    data-v-6a8ea654=""
-                                                    src="https://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240821/6f1c046d21d2d1e024a4052d47d58a4e.png"
-                                                    alt="" class="tw-mr-8px tw-w-36px tw-h-36px tw-rounded-full">
+                                            <div data-v-6a8ea654="" class="tw-flex-1 tw-flex tw-items-center">
+                                                    <img data-v-6a8ea654="" alt="" class="tw-mr-8px tw-w-36px tw-h-36px tw-rounded-full" style="border: 4px solid #069d6a; border-radius:50%;"
+                                            src="{{ asset('') }}2.png">
                                                 <ul data-v-6a8ea654="">
                                                     <li data-v-6a8ea654="">ID：{{ $value->username }}</li>
-                                                    <li data-v-6a8ea654="" class="tw-text-secondary tw-text-12px"> (+1
-                                                        456****2584) </li>
+                                                    <li data-v-6a8ea654="" class="tw-text-secondary tw-text-12px"> {{ '(+' . substr($value->phone, 0, 4) . '****' . substr($value->phone, -4) . ')' }} </li>
                                                     <li data-v-6a8ea654="" class="tw-text-secondary tw-text-12px">
                                                        {{ date('D, d M Y H:i:s', strtotime($value->created_at)) }} </li>
-                                                    <li data-v-6a8ea654=""><span data-v-6a8ea654=""
+                                                    <!-- <li data-v-6a8ea654=""><span data-v-6a8ea654=""
                                                             class="tw-text-secondary tw-text-12px">User
                                                             level：</span><span data-v-6a8ea654=""
-                                                            style="text-transform: uppercase;">SK 0</span></li>
+                                                            style="text-transform: uppercase;">SK 0</span></li> -->
                                                 </ul>
                                             </div>
-                                            <!-- <div data-v-6a8ea654=""
+                                            <div data-v-6a8ea654=""
                                                 class="team-count tw--mr-16px tw-h-32px tw-flex tw-justify-center tw-items-center tw-text-white tw-bg-primary tw-rounded-tl-full tw-rounded-bl-full tw-shadow-md">
-                                                0 Users </div> -->
+                                                &nbsp;{{ substr($value->name, 0, 7) }}
+                                             </div>
                                         </div>
                                         <ul data-v-6a8ea654="" class="tw-flex tw-justify-between tw-items-center">
-                                            <li data-v-6a8ea654="" class="tw-flex-1 tw-text-center">
+                                            <!-- <li data-v-6a8ea654="" class="tw-flex-1 tw-text-center">
                                                 <div data-v-6a8ea654="" class="tw-mb-4px"> 6 USDT </div>
                                                 <div data-v-6a8ea654="" class="tw-text-secondary tw-text-12px"> Total
                                                     Income </div>
-                                            </li>
+                                            </li> -->
                                             <li data-v-6a8ea654="" class="tw-flex-1 tw-text-center">
                                                 <div data-v-6a8ea654="" class="tw-mb-4px"> {{ $value->investments->sum('amount') }} USDT </div>
                                                 <div data-v-6a8ea654="" class="tw-text-secondary tw-text-12px"> Total
