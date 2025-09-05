@@ -394,17 +394,16 @@ class Profile extends Controller
         $user = Auth::user();
         // dd($request->all());
 
-        $code = $request->code;
-        if ($user->tpassword == $code) {
-            $notify[] = ['error', 'Invalid Password'];
-            return redirect()->route('user.wallets')->withNotify($notify);
+        if (!Hash::check($request->code, $user->tpassword)) {
+        $notify[] = ['error', 'Invalid Password'];
+        return redirect()->route('user.wallets')->withNotify($notify);
         }
+
         if ($request->selected_mainnet === 'TRC20') {
             $user->usdtTrc20 = $request->walletAddress;
         } else {
             $user->usdtBep20 = $request->walletAddress;
         }
-
         $user->save();
 
         $notify[] = ['success', 'Your  wallets changed Successfully.'];
