@@ -42,7 +42,7 @@
 
 .btn2 {
     height: .96rem;
-    background: var(--CObackgroundLinear2);
+    background: #1aa67f;
     border-radius: .2rem;
     color: var(--COcolor4);
     font-weight: 500;
@@ -1243,8 +1243,9 @@ input::placeholder {
 .tw-bg-white3 {
     --tw-bg-opacity: 1;
     color: #fff;
-    background-color: rgb(25 140 82 / 11%);
-    border:0.3px solid #3f3f3f
+    background-color: #132821;
+    border: 0.3px solid #929292;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .tw-bg-dark {

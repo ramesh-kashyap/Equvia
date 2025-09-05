@@ -12,7 +12,7 @@
             <div data-v-6b868a30="" class="page-team-header tw-text-white tw-relative">
                 <div data-v-6b868a30="" class="page-team-header-top">
                     <div data-v-6b868a30="" class="tw-text-12px tw-opacity-80"> Cumulative Income </div>
-                    <div data-v-6b868a30="" style="margin-top:15px"> {{number_format($teamEarning,2)}} USDT </div>
+                    <div data-v-6b868a30="" style="margin-top:15px ;  font-size: 20px;"> {{number_format($teamEarning,2)}} USDT </div>
                     <div data-v-6b868a30=""
                         class="tw-flex tw-justify-between tw-items-center tw-px-28px tw-py-16px tw-bg-white3 tw-bg-opacity-90 tw-rounded-8px" style="margin-top:10px">
                         <div data-v-6b868a30="" class="tw-flex-1 tw-text-center">

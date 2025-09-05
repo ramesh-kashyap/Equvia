@@ -32,10 +32,7 @@
                                 </div>
                             </div>
                             <div data-v-6b868a30=""
-                                class="tw-pt-28px tw-pb-12px tw-flex tw-justify-between tw-items-center tw-text-dark tw-bg-white1" style="background-color:#0d3220;  border-bottom-left-radius: 9px;
-    border-bottom-right-radius: 9px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;">
+                                class="tw-pt-28px tw-pb-12px tw-flex tw-justify-between tw-items-center tw-text-dark tw-bg-white1" >
                                 <div data-v-6b868a30="" class="tw-flex-1 tw-flex tw-justify-center tw-items-center">
                                 <!-- <svg data-v-3f1a7394="" aria-hidden="true" class="svg-icon" data-v-6b868a30=""
                                         style="width: 0.6588rem; height: 0.6588rem; font-size: 0.6588rem;">

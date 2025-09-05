@@ -154,7 +154,14 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
 </head>
 
-
+<style>
+    .page-mine-header-banner.tw-p-16px.tw-flex.tw-justify-between.tw-items-center {
+    background-color: #132821;
+    border: 0.3px solid #929292;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px
+}
+</style>
 <body>
     <div id="app">
         <div data-v-6b868a30="" class="page page-mine">
@@ -194,7 +201,7 @@
                             <div data-v-6b868a30="" class="tw-mb-16px tw-flex tw-justify-between tw-items-center">
                                 <div data-v-6b868a30="" class="tw-flex tw-items-center">
                                     <div data-v-6b868a30=""
-                                        class="tw-w-60px tw-h-60px tw-rounded-full tw-overflow-hidden">
+                                        class="tw-w-60px tw-h-60px tw-rounded-full tw-overflow-hidden"  style="border: 1px solid #24916b;">
                                         <img data-v-6b868a30="" src="{{ asset('') }}2.png" alt="">
                                     </div>
                                     <div data-v-6b868a30="" class="tw-ml-12px">
@@ -221,8 +228,7 @@
                                 </a>
                             </div>
                             <div data-v-6b868a30=""
-                                class="page-mine-header-banner tw-p-16px tw-flex tw-justify-between tw-items-center"
-                                style="border:0.3px solid #3f3f3f; border-radius:5px">
+                                class="page-mine-header-banner tw-p-16px tw-flex tw-justify-between tw-items-center">
                                 <div data-v-6b868a30="" class="tw-flex tw-items-center">
                                     <div data-v-6b868a30=""
                                         class="tw-w-36px tw-h-36px tw-rounded-full tw-overflow-hidden">
@@ -246,7 +252,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div data-v-6b868a30="" class="tw-mb-16px tw-p-16px  tw-rounded-10px">
+                        <div data-v-6b868a30="" class="tw-mb-16px tw-p-16px " >
                             <div class="actions">
                                 <a href="{{ route('user.deposit') }}">
                                     <span>
