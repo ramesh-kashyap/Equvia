@@ -178,7 +178,7 @@
                     <div data-v-b73557e2="" data-v-73b46d99="" class="head head_isModule" data-v-6e2d35de="">
                         <div data-v-b73557e2="" class="safe"></div>
                         <div data-v-b73557e2="" class="container flex">
-                            <div data-v-b73557e2="" class="back"> <a href="{{route('user.profile')}}"><img data-v-b73557e2=""
+                            <div data-v-b73557e2="" class="back"> <a href="{{route('user.dashboard')}}"><img data-v-b73557e2=""
                                         src="{{ asset('') }}static/img/eroo.png"
                                         alt=""></a></div>
 

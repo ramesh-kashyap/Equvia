@@ -92,7 +92,7 @@
                     <div data-v-b73557e2="" data-v-73b46d99="" class="head head_isModule" data-v-6e2d35de="">
                         <div data-v-b73557e2="" class="safe"></div>
                         <div data-v-b73557e2="" class="container flex">
-                            <div data-v-b73557e2="" class="back"><a href="{{route('user.profile')}}"><img data-v-b73557e2=""
+                            <div data-v-b73557e2="" class="back"><a href="{{route('user.dashboard')}}"><img data-v-b73557e2=""
                                         src="{{ asset('') }}static/img/eroo.png"
                                         alt=""></a></div>
 
@@ -183,11 +183,32 @@
                                                         </div>
                                                         <div data-v-8b8e62ac="" class="flex">
                                                             <div data-v-8b8e62ac="" class="time">{{ date('D, d M Y H:i:s', strtotime($value->created_at)) }}</div>
-                                                            <div data-v-8b8e62ac="" class="str"><span data-v-8b8e62ac=""
-                                                                    class="s1"></span>
-                                                                <?= ($value->status == "Active") ? 'completed' : $value->status ?> </div>
-                                                        </div>
+                                                            <div class="str">
+                                                                <span class="s1"></span>
+                                                                <span class="
+                                            {{ $value->status == 'Decline' ? 'status-decline' : ($value->status == 'Active' ? 'status-active' : 'status-default') }}
+                                                                  ">
+                                                                    {{ $value->status == 'Active' ? 'completed' : $value->status }}
+                                                                </span>
+                                                            </div>
 
+                                                        </div>
+                                                        <style>
+                                                            .status-active {
+                                                                color: #16a34a;
+                                                                font-weight: 400;
+                                                            }
+
+                                                            .status-decline {
+                                                                color: #dc2626;
+                                                                
+                                                                font-weight: 400;
+                                                            }
+
+                                                            .status-default {
+                                                                color: #334155;
+                                                            }
+                                                        </style>
 
 
 
