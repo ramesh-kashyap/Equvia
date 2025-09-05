@@ -1159,7 +1159,7 @@ input::placeholder {
 .tw-rounded-10px {
     border-radius: .26667rem;
     border: 1px solid #333333;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 .tw-rounded-11px {
     border-radius: .26667rem;
@@ -1243,8 +1243,8 @@ input::placeholder {
 .tw-bg-white3 {
     --tw-bg-opacity: 1;
     color: #fff;
-    background-color: #132821;
-    border: 0.3px solid #dedede;
+    background-color: rgb(25 140 82 / 11%);
+    border:0.3px solid #3f3f3f
 }
 
 .tw-bg-dark {
@@ -1351,7 +1351,7 @@ input::placeholder {
 
 .tw-px-28px {
     padding-left: .74667rem;
-    padding-right: .74667rem;
+    padding-right: .74667rem
 }
 
 .tw-py-12 {
@@ -1376,8 +1376,7 @@ input::placeholder {
 
 .tw-py-16px {
     padding-top: .42667rem;
-    padding-bottom: .42667rem;
-    margin-top: 13px;
+    padding-bottom: .42667rem
 }
 
 .tw-py-20px {
