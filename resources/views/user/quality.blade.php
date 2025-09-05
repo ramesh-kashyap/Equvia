@@ -103,12 +103,11 @@
                 class="tw-mb-16px tw-mt-16px tw-grid tw-grid-cols-2 tw-gap-16px">
                 <div data-v-29a06c8f="" data-v-6b868a30=""
                     class="tw-flex tw-items-center tw-p-12px tw-bg-white3 tw-rounded-10px">
-                    <a href="{{ route('user.records') }}">
+                    <a href="{{ route('user.vip') }}">
                     <img src="{{ asset('/static/icon/download (9).png') }}" data-v-3f1a7394="" data-v-29a06c8f=""
                         aria-hidden="true" class="svg-icon" data-v-6b868a30=""
                         style="width: 0.6588rem; height: 0.6588rem; font-size: 0.6588rem;">
-                    <span data-v-29a06c8f="" data-v-6b868a30="" class="tw-flex-1 tw-pl-8px">To Be
-                        Released Details</span>
+                    <span data-v-29a06c8f="" data-v-6b868a30="" class="tw-flex-1 tw-pl-8px">Let's Upgrade Level</span>
                         </a>
                 </div>
                 <div data-v-29a06c8f="" data-v-6b868a30=""
