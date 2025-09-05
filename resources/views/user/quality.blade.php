@@ -128,7 +128,6 @@
                     <div data-v-29a06c8f="" data-v-6b868a30="" style="color:#fff">grid transaction is in progress
                     </div>
                     <div data-v-29a06c8f="" data-v-6b868a30="" class="tw-text-primary">
-                        <div data-v-29a06c8f="" id="countdownTimer" class="van-count-down" data-v-6b868a30="">00:01:00</div>
                         <div data-v-29a06c8f="" id="countdownTimer" class="van-count-down" data-v-6b868a30="">
                             00:01:00</div>
                     </div>
@@ -350,16 +349,10 @@
 </div>
 
 <div class="van-overlay" style="display :none;z-index: 2005;"></div>
-<div data-v-29a06c8f="" id="sucesspop" class="van-popup van-popup--round van-popup--center" style="display:none; z-index: 2006;">
 <div data-v-29a06c8f="" id="sucesspop" class="van-popup van-popup--round van-popup--center"
     style="display:none; z-index: 2006;">
     <div data-v-29a06c8f="" class="tw-w-32 tw-text-center tw-p-16px">
         <div data-v-29a06c8f="" class="tw-mb-16px tw-text-16px">Strategy Complete</div><img data-v-29a06c8f=""
-            src="/static/1756094289381/img/icon_13.bf296378.png" alt="" class="tw-mx-auto tw-w-140px">
-        <div data-v-29a06c8f="" class="tw-mt-16px">Congratulations to get</div>
-        <div data-v-29a06c8f="" class="tw-mt-10px tw-mb-16px tw-text-14px" id="profitAmount">
-            
-            <!---->
             src="{{asset('')}}static/img/icon_13.bf296378.png" alt="" class="tw-mx-auto tw-w-140px">
         <div data-v-29a06c8f="" class="tw-mt-16px" style="color: #fff">Congratulations to get</div>
         <div data-v-29a06c8f="" class="tw-mt-10px tw-mb-16px tw-text-14px">
@@ -368,8 +361,6 @@
         </div>
         <div data-v-29a06c8f="" class="tw-flex tw-items-center" style="justify-content: space-between;"><button
                 data-v-29a06c8f="" class="btn1 btns tw-text-14px"> View Order </button><button data-v-29a06c8f=""
-                class="btn2 btns" onclick="closeSuccessPopup()"> Confirm </button></div>
-    </div><i role="button" tabindex="0" 
                 class="btn2 btns" onclick="closeSuccessPopup()"> Confirm </button></div>
     </div><i role="button" tabindex="0"
         class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right">
