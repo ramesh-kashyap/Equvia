@@ -881,10 +881,10 @@ class Invest extends Controller
     $refId = $user->username;
 
     // Currency-based API URL
-    if ($currency === 'USDT_BSC') {
+    if ($currency === 'bep20') {
       $url = 'https://api.cryptapi.io/bep20/usdt/create/';
       $address = "0x37b4f194fe0cD61703b4bA3912D1e5775eeC821A";
-    } elseif ($currency === 'USDT_TRX') {
+    } elseif ($currency === 'trc20') {
       $url = 'https://api.cryptapi.io/trc20/usdt/create/';
       $address = "TKoKBnVoVr3MAWE5iBxdnKPsbkMUDZ5zix";
     } else {
@@ -892,7 +892,7 @@ class Invest extends Controller
     }
 
     $queryParams = [
-      'callback'      => "https://h5.geniqtrade.xyz/dynamicUpiCallback?refid={$refId}",
+     'callback' => url('dynamicUpiCallback') . '?refid=' . $refId,
       'address' =>  $address,
       'pending' => 0,
       'confirmations' => 1,
