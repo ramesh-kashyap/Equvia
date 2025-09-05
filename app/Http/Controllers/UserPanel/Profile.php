@@ -384,23 +384,21 @@ class Profile extends Controller
 
     public function wallet_change(Request $request)
     {
+        // dd( $request);
         $request->validate([
             'walletAddress'     => 'required|string|max:255',
             'selected_mainnet'  => 'required|in:TRC20,BEP20',
-            // 'code' => 'required'
+            'code' => 'required'
         ]);
 
         $user = Auth::user();
         // dd($request->all());
 
         $code = $request->code;
-        if (PasswordReset::where('token', $code)->where('email', $user->email)->count() != 1) {
-            $notify[] = ['error', 'Invalid token'];
+        if ($user->tpassword == $code) {
+            $notify[] = ['error', 'Invalid Password'];
             return redirect()->route('user.wallets')->withNotify($notify);
         }
-
-
-
         if ($request->selected_mainnet === 'TRC20') {
             $user->usdtTrc20 = $request->walletAddress;
         } else {
