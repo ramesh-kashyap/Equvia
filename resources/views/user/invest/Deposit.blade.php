@@ -1783,7 +1783,7 @@
                 fill="white"></path>
         </symbol>
     </svg>
-    
+
     <div id="app">
         <div data-v-6b868a30="" class="page">
             <div data-v-6b868a30="" class="headers">
@@ -2325,7 +2325,8 @@
                 if (!selectedNetwork) return;
 
                 // Update dropdown text
-                dropdownTrigger.textContent = selectedNetwork.toUpperCase();
+               const networkDisplay = selectedNetwork === "trc20" ? "TRON" : "Binance Smart Chain"; 
+                dropdownTrigger.textContent = networkDisplay;
                 currencyInput.value = selectedNetwork;
 
                 // Close popup

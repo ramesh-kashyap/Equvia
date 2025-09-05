@@ -585,8 +585,7 @@ public function dynamicUpiCallback(Request $request)
                   $user_update=array('active_status'=>'Active','adate'=>Date("Y-m-d H:i:s"),'package'=>$amount);
                   User::where('id',$user->id)->update($user_update);
                 
-             
-      
+
                 }
                  else
                {
@@ -594,7 +593,7 @@ public function dynamicUpiCallback(Request $request)
                   $user_update=array('package'=>$total,'active_status'=>'Active',);
                 User::where('id',$user->id)->update($user_update); 
                }
-                add_direct_income($users->id,$amount);
+                // add_direct_income($users->id,$amount);
 
                 
                  Investment::insert([
@@ -609,9 +608,8 @@ public function dynamicUpiCallback(Request $request)
                     'sdate' => $now,
                     'active_from' => $user->username,
                     'created_at' => $now,
+                     'unlock_at' => $now->copy()->addDays(21), // unlock after 21 days
                 ]);
-
-              
 
                 // Update user balance and status
                 $newPackage = $user->package + $amount;

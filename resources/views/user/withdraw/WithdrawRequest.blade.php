@@ -312,6 +312,9 @@
     .van-icon:before {
         display: inline-block;
     }
+    p {
+    line-height: 25px;
+    }
 </style>
 
 <body>
@@ -422,7 +425,7 @@
                                 class="tw-mb-16px tw-p-14px tw-h-38px tw-flex tw-justify-between tw-items-center tw-bg-secondary tw-bg-opacity-10 tw-rounded-bl-10px tw-rounded-br-10px">
                                 <span data-v-6b868a30="" class="tw-text-secondary">Arrival Amount</span><span
                                     data-v-6b868a30="" class="tw-text-success">
-                                    {{ number_format(Auth::user()->available_balance(), 2) }} USDT </span>
+                                    {{ number_format(Auth::user()->withdrawalble_balance(), 2) }} USDT </span>
                             </div>
                             <div data-v-6b868a30="" class="tw-mt-18px tw-mb-10px tw-text-14px"> Verification Code
                             </div>
@@ -456,7 +459,7 @@
                            
                             $min_withdrawal = 50;
                             $maximum_withdrawal = 500;
-                            $chargeAmt = 10;
+                            $chargeAmt = 9;
                              $vip = getVip(Auth::user()->id);
                              $chargeAmt = getWithdrawalFeePercent($vip);
                             
@@ -509,30 +512,28 @@
                                     </i><span data-v-6b868a30="" class="tw-text-primary tw-pl-8px"> Note </span>
                                 </div>
                                 <div data-v-6b868a30="" class="tw-text-14px tw-text-secondary tw-mt-8px">
-                                    <p>1. The estimated processing time for each withdrawal is a maximum of 72 hours on
-                                        working days (Monday to Friday), weekends are not included. </p>
+                                   <div class="withdrawal-rules tw-text-sm tw-leading-relaxed tw-space-y-3">
+                                <p>1. <strong>Processing Time:</strong> Withdrawals are processed within 
+                                    <strong>72 working hours</strong> (Monday to Friday). Weekends are excluded.</p>
 
-                                    <p>2. After becoming an active user and not withdrawing money for at least 21
-                                        consecutive calendar days, you can enjoy one fee-free withdrawal. </p>
+                                <p>2.<strong>Fee-Free Withdrawal:</strong> Stay active without withdrawing for 
+                                    <strong>21 consecutive days</strong> to unlock one fee-free withdrawal.</p>
 
-                                    <p>3. If you apply for a withdrawal after obtaining the right to withdraw without
-                                        fees,
-                                        but cancel the withdrawal voluntarily, it will be deemed that you have lost the
-                                        opportunity to withdraw without fees, and the 21-day period will start again.
-                                    </p>
+                                <p>3.<strong>Cancellation Policy:</strong> If you apply for a fee-free withdrawal 
+                                    but <strong>cancel it</strong>, the opportunity is lost and the 21-day waiting 
+                                    period restarts.</p>
 
-                                    <p>4. The withdrawal format password can only be any 6-digit combination of 0-9, and
-                                        no
-                                        symbols or letters can be entered. </p>
+                                <p>4.<strong>Password Format:</strong> Your withdrawal password must be a 
+                                    <strong>6-digit numeric code (0–9)</strong>. Letters and symbols are not allowed.</p>
 
-                                    <p>5. After changing the login password, transaction password, and digital currency
-                                        wallet address, the fund protection status must wait 48 hours before you can
-                                        apply
-                                        for withdrawal. </p>
+                                <p>5.<strong>Security Hold:</strong> After changing your login password, transaction 
+                                    password, or wallet address, a <strong>48-hour security period</strong> applies 
+                                    before withdrawals can be made.</p>
 
-                                    <p>6. You can only use flexible funds to apply for cash withdrawal. If the flexible
-                                        funds are insufficient, please wait for the "pending release" funds to become
-                                        "flexible funds" before withdrawing money. </p>
+                                <p>6.<strong>Fund Availability:</strong> Withdrawals can only be made from 
+                                    <strong>flexible funds</strong>. If insufficient, wait for pending release funds 
+                                    to convert before withdrawing.</p>
+                            </div>
                                 </div>
                             </div>'
                             <?php
@@ -659,7 +660,7 @@
 
                 let amount = parseFloat(str);
 
-                alert(min);
+            
 
 
                 if (amount >= min && amount <= max) {

@@ -345,7 +345,7 @@ public function add_bonus()
                    $roiCandition= 0;
                 
        
-              
+                  $now = Carbon::now();
               	   $data = [
                         'plan' => $plan,
                         'transaction_id' => md5(uniqid(rand(), true)),
@@ -357,15 +357,17 @@ public function add_bonus()
                         'sdate' => Date("Y-m-d"),
                         'active_from' => 'Admin',
                         'roiCandition' => $roiCandition,
+                        'created_at' => $now,
+                        'unlock_at' => $now->copy()->addDays(21), // unlock after 21 days
                         
                     ];
                   
+                    $payment =  Investment::insert($data);
                      $users = User::where('id',$user->id)->first();
                   if ($users->active_status=="Pending")
                    {
-                    first_deposit_bonus($users->id,$request->amount);
                     $user_update=array('active_status'=>'Active','adate'=>Date("Y-m-d H:i:s"),'package'=>$request->amount);
-                  User::where('id',$user->id)->update($user_update);
+                    User::where('id',$user->id)->update($user_update);
                   
                     \DB::table('general_settings')->where('id',1)->update(['people_online'=> generalDetail()->people_online+1]);
                      \DB::table('general_settings')->where('id',1)->update(['our_investors'=> generalDetail()->our_investors+1]);
@@ -377,17 +379,8 @@ public function add_bonus()
                     $user_update=array('package'=>$total,'active_status'=>'Active',);
                   User::where('id',$user->id)->update($user_update); 
                  }
-                 add_direct_income($user->id,$request->amount);
-                    addNotification(
-            $user->id,
-            'Deposit Success',
-            "You’ve successfully deposited {$request->amount}");
-                  $payment =  Investment::insert($data);
-                    \DB::table('general_settings')->where('id',1)->update(['total_fund_invested'=>generalDetail()->total_fund_invested+$request->amount]);
-                
-                     
-                //   add_direct_income($user->id,$request->amount);
-        //   
+
+   
                 $notify[] = ['success', 'User Activation successfully'];
                return redirect()->back()->withNotify($notify);
              

@@ -153,19 +153,21 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
 <style>
       .pagination {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding-left: 0;
-      margin: 20px 0;
-      gap: 6px;
+          display: flex
+;
+    justify-content: center;
+    list-style: none;
+    padding-left: 0;
+    /* margin: 19px 9px; */
+    gap: 5px;
+    overflow-x: scroll;
       }
       .page-item {
       display: inline-block;
       }
       .page-link {
       display: block;
-      padding: 8px 14px;
+      padding: 5px 8px;
       color: rgb(25 140 82 / 11%);
       background-color: #f9f9f9;
       border: 1px solid rgb(25 140 82 / 11%);
@@ -196,7 +198,7 @@
       }
       .page-link {
       background-color: #222;
-      color: rgb(25 140 82 / 11%);
+      color: rgb(25 140 82 );
       border: 1px solid rgb(25 140 82 / 11%);
       }
       .page-link:hover,
@@ -204,6 +206,11 @@
       background-color: rgb(25 140 82 / 11%);
       color: #fff;
       }
+      .tw-rounded-10px {
+    border-radius: .26667rem;
+    border: 1px solid #7e7d7d;
+    /* border-radius: 10px; */
+}
    </style>
  
 </head>
@@ -216,13 +223,8 @@
                     data-v-6b868a30="" style="background-color: transparent;">
                     <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
                         <a href="{{ route('user.asset') }}">
-                            <svg data-v-3f1a7394="" aria-hidden="true"
-                                class="svg-icon"
-                                style="color: rgba(255, 255, 255, 1); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                                <use data-v-3f1a7394="" xlink:href="#svg-icon-arrow-back"></use>
-                            </svg>
+                           <img data-v-6b868a30="" src="{{ asset('static/img/icons8-back-48.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                         </a>
-                        
                     </div>
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
                         style="color: rgba(255, 255, 255, 1);"><span>Team List</span></div>

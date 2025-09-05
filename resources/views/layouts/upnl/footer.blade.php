@@ -12,13 +12,9 @@
                         <span class="tw-text-12px tw-text-secondary" style="color: #000"> Home</span></li>
                     <li class="tw-flex-1 tw-flex tw-flex-col tw-items-center tw-justify-center">
                         <a href="{{ route('user.quality') }}">
-                        <svg data-v-3f1a7394=""
-                            aria-hidden="true" class="tw-mb-2px svg-icon"
-                            style="color: rgb(174, 184, 196); width: 0.5176rem; height: 0.5176rem; font-size: 0.5176rem;">
-                            <use data-v-3f1a7394="" xlink:href="#svg-icon-robot"></use>
-                        </svg>
+                       <img src="{{asset('static/img/icons8-e-key-50.png')}}" style="width: 26px;height:26px" alt="" srcset="">
                         </a>
-                        <span class="tw-text-12px tw-text-secondary" style="color: #000"> Quality</span></li>
+                        <span class="tw-text-12px tw-text-secondary" style="color: #000"> Equvia</span></li>
                     <li class="tw-flex-1 tw-flex tw-flex-col tw-items-center tw-justify-center">
                         <a href="{{ route('user.level-team') }}">
                         <svg data-v-3f1a7394=""
