@@ -18,7 +18,7 @@
                             <use data-v-3f1a7394="" xlink:href="#svg-icon-robot"></use>
                         </svg>
                         </a>
-                        <span class="tw-text-12px tw-text-secondary" style="color: #000"> Quality</span></li>
+                        <span class="tw-text-12px tw-text-secondary" style="color: #000"> Equvia</span></li>
                     <li class="tw-flex-1 tw-flex tw-flex-col tw-items-center tw-justify-center">
                         <a href="{{ route('user.level-team') }}">
                         <svg data-v-3f1a7394=""
