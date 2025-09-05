@@ -55,14 +55,14 @@
                                         days</span><i class="van-icon van-icon-arrow-down">
                                         </i></div> -->
                             </div>
-                            <div class="tw-bg-white3 tw-rounded-10px">
+                            <div class="tw-bg-white tw-rounded-10px">
                                 <div class="tw-px-14px tw-py-16px">
                                     <div class="tw-mb-16px tw-flex tw-justify-between tw-items-center">
                                         <div class="tw-flex tw-items-center">
                                             <div class="tw-mr-8px tw-w-36px tw-h-36px"><img
                                                     src="{{asset('static/img/usdt.png')}}"
                                                     alt=""></div>
-                                            <div class="tw-text-16px tw-text-dark">USDT</div>
+                                            <div class="rtw-text-16px" >USDT</div>
                                         </div>
                                         <div class="tw-flex-1 tw-text-right">
                                             <!-- <div class="tw-text-14px tw-text-dark"> 6.096 </div>
