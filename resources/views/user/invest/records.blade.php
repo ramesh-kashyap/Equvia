@@ -66,7 +66,8 @@
             height: 100vh;
             object-fit: cover;
         }
-          x-vue-echarts {
+
+        x-vue-echarts {
             display: flex;
             flex-direction: column;
             width: 100%;
@@ -80,7 +81,70 @@
             width: auto !important;
             height: auto !important
         }
-    </style>
+
+      .pagination {
+         display: flex;
+         justify-content: center;
+         list-style: none;
+         padding-left: 0;
+         margin: 20px 0;
+         gap: 6px;
+      }
+
+      .page-item {
+         display: inline-block;
+      }
+
+      .page-link {
+         display: block;
+         padding: 8px 14px;
+         color: rgb(25 140 82 / 11%);
+         background-color: #f9f9f9;
+         border: 1px solid rgb(25 140 82 / 11%);
+         border-radius: 6px;
+         text-decoration: none;
+         font-weight: 500;
+         transition: background-color 0.3s, color 0.3s;
+      }
+
+      .page-link:hover {
+         background-color: rgb(25 140 82 / 11%);
+         color: white;
+      }
+
+      .page-item.active .page-link {
+         background-color: rgb(25 140 82 / 11%);
+         color: white;
+         border-color: rgb(25 140 82 / 11%);
+         font-weight: 600;
+      }
+
+      .page-item.disabled .page-link {
+         color: #aaa;
+         background-color: #eee;
+         border-color: #ddd;
+         cursor: not-allowed;
+         pointer-events: none;
+      }
+
+      .page-link {
+         transition: all 0.2s ease-in-out;
+      }
+
+      .page-link {
+         background-color: #222;
+         color: rgb(25 140 82 / 11%);
+         border: 1px solid rgb(25 140 82 / 11%);
+      }
+
+      .page-link:hover,
+      .page-item.active .page-link {
+         background-color: rgb(25 140 82 / 11%);
+         color: #fff;
+      }
+   </style>
+
+
     <link href="{{ asset('') }}static/css/chunk-02c8c6ba.f02a30c2.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-03c1575b.3035c347.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-0566fd30.1e11c8e5.css" rel="prefetch">
@@ -145,17 +209,12 @@
 
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="preload" as="style">
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="preload" as="style">
-    <!-- <link href="{{ asset('') }}static/eed/js/app.5acd7986.js" rel="preload" as="script"> -->
-    <!-- <link href="{{ asset('') }}static/eed/js/chunk-vendors.b893e1dd.js" rel="preload" as="script"> -->
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="stylesheet">
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="stylesheet">
-  
-    <!-- <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-b124f7bc.38a4e04a.js"></script> -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
-    <!-- <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-51107498.d0f576b5.js"></script> -->
-  
-    <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
 
 </head>
 
@@ -168,36 +227,31 @@
                     data-v-6b868a30="" style="background-color: transparent;">
                     <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
                         <a href="{{ route('user.quality') }}">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
                                 <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                             </svg>
                         </a>
-                        
+
                     </div>
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
                         style="color: rgba(255, 255, 255, 1);"><span>Records</span></div>
                     <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
-                        <!-- <a href="{{ route('user.lang') }}">
-                            <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                        </a> -->
-                        
+
+
                         <div>
                             <a href="{{ route('user.notice') }}">
                                 <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                             </a>
                         </div>
-                        
-                        
+
+
                     </div>
                 </div>
             </div>
             <div data-v-6b868a30="" id="scroll" class="content-container ">
                 <div data-v-6b868a30="" id="content" class="content-scroll">
                     <div data-v-6b868a30="" class="tw-min-h-full tw-p-16px">
-                        <!-- <div data-v-6b868a30="" class="tw-mb-16px tw-flex tw-items-center tw-gap-24px">
-                            <div data-v-6b868a30="" class="tw-flex tw-items-center"> Currency： <span data-v-6b868a30="" class="tw-text-secondary tw-text-12px">all</span><i data-v-6b868a30="" class="tw-ml-4px van-icon van-icon-arrow-down"></i></div>
-                            <div data-v-6b868a30="" class="tw-flex tw-items-center"> Date： <span data-v-6b868a30="" class="tw-text-secondary tw-text-12px">Please select</span><i data-v-6b868a30="" class="tw-ml-4px van-icon van-icon-arrow-down"></i></div>
-                        </div> -->
+
                         <div role="feed" class="van-list " data-v-6b868a30="">
 
                             <?php if (is_array($level_income) || is_object($level_income)) { ?>
@@ -242,6 +296,10 @@
                         </div>
                     </div>
                     <div data-v-91b14df4="" data-v-6b868a30=""></div>
+                </div>
+
+                <div class="pagination">
+                    {{ $level_income->withQueryString()->links() }}
                 </div>
             </div>
         </div>
