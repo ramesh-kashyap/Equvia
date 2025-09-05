@@ -171,18 +171,14 @@
             <div data-v-6b868a30="" class="headers">
                 <div class="tw-px-16px tw-w-full tw-h-full tw-flex tw-items-center" data-v-6b868a30=""
                     style="background-color: transparent;">
-                    <div class="tw-w-44px tw-h-full tw-flex tw-items-center"><svg data-v-3f1a7394=""
-                            aria-hidden="true" class="svg-icon"
-                            style="color: rgba(255, 255, 255, 1); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                            <use data-v-3f1a7394="" xlink:href="#svg-icon-close"></use>
-                        </svg>
+                    <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
+              
 
                     </div>
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center rtw-text-16px van-ellipsis"
                         style="color: rgb(24, 25, 28);"><span></span></div>
                     <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
-                        <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt=""
-                            class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                   
                         <img data-v-6b868a30="" src="{{ asset('static/icon/langu.png') }}" alt=""
                             class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
                         <div>
@@ -202,7 +198,7 @@
                                 class="tw-w-64px tw-h-64px">
                             <div data-v-6b868a30="" class="tw-pl-12px tw-flex-1">
                                 <div data-v-6b868a30="" class="tw-mb-6px tw-text-24px">Hello,</div>
-                                <div data-v-6b868a30="" class="tw-text-18px van-ellipsis"> Welcome SEOKORE </div>
+                                <div data-v-6b868a30="" class="tw-text-18px van-ellipsis"> Welcome Equvia </div>
                             </div>
                         </div>
                         <form action="{{ route('login') }}" method="POST" name="login_frm" id="form-id">

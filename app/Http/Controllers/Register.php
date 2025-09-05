@@ -74,13 +74,13 @@ class Register extends Controller
         $password->created_at = \Carbon\Carbon::now();
         $password->save();
 
-        sendEmail($email, 'Your One-Time Password', [
-            'name' => $name,
-            'code' => $code,
-            'purpose' => $purpose,
-            'viewpage' => 'resources/views/mail/sendMail',
+        // sendEmail($email, 'Your One-Time Password', [
+        //     'name' => $name,
+        //     'code' => $code,
+        //     'purpose' => $purpose,
+        //     'viewpage' => 'resources/views/mail/sendMail',
 
-        ]);
+        // ]);
         return true;
     }
 

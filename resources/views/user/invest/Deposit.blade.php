@@ -316,7 +316,7 @@
 
 <body>
 
-     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         style="position: absolute; width: 0; height: 0" aria-hidden="true" id="__SVG_SPRITE_NODE__">
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" id="svg-icon-address-book">
             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1783,7 +1783,7 @@
                 fill="white"></path>
         </symbol>
     </svg>
-    
+
     <div id="app">
         <div data-v-6b868a30="" class="page">
             <div data-v-6b868a30="" class="headers">
@@ -2308,7 +2308,7 @@
             popup.querySelectorAll(".chain-item").forEach(item => {
                 item.addEventListener("click", () => {
                     popup.querySelectorAll(".chain-item").forEach(i => i.classList.remove(
-                    "active"));
+                        "active"));
                     item.classList.add("active");
 
                     let networkName = item.querySelector(".tw-text-14px").textContent.trim();

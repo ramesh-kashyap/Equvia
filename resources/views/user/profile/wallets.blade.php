@@ -14,7 +14,7 @@
     <meta name="360-fullscreen" content="true">
     <meta name="renderer" content="webkit">
     <meta name="robots" content="noindex, nofollow">
-      <script>
+    <script>
         window.addEventListener('error', function(event) {
             if (event.message.indexOf("Unexpected token '<'") > -1) {
                 location.reload();
@@ -93,69 +93,69 @@
         }
 
 
-    .custom-dropdown {
-        position: relative;
-        width: 100%;
-        max-width: 400px;
-        font-family: inherit;
-    }
-
-    .dropdown-trigger {
-        color: #fff;
-        padding: 12px 16px;
-        border-radius: 10px;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .dropdown-trigger::after {
-        content: "▼";
-        font-size: 0.7em;
-        margin-left: 8px;
-    }
-
-    .dropdown-options {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #0f2a20;
-        border-radius: 10px;
-        display: none;
-        flex-direction: column;
-        margin-top: 4px;
-        z-index: 10;
-    }
-
-    .dropdown-option {
-        padding: 12px 16px;
-        color: #fff;
-        cursor: pointer;
-        transition: background 0.2s;
-    }
-
-    .dropdown-option:hover,
-    .dropdown-option.selected {
-        background: #1e3a30;
-    }
-
-    @media (max-width: 600px) {
         .custom-dropdown {
-            max-width: 100%;
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            font-family: inherit;
         }
 
         .dropdown-trigger {
-            padding: 14px;
-            font-size: 16px;
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown-trigger::after {
+            content: "▼";
+            font-size: 0.7em;
+            margin-left: 8px;
+        }
+
+        .dropdown-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #0f2a20;
+            border-radius: 10px;
+            display: none;
+            flex-direction: column;
+            margin-top: 4px;
+            z-index: 10;
         }
 
         .dropdown-option {
-            padding: 14px;
-            font-size: 16px;
+            padding: 12px 16px;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s;
         }
-    }
+
+        .dropdown-option:hover,
+        .dropdown-option.selected {
+            background: #1e3a30;
+        }
+
+        @media (max-width: 600px) {
+            .custom-dropdown {
+                max-width: 100%;
+            }
+
+            .dropdown-trigger {
+                padding: 14px;
+                font-size: 16px;
+            }
+
+            .dropdown-option {
+                padding: 14px;
+                font-size: 16px;
+            }
+        }
     </style>
     <link href="{{ asset('') }}static/css/chunk-02c8c6ba.f02a30c2.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-03c1575b.3035c347.css" rel="prefetch">
@@ -234,27 +234,25 @@
             <div data-v-6b868a30="" class="headers">
                 <div data-v-62bda71e="" class="tw-px-16px tw-w-full tw-h-full tw-flex tw-items-center"
                     data-v-6b868a30="" style="background-color: transparent;">
-                    <div class="tw-w-44px tw-h-full tw-flex tw-items-center"><svg data-v-3f1a7394="" aria-hidden="true"
-                            class="svg-icon"
-                            style="color: rgb(24, 25, 28); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                            <use data-v-3f1a7394="" xlink:href="#svg-icon-arrow-back"></use>
-                        </svg>
-                        
+                    <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
+                        <a href="{{route('user.Withdraw')}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                            </svg>
+                        </a>
+
                     </div>
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
-                        style="color: rgb(24, 25, 28);"><span>Withdrawal Address</span></div>
-                    <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px"><svg
-                            data-v-3f1a7394="" aria-hidden="true" class="svg-icon"
-                            style="color: rgb(24, 25, 28); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                            <use data-v-3f1a7394="" xlink:href="#svg-icon-website"></use>
-                        </svg>
-                        
-                        <div><svg data-v-3f1a7394="" aria-hidden="true" class="svg-icon"
-                                style="color: rgb(24, 25, 28); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                                <use data-v-3f1a7394="" xlink:href="#svg-icon-bell"></use>
-                            </svg></div>
-                        
-                        
+                        style="color: rgba(255, 255, 255, 1);"><span>Withdrawal Address</span></div>
+                    <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
+
+
+                        <div> <a href="{{ route('user.notice') }}">
+                                <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                            </a>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -262,66 +260,68 @@
                 <div data-v-6b868a30="" id="content" class="content-scroll">
                     <form method="POST" action="{{ route('user.wallet_change') }}">
                         @csrf
-                    <div data-v-62bda71e="" data-v-6b868a30="" class="tw-min-h-full tw-p-16px tw-flex tw-flex-col">                        
-                        <div data-v-62bda71e="" data-v-6b868a30="" class="tw-flex-1">
-                            <div data-v-62bda71e="" data-v-6b868a30="" class="tw-mb-10px tw-text-14px">Select Currency
-                            </div>
-                            <div data-v-62bda71e="" data-v-6b868a30=""
-                                class="van-cell1 tw-h-44px tw-px-14px tw-flex tw-justify-between tw-items-center tw-bg-white1 tw-rounded-10px">
-                                <div data-v-62bda71e="" data-v-6b868a30="" class="tw-flex tw-items-center">
-                                    <img data-v-62bda71e="" data-v-6b868a30=""
-                                        src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20241119/a374614d2b1d9d3b68ad00f1b2b38e68.jpeg"
-                                        alt="" class="tw-w-24px">
+                        <div data-v-62bda71e="" data-v-6b868a30="" class="tw-min-h-full tw-p-16px tw-flex tw-flex-col">
+                            <div data-v-62bda71e="" data-v-6b868a30="" class="tw-flex-1">
+                                <div data-v-62bda71e="" data-v-6b868a30="" class="tw-mb-10px tw-text-14px">Select Currency
+                                </div>
+                                <div data-v-62bda71e="" data-v-6b868a30=""
+                                    class="van-cell1 tw-h-44px tw-px-14px tw-flex tw-justify-between tw-items-center tw-bg-white1 tw-rounded-10px">
+                                    <div data-v-62bda71e="" data-v-6b868a30="" class="tw-flex tw-items-center">
+                                        <img data-v-62bda71e="" data-v-6b868a30=""
+                                            src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20241119/a374614d2b1d9d3b68ad00f1b2b38e68.jpeg"
+                                            alt="" class="tw-w-24px">
                                         <span data-v-62bda71e="" data-v-6b868a30="" class="tw-pl-8px">USDT</span>
                                     </div>
                                     <i data-v-62bda71e="" data-v-6b868a30=""
-                                    class="van-icon van-icon-arrow" style="color: rgb(182, 188, 198);">
+                                        class="van-icon van-icon-arrow" style="color: rgb(182, 188, 198);">
                                     </i>
-                            </div>
-                            <div data-v-62bda71e="" data-v-6b868a30="" class="tw-mt-18px tw-mb-10px tw-text-14px">
-                                Select Network </div>
-                            <div data-v-62bda71e="" data-v-6b868a30=""
-                                class="van-cell1 tw-h-44px tw-px-14px tw-flex tw-justify-between tw-items-center tw-bg-white1 tw-rounded-10px">
-                                <span data-v-62bda71e="" data-v-6b868a30="" id="showType">TRC20</span><i data-v-62bda71e=""
-                                    data-v-6b868a30="" class="van-icon van-icon-arrow" id="openPopup"
-                                    style="color: rgb(182, 188, 198);">
-                                    </i></div>
-                                    <input type="hidden" name="selected_mainnet" value="BEP20" id="walletType">
-
-                            <div data-v-62bda71e="" data-v-6b868a30="" class="tw-mt-16px tw-mb-10px tw-text-14px">
-                                Withdrawal Address </div>
-                            <div data-v-62bda71e="" class="van-cell1 van-field tw-rounded-10px" data-v-6b868a30="">
-                                <div class="van-cell__value van-cell__value--alone van-field__value">
-                                    <div class="van-field__body">
-                                        <input  type="text"  name="walletAddress" placeholder="Please enter the withdrawal address"
-                                            class="van-field__control1"></div>
                                 </div>
-                            </div>
-                            <div data-v-62bda71e="" data-v-6b868a30="" class="tw-mt-16px tw-mb-10px tw-text-14px">
-                                Transaction Password </div>
-                            <div data-v-62bda71e="" class="van-cell1 van-field tw-rounded-10px" data-v-6b868a30="">
-                                <div class="van-cell__value van-cell__value--alone van-field__value">
-                                    <div class="van-field__body"><input type="password" name="code" id="passwordInput"
-                                            placeholder="Please enter the transaction password"
-                                            class="van-field__control1">
-                                        <div class="van-field__right-icon"  onclick="togglePassword()"><i data-v-62bda71e="" id="eyeIcon"
-                                                class="van-icon van-icon-closed-eye tw-text-secondary">
+                                <div data-v-62bda71e="" data-v-6b868a30="" class="tw-mt-18px tw-mb-10px tw-text-14px">
+                                    Select Network </div>
+                                <div data-v-62bda71e="" data-v-6b868a30=""
+                                    class="van-cell1 tw-h-44px tw-px-14px tw-flex tw-justify-between tw-items-center tw-bg-white1 tw-rounded-10px">
+                                    <span data-v-62bda71e="" data-v-6b868a30="" id="showType">TRC20</span><i data-v-62bda71e=""
+                                        data-v-6b868a30="" class="van-icon van-icon-arrow" id="openPopup"
+                                        style="color: rgb(182, 188, 198);">
+                                    </i>
+                                </div>
+                                <input type="hidden" name="selected_mainnet" value="BEP20" id="walletType">
+
+                                <div data-v-62bda71e="" data-v-6b868a30="" class="tw-mt-16px tw-mb-10px tw-text-14px">
+                                    Withdrawal Address </div>
+                                <div data-v-62bda71e="" class="van-cell1 van-field tw-rounded-10px" data-v-6b868a30="">
+                                    <div class="van-cell__value van-cell__value--alone van-field__value">
+                                        <div class="van-field__body">
+                                            <input type="text" name="walletAddress" placeholder="Please enter the withdrawal address"
+                                                class="van-field__control1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-v-62bda71e="" data-v-6b868a30="" class="tw-mt-16px tw-mb-10px tw-text-14px">
+                                    Transaction Password </div>
+                                <div data-v-62bda71e="" class="van-cell1 van-field tw-rounded-10px" data-v-6b868a30="">
+                                    <div class="van-cell__value van-cell__value--alone van-field__value">
+                                        <div class="van-field__body"><input type="password" name="code" id="passwordInput"
+                                                placeholder="Please enter the transaction password"
+                                                class="van-field__control1">
+                                            <div class="van-field__right-icon" onclick="togglePassword()"><i data-v-62bda71e="" id="eyeIcon"
+                                                    class="van-icon van-icon-closed-eye tw-text-secondary">
                                                 </i></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <button data-v-62bda71e="" data-v-6b868a30="" type="submit"
+                                class="van-button van-button--primary van-button--normal">
+                                <div data-v-62bda71e="" data-v-6b868a30="" class="van-button__content"><span
+                                        data-v-62bda71e="" data-v-6b868a30="" class="van-button__text"> Confirm </span>
+                                </div>
+                            </button>
                         </div>
-                        <button data-v-62bda71e="" data-v-6b868a30="" type="submit"
-                            class="van-button van-button--primary van-button--normal">
-                            <div data-v-62bda71e="" data-v-6b868a30="" class="van-button__content"><span
-                                    data-v-62bda71e="" data-v-6b868a30="" class="van-button__text"> Confirm </span>
-                            </div>
-                        </button>                        
-                    </div>
                     </form>
                 </div>
             </div>
-            
+
         </div>
         <div class="van-overlay" style="display: none;">
             <div class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
@@ -337,14 +337,14 @@
             </div>
         </div>
         <div data-v-4d1ba5fa="">
-            
+
         </div>
     </div>
     <script src="/static/1756094289381/js/chunk-vendors.b893e1dd.js"></script>
     <script src="/static/1756094289381/js/app.5acd7986.js"></script>
     <div class="van-toast van-toast--middle van-toast--success" style="z-index: 2001; display: none;"><i
             class="van-icon van-icon-success van-toast__icon">
-            </i>
+        </i>
         <div class="van-toast__text">Login successful</div>
     </div>
     <div class="van-overlay" id="overlay" style="z-index: 2008; display: none;"></div>
@@ -384,52 +384,52 @@
                         </div>
                     </div>
                     <div role="tabpanel" class="van-tab__pane" style="display: none;">
-                        
+
                     </div>
                 </div>
             </div><button class="van-button van-button--primary van-button--normal van-button--block" id="close">
-                <div class="van-button__content"><span class="van-button__text" > Confirm </span></div>
+                <div class="van-button__content"><span class="van-button__text"> Confirm </span></div>
             </button>
         </div><i role="button" tabindex="0"
             class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right" id="close">
-            </i>
+        </i>
     </div>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const overlay = document.getElementById("overlay");
-        const popup = document.getElementById("popup");
-        const closeBtn = document.getElementById("close");
-        const openBtn = document.getElementById("openPopup"); // 👈 create a button with this ID
-        const tron = document.getElementById("tron");
-        const bep20 = document.getElementById("bep20");
-        const walletType = document.getElementById("walletType");
-        const showType = document.getElementById("showType");
-         tron.addEventListener("click", () => {
-            walletType.value = "TRC20";  
-            showType.textContent = "Trc20";           
-        });
-        bep20.addEventListener("click", () => {
-            walletType.value = "BEP20"; 
-            showType.textContent = "Bep20";           
-        })
+        document.addEventListener("DOMContentLoaded", function() {
+            const overlay = document.getElementById("overlay");
+            const popup = document.getElementById("popup");
+            const closeBtn = document.getElementById("close");
+            const openBtn = document.getElementById("openPopup"); // 👈 create a button with this ID
+            const tron = document.getElementById("tron");
+            const bep20 = document.getElementById("bep20");
+            const walletType = document.getElementById("walletType");
+            const showType = document.getElementById("showType");
+            tron.addEventListener("click", () => {
+                walletType.value = "TRC20";
+                showType.textContent = "Trc20";
+            });
+            bep20.addEventListener("click", () => {
+                walletType.value = "BEP20";
+                showType.textContent = "Bep20";
+            })
 
-        openBtn.addEventListener("click", () => {
-            overlay.style.display = "block";
-            popup.style.display = "block";
+            openBtn.addEventListener("click", () => {
+                overlay.style.display = "block";
+                popup.style.display = "block";
+            });
+
+            closeBtn.addEventListener("click", () => {
+                overlay.style.display = "none";
+                popup.style.display = "none";
+            });
+
+            overlay.addEventListener("click", () => {
+                overlay.style.display = "none";
+                popup.style.display = "none";
+            });
         });
 
-        closeBtn.addEventListener("click", () => {
-            overlay.style.display = "none";
-            popup.style.display = "none";
-        });
-
-        overlay.addEventListener("click", () => {
-            overlay.style.display = "none";
-            popup.style.display = "none";
-        });
-    });
-
-    function togglePassword() {
+        function togglePassword() {
             const passwordInput = document.getElementById("passwordInput");
             const eyeIcon = document.getElementById("eyeIcon");
 
@@ -441,7 +441,7 @@
                 eyeIcon.className = "van-icon van-icon-closed-eye tw-text-secondary"; // hide icon
             }
         }
-</script>
+    </script>
 </body>
 
 </html>
