@@ -380,7 +380,7 @@
                             <div class="tw-text-12px tw-text-secondary"  style="color:#000"> Minimum Withdrawal Amount≥ 50 USDT </div>
                         </div>
                         <div
-                            class="chain-item tw-mt-16px tw-p-14px tw-border tw-border-solid tw-border-hairline tw-rounded-10px active " id="bep20">
+                            class="chain-item tw-mt-16px tw-p-14px tw-border tw-border-solid tw-border-hairline tw-rounded-10px " id="bep20">
                             <div class="tw-text-14px" style="color:#000">Bep20</div>
                             <div class="tw-text-12px tw-text-secondary" style="color:#000"> Minimum Withdrawal Amount≥ 50 USDT </div>
                         </div>
@@ -392,8 +392,9 @@
             </div><button class="van-button van-button--primary van-button--normal van-button--block" id="close" style="color: #fff; background-color: #158960; border: .02667rem solid #d4d4d4;">
                 <div class="van-button__content"><span class="van-button__text" > Confirm </span></div>
             </button>
-        </div><i role="button" tabindex="0"
-            class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right" id="close">
+        </div>
+        <i role="button" tabindex="0"  id="close"
+            class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right">
         </i>
     </div>
     <script>
