@@ -1,6 +1,6 @@
 <html><head>
     <meta charset="utf-8">
-    <title>Telegram: Contact @YIPTG</title>
+    <title>{{siteName()}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>try{if(window.parent!=null&&window!=window.parent){window.parent.postMessage(JSON.stringify({eventType:'web_app_open_tg_link',eventData:{path_full:"\/YIPTG"}}),'https://web.telegram.org');}}catch(e){}</script>
     

@@ -1,4 +1,4 @@
-<html class="" style="font-size: 55.2px;">
+<html class="" style="font-size: 55.2px;background:#fff;">
 
 <head>
     <meta charset="utf-8">
@@ -205,25 +205,25 @@
                     <div data-v-6e2d35de="" id="content" class="content-scroll">
                         <div data-v-73b46d99="" data-v-6e2d35de="" class="container">
 
-                            <div id="dateFilterPopup" style="display:none; background: #06140d; padding: 20px; border-radius: 12px; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; z-index: 999; box-shadow: rgb(0 0 0) 0px 10px 25px;">
+                            <div id="dateFilterPopup" style="display:none; background: #ffffffff; padding: 20px; border-radius: 12px; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; z-index: 999; box-shadow: rgb(0 0 0) 0px 10px 25px;">
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                                    <h3 style="margin: 0; font-size: 18px; font-weight: bold;color:#fff">Select Date Range</h3>
-                                    <button onclick="document.getElementById('dateFilterPopup').style.display='none'" style="border: none; background: transparent; font-size: 20px; cursor: pointer;color:#fff">&times;</button>
+                                    <h3 style="margin: 0; font-size: 18px; font-weight: bold;color:#000">Select Date Range</h3>
+                                    <button onclick="document.getElementById('dateFilterPopup').style.display='none'" style="border: none; background: transparent; font-size: 20px; cursor: pointer;color:#000">&times;</button>
                                 </div>
 
                                 <form method="GET" action="{{ route('user.roi-bonus') }}">
                                     <div style="margin-bottom: 15px;">
                                         <label style="display:block; font-size: 14px; margin-bottom: 5px;color:#fff">Start Date</label>
-                                        <input type="date" name="start_date" required style="width: 100%; padding: 10px; border: 1px solid #403d3d; border-radius: 6px;background-color: #06140d;color:#929292">
+                                        <input type="date" name="start_date" required style="width: 100%; padding: 10px; border: 1px solid #403d3d; border-radius: 6px;background-color: #ffffffff;color:#929292">
                                     </div>
 
                                     <div style="margin-bottom: 15px;">
                                         <label style="display:block; font-size: 14px; margin-bottom: 5px;color:#fff">End Date</label>
-                                        <input type="date" name="end_date" required style="width: 100%; padding: 10px; border: 1px solid #403d3d; border-radius: 6px;background-color: #06140d;color:#929292">
+                                        <input type="date" name="end_date" required style="width: 100%; padding: 10px; border: 1px solid #403d3d; border-radius: 6px;background-color: #ffffffff;color:#929292">
                                     </div>
 
                                     <div style="display: flex; justify-content: flex-end; gap: 10px;">
-                                        <button type="submit" style="padding: 8px 16px; border: none; border-radius: 5px; background-color: #28a745; color: white; font-weight: bold; cursor: pointer;">Apply</button>
+                                        <button type="submit" style="padding: 8px 16px; border: none; border-radius: 5px; background-color: #082a10ff; color: white; font-weight: bold; cursor: pointer;">Apply</button>
                                     </div>
                                 </form>
                             </div>
@@ -319,7 +319,7 @@
 
                                         </div>
                                     </div>
-                                    <div data-v-554f6835="" class="esc" id="closePopupBtn" style="color:white;background:#06140d;">Cancel</div>
+                                    <div data-v-554f6835="" class="esc" id="closePopupBtn" style="color:black;background:#fff;">Cancel</div>
                                 </div>
                             </div>
                         </div>

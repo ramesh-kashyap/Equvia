@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{siteName()}} Strategy</title>
+    <title>{{siteName()}}</title>
 
     <link rel="icon" href="{{ asset('2.png') }}">
 
@@ -216,10 +216,8 @@
                     data-v-6b868a30="" style="background-color: transparent;">
                     <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
                         <a href="{{ route('user.asset') }}">
-                            <svg data-v-3f1a7394="" aria-hidden="true"
-                                class="svg-icon"
-                                style="color: rgba(255, 255, 255, 1); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                                <use data-v-3f1a7394="" xlink:href="#svg-icon-arrow-back"></use>
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                             </svg>
                         </a>
                         

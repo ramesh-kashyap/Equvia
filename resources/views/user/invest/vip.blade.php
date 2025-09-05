@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Upgrade Level</title>
+    <title>{{siteName()}}</title>
 
     <script>
         window.addEventListener('error', function(event) {

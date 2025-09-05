@@ -6,7 +6,7 @@
 
     .van-popup {
 
-        background-color: #fbfbfb;
+        background-color: #142a22ff;
 
     }
 

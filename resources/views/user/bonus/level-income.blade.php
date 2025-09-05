@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('') }}static/img//favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="noindex, nofollow">
-    <title>Task Center</title>
+    <title>{{siteName()}}</title>
     <script type="module" crossorigin="" src="{{ asset('') }}assets/js/index-BR72YH-E.js"></script>
     <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/vant-3s7b3naM.js">
     <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/vuei18n-CA58nVJV.js">

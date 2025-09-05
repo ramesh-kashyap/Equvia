@@ -262,7 +262,7 @@
                                                         class="van-field__control"></div>
                                             </div>
                                         </div>
-                                        <div data-v-6b868a30="" class="tw-mt-16px rtw-text-16px">Login Password</div>
+                                        <div data-v-6b868a30="" class="tw-mt-16px rtw-text-16px">Password</div>
                                         <div class="van-cell van-field tw-rounded-11px" data-v-6b868a30="">
                                             <div class="van-cell__value van-cell__value--alone van-field__value">
                                                 <div class="van-field__body">
@@ -597,7 +597,7 @@
                 }
             }, 1000);
 
-            fetch("{{ route('send_forgot') }}", {
+            fetch("{{ route('sendOtp') }}", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

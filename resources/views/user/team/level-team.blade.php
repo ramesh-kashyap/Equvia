@@ -129,11 +129,9 @@
             </div>
             <div data-v-6b868a30="" class="tw-mt-16px tw-mb-12px tw-text-16px"> Three-Generation Data </div>
             <div data-v-6b868a30="" class="tw-mt-16px tw-p-16px tw-bg-white3 tw-rounded-10px">
-                <div data-v-6b868a30="" class="tw-h-34px tw-flex tw-items-center"><svg data-v-3f1a7394=""
-                        aria-hidden="true" class="svg-icon" data-v-6b868a30=""
-                        style="color: rgb(255, 255, 255); width: 0.8rem; height: 0.8rem; font-size: 0.8rem;">
-                        <use data-v-3f1a7394="" xlink:href="#svg-icon-gen-1"></use>
-                    </svg>
+                <div data-v-6b868a30="" class="tw-h-34px tw-flex tw-items-center">
+                    <img data-v-6a8ea654="" alt="" class="tw-mr-8px tw-w-36px tw-h-36px tw-rounded-full" style="border: 4px solid #069d6a; border-radius:50%;"
+                        src="{{ asset('') }}2.png">
                     <div data-v-6b868a30="" class="tw-pl-8px">
                         <div data-v-6b868a30="" class="tw-text-14px"> First Generation Data </div>
 
@@ -163,11 +161,9 @@
                 </div>
             </div>
             <div data-v-6b868a30="" class="tw-mt-16px tw-p-16px tw-bg-white3 tw-rounded-10px">
-                <div data-v-6b868a30="" class="tw-h-34px tw-flex tw-items-center"><svg data-v-3f1a7394=""
-                        aria-hidden="true" class="svg-icon" data-v-6b868a30=""
-                        style="color: rgb(255, 255, 255); width: 0.8rem; height: 0.8rem; font-size: 0.8rem;">
-                        <use data-v-3f1a7394="" xlink:href="#svg-icon-gen-2"></use>
-                    </svg>
+                <div data-v-6b868a30="" class="tw-h-34px tw-flex tw-items-center">
+                    <img data-v-6a8ea654="" alt="" class="tw-mr-8px tw-w-36px tw-h-36px tw-rounded-full" style="border: 4px solid #069d6a; border-radius:50%;"
+                        src="{{ asset('') }}2.png">
                     <div data-v-6b868a30="" class="tw-pl-8px">
 
                         <div data-v-6b868a30="" class="tw-text-14px"> Second Generation Data </div>
@@ -197,11 +193,8 @@
                 </div>
             </div>
             <div data-v-6b868a30="" class="tw-mt-16px tw-p-16px tw-bg-white3 tw-rounded-10px">
-                <div data-v-6b868a30="" class="tw-h-34px tw-flex tw-items-center"><svg data-v-3f1a7394=""
-                        aria-hidden="true" class="svg-icon" data-v-6b868a30=""
-                        style="color: rgb(255, 255, 255); width: 0.8rem; height: 0.8rem; font-size: 0.8rem;">
-                        <use data-v-3f1a7394="" xlink:href="#svg-icon-gen-3"></use>
-                    </svg>
+                <div data-v-6b868a30="" class="tw-h-34px tw-flex tw-items-center"> <img data-v-6a8ea654="" alt="" class="tw-mr-8px tw-w-36px tw-h-36px tw-rounded-full" style="border: 4px solid #069d6a; border-radius:50%;"
+                        src="{{ asset('') }}2.png">
                     <div data-v-6b868a30="" class="tw-pl-8px">
 
 

@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Real-name authentication</title>
+    <title>{{siteName()}}</title>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">

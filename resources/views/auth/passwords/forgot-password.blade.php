@@ -1799,14 +1799,9 @@
                                                         placeholder="Please enter the verification code"
                                                         class="van-field__control">
                                                     <div class="van-field__right-icon">
-                                                        <button type="button" id="getCodeBtn"
-                                                            class="!tw-border-none tw-w-8 van-button  van-button--mini van-button--plain" style="color: #2a9862;">
-                                                            <div class="van-button__content">
-                                                                <span class="code-btn van-button__text"><span>Get code</span>
-                                                                    <span class="resend-btn-new van-button__text" style="display: none;"><span>Get code</span>
-                                                                        <span
-                                                                            style="display: none;">60 s</span></span>
-                                                            </div>
+                                                         <button type="button" style="width:40px;color:black;border-radius: 0 1rem 1rem 0;" class="btn" id="sendButton" onclick="sendVerificationCode()">
+                                                            <span id="buttonLabel" style="font-size:15px;">Send</span>
+                                                            <span id="countdownTimer" style="display: none;margin: -12px;font-size:18px;"></span>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -1840,7 +1835,7 @@
                                             </div>
                                         </div>
                                         <div data-v-6b868a30="" class="tw-mt-16px tw-flex rtw-items-center tw-text-14px">
-                                        
+
                                             <!-- <a href="/article?id=REGISTRATION_AGREEMENT" class="" data-v-6b868a30="">
                                                 I have read the privacy agreement </a> -->
                                         </div>
@@ -1906,75 +1901,6 @@
             class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right">
         </i>
     </div>
-    <script src="/static/1756094289381/js/chunk-vendors.b893e1dd.js"></script>
-    <script src="/static/1756094289381/js/app.5acd7986.js"></script>
-    <!-- <div id="sqseobar2" class="sqseobar2-white sqseobar2-horizontal">
-        <div class="sqseobar2-inner"><img
-                src="chrome-extension://akdgnmcogleenhbclghghlkkdndkjdjc/static/svg/seoquake-icon.svg"
-                class="sqseobar2-logo"><a class="sqseobar2-link sqseobar2-reloadButton sqseobar2-item-hidden"><span>Load
-                    all parameters</span></a>
-            <div class="sqseobar2-parameters">
-                <div class="sqmore-container" style="width: 811px;">
-                    <div class="sqseobar2-parameters-container">
-                        <div class="sqseobar2-parameterItemInline"><span class="sqicn sqicn-google"></span><span
-                                class="sqseobar2-parameterItemInline-title sqseobar2-parameterItemInline-title-full">Google
-                                index</span><span class="sqseobar2-parameterItemInline-title">I</span><a
-                                href="https://www.google.com/search?hl=en&amp;safe=off&amp;q=site%3Ah5.seokore.com&amp;btnG=Search&amp;gws_rd=cr"
-                                target="_blank" class="seoquake-params-request">n/a</a></div>
-                        <div class="sqseobar2-parameterItemInline"><span class="sqicn sqicn-semrush"></span><span
-                                class="sqseobar2-parameterItemInline-title sqseobar2-parameterItemInline-title-full">SEMrush
-                                backlinks</span><span class="sqseobar2-parameterItemInline-title">L</span><a
-                                href="https://www.semrush.com/analytics/backlinks/backlinks/?q=https%3A%2F%2Fh5.seokore.com%2Fuser%2Flogin&amp;searchType=url&amp;utm_source=seoquake&amp;utm_medium=toolbar&amp;utm_campaign=params&amp;ref=174537735"
-                                target="_blank" class="seoquake-params-request">0</a></div>
-                        <div class="sqseobar2-parameterItemInline"><span class="sqicn sqicn-semrush"></span><span
-                                class="sqseobar2-parameterItemInline-title sqseobar2-parameterItemInline-title-full">SEMrush
-                                subdomain backlinks</span><span class="sqseobar2-parameterItemInline-title">LD</span><a
-                                href="https://www.semrush.com/analytics/backlinks/backlinks/h5.seokore.com:domain?utm_source=seoquake&amp;utm_medium=toolbar&amp;utm_campaign=params&amp;ref=174537735"
-                                target="_blank" class="seoquake-params-request">30</a></div>
-                        <div class="sqseobar2-parameterItemInline" style="visibility: visible;"><span
-                                class="sqicn sqicn-bing"></span><span
-                                class="sqseobar2-parameterItemInline-title sqseobar2-parameterItemInline-title-full">Bing
-                                index</span><span class="sqseobar2-parameterItemInline-title">I</span><a
-                                href="https://www.bing.com/search?q=site%3Ah5.seokore.com&amp;FORM=QBRE" target="_blank"
-                                class="seoquake-params-request">n/a</a></div>
-                        <div class="sqseobar2-parameterItemInline" style="visibility: visible;"><span
-                                class="sqicn sqicn-user"></span><a
-                                href="https://whois.domaintools.com/h5.seokore.com?utm_source=seoquake&amp;utm_medium=seoquake&amp;utm_campaign=seoquake&amp;ref=174537735"
-                                target="_blank" class="seoquake-params-request">whois</a></div>
-                        <div class="sqseobar2-parameterItemInline" style="visibility: visible;"><span
-                                class="sqicn sqicn-source"></span><a
-                                href="view-source:https://h5.seokore.com/user/login" target="_blank"
-                                class="seoquake-params-request">source</a></div>
-                        <div class="sqseobar2-parameterItemInline" style="visibility: visible;"><span
-                                class="sqicn sqicn-semrush"></span><span
-                                class="sqseobar2-parameterItemInline-title sqseobar2-parameterItemInline-title-full">SEMrush
-                                Rank</span><span class="sqseobar2-parameterItemInline-title">Rank</span><a
-                                href="https://www.semrush.com/analytics/overview/?q=h5.seokore.com&amp;searchType=domain&amp;ref=174537735&amp;utm_source=seoquake&amp;utm_medium=toolbar&amp;utm_campaign=params"
-                                target="_blank" class="seoquake-params-request">n/a</a></div>
-                        <div class="sqseobar2-parameterItemInline" style="visibility: visible;"><span
-                                class="sqicn sqicn-pinterest"></span><span
-                                class="sqseobar2-parameterItemInline-title sqseobar2-parameterItemInline-title-full">Pinterest
-                                Pin count</span><span class="sqseobar2-parameterItemInline-title">PIN</span><a
-                                href="https://api.pinterest.com/v1/urls/count.json?callback=r&amp;url=https%3A%2F%2Fh5.seokore.com%2Fuser%2Flogin"
-                                target="_blank" class="seoquake-params-request">0</a></div>
-                    </div>
-                </div><button class="sqseobar2-button-more" style="visibility: hidden;">More data</button>
-            </div>
-            <div class="sqseobar2-right-container">
-                <div class="sqseobar2-right-container-buttons"><a
-                        class="sqseobar2-link sqseobar2-link-pageinfo"><span>Summary report</span></a><a
-                        class="sqseobar2-link sqseobar2-link-diagnosis"><span>Diagnosis</span></a><a
-                        class="sqseobar2-link sqseobar2-link-density"><span>Density</span></a><a
-                        class="sqseobar2-link sqseobar2-link-external"><span>External links</span><span
-                            class="sqseobar2-link-value">0</span></a><a
-                        class="sqseobar2-link sqseobar2-link-internal"><span>Internal links</span><span
-                            class="sqseobar2-link-value">2</span></a><a class="sqseobar2-link sqseobar2-link-siteaudit"
-                        href="#"><span>Site audit</span><span class="sqseobar2-link-value">n/a</span></a></div><button
-                    class="sqseobar2-button-close" title="Close panel"></button><button
-                    class="sqseobar2-button-configure" title="Configure panel"></button>
-            </div>
-        </div>
-    </div> -->
 
 
     <script src="https://code.jquery.com//jquery-3.3.1.min.js"></script>
@@ -2100,74 +2026,67 @@
 
     <script src="https://code.jquery.com//jquery-3.3.1.min.js"></script>
     <script>
-        $(document).ready(function() {
-            // First Email Code
-            $('#getCodeBtn').click(function() {
-                var emailId = $('#emailId').val();
-                var name = $('#name').val();
+        function sendVerificationCode() {
+            const email = document.querySelector('input[name="email"]').value;
+            const sendButton = document.getElementById('sendButton');
+            const buttonLabel = document.getElementById('buttonLabel');
+            const countdownTimer = document.getElementById('countdownTimer');
 
-                if (!emailId) {
-                    iziToast.error({
-                        message: 'Invalid Email!',
-                        position: "topRight"
-                    });
-                    return;
-                }
-
-                startTimer('.resend-btn-new');
-                $('.code-btn').hide();
-                $('.resend-btn-new').show();
-
-                $.ajax({
-                    type: "POST",
-                    url: "{{ route('sendOtp') }}",
-                    data: {
-                        "emailId": emailId,
-                        "name": name,
-                        "_token": "{{ csrf_token() }}"
-                    },
-                    success: function(response) {
-                        console.log(response);
-                        if (response) {
-                            iziToast.success({
-                                message: 'Email sent Successfully',
-                                position: "topRight"
-                            });
-                        } else {
-                            iziToast.error({
-                                message: 'Error!',
-                                position: "topRight"
-                            });
-                        }
-                    }
+            if (!email) {
+                iziToast.error({
+                    message: "Please enter your email first.",
+                    position: "topRight"
                 });
-            });
-
-            // Timer Function (Reusable)
-            function startTimer(selector) {
-                var resendButton = $(selector);
-                var countdown = 60;
-                resendButton.prop('disabled', true).text('Wait ' + countdown + 's');
-
-                var timer = setInterval(function() {
-                    countdown--;
-                    resendButton.text('Wait ' + countdown + 's');
-                    if (countdown <= 0) {
-                        clearInterval(timer);
-                        resendButton.prop('disabled', false).text('Resend Code');
-                    }
-                }, 1000);
+                return;
             }
 
-            // Optional Resend Clicks
-            $('.resend-btn').click(function() {
-                $('.code-btn').trigger('click');
-            });
+            sendButton.disabled = true;
 
-            $('.resend-btn-new').click(function() {
-                $('.code-btn-new').trigger('click');
-            });
-        });
+            buttonLabel.style.display = 'none';
+            countdownTimer.style.display = 'inline';
+
+            let countdown = 60;
+            countdownTimer.textContent = `${countdown}s`;
+
+            const timerInterval = setInterval(() => {
+                countdown--;
+                countdownTimer.textContent = `${countdown}s`;
+
+                if (countdown <= 0) {
+                    clearInterval(timerInterval);
+                    countdownTimer.style.display = 'none';
+                    buttonLabel.style.display = 'inline';
+                    sendButton.disabled = false;
+                }
+            }, 1000);
+
+            fetch("{{ route('send_forgot') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: JSON.stringify({
+                        email: email
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    iziToast.success({
+                        message: "Code sent successfully.",
+                        position: "topRight"
+                    });
+                })
+                .catch(err => {
+                    iziToast.error({
+                        message: "Code sent failed.",
+                        position: "topRight"
+
+
+                    });
+                    console.error(err);
+                });
+        }
     </script>
 
 </body>

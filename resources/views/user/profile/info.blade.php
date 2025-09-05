@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Equvia Strategy</title>
+    <title>{{siteName()}} </title>
 
     <script>
         window.addEventListener('error', function(event) {
@@ -285,6 +285,9 @@
                                         class="van-button__text"> Update </span></div>
                             </button>
                         </form>
+                                @include('partials.notify')
+
+
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SEOKORE Strategy</title>
+    <title>{{siteName()}}</title>
 
     <script>
         window.addEventListener('error', function(event) {
@@ -147,8 +147,7 @@
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="preload" as="style">
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="stylesheet">
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="stylesheet">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+   
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">

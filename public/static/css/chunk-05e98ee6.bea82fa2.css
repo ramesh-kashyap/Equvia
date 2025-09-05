@@ -46,7 +46,7 @@ ul li .title[data-v-71077448] {
 .list li[data-v-8b8e62ac] {
     border-radius: .24rem;
     border: .02rem solid hsla(0, 0%, 100%, .1);
-    background: #091a12;
+    background: #132821;
     padding: .28rem;
     margin-bottom: .24rem;
     line-height: 100%
@@ -84,7 +84,7 @@ ul li .title[data-v-71077448] {
 }
 
 .popup_box[data-v-554f6835] {
-    background: #06140d;    
+    background: #fff;    
 }
 
 .popup_box .scroll[data-v-554f6835] {
@@ -110,7 +110,7 @@ ul li .title[data-v-71077448] {
 
 .popup_box .esc[data-v-554f6835] {
     background: #17181d;
-    border-top: .06rem solid #2b2d36;
+    border-top: .06rem solid #163218;
     padding: .32rem 0;
     text-align: center;
     color: #0f0e11
