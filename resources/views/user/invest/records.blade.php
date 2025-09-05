@@ -164,37 +164,42 @@
     <div id="app">
         <div data-v-6b868a30="" class="page page-invite">
             <div data-v-6b868a30="" class="headers">
-                <div class="tw-px-16px tw-w-full tw-h-full tw-flex tw-items-center" data-v-6b868a30=""
-                    style="background-color: transparent;">
+                <div data-v-7c19a79c="" class="tw-px-16px tw-w-full tw-h-full tw-flex tw-items-center"
+                    data-v-6b868a30="" style="background-color: transparent;">
                     <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
-                        <a href="{{ route('user.dashboard') }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-                                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                        <a href="{{ route('user.quality') }}">
+                            <svg data-v-3f1a7394="" aria-hidden="true"
+                                class="svg-icon"
+                                style="color: rgba(255, 255, 255, 1); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                                <use data-v-3f1a7394="" xlink:href="#svg-icon-arrow-back"></use>
                             </svg>
                         </a>
-
+                        
                     </div>
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
-                        style="color: rgb(245, 248, 253);"><span>Order History</span></div>
+                        style="color: rgba(255, 255, 255, 1);"><span>Records</span></div>
                     <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
-
-
-                        <div><a href="{{ route('user.notice') }}">
+                        <!-- <a href="{{ route('user.lang') }}">
+                            <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                        </a> -->
+                        
+                        <div>
+                            <a href="{{ route('user.notice') }}">
                                 <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-
-                            </a></div>
-
-
+                            </a>
+                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>
             <div data-v-6b868a30="" id="scroll" class="content-container ">
                 <div data-v-6b868a30="" id="content" class="content-scroll">
                     <div data-v-6b868a30="" class="tw-min-h-full tw-p-16px">
-                        <div data-v-6b868a30="" class="tw-mb-16px tw-flex tw-items-center tw-gap-24px">
+                        <!-- <div data-v-6b868a30="" class="tw-mb-16px tw-flex tw-items-center tw-gap-24px">
                             <div data-v-6b868a30="" class="tw-flex tw-items-center"> Currency： <span data-v-6b868a30="" class="tw-text-secondary tw-text-12px">all</span><i data-v-6b868a30="" class="tw-ml-4px van-icon van-icon-arrow-down"></i></div>
                             <div data-v-6b868a30="" class="tw-flex tw-items-center"> Date： <span data-v-6b868a30="" class="tw-text-secondary tw-text-12px">Please select</span><i data-v-6b868a30="" class="tw-ml-4px van-icon van-icon-arrow-down"></i></div>
-                        </div>
+                        </div> -->
                         <div role="feed" class="van-list " data-v-6b868a30="">
 
                             <?php if (is_array($level_income) || is_object($level_income)) { ?>

@@ -47,17 +47,22 @@ class Team extends Controller
 
     // $notes = User::where('sponsor',$user->username);
     $notes = User::where(function ($query) use ($gen_team) {
-      if (!empty($gen_team)) {
+    if (!empty($gen_team)) {
         foreach ($gen_team as $key => $value) {
-          //   $f = explode(",", $value);
-          //   print_r($f)."<br>";
-          $query->orWhere('id', $value);
+            $query->orWhere('id', $value);
         }
-      } else {
+    } else {
         $query->where('id', null);
-      }
-    })->orderBy('id', 'DESC');
+    }
+})
+->with(['investments' => function ($q) {
+    $q->where('status', 'Active');
+}, 'withdrawals' => function ($q) {
+    $q->where('status', 'Approved');
+}])
+->orderBy('id', 'DESC');
 
+     
     if ($search <> null && $request->reset != "Reset") {
       $notes = $notes->where(function ($q) use ($search) {
         $q->orWhere('name', 'LIKE', '%' . $search . '%')

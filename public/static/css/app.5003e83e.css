@@ -221,7 +221,7 @@
     --COborder2: 0.02rem solid #ebebeb;
     --COborder3: 0.02rem solid #ffadb5;
     --CObackgroundLinear1: linear-gradient(270deg, #0571fd, #7b02fe 100%, #7b02fe 0);
-    --CObackgroundLinear2: #0a71f7;
+    --CObackgroundLinear2: #4be872;
     --CObackgroundLinear3: #0e0f10;
     --CObackgroundLinear4: hsla(0, 0%, 100%, 0.8);
     --CObackgroundLinear5: linear-gradient(90deg, #e7625d, #e24a43)
@@ -1254,7 +1254,7 @@ input::placeholder {
 
 .tw-bg-primary {
     --tw-bg-opacity: 1;
-    background-color: rgba(23, 114, 248, var(--tw-bg-opacity))
+    background-color: rgba(75, 197, 63, var(--tw-bg-opacity))
 }
 
 .tw-bg-secondary {

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Equvia Strategy</title>
 
+
     <script>
         window.addEventListener('error', function(event) {
             if (event.message.indexOf("Unexpected token '<'") > -1) {
@@ -66,7 +67,7 @@
             height: 100vh;
             object-fit: cover;
         }
-              x-vue-echarts {
+          x-vue-echarts {
             display: flex;
             flex-direction: column;
             width: 100%;
@@ -142,124 +143,125 @@
     <link href="{{ asset('') }}static/css/chunk-ea0143b0.0982c731.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-ee39cd88.8adb81bc.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-f6532530.0eb12746.css" rel="prefetch">
+
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="preload" as="style">
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="preload" as="style">
+    <!-- <link href="{{ asset('') }}static/eed/js/app.5acd7986.js" rel="preload" as="script"> -->
+    <!-- <link href="{{ asset('') }}static/eed/js/chunk-vendors.b893e1dd.js" rel="preload" as="script"> -->
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="stylesheet">
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="stylesheet">
-    
+  
+    <!-- <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-b124f7bc.38a4e04a.js"></script> -->
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
-
+    <!-- <script charset="utf-8" src="{{ asset('') }}static/eed/js/chunk-51107498.d0f576b5.js"></script> -->
+  
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
+
 
 
 </head>
 
 <body>
-
     <div id="app">
-        <div data-v-6b868a30="" class="page page-invite">
+        <div data-v-6b868a30="" class="page">
             <div data-v-6b868a30="" class="headers">
-                <div class="tw-px-16px tw-w-full tw-h-full tw-flex tw-items-center" data-v-6b868a30=""
-                    style="background-color: transparent;">
+                <div data-v-7c19a79c="" class="tw-px-16px tw-w-full tw-h-full tw-flex tw-items-center"
+                    data-v-6b868a30="" style="background-color: transparent;">
                     <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
-                        <a href="{{ route('user.dashboard') }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-                                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                        <a href="{{ route('user.quality') }}">
+                            <svg data-v-3f1a7394="" aria-hidden="true"
+                                class="svg-icon"
+                                style="color: rgba(255, 255, 255, 1); width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                                <use data-v-3f1a7394="" xlink:href="#svg-icon-arrow-back"></use>
                             </svg>
                         </a>
-
+                        
                     </div>
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
-                        style="color: rgb(245, 248, 253);"><span>Asset Details </span></div>
+                        style="color: rgba(255, 255, 255, 1);"><span>Record</span></div>
                     <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
-
-
-                        <div><a href="{{ route('user.notice') }}">
+                        <!-- <a href="{{ route('user.lang') }}">
+                            <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                        </a> -->
+                        
+                        <div>
+                            <a href="{{ route('user.notice') }}">
                                 <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-
-                            </a></div>
-
-
+                            </a>
+                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>
-            <div data-v-6b868a30="" id="scroll" class="content-container ">
+            <div data-v-6b868a30="" id="scroll" class="content-container">
                 <div data-v-6b868a30="" id="content" class="content-scroll">
-                    <div data-v-6b868a30="" class="tw-min-h-full tw-p-16px">
-                        <div data-v-56ac34c2="" data-v-6b868a30="" class="tw-mb-16px tw-flex tw-items-center tw-gap-16px">
-                            <div data-v-56ac34c2="" data-v-6b868a30="" class="tw-flex tw-items-center tw-gap-4px"> Currency <i data-v-56ac34c2="" data-v-6b868a30="" class="van-icon van-icon-arrow-down"><!----></i></div>
-                            <div data-v-56ac34c2="" data-v-6b868a30="" class="tw-flex tw-items-center tw-gap-4px"> type <i data-v-56ac34c2="" data-v-6b868a30="" class="van-icon van-icon-arrow-down"><!----></i></div>
-                            <div data-v-56ac34c2="" data-v-6b868a30="" class="tw-flex tw-items-center tw-gap-4px"> 09/2025 <i data-v-56ac34c2="" data-v-6b868a30="" class="van-icon van-icon-arrow-down"><!----></i></div>
+                    <div data-v-6b868a30="" class="tw-h-full tw-p-16px">
+                        <div data-v-6b868a30="" class="page-grid-release-header tw-flex tw-p-20px">
+                            <div data-v-6b868a30="" class="tw-w-full tw-h-full tw-grid tw-grid-cols-2 tw-gap-16px">
+                                <div data-v-6b868a30="" class="tw-col-span-1 tw-text-center">
+                                    <div data-v-6b868a30="" class="tw-text-18px tw-text-white"> 0.04 </div>
+                                    <div data-v-6b868a30="" class="tw-text-12px tw-text-white tw-text-opacity-80">
+                                        Accumulated amount to be released </div>
+                                </div>
+                                <div data-v-6b868a30="" class="tw-col-span-1 tw-text-center">
+                                    <div data-v-6b868a30="" class="tw-text-18px tw-text-white"> 0 </div>
+                                    <div data-v-6b868a30="" class="tw-text-12px tw-text-white tw-text-opacity-80">
+                                        Accumulation has been released </div>
+                                </div>
+                                <div data-v-6b868a30="" class="tw-col-span-1 tw-text-center">
+                                    <div data-v-6b868a30="" class="tw-text-18px tw-text-white"> 0.04 </div>
+                                    <div data-v-6b868a30="" class="tw-text-12px tw-text-white tw-text-opacity-80"> Total
+                                        revenue </div>
+                                </div>
+                                <div data-v-6b868a30="" class="tw-col-span-1 tw-text-center">
+                                    <div data-v-6b868a30="" class="tw-text-18px tw-text-white"> 0.03 </div>
+                                    <div data-v-6b868a30="" class="tw-text-12px tw-text-white tw-text-opacity-80">
+                                        Today's strategy income </div>
+                                </div>
+                            </div>
                         </div>
-                        <div data-v-56ac34c2="" role="feed" class="van-list">
-                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
-                                <div data-v-56ac34c2="" class="tw-flex-1">
-                                    <div data-v-56ac34c2="" class="tw-mb-6px">strategic gain</div>
-                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-03 15:56:30 </div>
-                                </div>
-                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
-                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-success"> + 0.0988 USDT </div>
-                                </div>
+                        <div data-v-6b868a30=""
+                            class="tw-mt-20px tw-mb-12px tw-flex tw-justify-between tw-items-end tw-flex-wrap">
+                            <div data-v-6b868a30="" class="tw-text-16px">Record to be released</div>
+                            <div data-v-6b868a30="" class="tw-flex tw-items-center tw-gap-4px"><span data-v-6b868a30=""
+                                    class="tw-pr-4px">type</span><span data-v-6b868a30=""
+                                    class="tw-text-secondary tw-text-12px">all</span><i data-v-6b868a30=""
+                                    class="van-icon van-icon-arrow-down">
+                                    <!----></i></div>
+                        </div>
+                        <div class="tw-w-full tw-py-12 tw-flex tw-justify-center tw-items-center" data-v-6b868a30="">
+                            <div class="custom-empty van-empty">
+                                <div class="van-empty__image"><img
+                                        src="/static/1756094289381/img/empty_data.b69933fd.svg"></div>
+                                <p class="van-empty__description">No record yet</p>
                             </div>
-                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
-                                <div data-v-56ac34c2="" class="tw-flex-1">
-                                    <div data-v-56ac34c2="" class="tw-mb-6px">Return of Strategic Funds</div>
-                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-03 15:56:25 </div>
-                                </div>
-                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
-                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-success"> + 6 USDT </div>
-                                </div>
-                            </div>
-                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
-                                <div data-v-56ac34c2="" class="tw-flex-1">
-                                    <div data-v-56ac34c2="" class="tw-mb-6px">strategic payment</div>
-                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-03 15:50:06 </div>
-                                </div>
-                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
-                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-error"> -6 USDT </div>
-                                </div>
-                            </div>
-                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
-                                <div data-v-56ac34c2="" class="tw-flex-1">
-                                    <div data-v-56ac34c2="" class="tw-mb-6px">strategic gain</div>
-                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-02 02:40:05 </div>
-                                </div>
-                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
-                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-success"> + 0.0959 USDT </div>
-                                </div>
-                            </div>
-                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
-                                <div data-v-56ac34c2="" class="tw-flex-1">
-                                    <div data-v-56ac34c2="" class="tw-mb-6px">Return of Strategic Funds</div>
-                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-02 02:40:00 </div>
-                                </div>
-                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
-                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-success"> + 6 USDT </div>
-                                </div>
-                            </div>
-                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
-                                <div data-v-56ac34c2="" class="tw-flex-1">
-                                    <div data-v-56ac34c2="" class="tw-mb-6px">strategic payment</div>
-                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-02 02:36:49 </div>
-                                </div>
-                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
-                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-error"> -6 USDT </div>
-                                </div>
-                            </div>
-                            <div data-v-56ac34c2="" class="tw-mb-16px tw-p-16px tw-flex tw-justify-between tw-items-center tw-bg-white3 tw-rounded-10px">
-                                <div data-v-56ac34c2="" class="tw-flex-1">
-                                    <div data-v-56ac34c2="" class="tw-mb-6px">Sign up to give away rewards</div>
-                                    <div data-v-56ac34c2="" class="tw-text-12px tw-text-secondary"> 2025-09-02 02:36:40 </div>
-                                </div>
-                                <div data-v-56ac34c2="" class="tw-flex tw-justify-end tw-items-center">
-                                    <div data-v-56ac34c2="" class="tw-pr-4px tw-text-success"> + 6 USDT </div>
-                                </div>
-                            </div>
-                            <div class="van-list__finished-text">No more</div>
-                            <div class="van-list__placeholder"></div>
                         </div>
                     </div>
-                    <div data-v-91b14df4="" data-v-6b868a30=""></div>
+                </div>
+            </div>
+            <!---->
+        </div>
+        <div class="van-overlay" style="display: none;">
+            <div class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
+                <div
+                    class="tw-w-100px tw-h-100px tw-flex tw-justify-center tw-items-center tw-bg-dark tw-bg-opacity-10 tw-rounded-10px">
+                    <div class="van-loading van-loading--circular"><span
+                            class="van-loading__spinner van-loading__spinner--circular"
+                            style="color: rgb(23, 114, 248); width: 1rem; height: 1rem;"><svg viewBox="25 25 50 50"
+                                class="van-loading__circular">
+                                <circle cx="50" cy="50" r="20" fill="none"></circle>
+                            </svg></span></div>
                 </div>
             </div>
         </div>
+        <div data-v-4d1ba5fa="">
+            <!---->
+        </div>
+    </div>
+    <script src="/static/1756094289381/js/chunk-vendors.b893e1dd.js"></script>
+    <script src="/static/1756094289381/js/app.5acd7986.js"></script>
+    <!---->
+</body>
+
+</html>
