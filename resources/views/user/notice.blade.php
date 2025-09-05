@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{siteName()}}</title>
+    <title>SEOKORE Strategy</title>
 
     <script>
         window.addEventListener('error', function(event) {
@@ -147,10 +147,63 @@
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="preload" as="style">
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="stylesheet">
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="stylesheet">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
 </head>
+<style>
+    .content-container {
+        padding: 16px;
+        min-height: 100vh;
+    }
+
+    .notification-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .notification-item {
+        background: #fff;
+        border-radius: 12px;
+        padding: 16px 20px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .notification-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .notification-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+    }
+
+    .notification-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1e293b;
+        margin: 0;
+    }
+
+    .notification-time {
+        font-size: 12px;
+        color: #64748b;
+    }
+
+    .notification-message {
+        font-size: 14px;
+        color: #334155;
+        line-height: 1.5;
+        margin: 0;
+    }
+</style>
 
 <body>
 
@@ -168,14 +221,30 @@
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
                         style="color: rgba(255, 255, 255, 1);"><span>My messages</span></div>
                     <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
+
                     </div>
                 </div>
             </div>
-            <div data-v-6b868a30="" id="scroll" class="content-container">
-                <div data-v-6b868a30="" id="content" class="content-scroll">
-                    <div data-v-6b868a30="" class="tw-min-h-full tw-p-16px"></div>
+            <div id="scroll" class="content-container">
+                <div id="content" class="content-scroll">
+
+                    <div class="notification-list">
+                        @foreach ($notifications as $value)
+                        <div class="notification-item">
+                            <div class="notification-header">
+                                <h4 class="notification-title">{{ $value->title }}</h4>
+                                <span class="notification-time">
+                                    {{ \Carbon\Carbon::parse($value->created_at)->format('Y-m-d H:i:s') }}
+                                </span>
+                            </div>
+                            <p class="notification-message">{{ $value->message }}</p>
+                        </div>
+                        @endforeach
+                    </div>
+
                 </div>
             </div>
+
 
         </div>
         <div class="van-overlay" style="display: none;">
