@@ -1,4 +1,6 @@
-<html data-dpr="1" style="font-size: 42.5px; max-width: 425px; margin: 0px auto;">
+<html data-dpr="1" style="font-size: 100px;
+        max-width: 1290px;
+        margin: 0 auto;">
 
 <head>
     <meta charset="utf-8">
@@ -35,6 +37,24 @@
             );
         }
     </script>
+    <script>
+        window.addEventListener("resize", function() {
+            const htmlEl = document.documentElement;
+ 
+            if (window.innerWidth >= 1024) {
+                // 💻 Desktop view → force mobile-style layout
+                htmlEl.style.fontSize = "42.5px";
+                htmlEl.style.maxWidth = "425px";
+                htmlEl.style.margin = "0 auto";
+            } else {
+                // 📱 Tablet/Mobile view → normal desktop scaling
+                htmlEl.style.fontSize = "117px";
+                htmlEl.style.maxWidth = "1170px";
+                htmlEl.style.margin = "0 auto";
+            }
+        });
+    </script>
+ 
     <style>
         * {
             margin: 0;

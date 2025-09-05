@@ -35,7 +35,7 @@
     <div data-v-6b868a30="" id="content" class="content-scroll">
         <div data-v-6b868a30="" class="tw-p-16px tw-bg-white2 tw-rounded-bl-16px tw-rounded-br-16px">
             <div data-v-77e1eeea="" class="tw-bg-white2 tw-rounded-bl-10px tw-rounded-br-10px" data-v-6b868a30="">
-                <div id="carousel" class="van-swipe" style="width: 400px; overflow: hidden;">
+                <div id="carousel" class="van-swipe" style="width: 100%; overflow: hidden;">
                     <div class="van-swipe__track" id="carousel-track"
                         style="display: flex; transition: transform 0.5s;">
                         <div class="van-swipe-item">

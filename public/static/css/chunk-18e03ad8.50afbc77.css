@@ -63,11 +63,9 @@
 .actions span {
     display: flex;
     flex-direction: column;
-    /* Stack icon & text */
     align-items: center;
     justify-content: center;
     width: 80px;
-    /* Square size */
     height: 80px;
     background: rgb(25 140 82 / 11%);
     border-radius: 15px;
