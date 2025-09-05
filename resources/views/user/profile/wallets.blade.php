@@ -151,11 +151,12 @@
                 font-size: 16px;
             }
 
-            .dropdown-option {
-                padding: 14px;
-                font-size: 16px;
-            }
+        .dropdown-option {
+            padding: 14px;
+            font-size: 16px;
         }
+       
+    }
     </style>
     <link href="{{ asset('') }}static/css/chunk-02c8c6ba.f02a30c2.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-03c1575b.3035c347.css" rel="prefetch">
@@ -319,6 +320,7 @@
                             </button>
                         </div>
                     </form>
+                     @include('partials.notify')
                 </div>
             </div>
 
@@ -349,12 +351,12 @@
     </div>
     <div class="van-overlay" id="overlay" style="z-index: 2008; display: none;"></div>
     <div data-v-62bda71e="" id="popup" class="chain-select-popup van-popup van-popup--round van-popup--bottom"
-        style="display: none; z-index: 2009">
-        <div class="tw-p-14px tw-text-16px tw-text-center"> Select Network </div>
+        style="display: none; z-index: 2009; background-color: #fff;">
+        <div class="tw-p-14px tw-text-16px tw-text-center" style="color:#000"> Select Network </div>
         <div class="tw-px-16px tw-pb-16px">
             <div class="tw-mb-16px van-tabs van-tabs--line">
-                <div class="van-tabs__wrap">
-                    <!-- <div role="tablist" class="van-tabs__nav van-tabs__nav--line">
+                <!-- <div class="van-tabs__wrap">
+                    <div role="tablist" class="van-tabs__nav van-tabs__nav--line">
                         <div role="tab" aria-selected="true" class="van-tab van-tab--active"><span
                                 class="van-tab__text van-tab__text--ellipsis">
                                 <div class="tw-flex tw-items-center tw-gap-4px"><img
@@ -368,27 +370,27 @@
                             </span></div>
                         <div class="van-tabs__line"
                             style="transform: translateX(97px) translateX(-50%); transition-duration: 0.3s;"></div>
-                    </div> -->
-                </div>
+                    </div>
+                </div> -->
                 <div class="van-tabs__content">
                     <div role="tabpanel" class="van-tab__pane" style="">
                         <div
                             class="chain-item tw-mt-16px tw-p-14px tw-border tw-border-solid tw-border-hairline tw-rounded-10px " id="tron">
-                            <div class="tw-text-14px">Tron</div>
-                            <div class="tw-text-12px tw-text-secondary"> Minimum Withdrawal Amount≥ 50 USDT </div>
+                            <div class="tw-text-14px" style="color:#000">Tron</div>
+                            <div class="tw-text-12px tw-text-secondary"  style="color:#000"> Minimum Withdrawal Amount≥ 50 USDT </div>
                         </div>
                         <div
                             class="chain-item tw-mt-16px tw-p-14px tw-border tw-border-solid tw-border-hairline tw-rounded-10px active " id="bep20">
-                            <div class="tw-text-14px">Bep20</div>
-                            <div class="tw-text-12px tw-text-secondary"> Minimum Withdrawal Amount≥ 50 USDT </div>
+                            <div class="tw-text-14px" style="color:#000">Bep20</div>
+                            <div class="tw-text-12px tw-text-secondary" style="color:#000"> Minimum Withdrawal Amount≥ 50 USDT </div>
                         </div>
                     </div>
                     <div role="tabpanel" class="van-tab__pane" style="display: none;">
 
                     </div>
                 </div>
-            </div><button class="van-button van-button--primary van-button--normal van-button--block" id="close">
-                <div class="van-button__content"><span class="van-button__text"> Confirm </span></div>
+            </div><button class="van-button van-button--primary van-button--normal van-button--block" id="close" style="color: #fff; background-color: #158960; border: .02667rem solid #d4d4d4;">
+                <div class="van-button__content"><span class="van-button__text" > Confirm </span></div>
             </button>
         </div><i role="button" tabindex="0"
             class="van-icon van-icon-cross van-popup__close-icon van-popup__close-icon--top-right" id="close">

@@ -1497,6 +1497,10 @@ input::placeholder {
     font-size: .37333rem;
     color:#fff
 }
+.tw-text-14px1 {
+    font-size: .37333rem;
+    color:#000000
+}
 
 .tw-text-16px {
     font-size: .42667rem;
