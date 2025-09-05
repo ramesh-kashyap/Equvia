@@ -394,12 +394,14 @@
                                             class="van-field__control">
 
 
-                                        <div class="van-field__right-icon">
+                                        <a href="{{route('user.wallets')}}">
+                                            <div class="van-field__right-icon">
                                             <img data-v-6b868a30=""
                                                 src="{{ asset('static/img/icons8-wallet-50.png') }}" alt=""
                                                 class="svg-icon"
                                                 style=" width: 0.4706rem; height: 0.4706 rem; font-size: 0.4706rem;">
                                         </div>
+                                        </a>
                                     </div>
 
                                 </div>
