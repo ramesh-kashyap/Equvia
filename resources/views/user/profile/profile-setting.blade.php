@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{siteName()}}</title>
+    <title>Equvia Strategy</title>
 
     <script>
         window.addEventListener('error', function(event) {
@@ -66,7 +66,7 @@
             height: 100vh;
             object-fit: cover;
         }
-
+        
         x-vue-echarts {
             display: flex;
             flex-direction: column;
@@ -143,25 +143,20 @@
     <link href="{{ asset('') }}static/css/chunk-ea0143b0.0982c731.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-ee39cd88.8adb81bc.css" rel="prefetch">
     <link href="{{ asset('') }}static/css/chunk-f6532530.0eb12746.css" rel="prefetch">
-
+ 
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="preload" as="style">
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="preload" as="style">
+    <link href="{{ asset('') }}static/eed/js/app.5acd7986.js" rel="preload" as="script">
+    <link href="{{ asset('') }}static/eed/js/chunk-vendors.b893e1dd.js" rel="preload" as="script">
     <link href="{{ asset('') }}static/css/chunk-vendors.843dcc67.css" rel="stylesheet">
     <link href="{{ asset('') }}static/css/app.5003e83e.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-51107498.c550911e.css">
 
 
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
-</head>
+ </head>
 
-<style>
-    .page-mine-header-banner.tw-p-16px.tw-flex.tw-justify-between.tw-items-center {
-    background-color: #132821;
-    border: 0.3px solid #929292;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 10px
-}
-</style>
+
 <body>
     <div id="app">
         <div data-v-6b868a30="" class="page page-mine">
@@ -178,8 +173,11 @@
                     <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
                         style="color: rgba(255, 255, 255, 1);"><span>Profile</span></div>
                     <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
-
-
+                        <a href="{{ route('user.lang') }}">
+                            <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt=""
+                                class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                        </a>
+                        
                         <div>
                             <a href="{{ route('user.notice') }}">
                                 <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt=""
@@ -188,8 +186,8 @@
 
                             </a>
                         </div>
-
-
+                        
+                        
                     </div>
                 </div>
 
@@ -201,7 +199,7 @@
                             <div data-v-6b868a30="" class="tw-mb-16px tw-flex tw-justify-between tw-items-center">
                                 <div data-v-6b868a30="" class="tw-flex tw-items-center">
                                     <div data-v-6b868a30=""
-                                        class="tw-w-60px tw-h-60px tw-rounded-full tw-overflow-hidden"  style="border: 1px solid #24916b;">
+                                        class="tw-w-60px tw-h-60px tw-rounded-full tw-overflow-hidden">
                                         <img data-v-6b868a30="" src="{{ asset('') }}2.png" alt="">
                                     </div>
                                     <div data-v-6b868a30="" class="tw-ml-12px">
@@ -228,31 +226,31 @@
                                 </a>
                             </div>
                             <div data-v-6b868a30=""
-                                class="page-mine-header-banner tw-p-16px tw-flex tw-justify-between tw-items-center">
+                                class="page-mine-header-banner tw-p-16px tw-flex tw-justify-between tw-items-center"
+                                style="border:0.3px solid #3f3f3f; border-radius:5px">
                                 <div data-v-6b868a30="" class="tw-flex tw-items-center">
                                     <div data-v-6b868a30=""
-                                        class="tw-w-36px tw-h-36px tw-rounded-full tw-overflow-hidden">
-                                        <img
+                                        class="tw-w-36px tw-h-36px tw-rounded-full tw-overflow-hidden"><img
                                             data-v-6b868a30=""
-                                            src="{{ asset('static/img/rank/eq' . strtolower($rank) . '.png') }}"
+                                            src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240821/2990dbe8b66676d6d1602405620a8d2b.png"
                                             alt=""></div><span data-v-6b868a30=""
-                                        class="tw-pl-8px tw-text-16px tw-text-white"> EQ{{$rank}} </span>
+                                        class="tw-pl-8px tw-text-16px tw-text-white"> SK 0 </span>
                                 </div>
                                 <div data-v-6b868a30="" class="level-btn">
-                                    <a href="{{ route('user.vip') }}">
+                                            <a href="{{ route('user.vip') }}">
 
-                                        <button data-v-6b868a30=""
-                                            class="tw-w-8 van-button van-button--default1 van-button--mini van-button--round">
-                                            <div data-v-6b868a30="" class="van-button__content">
+                                    <button data-v-6b868a30="" 
+                                        class="tw-w-8 van-button van-button--default1 van-button--mini van-button--round">
+                                        <div data-v-6b868a30="" class="van-button__content">
                                                 <span data-v-6b868a30="" class="van-button__text"> Upgrade </span>
-
-                                            </div>
-                                        </button>
-                                    </a>
+                                            
+                                        </div>
+                                    </button>
+                                    
                                 </div>
                             </div>
                         </div>
-                        <div data-v-6b868a30="" class="tw-mb-16px tw-p-16px " >
+                        <div data-v-6b868a30="" class="tw-mb-16px tw-p-16px  tw-rounded-10px">
                             <div class="actions">
                                 <a href="{{ route('user.deposit') }}">
                                     <span>
@@ -290,7 +288,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-rules"></use>
                                     </svg> -->
-                                    <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/langu.png"
+                                    <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/langu.png"
                                         alt=""
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                     <a href="{{ route('user.terms') }}">
@@ -306,7 +304,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-kyc"></use>
                                     </svg> -->
-                                    <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/download (9).png"
+                                    <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/download (9).png"
                                         alt=""
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                     <div data-v-6b868a30="" class="tw-text-12px tw-break-words tw-text-center"> Verify
@@ -329,7 +327,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-lock"></use>
                                     </svg> -->
-                                    <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/download (6).png"
+                                    <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/download (6).png"
                                         alt=""
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                     <a href="{{ route('user.ChangePass') }}">
@@ -345,7 +343,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-security"></use>
                                     </svg> -->
-                                    <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/download (3).png"
+                                    <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/download (3).png"
                                         alt=""
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                     <a href="{{ route('user.change-trx-password') }}">
@@ -366,7 +364,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-feedback"></use>
                                     </svg> -->
-                                        <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/download (9).png"
+                                        <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/download (9).png"
                                             alt=""
                                             style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <div data-v-6b868a30="" class="tw-text-12px tw-break-words tw-text-center">
@@ -382,7 +380,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-question"></use>
                                     </svg> -->
-                                        <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/download (10).png"
+                                        <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/download (10).png"
                                             alt=""
                                             style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <div data-v-6b868a30="" class="tw-text-12px tw-break-words tw-text-center">
@@ -397,7 +395,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-i18n"></use>
                                     </svg> -->
-                                    <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/download (6).png"
+                                    <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/download (6).png"
                                         alt=""
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                     <div data-v-6b868a30="" class="tw-text-12px tw-break-words tw-text-center"> Switch
@@ -410,7 +408,7 @@
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                         <use data-v-3f1a7394="" xlink:href="#svg-icon-service"></use>
                                     </svg> -->
-                                    <img class="tw-mb-6px svg-icon" src="{{ asset('') }}static/icon/support.png"
+                                    <img class="tw-mb-6px svg-icon"src="{{ asset('') }}static/icon/support.png"
                                         alt=""
                                         style="width: 0.6118rem; height: 0.6118rem; font-size: 0.6118rem;">
                                     <div data-v-6b868a30="" class="tw-text-12px tw-break-words tw-text-center">
@@ -438,7 +436,7 @@
                     </div>
                 </div>
             </div>
-
+            
         </div>
         <div class="van-overlay" style="display: none;">
             <div class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
@@ -454,10 +452,12 @@
             </div>
         </div>
         <div data-v-4d1ba5fa="">
-
+            
         </div>
     </div>
 
+    <script src="/static/1756094289381/js/chunk-vendors.b893e1dd.js"></script>
+    <script src="/static/1756094289381/js/app.5acd7986.js"></script>
     <script>
         function copyById(elementId) {
             const text = document.getElementById(elementId)?.innerText?.trim();
@@ -486,7 +486,7 @@
             }, 2000);
         }
     </script>
-
+    
 </body>
 
 </html>

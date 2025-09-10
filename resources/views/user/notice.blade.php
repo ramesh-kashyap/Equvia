@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SEOKORE Strategy</title>
+    <title>{{route('user.notice')}}</title>
 
     <script>
         window.addEventListener('error', function(event) {

@@ -355,23 +355,7 @@
         <div class="tw-p-14px tw-text-16px tw-text-center" style="color:#000"> Select Network </div>
         <div class="tw-px-16px tw-pb-16px">
             <div class="tw-mb-16px van-tabs van-tabs--line">
-                <!-- <div class="van-tabs__wrap">
-                    <div role="tablist" class="van-tabs__nav van-tabs__nav--line">
-                        <div role="tab" aria-selected="true" class="van-tab van-tab--active"><span
-                                class="van-tab__text van-tab__text--ellipsis">
-                                <div class="tw-flex tw-items-center tw-gap-4px"><img
-                                        src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20241119/a374614d2b1d9d3b68ad00f1b2b38e68.jpeg"
-                                        class="tw-w-24px tw-h-24px"> USDT </div>
-                            </span></div>
-                        <div role="tab" class="van-tab"><span class="van-tab__text van-tab__text--ellipsis">
-                                <div class="tw-flex tw-items-center tw-gap-4px"><img
-                                        src="http://seokore-all.s3.ap-southeast-1.amazonaws.com/upload/20240904/baa89f4d0b494fec297b855f2740d8f2.png"
-                                        class="tw-w-24px tw-h-24px"> USDC </div>
-                            </span></div>
-                        <div class="van-tabs__line"
-                            style="transform: translateX(97px) translateX(-50%); transition-duration: 0.3s;"></div>
-                    </div>
-                </div> -->
+            
                 <div class="van-tabs__content">
                     <div role="tabpanel" class="van-tab__pane" style="">
                         <div

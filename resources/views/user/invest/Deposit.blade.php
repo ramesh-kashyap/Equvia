@@ -2320,18 +2320,14 @@
                 });
             });
 
-            // --- Confirm selection ---
             confirmBtn.addEventListener("click", () => {
                 if (!selectedNetwork) return;
 
-                // Update dropdown text
                 dropdownTrigger.textContent = selectedNetwork.toUpperCase();
                 currencyInput.value = selectedNetwork;
 
-                // Close popup
                 popup.style.display = "none";
 
-                // Fetch wallet details for selected network
                 fetchWalletDetails(selectedNetwork);
             });
         });
