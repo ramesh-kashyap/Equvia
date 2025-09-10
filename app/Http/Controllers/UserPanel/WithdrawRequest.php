@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\URL;
 use Log;
 use Redirect;
 use Hash;
-
+use Carbon\Carbon;
 class WithdrawRequest extends Controller
 {
     public function index()
@@ -70,7 +70,7 @@ class WithdrawRequest extends Controller
 
         $user=Auth::user();
         $password= $request->transaction_password;
-        $balance=Auth::user()->available_balance();
+        $balance=Auth::user()->withdrawalble_balance();
         $userDirect = User::where('sponsor',$user->id)->where('active_status','Active')->where('package','>=',30)->count();
 
         $code = $request->code;
@@ -80,27 +80,28 @@ class WithdrawRequest extends Controller
             return redirect()->route('user.Withdraw')->withNotify($notify);
         }
        
-        $min_withdrawal = 10;
-        $maximum_withdrawal = 10;
-        $chargeAmt = 10;
-    
-          if ($balance>=30) 
-          {
-              $min_withdrawal = 10;
-              $maximum_withdrawal = 50000;
-              $chargeAmt = 10;
-          }
-          if ($balance>=500 && $userDirect>=5) 
-          {
-              $min_withdrawal = 30;
-              $maximum_withdrawal = 50000;
-              $chargeAmt = 10;
-          }
-          if ($balance>=3000 && $userDirect>=10) 
-          {
-              $min_withdrawal = 50;
-              $maximum_withdrawal = 50000;
-              $chargeAmt = 10;
+          $min_withdrawal = 50;
+          $maximum_withdrawal = 500;
+          $vip = getVip(Auth::user()->id);
+          $chargeAmt = getWithdrawalFeePercent($vip);
+                            
+           if ($user->adate) {
+              // last successful withdrawal (non-failed)
+              $last = Withdraw::where('user_id', $user->id)
+                  ->where('status', '!=', 'Failed')
+                  ->latest('created_at')
+                  ->first();
+              // baseline date = last withdrawal date OR user's adate
+              $baseline = $last ? Carbon::parse($last->created_at) : Carbon::parse($user->adate);
+
+              // if 21+ days have passed since baseline → fee = 0
+              if ($baseline->lte(now()->subDays(21))) {
+                  // if you're using percent:
+                  // $feePercent = 0;
+
+                  // if you're using a precomputed amount:
+                  $chargeAmt = 0;
+              }
           }
 
 

@@ -153,12 +153,14 @@
    <link rel="stylesheet" type="text/css" href="{{ asset('') }}static/css/chunk-18e03ad8.50afbc77.css">
    <style>
       .pagination {
-         display: flex;
-         justify-content: center;
-         list-style: none;
-         padding-left: 0;
-         margin: 20px 0;
-         gap: 6px;
+          display: flex
+;
+    justify-content: center;
+    list-style: none;
+    padding-left: 0;
+    /* margin: 19px 9px; */
+    gap: 5px;
+    overflow-x: scroll;
       }
 
       .page-item {
@@ -166,15 +168,15 @@
       }
 
       .page-link {
-         display: block;
-         padding: 8px 14px;
-         color: rgb(25 140 82 / 11%);
-         background-color: #f9f9f9;
-         border: 1px solid rgb(25 140 82 / 11%);
-         border-radius: 6px;
-         text-decoration: none;
-         font-weight: 500;
-         transition: background-color 0.3s, color 0.3s;
+      display: block;
+      padding: 5px 8px;
+      color: rgb(25 140 82 / 11%);
+      background-color: #f9f9f9;
+      border: 1px solid rgb(25 140 82 / 11%);
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s, color 0.3s;
       }
 
       .page-link:hover {
@@ -202,66 +204,70 @@
       }
 
       .page-link {
-         background-color: #222;
-         color: rgb(25 140 82 / 11%);
-         border: 1px solid rgb(25 140 82 / 11%);
+      background-color: #222;
+      color: rgb(25 140 82 );
+      border: 1px solid rgb(25 140 82 / 11%);
       }
 
       .page-link:hover,
       .page-item.active .page-link {
-         background-color: rgb(25 140 82 / 11%);
-         color: #fff;
+      background-color: rgb(25 140 82 / 11%);
+      color: #fff;
       }
+      .tw-rounded-10px {
+    border-radius: .26667rem;
+    border: 1px solid #7e7d7d;
+    /* border-radius: 10px; */
+}
    </style>
 
 </head>
 
 <body>
-   <div id="app">
-      <div data-v-6b868a30="" data-v-6a8ea654="" class="page">
-         <div data-v-6b868a30="" class="headers">
-            <div data-v-7c19a79c="" class="tw-px-16px tw-w-full tw-h-full tw-flex tw-items-center"
-               data-v-6b868a30="" style="background-color: transparent;">
-               <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
-                  <a href="{{ route('user.asset') }}">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-                        <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                     </svg>
-                  </a>
-
-               </div>
-               <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
-                  style="color: rgba(255, 255, 255, 1);"><span>Team List</span></div>
-               <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
-               
-
-                  <div>
-                     <a href="{{ route('user.notice') }}">
-                        <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
-                     </a>
-                  </div>
-
-
-               </div>
+    <div id="app">
+        <div data-v-6b868a30="" data-v-6a8ea654="" class="page">
+           <div data-v-6b868a30="" class="headers">
+                <div data-v-7c19a79c="" class="tw-px-16px tw-w-full tw-h-full tw-flex tw-items-center"
+                    data-v-6b868a30="" style="background-color: transparent;">
+                    <div class="tw-w-44px tw-h-full tw-flex tw-items-center">
+                        <a href="{{ route('user.asset') }}">
+                           <img data-v-6b868a30="" src="{{ asset('static/img/icons8-back-48.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                        </a>
+                    </div>
+                    <div class="tw-flex-1 tw-h-full tw-flex tw-justify-center tw-items-center tw-text-16px van-ellipsis"
+                        style="color: rgba(255, 255, 255, 1);"><span>Team List</span></div>
+                    <div class="tw-h-full tw-min-w-44px tw-flex tw-justify-end tw-items-center tw-gap-12px">
+                        <!-- <a href="{{ route('user.lang') }}">
+                            <img data-v-6b868a30="" src="{{ asset('static/icon/lang.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                        </a> -->
+                        
+                        <div>
+                            <a href="{{ route('user.notice') }}">
+                                <img data-v-6b868a30="" src="{{ asset('static/img/111.png') }}" alt="" class="svg-icon" style=" width: 0.4706rem; height: 0.4706rem; font-size: 0.4706rem;">
+                            </a>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
             </div>
-         </div>
-         <div data-v-6b868a30="" id="scroll" class="content-container">
-            <div data-v-6b868a30="" id="content" class="content-scroll">
-               <div data-v-6a8ea654="" data-v-6b868a30="" class="page-team-record tw-min-h-full tw-p-16px">
-                  <ul data-v-6a8ea654="" data-v-6b868a30=""
-                     class="tab-list tw-mb-16px tw-h-40px tw-p-4px tw-flex tw-justify-between tw-items-stretch tw-bg-white1 tw-rounded-10px">
-                     @for ($l = 1; $l <= 3; $l++)
-                        <li data-v-6a8ea654="" data-v-6b868a30=""
-                        class="tab tw-flex-1 tw-h-32px tw-flex tw-justify-center tw-items-center tw-text-secondary tw-rounded-8px tw-text-primary {{ Session::get('selected_level') == $l ? 'tw-bg-primary tw-bg-opacity-10' : '' }}">
-                        <a href="{{ route('user.referral-team') }}?selected_level={{ $l }}">{{ $l }} Gen</a>
-                        </li>
-                        @endfor
-                  </ul>
-                  <div data-v-6a8ea654="" class="van-pull-refresh" data-v-6b868a30="">
-                     <div class="van-pull-refresh__track" style="transition-duration: 0ms;">
-                        <div class="van-pull-refresh__head" style="height: 50px;"></div>
-                        <div data-v-6a8ea654="" role="feed" class="van-list" style="overflow:scroll; height:100%">
-                           <?php if (is_array($direct_team) || is_object($direct_team)) { ?>
+            <div data-v-6b868a30="" id="scroll" class="content-container">
+                <div data-v-6b868a30="" id="content" class="content-scroll">
+                    <div data-v-6a8ea654="" data-v-6b868a30="" class="page-team-record tw-min-h-full tw-p-16px">
+                        <ul data-v-6a8ea654="" data-v-6b868a30=""
+                            class="tab-list tw-mb-16px tw-h-40px tw-p-4px tw-flex tw-justify-between tw-items-stretch tw-bg-white1 tw-rounded-10px">
+                            @for ($l = 1; $l <= 3; $l++)
+                            <li data-v-6a8ea654="" data-v-6b868a30=""
+                                class="tab tw-flex-1 tw-h-32px tw-flex tw-justify-center tw-items-center tw-text-secondary tw-rounded-8px tw-text-primary {{ Session::get('selected_level') == $l ? 'tw-bg-primary tw-bg-opacity-10' : '' }}">
+                                <a href="{{ route('user.referral-team') }}?selected_level={{ $l }}">{{ $l }} Gen</a>
+                             </li>
+                                @endfor
+                        </ul>
+                        <div data-v-6a8ea654="" class="van-pull-refresh" data-v-6b868a30="">
+                            <div class="van-pull-refresh__track" style="transition-duration: 0ms;">
+                                <div class="van-pull-refresh__head" style="height: 50px;"></div>
+                                <div data-v-6a8ea654="" role="feed" class="van-list" style="overflow:scroll; height:100%">
+                                    <?php if(is_array($direct_team) || is_object($direct_team)){ ?>
 
                               <?php $cnt = $direct_team->perPage() * ($direct_team->currentPage() - 1); ?>
                               @foreach ($direct_team as $value)
